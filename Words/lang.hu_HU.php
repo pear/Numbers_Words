@@ -152,6 +152,7 @@ class Numbers_Words_hu_HU extends Numbers_Words
       'HKD' => array(array('Hong Kong dollar'), array('cent')),
       'HRK' => array(array('Croatian kuna'), array('lipa')),
       'HUF' => array(array('forint'), array('filler')),
+      'ILS' => array(array('new sheqel','new sheqels'), array('agora','agorot')),
       'ISK' => array(array('Icelandic króna'), array('aurar')),
       'JPY' => array(array('yen'), array('sen')),
       'LTL' => array(array('litas'), array('cent')),

@@ -173,6 +173,7 @@ class Numbers_Words_pl extends Numbers_Words
       'HKD' => array(array('dolar Hongkongu','dolary Hongkongu','dolarów Hongkongu'), array('cent', 'centy', 'centów')),
       'HRK' => array(array('kuna','kuny','kun'), array('lipa','lipy','lip')),
       'HUF' => array(array('forint','forinty','forintów'), array('filler','fillery','fillerów')),
+      'ILS' => array(array('nowy szekel','nowe szekele','nowych szekeli'), array('agora','agory','agorot')),
       'ISK' => array(array('korona islandzka','korony islandzkie','koron islandzkich'), array('aurar','aurar','aurar')),
       'JPY' => array(array('jen','jeny','jenów'), array('sen','seny','senów')),
       'LTL' => array(array('lit','lity','litów'), array('cent', 'centy', 'centów')),

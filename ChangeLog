@@ -1,3 +1,13 @@
+2005-02-28
+        * Numbers_Words: Version 0.13.0 released.
+	* support for a new currency ILS (or NIS) for New Israeli Sheqel
+
+2005-02-15
+        * Words/lang.cs.php: New language file: cs for Czech (Thanks to Petr 'PePa' Pavel)
+
+2005-02-03
+        * Words/lang.he.php: New language file: he for Hebrew (Thanks to Hadar Porat)
+
 2005-01-11
 	* Numbers_Words: Version 0.12.0 released.
 	* Words/lang.fr_BE.php: New language file: fr_BE for French (Belgium) (Thanks to Philippe Bajoit).

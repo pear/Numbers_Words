@@ -13,21 +13,23 @@ you can convert a number (decimal and fraction part) to words with currency name
 
 The following languages are supported:
     * bg (Bulgarian) by Kouber Saparev
-    * de (German)
+    * cs (Czech) by Petr 'PePa' Pavel
+    * de (German) by me
     * dk (Danish) by Jesper Veggerby
     * ee (Estonian) by Erkki Saarniit
-    * en_100 (Donald Knuth system, English)
-    * en_GB (British English)
-    * en_US (American English)
+    * en_100 (Donald Knuth system, English) by me
+    * en_GB (British English) by me
+    * en_US (American English) by me
     * es (Spanish Castellano) by Xavier Noguer
     * es_AR (Argentinian Spanish) by Martin Marrese
     * fr (French) by Kouber Saparev
     * fr_BE (French Belgium) by Kouber Saparev and Philippe Bajoit
+    * he (Hebrew) by Hadar Porat
     * hu_HU (Hungarian) by Nils Homp
     * id (Indonesian) by Ernas M. Jamil and Arif Rifai Dwiyanto
     * it_IT (Italian) by Filippo Beltramini and Davide Caironi
     * lt (Lithuanian) by Laurynas Butkus
-    * pl (Polish)
+    * pl (Polish) by me
     * pt_BR (Brazilian Portuguese) by Marcelo Subtil Marcal and Mario H.C.T.
     * ru (Russian) by Andrey Demenev
     * sv (Swedish) by Robin Ericsson
@@ -41,14 +43,15 @@ The following languages are supported:
     </maintainer>
   </maintainers>
   <release>
-    <version>0.12.0</version>
-    <date>2005-01-11</date>
+    <version>0.13.0</version>
+    <date>2005-02-28</date>
     <license>PHP License</license>
     <state>beta</state>
-    <notes>New file for French (Belgium) language (Thanks to Philippe Bajoit).</notes>
+    <notes>New files for Czech (thanks to Petr 'PePa' Pavel) and Hebrew (thanks to Hadar Porat) languages.</notes>
     <filelist>
       <file role="php" baseinstalldir="Numbers" name="Words.php"/>
       <file role="php" baseinstalldir="Numbers" name="Words/lang.bg.php"/>
+      <file role="php" baseinstalldir="Numbers" name="Words/lang.cs.php"/>
       <file role="php" baseinstalldir="Numbers" name="Words/lang.de.php"/>
       <file role="php" baseinstalldir="Numbers" name="Words/lang.dk.php"/>
       <file role="php" baseinstalldir="Numbers" name="Words/lang.ee.php"/>
@@ -59,6 +62,7 @@ The following languages are supported:
       <file role="php" baseinstalldir="Numbers" name="Words/lang.es_AR.php"/>
       <file role="php" baseinstalldir="Numbers" name="Words/lang.fr.php"/>
       <file role="php" baseinstalldir="Numbers" name="Words/lang.fr_BE.php"/>
+      <file role="php" baseinstalldir="Numbers" name="Words/lang.he.php"/>
       <file role="php" baseinstalldir="Numbers" name="Words/lang.hu_HU.php"/>
       <file role="php" baseinstalldir="Numbers" name="Words/lang.id.php"/>
       <file role="php" baseinstalldir="Numbers" name="Words/lang.it_IT.php"/>
@@ -76,6 +80,13 @@ The following languages are supported:
     </filelist>
   </release>
   <changelog>
+    <release>
+      <version>0.12.0</version>
+      <date>2005-01-11</date>
+      <license>PHP License</license>
+      <state>beta</state>
+      <notes>New file for French (Belgium) language (Thanks to Philippe Bajoit).</notes>
+    </release>
     <release>
       <version>0.11.0</version>
       <date>2004-10-22</date>

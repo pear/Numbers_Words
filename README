@@ -65,6 +65,9 @@ in alphabetical order):
   bg     - Bulgarian language (in WIN-1251 charset).
            Author: Kouber Saparev
 
+  cs     - Czech language.
+           Author: Petr 'PePa' Pavel
+
   de     - German language.
            Author: Piotr Klaban
 
@@ -99,6 +102,9 @@ in alphabetical order):
 
   fr_BE  - French (Belgium) language.
            Author: Kouber Saparev, Philippe Bajoit
+
+  he     - Hebrew language.
+           Author: Hadar Porat
 
   hu_HU  - Hungarian language.
            Author: Nils Homp
