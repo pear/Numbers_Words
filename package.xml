@@ -43,11 +43,11 @@ The following languages are supported:
     </maintainer>
   </maintainers>
   <release>
-    <version>0.13.0</version>
-    <date>2005-02-28</date>
+    <version>0.13.1</version>
+    <date>2005-03-09</date>
     <license>PHP License</license>
     <state>beta</state>
-    <notes>New files for Czech (thanks to Petr 'PePa' Pavel) and Hebrew (thanks to Hadar Porat) languages.</notes>
+    <notes>Fixed a problem with no leading zero in fraction of the currency value (reported by geekdom at gmail dot com).</notes>
     <filelist>
       <file role="php" baseinstalldir="Numbers" name="Words.php"/>
       <file role="php" baseinstalldir="Numbers" name="Words/lang.bg.php"/>
@@ -80,6 +80,13 @@ The following languages are supported:
     </filelist>
   </release>
   <changelog>
+    <release>
+      <version>0.13.0</version>
+      <date>2005-02-28</date>
+      <license>PHP License</license>
+      <state>beta</state>
+      <notes>New files for Czech (thanks to Petr 'PePa' Pavel) and Hebrew (thanks to Hadar Porat) languages.</notes>
+    </release>
     <release>
       <version>0.12.0</version>
       <date>2005-01-11</date>

@@ -81,7 +81,7 @@ class Numbers_Words
      * Converts a currency value to word representation (1.02 => one dollar two cents)
      * If the number has not any fraction part, the "cents" number is omitted. 
      *
-     * @param  float   $num   A float/integer number representing currency value
+     * @param  float   $num   A float/integer/string number representing currency value
      *
      * @param  string  $locale Language name abbreviation. Optional. Defaults to en_US.
      *
@@ -119,8 +119,12 @@ class Numbers_Words
 	{
 	  $ret      = trim($obj->toCurrencyWords($int_curr, $num));
 	} else {
-	  $currency = explode('.', $num, 2);
-          $ret      = trim($obj->toCurrencyWords($int_curr, $currency[0], $currency[1]));
+	    $currency = explode('.', $num, 2);
+	    /* add leading zero */
+	    if (strlen($currency[1]) == 1) {
+	        $currency[1] .= '0';
+	    }
+            $ret      = trim($obj->toCurrencyWords($int_curr, $currency[0], $currency[1]));
 	}
 	return $ret;
     }
