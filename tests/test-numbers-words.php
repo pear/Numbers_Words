@@ -56,6 +56,7 @@ else
 
 $lang = array(
   'bg'     => 'Bulgarian',
+  'cs'     => 'Czech',
   'de'     => 'German',
   'dk'     => 'Danish',
   'ee'     => 'Estonian',
@@ -65,6 +66,7 @@ $lang = array(
   'es'     => 'Spanish',
   'fr'     => 'French',
   'fr_BE'  => 'French (Belgium)',
+  'he'     => 'Hebrew',
   'hu_HU'  => 'Hungarian',
   'id'     => 'Indonesian',
   'it_IT'  => 'Italian',
