@@ -49,7 +49,7 @@ This is not mature code.
 ** Development
 
 This package needs help from people, who can write language modules other
-than Polish and English (French has been already promised).
+than Polish and English.
 
 ** Package Content:
 
@@ -85,20 +85,61 @@ in alphabetical order):
            one billion is 1000 times one million
            Author: Piotr Klaban
 
-  es     - Spanish (Castellano) notation of numbers.
+  es     - Spanish (Castellano) language.
            Author: Xavier Noguer
   
-  bg     - French language.
+  es_AR  - Argentinian Spanish language.
+           Author: Martin Marrese
+  
+  fr     - French language.
            Author: Kouber Saparev
+
+  hu_HU  - Hungarian language.
+           Author: Nils Homp
+
+  id     - Indonesia language.
+           Authors: Ernas M. Jamil, Arif Rifai Dwiyanto
 
   it_IT  - Italian language.
            Authors: Filippo Beltramini, Davide Caironi
+
+  lt     - Lithuanian language.
+           Author: Laurynas Butkus
 
   pl     - Polish language (in an internet standard charset ISO-8859-2)
            Author: Piotr Klaban
 
   pt_BR  - Brazilian Portuguese language.
-           Author: Marcelo Subtil Marcal <jason@conectiva.com.br>
+           Author: Marcelo Subtil Marcal
+
+  ru     - Russian language.
+           Author: Andrey Demenev
+
+  sv     - Swedich language.
+           Author: Robin Ericsson
+
+** What if numbers have fraction part?
+
+You can split the number by the coma or dot. The example
+function was provided by Ernas M. Jamil (see below).
+I do not know if the splitting and concatenating numbers
+should be supported by Numbers_Words ... Does each language
+spell numbers with a 'coma'/'koma'? What do you think?
+
+function num2word($num, $fract = 0) {                                                                                                     
+        require_once('Numbers/Words.php');                                                                                                
+                                                                                                                                          
+        $num = sprintf("%.".$fract."f", $num);                                                                                            
+        $fnum = explode('.', $num);                                                                                                       
+                                                                                                                                          
+        $ret =  Numbers_Words::toWords($fnum[0],"id");                                                                                    
+        if(!$fract) return $ret;                                                                                                          
+                                                                                                                                          
+        $ret .=  ' koma '; // point in english                                                                                            
+        $ret .= Numbers_Words::toWords($fnum[1],"id");                                                                                    
+                                                                                                                                          
+        return $ret;                                                                                                                      
+}                                                                                                                                         
 
 ** How to write new Language Files:
 

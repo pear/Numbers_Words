@@ -2,20 +2,34 @@
 <package version="1.0">
   <name>Numbers_Words</name>
   <summary>The PEAR Numbers_Words package provides methods for spelling numerals in words.</summary>
-  <description>With Numbers_Words class you can convert numbers written in arabic digits to words in several languages. You can convert an integer between -infinity and infinity. If your system does not support such long numbers you can call Numbers_Words::toWords() with just a string.
-    
+  <description>With Numbers_Words class you can convert numbers
+written in arabic digits to words in several languages.
+You can convert an integer between -infinity and infinity.
+If your system does not support such long numbers you can
+call Numbers_Words::toWords() with just a string.
+
+With the Numbers_Words::toCurrency($num, $locale, 'USD') method
+you can convert a number (decimal and fraction part) to words with currency name. 
+
 The following languages are supported:
     * bg (Bulgarian) by Kouber Saparev
     * de (German)
     * ee (Estonian) by Erkki Saarniit
-    * es (Spanish) by Xavier Noguer
-    * fr (French) by Kouber Saparev
     * en_100 (Donald Knuth system, English)
     * en_GB (Britich English)
     * en_US (American English)
-    * it_IT by Filippo Beltramini and Davide Caironi
+    * es (Spanish Castellano) by Xavier Noguer
+    * es_AR (Argentinian Spanish) by Martin Marrese
+    * fr (French) by Kouber Saparev
+    * hu_HU (Hungarian) by Nils Homp
+    * id (Indonesian) by Ernas M. Jamil and Arif Rifai Dwiyanto
+    * it_IT (Italian) by Filippo Beltramini and Davide Caironi
+    * lt (Lithuanian) by Laurynas Butkus
     * pl (Polish)
-    * pt_BR by Marcelo Subtil Marcal</description>
+    * pt_BR (Brazilian Portuguese) by Marcelo Subtil Marcal
+    * ru (Russian) by Andrey Demenev
+    * sv (Swedish) by Robin Ericsson
+  </description>
   <maintainers>
     <maintainer>
       <user>makler</user>
@@ -25,33 +39,80 @@ The following languages are supported:
     </maintainer>
   </maintainers>
   <release>
-    <version>0.5.1</version>
-    <date>2003-12-17</date>
+    <version>0.9.0</version>
+    <date>2004-08-26</date>
     <license>PHP License</license>
     <state>beta</state>
-    <notes>Small fix to French translation.</notes>
+    <notes>New file for Hungarian language (Thanks to Nils Homp).
+Updated author list of the Indonesian translation.</notes>
     <filelist>
-      <file role="php" baseinstalldir="Numbers" md5sum="f49f77786f25c0acd6ccfe5c7e3fa51a" name="Words.php"/>
-      <file role="php" baseinstalldir="Numbers" md5sum="9af83172777ff28a04d494009358bbc6" name="Words/lang.bg.php"/>
-      <file role="php" baseinstalldir="Numbers" md5sum="e6b30f7c338ac484213772ee4cd03e4b" name="Words/lang.de.php"/>
-      <file role="php" baseinstalldir="Numbers" md5sum="6101bbc2ed330f7e360c5aebe7c4d950" name="Words/lang.ee.php"/>
-      <file role="php" baseinstalldir="Numbers" md5sum="fbee2a2e454c09224f5f49555255bfd5" name="Words/lang.en_100.php"/>
-      <file role="php" baseinstalldir="Numbers" md5sum="af87e9b021dea98679703bc042b032d5" name="Words/lang.en_GB.php"/>
-      <file role="php" baseinstalldir="Numbers" md5sum="f3ff08725919363bdf2cf1047fa5cd99" name="Words/lang.en_US.php"/>
-      <file role="php" baseinstalldir="Numbers" md5sum="2202fc98fb678730c4243d5339c2feee" name="Words/lang.es.php"/>
-      <file role="php" baseinstalldir="Numbers" md5sum="6e41ce4f55684eae4c335727131f78b7" name="Words/lang.fr.php"/>
-      <file role="php" baseinstalldir="Numbers" md5sum="4d310badd0414e6089686365c06a0876" name="Words/lang.it_IT.php"/>
-      <file role="php" baseinstalldir="Numbers" md5sum="c49e363d6670e79d7d3d7eb44d86e659" name="Words/lang.pl.php"/>
-      <file role="php" baseinstalldir="Numbers" md5sum="8fb32b9b838072013b7ed0c69627056f" name="Words/lang.pt_BR.php"/>
-      <file role="doc" baseinstalldir="Numbers" md5sum="dbab23e2c61a06c9f03a9c17ae1b3936" name="README"/>
-      <file role="doc" baseinstalldir="Numbers" md5sum="81e9dd7d32fdc87fcec062a2d4ba1682" name="ChangeLog"/>
-      <file role="test" baseinstalldir="Numbers" md5sum="0d01b6b806c9ce1ea26106655590d56c" name="tests/test-numbers-words.php"/>
-      <file role="test" baseinstalldir="Numbers" md5sum="d50902e3ef08400d8fe7f8255e5cb904" name="tests/clitest.php"/>
-      <file role="test" baseinstalldir="Numbers" md5sum="76683d76a13f0f5379e9be04b47eb0a0" name="tests/Numbers_Words_Polish_testcase.php"/>
-      <file role="test" baseinstalldir="Numbers" md5sum="d7211c19622a135612e25c25d105fd08" name="tests/Numbers_Words_Spanish_testcase.php"/>
+      <file role="php" baseinstalldir="Numbers" name="Words.php"/>
+      <file role="php" baseinstalldir="Numbers" name="Words/lang.bg.php"/>
+      <file role="php" baseinstalldir="Numbers" name="Words/lang.de.php"/>
+      <file role="php" baseinstalldir="Numbers" name="Words/lang.ee.php"/>
+      <file role="php" baseinstalldir="Numbers" name="Words/lang.en_100.php"/>
+      <file role="php" baseinstalldir="Numbers" name="Words/lang.en_GB.php"/>
+      <file role="php" baseinstalldir="Numbers" name="Words/lang.en_US.php"/>
+      <file role="php" baseinstalldir="Numbers" name="Words/lang.es.php"/>
+      <file role="php" baseinstalldir="Numbers" name="Words/lang.es_AR.php"/>
+      <file role="php" baseinstalldir="Numbers" name="Words/lang.fr.php"/>
+      <file role="php" baseinstalldir="Numbers" name="Words/lang.hu_HU.php"/>
+      <file role="php" baseinstalldir="Numbers" name="Words/lang.id.php"/>
+      <file role="php" baseinstalldir="Numbers" name="Words/lang.it_IT.php"/>
+      <file role="php" baseinstalldir="Numbers" name="Words/lang.lt.php"/>
+      <file role="php" baseinstalldir="Numbers" name="Words/lang.pl.php"/>
+      <file role="php" baseinstalldir="Numbers" name="Words/lang.pt_BR.php"/>
+      <file role="php" baseinstalldir="Numbers" name="Words/lang.ru.php"/>
+      <file role="php" baseinstalldir="Numbers" name="Words/lang.sv.php"/>
+      <file role="doc" baseinstalldir="Numbers" name="README"/>
+      <file role="doc" baseinstalldir="Numbers" name="ChangeLog"/>
+      <file role="test" baseinstalldir="Numbers" name="tests/test-numbers-words.php"/>
+      <file role="test" baseinstalldir="Numbers" name="tests/clitest.php"/>
+      <file role="test" baseinstalldir="Numbers" name="tests/Numbers_Words_Polish_testcase.php"/>
+      <file role="test" baseinstalldir="Numbers" name="tests/Numbers_Words_Spanish_testcase.php"/>
     </filelist>
   </release>
   <changelog>
+    <release>
+      <version>0.8.1</version>
+      <date>2004-08-09</date>
+      <license>PHP License</license>
+      <state>beta</state>
+      <notes>Fixed two bugs (missing t in 400, and wrong function call) in Russian translation.</notes>
+    </release>
+    <release>
+      <version>0.8</version>
+      <date>2004-06-17</date>
+      <license>PHP License</license>
+      <state>beta</state>
+      <notes>New file for Lithuanian language. Fixed a class method finding (should work for PHP5 and PHP4 now).</notes>
+    </release>
+    <release>
+      <version>0.7.1</version>
+      <date>2004-05-25</date>
+      <license>PHP License</license>
+      <state>beta</state>
+      <notes>Small bug fix (use toWords instead of towords) for PHP version 5.</notes>
+    </release>
+    <release>
+      <version>0.7</version>
+      <date>2004-04-28</date>
+      <license>PHP License</license>
+      <state>beta</state>
+      <notes>New file for Swedish language. Small fix in fr and bg translations.</notes>
+    </release>
+    <release>
+      <version>0.6</version>
+      <date>2004-04-27</date>
+      <state>beta</state>
+    <notes>New file for Argentinian Spanish, Russian and Indonesian language.</notes>
+    </release>
+    <release>
+      <version>0.5.1</version>
+      <date>2003-12-17</date>
+      <state>beta</state>
+      <notes>Small fix to French translation.</notes>
+    </release>
     <release>
       <version>0.5</version>
       <date>2003-12-16</date>

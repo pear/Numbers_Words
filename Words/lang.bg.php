@@ -1,19 +1,19 @@
 <?php
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
 // +----------------------------------------------------------------------+
-// | PHP version 4                                                        |
+// | PHP version 4                                                        |
 // +----------------------------------------------------------------------+
-// | Copyright (c) 1997-2003 The PHP Group                                |
+// | Copyright (c) 1997-2003 The PHP Group                                |
 // +----------------------------------------------------------------------+
-// | This source file is subject to version 2.0 of the PHP license,       |
-// | that is bundled with this package in the file LICENSE, and is        |
-// | available through the world-wide-web at                              |
-// | http://www.php.net/license/2_02.txt.                                 |
-// | If you did not receive a copy of the PHP license and are unable to   |
-// | obtain it through the world-wide-web, please send a note to          |
-// | license@php.net so we can mail you a copy immediately.               |
+// | This source file is subject to version 3.0 of the PHP license,       |
+// | that is bundled with this package in the file LICENSE, and is        |
+// | available through the world-wide-web at                              |
+// | http://www.php.net/license/3_0.txt.                                  |
+// | If you did not receive a copy of the PHP license and are unable to   |
+// | obtain it through the world-wide-web, please send a note to          |
+// | license@php.net so we can mail you a copy immediately.               |
 // +----------------------------------------------------------------------+
-// | Authors: Kouber Saparev <kouber@saparev.com>                         |
+// | Authors: Kouber Saparev <kouber@saparev.com>                         |
 // +----------------------------------------------------------------------+
 //
 // $Id$
@@ -466,6 +466,9 @@ class Numbers_Words_bg extends Numbers_Words
 
         // go through the groups in reverse order, so that the last group could be determined
         for ($i=$sizeof_numgroups-1, $j=1; $i>=0; $i--, $j++) {
+            if (!isset($ret[$j])) {
+                $ret[$j] = '';
+            }
 
             // what is the corresponding exponent for the current group
             $pow = $sizeof_numgroups-$i;
@@ -495,7 +498,7 @@ class Numbers_Words_bg extends Numbers_Words
             }
         }
 
-        return $ret_minus.rtrim(implode('', array_reverse($ret)), $this->_sep);
+        return $ret_minus . rtrim(implode('', array_reverse($ret)), $this->_sep);
     }
     // }}}
 }

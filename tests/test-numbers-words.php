@@ -63,9 +63,14 @@ $lang = array(
   'en_US'  => 'American English',
   'es'     => 'Spanish',
   'fr'     => 'French',
+  'hu_HU'  => 'Hungarian',
+  'id'     => 'Indonesian',
   'it_IT'  => 'Italian',
+  'lt'     => 'Lithuanian',
   'pl'     => 'Polish',
-  'pt_BR'  => 'Brazilian Portuguese'
+  'pt_BR'  => 'Brazilian Portuguese',
+  'ru'     => 'Russian',
+  'sv'     => 'Swedish'
 );
 
 if ($html_on) {

@@ -65,7 +65,9 @@ class Numbers_Words
             return Numbers_Words::raiseError("Unable to include the Numbers/Words/lang.${locale}.php file");
         }
 
-        if (!in_array('towords',get_class_methods($classname))) {
+	$methods = get_class_methods($classname);
+
+        if (!in_array('toWords', $methods) && !in_array('towords', $methods)) {
             return Numbers_Words::raiseError("Unable to find toWords method in '$classname' class");
         }
 
@@ -105,7 +107,9 @@ class Numbers_Words
             return Numbers_Words::raiseError("Unable to include the Numbers/Words/lang.${locale}.php file");
         }
 
-        if (!in_array('tocurrencywords',get_class_methods($classname))) {
+	$methods = get_class_methods($classname);
+
+        if (!in_array('toCurrencyWords', $methods) && !in_array('tocurrencywords', $methods)) {
             return Numbers_Words::raiseError("Unable to find toCurrencyWords method in '$classname' class");
         }
 
