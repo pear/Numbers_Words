@@ -57,6 +57,7 @@ else
 $lang = array(
   'bg'     => 'Bulgarian',
   'de'     => 'German',
+  'dk'     => 'Danish',
   'ee'     => 'Estonian',
   'en_100' => 'Donald Knuth system',
   'en_GB'  => 'Britich English',

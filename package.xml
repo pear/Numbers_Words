@@ -14,6 +14,7 @@ you can convert a number (decimal and fraction part) to words with currency name
 The following languages are supported:
     * bg (Bulgarian) by Kouber Saparev
     * de (German)
+    * dk (Danish) by Jesper Veggerby
     * ee (Estonian) by Erkki Saarniit
     * en_100 (Donald Knuth system, English)
     * en_GB (Britich English)
@@ -39,16 +40,16 @@ The following languages are supported:
     </maintainer>
   </maintainers>
   <release>
-    <version>0.9.0</version>
-    <date>2004-08-26</date>
+    <version>0.10.0</version>
+    <date>2004-09-20</date>
     <license>PHP License</license>
     <state>beta</state>
-    <notes>New file for Hungarian language (Thanks to Nils Homp).
-Updated author list of the Indonesian translation.</notes>
+    <notes>New file for Danish language (Thanks to Jesper Veggerby).</notes>
     <filelist>
       <file role="php" baseinstalldir="Numbers" name="Words.php"/>
       <file role="php" baseinstalldir="Numbers" name="Words/lang.bg.php"/>
       <file role="php" baseinstalldir="Numbers" name="Words/lang.de.php"/>
+      <file role="php" baseinstalldir="Numbers" name="Words/lang.dk.php"/>
       <file role="php" baseinstalldir="Numbers" name="Words/lang.ee.php"/>
       <file role="php" baseinstalldir="Numbers" name="Words/lang.en_100.php"/>
       <file role="php" baseinstalldir="Numbers" name="Words/lang.en_GB.php"/>
@@ -73,6 +74,13 @@ Updated author list of the Indonesian translation.</notes>
     </filelist>
   </release>
   <changelog>
+    <release>
+      <version>0.9.0</version>
+      <date>2004-08-26</date>
+      <license>PHP License</license>
+      <state>beta</state>
+      <notes>New file for Hungarian language (Thanks to Nils Homp).</notes>
+    <release>
     <release>
       <version>0.8.1</version>
       <date>2004-08-09</date>
