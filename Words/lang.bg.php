@@ -13,7 +13,7 @@
 // | obtain it through the world-wide-web, please send a note to          |
 // | license@php.net so we can mail you a copy immediately.               |
 // +----------------------------------------------------------------------+
-// | Authors: Kouber Saparev <kouber@saparev.com>                         |
+// | Authors: Kouber Saparev <kouber@php.net>                             |
 // +----------------------------------------------------------------------+
 //
 // $Id$
@@ -26,7 +26,7 @@ require_once("Numbers/Words.php");
 /**
  * Class for translating numbers into Bulgarian.
  *
- * @author Kouber Saparev <kouber@saparev.com> 
+ * @author Kouber Saparev <kouber@php.net> 
  * @package Numbers_Words
  */
 class Numbers_Words_bg extends Numbers_Words
@@ -259,7 +259,7 @@ class Numbers_Words_bg extends Numbers_Words
      * @return void
      *
      * @access public
-     * @author Kouber Saparev <kouber@saparev.com>
+     * @author Kouber Saparev <kouber@php.net>
      * @see function _initDigits
      */
     function Numbers_Words_bg() {
@@ -276,7 +276,7 @@ class Numbers_Words_bg extends Numbers_Words
      * @return void
      *
      * @access private
-     * @author Kouber Saparev <kouber@saparev.com>
+     * @author Kouber Saparev <kouber@php.net>
      */
     function _initDigits() {
         if (!$this->_digits_initialized) {
@@ -302,7 +302,7 @@ class Numbers_Words_bg extends Numbers_Words
      * @return array  Groups of three-digit numbers.
      *
      * @access private
-     * @author Kouber Saparev <kouber@saparev.com>
+     * @author Kouber Saparev <kouber@php.net>
      * @since  PHP 4.2.3
      */
 
@@ -342,7 +342,7 @@ class Numbers_Words_bg extends Numbers_Words
      * @return string   The words for the given number.
      *
      * @access private
-     * @author Kouber Saparev <kouber@saparev.com>
+     * @author Kouber Saparev <kouber@php.net>
      */
     function _showDigitsGroup($num, $gender = 0, $last = false)
     {
@@ -435,7 +435,7 @@ class Numbers_Words_bg extends Numbers_Words
      * @return string  The corresponding word representation
      *
      * @access public
-     * @author Kouber Saparev <kouber@saparev.com>
+     * @author Kouber Saparev <kouber@php.net>
      */
     function toWords($num = 0)
     {
