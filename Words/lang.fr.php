@@ -1,19 +1,19 @@
 <?php
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
 // +----------------------------------------------------------------------+
-// | PHP version 4                                                        |
+// | PHP version 4                                                        |
 // +----------------------------------------------------------------------+
-// | Copyright (c) 1997-2003 The PHP Group                                |
+// | Copyright (c) 1997-2003 The PHP Group                                |
 // +----------------------------------------------------------------------+
-// | This source file is subject to version 3.0 of the PHP license,       |
-// | that is bundled with this package in the file LICENSE, and is        |
-// | available through the world-wide-web at                              |
-// | http://www.php.net/license/3_0.txt.                                  |
-// | If you did not receive a copy of the PHP license and are unable to   |
-// | obtain it through the world-wide-web, please send a note to          |
-// | license@php.net so we can mail you a copy immediately.               |
+// | This source file is subject to version 2.0 of the PHP license,       |
+// | that is bundled with this package in the file LICENSE, and is        |
+// | available through the world-wide-web at                              |
+// | http://www.php.net/license/2_02.txt.                                 |
+// | If you did not receive a copy of the PHP license and are unable to   |
+// | obtain it through the world-wide-web, please send a note to          |
+// | license@php.net so we can mail you a copy immediately.               |
 // +----------------------------------------------------------------------+
-// | Authors: Kouber Saparev <kouber@saparev.com>                         |
+// | Authors: Kouber Saparev <kouber@saparev.com>                         |
 // +----------------------------------------------------------------------+
 //
 // $Id$
@@ -398,13 +398,13 @@ class Numbers_Words_fr extends Numbers_Words
 
         // add a minus sign
         if (substr($num, 0, 1) == '-') {
-            $ret[0] = $this->_minus . $this->_sep;
+            $ret = $this->_minus . $this->_sep;
             $num = substr($num, 1);
         }
 
         // if the absolute value is greater than 9.99*10^302, return infinity
         if (strlen($num)>306) {
-            return $ret[0] . $this->_infinity;
+            return $ret . $this->_infinity;
         }
 
         // strip excessive zero signs
