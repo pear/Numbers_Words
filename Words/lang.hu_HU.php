@@ -177,7 +177,7 @@ class Numbers_Words_hu_HU extends Numbers_Words
      * @var string
      * @access public
      */
-    var $def_currency = 'HUF'; // Euro
+    var $def_currency = 'HUF'; // forint
 
     // }}}
     // {{{ toWords()
