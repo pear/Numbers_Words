@@ -119,6 +119,7 @@ while (list ($loc_symbol, $loc_name) = each ($lang)) {
 
 reset($lang);
 
+$num .= '.34';
 $handle = new Numbers_Words();
 
 while (list ($loc_symbol, $loc_name) = each ($lang)) {
