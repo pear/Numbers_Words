@@ -40,11 +40,11 @@ The following languages are supported:
     </maintainer>
   </maintainers>
   <release>
-    <version>0.11.0</version>
-    <date>2004-10-22</date>
+    <version>0.12.0</version>
+    <date>2005-01-11</date>
     <license>PHP License</license>
     <state>beta</state>
-    <notes>toCurrencyWords() support in pt_BR translation (Thanks to Mario H.C.T.)</notes>
+    <notes>New file for French (Belgium) language (Thanks to Philippe Bajoit).</notes>
     <filelist>
       <file role="php" baseinstalldir="Numbers" name="Words.php"/>
       <file role="php" baseinstalldir="Numbers" name="Words/lang.bg.php"/>
@@ -57,6 +57,7 @@ The following languages are supported:
       <file role="php" baseinstalldir="Numbers" name="Words/lang.es.php"/>
       <file role="php" baseinstalldir="Numbers" name="Words/lang.es_AR.php"/>
       <file role="php" baseinstalldir="Numbers" name="Words/lang.fr.php"/>
+      <file role="php" baseinstalldir="Numbers" name="Words/lang.fr_BE.php"/>
       <file role="php" baseinstalldir="Numbers" name="Words/lang.hu_HU.php"/>
       <file role="php" baseinstalldir="Numbers" name="Words/lang.id.php"/>
       <file role="php" baseinstalldir="Numbers" name="Words/lang.it_IT.php"/>
@@ -74,6 +75,13 @@ The following languages are supported:
     </filelist>
   </release>
   <changelog>
+    <release>
+      <version>0.11.0</version>
+      <date>2004-10-22</date>
+      <license>PHP License</license>
+      <state>beta</state>
+      <notes>toCurrencyWords() support in pt_BR translation (Thanks to Mario H.C.T.)</notes>
+    </release>
     <release>
       <version>0.10.1</version>
       <date>2004-09-30</date>

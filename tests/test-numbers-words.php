@@ -27,7 +27,7 @@ error_reporting(E_ALL);
 require_once('PEAR.php');
 require_once('Numbers/Words.php');
 
-$num = "1121001141";
+$num = "1121771141";
 
 $html_on = 0;
 if (isset($_REQUEST)) {
@@ -64,6 +64,7 @@ $lang = array(
   'en_US'  => 'American English',
   'es'     => 'Spanish',
   'fr'     => 'French',
+  'fr_BE'  => 'French (Belgium)',
   'hu_HU'  => 'Hungarian',
   'id'     => 'Indonesian',
   'it_IT'  => 'Italian',

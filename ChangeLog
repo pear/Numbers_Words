@@ -1,6 +1,13 @@
+2005-01-11
+	* Numbers_Words: Version 0.12.0 released.
+	* Words/lang.fr_BE.php: New language file: fr_BE for French (Belgium) (Thanks to Philippe Bajoit).
+
+2004-10-25
+	* Fixed spell mistake in some files - Britich to British (Thanks to Christian Weiske)
+
 2004-10-22
 	* Numbers_Words: Version 0.11.0 released.
-	* Workds/lang.pt_BR.php: toCurrencyWords() support in pt_BR translation (Thanks to Mario H.C.T).
+	* Words/lang.pt_BR.php: toCurrencyWords() support in pt_BR translation (Thanks to Mario H.C.T).
 
 2004-09-30
 	* Numbers_Words: Version 0.10.1 released.
