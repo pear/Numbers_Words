@@ -14,7 +14,7 @@
 // | obtain it through the world-wide-web, please send a note to          |
 // | license@php.net so we can mail you a copy immediately.               |
 // +----------------------------------------------------------------------+
-// | Author: Marcelo Subtil Marcal <jason@conectiva.com.br>               |
+// | Authors: Marcelo Subtil Marcal <jason@conectiva.com.br>, Mario H.C.T. <mariolinux@mitus.com.br>
 // +----------------------------------------------------------------------+
 //
 // $Id$
@@ -178,7 +178,27 @@ class Numbers_Words_pt_BR extends Numbers_Words
         'septendecilhão'
     );
 
+    /**
+     * The currency names (based on the below links,
+     * informations from central bank websites and on encyclopedias)
+     *
+     * @var array
+     * @link http://30-03-67.dreamstation.com/currency_alfa.htm World Currency Information
+     * @link http://www.jhall.demon.co.uk/currency/by_abbrev.html World currencies
+     * @link http://www.shoestring.co.kr/world/p.visa/change.htm Currency names in English
+     * @access private
+     */
+    var $_currency_names = array(
+        'BRL' => array(array('rea'), array('centavo')) );
 
+    /**
+     * The default currency name
+     * @var string
+     * @access public
+     */
+    var $def_currency = 'BRL'; // Real
+
+    // {{{ toWords()
 
     /**
      * Converts a number to its word representation
@@ -236,6 +256,70 @@ class Numbers_Words_pt_BR extends Numbers_Words
         return $ret ? " $ret" : " zero";
 
     }
+
+    // }}}
+    // {{{ toCurrencyWords()
+
+    /**
+     * Converts a currency value to its word representation
+     * (with monetary units) in Portuguese language
+     *
+     * @param  integer $int_curr An international currency symbol
+     *                 as defined by the ISO 4217 standard (three characters)
+     * @param  integer $decimal A money total amount without fraction part (e.g. amount of dollars)
+     * @param  integer $fraction Fractional part of the money amount (e.g.  amount of cents)
+     *                 Optional. Defaults to false. 
+     *
+     * @return string  The corresponding word representation for the currency
+     *
+     * @access public
+     * @author Mario H.C.T. <mariolinux@mitus.com.br>
+     * @since  Numbers_Words 0.10.1
+     */
+    function toCurrencyWords($int_curr, $decimal, $fraction = false) {
+        $int_curr = strtoupper($int_curr);
+        if (!isset($this->_currency_name[$int_curr])){
+            $int_curr = $this->def_currency;
+        }
+        $curr_names = $this->_currency_names[$int_curr];
+        $ret  = trim($this->toWords($decimal));
+        $lev  = ($decimal == 1) ? 0 : 1;
+        if ($lev > 0) {
+            if (count($curr_names[0]) > 1) {
+                $ret .= $this->_sep . $curr_names[0][$lev];
+            } else {
+                if ($int_curr == "BRL")
+                    $ret .= $this->_sep . $curr_names[0][0] . 'is';
+                else
+                    $ret .= $this->_sep . $curr_names[0][0] . 's';
+            }
+        } else {
+            if ($int_curr == "BRL")
+                $ret .= $this->_sep . $curr_names[0][0] . 'l';
+            else
+                $ret .= $this->_sep . $curr_names[0][0];
+        }
+                  
+        if ($fraction !== false) {
+            if ($int_curr == "BRL")
+                $ret .= $this->_sep . 'e';
+               
+            $ret .= $this->_sep . trim($this->toWords($fraction));
+            $lev  = ($fraction == 1) ? 0 : 1;
+            if ($lev > 0) {
+                if (count($curr_names[1]) > 1) {
+                    $ret .= $this->_sep . $curr_names[1][$lev];
+                } else {
+                    $ret .= $this->_sep . $curr_names[1][0] . 's';
+                }
+            } else {
+                $ret .= $this->_sep . $curr_names[1][0];
+            }
+       }
+
+       return $ret;
+    }
+    // }}}
 }
 
 ?>

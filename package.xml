@@ -27,7 +27,7 @@ The following languages are supported:
     * it_IT (Italian) by Filippo Beltramini and Davide Caironi
     * lt (Lithuanian) by Laurynas Butkus
     * pl (Polish)
-    * pt_BR (Brazilian Portuguese) by Marcelo Subtil Marcal
+    * pt_BR (Brazilian Portuguese) by Marcelo Subtil Marcal and Mario H.C.T.
     * ru (Russian) by Andrey Demenev
     * sv (Swedish) by Robin Ericsson
   </description>
@@ -40,11 +40,11 @@ The following languages are supported:
     </maintainer>
   </maintainers>
   <release>
-    <version>0.10.1</version>
-    <date>2004-09-30</date>
+    <version>0.11.0</version>
+    <date>2004-10-22</date>
     <license>PHP License</license>
     <state>beta</state>
-    <notes>Small bug fix to German translation (the one thousand) (Thanks to neuner at futureweb dot at).</notes>
+    <notes>toCurrencyWords() support in pt_BR translation (Thanks to Mario H.C.T.)</notes>
     <filelist>
       <file role="php" baseinstalldir="Numbers" name="Words.php"/>
       <file role="php" baseinstalldir="Numbers" name="Words/lang.bg.php"/>
@@ -74,6 +74,13 @@ The following languages are supported:
     </filelist>
   </release>
   <changelog>
+    <release>
+      <version>0.10.1</version>
+      <date>2004-09-30</date>
+      <license>PHP License</license>
+      <state>beta</state>
+      <notes>Small bug fix to German translation (the one thousand) (Thanks to neuner at futureweb dot at).</notes>
+    </release>
     <release>
       <version>0.10.0</version>
       <date>2004-09-20</date>
