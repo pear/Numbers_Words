@@ -30,12 +30,12 @@ $ret = Numbers_Words::toWords($num,"en_GB");
 if (PEAR::isError($ret)) {
     echo "Error: " . $ret->message . "\n";
   } else {
-    echo "Num $num in Britich English is '<b>$ret</b>'<p>\n";
+    echo "Num $num in British English is '<b>$ret</b>'<p>\n";
 }
 
 For  this would display:
 
-Num 12340000000 in Britich English is '<b>twelve thousand million three hundred forty million</b>'<p>
+Num 12340000000 in British English is '<b>twelve thousand million three hundred forty million</b>'<p>
 
 ** Current State:
 
@@ -77,7 +77,7 @@ in alphabetical order):
   en_100 - Donald Knuth number naming system, in English language.
            Author: Piotr Klaban
   
-  en_GB  - Britich English notation of numbers, where
+  en_GB  - British English notation of numbers, where
            one billion is 1000000 times one million.
 	   1000 times million is just 'thousand million' here.
 	   I do not use a word billiard here, because
