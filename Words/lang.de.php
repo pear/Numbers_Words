@@ -84,7 +84,7 @@ class Numbers_Words_de extends Numbers_Words
     var $_exponent = array(
         0 => array(''),
         3 => array('tausend','tausend'),
-        6 => array('Millione','Millionen'),
+        6 => array('Million','Millionen'),
         9 => array('Milliarde','Milliarden'),
        12 => array('Billion','Billionen'),
        15 => array('Billiarde','Billiarden'),
@@ -224,10 +224,13 @@ class Numbers_Words_de extends Numbers_Words
         } else {
           $ret .= $this->_digits[$d];
           if ($d == 1)
-            if ($power == 0)
+            if ($power == 0) {
               $ret .= 's'; // fuer eins
-            else
-              $ret .= 'e'; // fuer eine
+            } else {
+              if ($power != 3) {  // tausend ausnehmen
+                $ret .= 'e'; // fuer eine
+              }
+            }
         }
       }
 

@@ -1,3 +1,8 @@
+2004-09-30
+	* Numbers_Words: Version 0.10.1 released.
+	* Words/lang.de.php: Small bug fix to German translation (the one thousand) (Thanks to neuner at futureweb dot at for the fix).
+	* tests/test-numbers-words.php: Changed test number.
+
 2004-09-20
 	* Numbers_Words: Version 0.10.0 released.
 	* Words/lang.dk.php: New language file: dk for Danish (Author: Jesper Veggerby)

@@ -40,11 +40,11 @@ The following languages are supported:
     </maintainer>
   </maintainers>
   <release>
-    <version>0.10.0</version>
-    <date>2004-09-20</date>
+    <version>0.10.1</version>
+    <date>2004-09-30</date>
     <license>PHP License</license>
     <state>beta</state>
-    <notes>New file for Danish language (Thanks to Jesper Veggerby).</notes>
+    <notes>Small bug fix to German translation (the one thousand) (Thanks to neuner at futureweb dot at).</notes>
     <filelist>
       <file role="php" baseinstalldir="Numbers" name="Words.php"/>
       <file role="php" baseinstalldir="Numbers" name="Words/lang.bg.php"/>
@@ -74,6 +74,13 @@ The following languages are supported:
     </filelist>
   </release>
   <changelog>
+    <release>
+      <version>0.10.0</version>
+      <date>2004-09-20</date>
+      <license>PHP License</license>
+      <state>beta</state>
+      <notes>New file for Danish language (Thanks to Jesper Veggerby).</notes>
+    </release>
     <release>
       <version>0.9.0</version>
       <date>2004-08-26</date>
