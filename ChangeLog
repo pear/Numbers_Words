@@ -1,0 +1,66 @@
+2003-12-16
+	* Numbers_Words: Version 0.5.1 release.
+	* Words/lang.fr.php: Small fix to French translation.
+
+2003-12-16
+	* Numbers_Words: Version 0.5 release.
+	* Words/lang.en_US.php: toCurrency() method for spelling given amount of money.
+
+2003-12-11
+	* Words/lang.fr.php: New language file: fr for French (Author: Kouber Saparev)
+
+2003-11-21
+	* Words/lang.bg.php: New language file: bg for Bulgarian (Author: Kouber Saparev)
+
+2003-09-29
+	* Numbers_Words: Version 0.4 release.
+	* Words.php: eliminate PEAR.php run-time loading
+	* all files: comments small changes to be more usable for phpdoc
+
+2003-09-17
+	* Words/lang.it_IT.php: New language file: it_IT for Italian (Authors:
+	Filippo Beltramini, Davide Caironi)
+	* Words.php, Words/lang.pl.php: toCurrency() method for spelling given amount of money.
+
+2003-09-15
+	* Words/lang.ee.php: New language file: ee for Estonian (Author: Erkki Saarniit)
+	* Words/lang.es.php: extranous spaces deleted.
+        * Words.php: trim output, new function for converting currency.
+	* tests: new test suite (PHPUnits).
+2002-11-27
+	* Numbers_Words: Version 0.3.1 release.
+	* Words/lang.pt_BR.php: fixing spell mistake for native language name
+2002-11-26
+	
+	* Numbers_Words: Version 0.3 release (first PEAR release).
+	* Words/lang.es.php: New language file: es for Spanish (Author: Xavier Noguer)
+	* Words/lang.de.php: New language file: de for German (Author: Piotr Klaban)
+	* Words/lang.pt_BR.php: New language file: pt_BR for Brazilian
+	Portuguese (Author: Marcelo Subtil Marcal <jason@conectiva.com.br>)
+	* all files: PHP License upgrade to 3.0
+	* test-numbers-words.php: HTML and text mode enabled
+	* Words/lang.*.php: New $lang_native, $locale variables.
+	* test-numbers-words.php: New language file, en_100 uses Donald Knuth number spelling system.
+
+2002-11-19
+
+	* package.xml: New version 0.2 released.
+	* Words/lang.en_100.php: New language file, en_100 uses Donald Knuth number spelling system.
+	* Words/lang.pt_BR.php: New language file, pt_BR for Brazilian Portuguese (Thanks to Marcelo Subtil Marcal).
+
+2002-11-18 14:00
+
+	* Words/lang.*.php: Bad conversion of zero number fixed (Thanks to Xavier Noguer).
+
+2002-11-18 10:00
+
+        * all files: Changing name from Numbers_Spell to Numbers_Words
+
+2002-11-15 15:04  makler
+
+	* package.xml, Spell.php: Changing file location
+
+2002-11-15 14:47  makler
+
+	* package.xml: CVS initialization.
+
