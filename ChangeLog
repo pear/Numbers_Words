@@ -1,3 +1,6 @@
+2005-09-19
+        * Words/lang.en_GB.php: fixed plural of pence; toCurrency() method added.
+
 2005-03-09
         * Numbers_Words: Version 0.13.1 released.
         * Words.php: Fixed a problem with no leading zero in fraction of the currency value (reported by geekdom at gmail dot com).

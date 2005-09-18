@@ -240,7 +240,7 @@ class Numbers_Words_en_US extends Numbers_Words
       'DKK' => array(array('Danish krone'), array('ore')),
       'EEK' => array(array('kroon'), array('senti')),
       'EUR' => array(array('euro'), array('euro-cent')),
-      'GBP' => array(array('pound', 'pounds'), array('pence')),
+      'GBP' => array(array('pound', 'pounds'), array('pence', 'pence')),
       'HKD' => array(array('Hong Kong dollar'), array('cent')),
       'HRK' => array(array('Croatian kuna'), array('lipa')),
       'HUF' => array(array('forint'), array('filler')),
@@ -270,7 +270,7 @@ class Numbers_Words_en_US extends Numbers_Words
      * @var string
      * @access public
      */
-    var $def_currency = 'USD'; // Polish zloty
+    var $def_currency = 'USD'; // American dollar
 
     // }}}
     // {{{ toWords()

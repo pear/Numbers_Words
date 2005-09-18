@@ -257,7 +257,7 @@ class Numbers_Words_he extends Numbers_Words
       'DKK' => array(array('Danish krone'), array('ore')),
       'EEK' => array(array('kroon'), array('senti')),
       'EUR' => array(array('euro'), array('euro-cent')),
-      'GBP' => array(array('pound', 'pounds'), array('pence')),
+      'GBP' => array(array('pound', 'pounds'), array('pence', 'pence')),
       'HKD' => array(array('Hong Kong dollar'), array('cent')),
       'HRK' => array(array('Croatian kuna'), array('lipa')),
       'HUF' => array(array('forint'), array('filler')),
