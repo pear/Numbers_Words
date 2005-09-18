@@ -410,7 +410,7 @@ class Numbers_Words_es_AR extends Numbers_Words
     }
     // }}}
 
-    // {{{ toCurrency()
+    // {{{ toCurrencyWords()
 
     /**
      * Converts a currency value to its word representation
@@ -421,13 +421,15 @@ class Numbers_Words_es_AR extends Numbers_Words
      * @param  integer $decimal A money total amount without fraction part (e.g. amount of dollars)
      * @param  integer $fraction Fractional part of the money amount (e.g. amount of cents)
      *                 Optional. Defaults to false.
+     * @param  integer $convert_fraction Convert fraction to words (left as numeric if set to false).
+     *                 Optional. Defaults to true.
      *
      * @return string  The corresponding word representation for the currency
      *
      * @access public
      * @author Martin Marrese
      */
-    function toCurrencyWords($int_curr, $decimal, $fraction = false) {
+    function toCurrencyWords($int_curr, $decimal, $fraction = false, $convert_fraction = true) {
         $int_curr = strtoupper($int_curr);
         if (!isset($this->_currency_names[$int_curr])) {
             $int_curr = $this->def_currency;
@@ -446,7 +448,11 @@ class Numbers_Words_es_AR extends Numbers_Words
         $ret .= $this->_sep . trim($this->toWords($decimal));
       
         if ($fraction !== false) {
-            $ret .= $this->_sep .'con'. $this->_sep . trim($this->toWords($fraction));
+            if ($convert_fraction) {
+                $ret .= $this->_sep .'con'. $this->_sep . trim($this->toWords($fraction));
+            } else {
+                $ret .= $this->_sep .'con'. $this->_sep . $fraction;
+            }
             $lev  = ($fraction == 1) ? 0 : 1;
             if ($lev > 0) {
                 if (count($curr_names[1]) > 1) {

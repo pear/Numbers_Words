@@ -41,13 +41,19 @@ The following languages are supported:
       <email>makler@man.torun.pl</email>
       <role>lead</role>
     </maintainer>
+    <maintainer>
+      <user>msmarcal</user>
+      <name>Marcelo Subtil Marcal</name>
+      <email>msmarcal@php.net</email>
+      <role>developer</role>
+    </maintainer>
   </maintainers>
   <release>
-    <version>0.13.1</version>
-    <date>2005-03-09</date>
+    <version>0.14.0</version>
+    <date>2005-09-05</date>
     <license>PHP License</license>
     <state>beta</state>
-    <notes>Fixed a problem with no leading zero in fraction of the currency value (reported by geekdom at gmail dot com).</notes>
+    <notes>Fixed plural of pence (Thanks to Peter Dunham and Rob King). Added toCurrency method to en_GB language file. Fraction part can be written in digits (Thanks to Rob King).</notes>
     <filelist>
       <file role="php" baseinstalldir="Numbers" name="Words.php"/>
       <file role="php" baseinstalldir="Numbers" name="Words/lang.bg.php"/>
@@ -80,6 +86,13 @@ The following languages are supported:
     </filelist>
   </release>
   <changelog>
+    <release>
+      <version>0.13.1</version>
+      <date>2005-03-09</date>
+      <license>PHP License</license>
+      <state>beta</state>
+      <notes>Fixed a problem with no leading zero in fraction of the currency value (reported by geekdom at gmail dot com).</notes>
+    </release>
     <release>
       <version>0.13.0</version>
       <date>2005-02-28</date>

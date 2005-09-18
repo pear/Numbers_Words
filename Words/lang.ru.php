@@ -587,13 +587,15 @@ class Numbers_Words_ru extends Numbers_Words
      * @param  integer $decimal A money total amount without fraction part (e.g. amount of dollars)
      * @param  integer $fraction Fractional part of the money amount (e.g. amount of cents)
      *                 Optional. Defaults to false.
+     * @param  integer $convert_fraction Convert fraction to words (left as numeric if set to false).
+     *                 Optional. Defaults to true.
      *
      * @return string  The corresponding word representation for the currency
      *
      * @access public
      * @author Andrey Demenev <demenev@on-line.jar.ru>
      */
-    function toCurrencyWords($int_curr, $decimal, $fraction = false)
+    function toCurrencyWords($int_curr, $decimal, $fraction = false, $convert_fraction = true)
     {
         $int_curr = strtoupper($int_curr);
         if (!isset($this->_currency_names[$int_curr])) {
@@ -604,7 +606,11 @@ class Numbers_Words_ru extends Numbers_Words
         $ret .= $this->_sep . $curr_names[0][$case];
 
         if ($fraction !== false) {
-            $ret .= $this->_sep . trim($this->_toWordsWithCase($fraction, $case, $curr_names[1][0]));
+            if ($convert_fraction) {
+                $ret .= $this->_sep . trim($this->_toWordsWithCase($fraction, $case, $curr_names[1][0]));
+            } else {
+                $ret .= $this->_sep . $fraction;
+            }
             $ret .= $this->_sep . $curr_names[1][$case];
         }
         return $ret;

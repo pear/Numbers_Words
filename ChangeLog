@@ -1,19 +1,21 @@
 2005-09-19
-        * Words/lang.en_GB.php: fixed plural of pence; toCurrency() method added.
+	* Numbers_Words: Version 0.14.0 released.
+	* Words/lang.*.php: added $convert_fraction optional argument that allow to not convert fraction part in toCurrencyWorkds() method.
+	* Words/lang.en_GB.php: fixed plural of pence; toCurrency() method added.
 
 2005-03-09
-        * Numbers_Words: Version 0.13.1 released.
-        * Words.php: Fixed a problem with no leading zero in fraction of the currency value (reported by geekdom at gmail dot com).
+	* Numbers_Words: Version 0.13.1 released.
+	* Words.php: Fixed a problem with no leading zero in fraction of the currency value (reported by geekdom at gmail dot com).
 
 2005-02-28
-        * Numbers_Words: Version 0.13.0 released.
+	* Numbers_Words: Version 0.13.0 released.
 	* support for a new currency ILS (or NIS) for New Israeli Sheqel
 
 2005-02-15
-        * Words/lang.cs.php: New language file: cs for Czech (Thanks to Petr 'PePa' Pavel)
+	* Words/lang.cs.php: New language file: cs for Czech (Thanks to Petr 'PePa' Pavel)
 
 2005-02-03
-        * Words/lang.he.php: New language file: he for Hebrew (Thanks to Hadar Porat)
+	* Words/lang.he.php: New language file: he for Hebrew (Thanks to Hadar Porat)
 
 2005-01-11
 	* Numbers_Words: Version 0.12.0 released.
@@ -57,7 +59,7 @@
 
 2004-04-28
 	* Numbers_Words: Version 0.7 released.
-        * Words/lang.fr.php, Words/lang.bg.php: small fix of minus sign (Kouber Saparev)
+	* Words/lang.fr.php, Words/lang.bg.php: small fix of minus sign (Kouber Saparev)
 	* Words/lang.sv.pl: New language file: sv for Swedish (Author: Robin Ericsson)
 
 2004-04-27
@@ -99,7 +101,7 @@
 2003-09-15
 	* Words/lang.ee.php: New language file: ee for Estonian (Author: Erkki Saarniit)
 	* Words/lang.es.php: extranous spaces deleted.
-        * Words.php: trim output, new function for converting currency.
+	* Words.php: trim output, new function for converting currency.
 	* tests: new test suite (PHPUnits).
 2002-11-27
 	* Numbers_Words: Version 0.3.1 release.
@@ -128,7 +130,7 @@
 
 2002-11-18 10:00
 
-        * all files: Changing name from Numbers_Spell to Numbers_Words
+	* all files: Changing name from Numbers_Spell to Numbers_Words
 
 2002-11-15 15:04  makler
 

@@ -228,22 +228,22 @@ class Numbers_Words_dk extends Numbers_Words
       }
 
       if ($h) {
-      	if ($h == 1) {
-	        $ret .= $this->_sep . 'et' . $this->_sep . 'hundrede';
-      	} else {
-        	$ret .= $this->_sep . $this->_digits[$h] . $this->_sep . 'hundrede';
-        }
+          if ($h == 1) {
+              $ret .= $this->_sep . 'et' . $this->_sep . 'hundrede';
+          } else {
+              $ret .= $this->_sep . $this->_digits[$h] . $this->_sep . 'hundrede';
+          }
 
-		  //if (($t + $d) > 0)
-			//  $ret .= $this->_sep . 'og';
+          //if (($t + $d) > 0)
+          //  $ret .= $this->_sep . 'og';
       } elseif ((isset($maxp)) && ($maxp > 3)) {
-      	// add 'og' in the case where there are preceding thousands but not hundreds or tens,
-      	// so fx. 80001 becomes 'firs tusinde og en' instead of 'firs tusinde en'
-		$ret .= $this->_sep . 'og';
+          // add 'og' in the case where there are preceding thousands but not hundreds or tens,
+          // so fx. 80001 becomes 'firs tusinde og en' instead of 'firs tusinde en'
+          $ret .= $this->_sep . 'og';
       }
 
 
-	  if ($t != 1 && $d > 0) {
+      if ($t != 1 && $d > 0) {
         $ret .= $this->_sep . (($d == 1 & $power == 3 && $t == 0 && $h == 0) ? "et" : $this->_digits[$d]) . ($t > 1 ? $this->_sep . "og" : "");
       }
 
@@ -347,7 +347,7 @@ class Numbers_Words_dk extends Numbers_Words
       return $ret;
     }
     // }}}
-    // {{{ toCurrency()
+    // {{{ toCurrencyWords()
 
     /**
      * Converts a currency value to its word representation
@@ -358,6 +358,8 @@ class Numbers_Words_dk extends Numbers_Words
      * @param  integer $decimal A money total amount without fraction part (e.g. amount of dollars)
      * @param  integer $fraction Fractional part of the money amount (e.g. amount of cents)
      *                 Optional. Defaults to false.
+     * @param  integer $convert_fraction Convert fraction to words (left as numeric if set to false).
+     *                 Optional. Defaults to true.
      *
      * @return string  The corresponding word representation for the currency
      *
@@ -365,7 +367,7 @@ class Numbers_Words_dk extends Numbers_Words
      * @author Jesper Veggerby <pear.nosey@veggerby.dk>
      * @since  Numbers_Words 0.4
      */
-    function toCurrencyWords($int_curr, $decimal, $fraction = false) {
+    function toCurrencyWords($int_curr, $decimal, $fraction = false, $convert_fraction = true) {
         $int_curr = strtoupper($int_curr);
         if (!isset($this->_currency_names[$int_curr])) {
             $int_curr = $this->def_currency;
@@ -373,25 +375,29 @@ class Numbers_Words_dk extends Numbers_Words
         $curr_names = $this->_currency_names[$int_curr];
 
         if (($decimal != "") and ($decimal != 0)) {
-			$ret  = trim($this->toWords($decimal));
-			$lev  = ($decimal == 1) ? 0 : 1;
-			if ($lev > 0) {
-				if (count($curr_names[0]) > 1) {
-					$ret .= $this->_sep . $curr_names[0][$lev];
-				} else {
-					$ret .= $this->_sep . $curr_names[0][0];
-				}
-			} else {
-				$ret .= $this->_sep . $curr_names[0][0];
-			}
+            $ret  = trim($this->toWords($decimal));
+            $lev  = ($decimal == 1) ? 0 : 1;
+            if ($lev > 0) {
+                if (count($curr_names[0]) > 1) {
+                    $ret .= $this->_sep . $curr_names[0][$lev];
+                } else {
+                    $ret .= $this->_sep . $curr_names[0][0];
+                }
+            } else {
+                $ret .= $this->_sep . $curr_names[0][0];
+            }
 
-			if (($fraction !== false)  and ($fraction != 0)) {
-				$ret .= $this->_sep . "og";
-			}
-		}
+            if (($fraction !== false)  and ($fraction != 0)) {
+                $ret .= $this->_sep . "og";
+            }
+        }
 
         if (($fraction !== false) and ($fraction != 0)) {
-            $ret .= $this->_sep . trim($this->toWords($fraction));
+            if ($convert_fraction) {
+                $ret .= $this->_sep . trim($this->toWords($fraction));
+            } else {
+                $ret .= $this->_sep . $fraction;
+            }
             $lev  = ($fraction == 1) ? 0 : 1;
             if ($lev > 0) {
                 if (count($curr_names[1]) > 1) {
