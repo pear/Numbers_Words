@@ -15,7 +15,7 @@
 // | license@php.net so we can mail you a copy immediately.               |
 // +----------------------------------------------------------------------+
 // | Authors: Piotr Klaban <makler@man.torun.pl>                          |
-// |          Andrey Demenev <demenev@on-line.jar.ru>                     |
+// |          Andrey Demenev <demenev@gmail.com>                          |
 // +----------------------------------------------------------------------+
 //
 // $Id$
@@ -556,9 +556,11 @@ class Numbers_Words_ru extends Numbers_Words
           $ones=(int)$num{2};
           if ($tens || $ones) {
               if ($tens == 1 && $ones == 0) $ret .= 'десять';
-              elseif ($tens < 2) $ret .= $this->_teens[$ones+10];
+              elseif ($tens == 1) $ret .= $this->_teens[$ones+10];
               else {
-                  $ret .= $this->_tens[(int)$tens];
+                  if ($tens > 0) {
+                      $ret .= $this->_tens[(int)$tens];
+                  }
                   if ($ones > 0) {
                       $ret .= $this->_sep
                           .$this->_digits[$gender][$ones];

@@ -40,7 +40,7 @@ require_once("Numbers/Words.php");
  * @author Erkki Saarniit
  * @package Numbers_Words
  */
-class Numbers_Words_ee extends Numbers_Words
+class Numbers_Words_et extends Numbers_Words
 {
 
     // {{{ properties
@@ -50,7 +50,7 @@ class Numbers_Words_ee extends Numbers_Words
      * @var string
      * @access public
      */
-    var $locale      = 'ee';
+    var $locale      = 'et';
 
     /**
      * Language name in English
