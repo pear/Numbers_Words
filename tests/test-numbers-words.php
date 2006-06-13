@@ -54,28 +54,8 @@ if ($html_on)
 else
     echo sprintf("%42s", 'Test number: ') . $shownum . "\n\n";
 
-$lang = array(
-  'bg'     => 'Bulgarian',
-  'cs'     => 'Czech',
-  'de'     => 'German',
-  'dk'     => 'Danish',
-  'ee'     => 'Estonian',
-  'en_100' => 'Donald Knuth system',
-  'en_GB'  => 'British English',
-  'en_US'  => 'American English',
-  'es'     => 'Spanish',
-  'fr'     => 'French',
-  'fr_BE'  => 'French (Belgium)',
-  'he'     => 'Hebrew',
-  'hu_HU'  => 'Hungarian',
-  'id'     => 'Indonesian',
-  'it_IT'  => 'Italian',
-  'lt'     => 'Lithuanian',
-  'pl'     => 'Polish',
-  'pt_BR'  => 'Brazilian Portuguese',
-  'ru'     => 'Russian',
-  'sv'     => 'Swedish'
-);
+$lang = Numbers_Words::getLocales();
+$langs = array();
 
 if ($html_on) {
 ?>
@@ -89,14 +69,17 @@ if ($html_on) {
 <?
 }
 
-while (list ($loc_symbol, $loc_name) = each ($lang)) {
-  include_once("Numbers/Words/lang.$loc_symbol.php");
+foreach ($lang as $loc_symbol) {
+  $classname = "Numbers_Words_" . $loc_symbol;
+  @include_once("Numbers/Words/lang.${loc_symbol}.php");
 }
 
 reset($lang);
 
-while (list ($loc_symbol, $loc_name) = each ($lang)) {
-  $ret = Numbers_Words::toWords($num, $loc_symbol);
+foreach ($lang as $loc_symbol) {
+  $classname = "Numbers_Words_" . $loc_symbol;
+  $obj =& new $classname;
+  $ret = $obj->toWords($num);
   if (PEAR::isError($ret)) {
     if ($html_on) {
     }
@@ -104,6 +87,8 @@ while (list ($loc_symbol, $loc_name) = each ($lang)) {
     if ($html_on) {
     }
   } else {
+    $loc_name = $obj->lang;
+    $langs[$loc_symbol] = $loc_name;
     if ($html_on) {
       ?>
       <tr>
@@ -117,12 +102,12 @@ while (list ($loc_symbol, $loc_name) = each ($lang)) {
   }
 }
 
-reset($lang);
+reset($langs);
 
 $num .= '.34';
 $handle = new Numbers_Words();
 
-while (list ($loc_symbol, $loc_name) = each ($lang)) {
+while (list ($loc_symbol, $loc_name) = each ($langs)) {
   $ret = $handle->toCurrency($num, $loc_symbol);
   if (PEAR::isError($ret)) {
     if ($html_on) {
@@ -140,8 +125,6 @@ while (list ($loc_symbol, $loc_name) = each ($lang)) {
       </tr><?
     } else {
       echo sprintf("%30s: ", $loc_name . ' (' . $loc_symbol . ')') . $ret . "\n";
-      if (strlen($ret) > 40)
-          echo "\n";
     }
   }
 }
