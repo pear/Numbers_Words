@@ -74,9 +74,6 @@ in alphabetical order):
   dk     - Danish language.
            Author: Jesper Veggerby
 
-  ee     - Estonian language.
-           Author: Erkki Saarniit
-
   en_100 - Donald Knuth number naming system, in English language.
            Author: Piotr Klaban
 
@@ -96,6 +93,9 @@ in alphabetical order):
 
   es_AR  - Argentinian Spanish language.
            Author: Martin Marrese
+
+  et     - Estonian language.
+           Author: Erkki Saarniit
 
   fr     - French language.
            Author: Kouber Saparev
@@ -117,6 +117,9 @@ in alphabetical order):
 
   lt     - Lithuanian language.
            Author: Laurynas Butkus
+
+  nl     - Dutch language.
+           Author: WHAM van Dinter
 
   pl     - Polish language (in an internet standard charset ISO-8859-2)
            Author: Piotr Klaban
