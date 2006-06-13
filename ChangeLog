@@ -1,3 +1,12 @@
+2006-06-12
+	* Numbers_Words: Version 0.15.0 released.
+	* Words/lang.nl.php: New language file: nl for Dutch (Thanks to WHAM van Dinter)
+	* Words/lang.et.php: changed locale name for Estonian language from 'ee' to 'et' (#5618).
+	* Words/lang.ru.php: fixed bug in Russian translation (if x modulo 10 was equal to 0) (#6654).
+	* Words.php: new Numbers_Words::getLocales() method (Thanks to Bertrand Gugger).
+	* tests/test-numbers-words.php: updated to use getLocales().
+	* package.xml: updated to version 2.0.
+
 2005-09-19
 	* Numbers_Words: Version 0.14.0 released.
 	* Words/lang.*.php: added $convert_fraction optional argument that allow to not convert fraction part in toCurrencyWorkds() method.
