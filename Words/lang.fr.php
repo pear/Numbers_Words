@@ -1,33 +1,40 @@
 <?php
-/* vim: set expandtab tabstop=4 shiftwidth=4: */
-// +----------------------------------------------------------------------+
-// | PHP version 4                                                        |
-// +----------------------------------------------------------------------+
-// | Copyright (c) 1997-2003 The PHP Group                                |
-// +----------------------------------------------------------------------+
-// | This source file is subject to version 3.0 of the PHP license,       |
-// | that is bundled with this package in the file LICENSE, and is        |
-// | available through the world-wide-web at                              |
-// | http://www.php.net/license/3_0.txt.                                  |
-// | If you did not receive a copy of the PHP license and are unable to   |
-// | obtain it through the world-wide-web, please send a note to          |
-// | license@php.net so we can mail you a copy immediately.               |
-// +----------------------------------------------------------------------+
-// | Authors: Kouber Saparev <kouber@php.net>                             |
-// +----------------------------------------------------------------------+
-//
-// $Id$
+/**
+ * Numbers_Words
+ *
+ * PHP version 4
+ *
+ * Copyright (c) 1997-2006 The PHP Group
+ *
+ * This source file is subject to version 3.0 of the PHP license,
+ * that is bundled with this package in the file LICENSE, and is
+ * available at through the world-wide-web at
+ * http://www.php.net/license/3_0.txt.
+ * If you did not receive a copy of the PHP license and are unable to
+ * obtain it through the world-wide-web, please send a note to
+ * license@php.net so we can mail you a copy immediately.
+ *
+ * @category Numbers
+ * @package  Numbers_Words
+ * @author   Kouber Saparev <kouber@php.net>
+ * @license  PHP 3.0 http://www.php.net/license/3_0.txt
+ * @version  CVS: $Id$
+ * @link     http://pear.php.net/package/Numbers_Words
+ */
 
 /**
  * Include needed files
  */
-require_once("Numbers/Words.php");
+require_once "Numbers/Words.php";
 
 /**
  * Class for translating numbers into French.
  *
- * @author Kouber Saparev <kouber@php.net> 
- * @package Numbers_Words
+ * @category Numbers
+ * @package  Numbers_Words
+ * @author   Kouber Saparev <kouber@php.net>
+ * @license  PHP 3.0 http://www.php.net/license/3_0.txt
+ * @link     http://pear.php.net/package/Numbers_Words
  */
 class Numbers_Words_fr extends Numbers_Words
 {
@@ -39,14 +46,14 @@ class Numbers_Words_fr extends Numbers_Words
      * @var string
      * @access public
      */
-    var $locale      = 'fr';
+    var $locale = 'fr';
 
     /**
      * Language name in English.
      * @var string
      * @access public
      */
-    var $lang        = 'French';
+    var $lang = 'French';
 
     /**
      * Native language name.
@@ -249,29 +256,31 @@ class Numbers_Words_fr extends Numbers_Words
     /**
      * Split a number to groups of three-digit numbers.
      *
-     * @param  mixed  $num   An integer or its string representation
-     *                       that need to be split
+     * @param mixed $num An integer or its string representation
+     *                   that need to be split
      *
      * @return array  Groups of three-digit numbers.
-     *
      * @access private
      * @author Kouber Saparev <kouber@php.net>
      * @since  PHP 4.2.3
      */
-
     function _splitNumber($num)
     {
         if (is_string($num)) {
-            $ret = array();
+            $ret    = array();
             $strlen = strlen($num);
-            $first = substr($num, 0, $strlen%3);
+            $first  = substr($num, 0, $strlen%3);
+
             preg_match_all('/\d{3}/', substr($num, $strlen%3, $strlen), $m);
             $ret =& $m[0];
-            if ($first) array_unshift($ret, $first);
+
+            if ($first) {
+                array_unshift($ret, $first);
+            }
+
             return $ret;
         }
-        else
-            return explode(' ', number_format($num, 0, '', ' ')); // a faster version for integers
+        return explode(' ', number_format($num, 0, '', ' ')); // a faster version for integers
     }
     // }}}
 
@@ -281,15 +290,12 @@ class Numbers_Words_fr extends Numbers_Words
      * Converts a three-digit number to its word representation
      * in French language.
      *
-     * @param  integer  $num     An integer between 1 and 999 inclusive.
-     *
-     * @param  boolean  $last    A flag, that determines if it is the last group of digits -
-     *                           this is used to accord the plural suffix of the "hundreds".
-     *                           Example: 200 = "deux cents", but 200000 = "deux cent mille".
-     *
+     * @param integer $num  An integer between 1 and 999 inclusive.
+     * @param boolean $last A flag, that determines if it is the last group of digits -
+     *                      this is used to accord the plural suffix of the "hundreds".
+     *                      Example: 200 = "deux cents", but 200000 = "deux cent mille".
      *
      * @return string   The words for the given number.
-     *
      * @access private
      * @author Kouber Saparev <kouber@php.net>
      */
@@ -328,11 +334,11 @@ class Numbers_Words_fr extends Numbers_Words
             } elseif ($d>5) {
                 if ($d<8) {
                     $ret .= $this->_misc_numbers[60];
+
                     $resto = $d*10+$e-60;
                     if ($e==1) {
                         $ret .= $this->_sep.$this->_and.$this->_sep;
-                    }
-                    elseif ($resto) {
+                    } elseif ($resto) {
                         $ret .= $this->_dash;
                     }
                     
@@ -342,10 +348,12 @@ class Numbers_Words_fr extends Numbers_Words
                     $e = 0;
                 } else {
                     $ret .= $this->_digits[4].$this->_dash.$this->_misc_numbers[20];
+
                     $resto = $d*10+$e-80;
                     if ($resto) {
                         $ret .= $this->_dash;
                         $ret .= $this->_showDigitsGroup($resto);
+
                         $e = 0;
                     } else {
                         $ret .= $this->_plural;
@@ -381,11 +389,10 @@ class Numbers_Words_fr extends Numbers_Words
      * Converts a number to its word representation
      * in French language.
      *
-     * @param  integer $num   An integer (or its string representation) between 9.99*-10^302
+     * @param integer $num An integer (or its string representation) between 9.99*-10^302
      *                        and 9.99*10^302 (999 centillions) that need to be converted to words
      *
      * @return string  The corresponding word representation
-     *
      * @access public
      * @author Kouber Saparev <kouber@php.net>
      */
@@ -394,7 +401,9 @@ class Numbers_Words_fr extends Numbers_Words
         $ret = '';
 
         // check if $num is a valid non-zero number
-        if (!$num || preg_match('/^-?0+$/', $num) || !preg_match('/^-?\d+$/', $num)) return $this->_zero;
+        if (!$num || preg_match('/^-?0+$/', $num) || !preg_match('/^-?\d+$/', $num)) {
+            return $this->_zero;
+        }
 
         // add a minus sign
         if (substr($num, 0, 1) == '-') {
