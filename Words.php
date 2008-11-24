@@ -1,31 +1,27 @@
 <?php
-/* vim: set expandtab tabstop=4 softtabstop=4 shiftwidth=4: */
-//
-// +----------------------------------------------------------------------+
-// | PHP version 4                                                        |
-// +----------------------------------------------------------------------+
-// | Copyright (c) 1997-2006 The PHP Group                                |
-// +----------------------------------------------------------------------+
-// | This source file is subject to version 3.0 of the PHP license,       |
-// | that is bundled with this package in the file LICENSE, and is        |
-// | available at through the world-wide-web at                           |
-// | http://www.php.net/license/3_0.txt.                                  |
-// | If you did not receive a copy of the PHP license and are unable to   |
-// | obtain it through the world-wide-web, please send a note to          |
-// | license@php.net so we can mail you a copy immediately.               |
-// +----------------------------------------------------------------------+
-// | Authors: Piotr Klaban <makler@man.torun.pl>                          |
-// +----------------------------------------------------------------------+
-//
-// $Id$
-//
-
 /**
- * The Numbers_Words class provides method to convert arabic numerals to
- * words (also with currency name).
+ * Numbers_Words
  *
- * @author Piotr Klaban <makler@man.torun.pl>
- * @package Numbers_Words
+ * PHP version 4
+ *
+ * Copyright (c) 1997-2006 The PHP Group
+ *
+ * This source file is subject to version 3.0 of the PHP license,
+ * that is bundled with this package in the file LICENSE, and is
+ * available at through the world-wide-web at
+ * http://www.php.net/license/3_0.txt.
+ * If you did not receive a copy of the PHP license and are unable to
+ * obtain it through the world-wide-web, please send a note to
+ * license@php.net so we can mail you a copy immediately.
+ *
+ * Authors: Piotr Klaban <makler@man.torun.pl>
+ *
+ * @category Numbers
+ * @package  Numbers_Words
+ * @author   Piotr Klaban <makler@man.torun.pl>
+ * @license  PHP 3.0 http://www.php.net/license/3_0.txt
+ * @version  CVS: $Id$
+ * @link     http://pear.php.net/package/Numbers_Words
  */
 
 // {{{ Numbers_Words
@@ -33,10 +29,13 @@
 /**
  * The Numbers_Words class provides method to convert arabic numerals to words.
  *
- * @access public
- * @author Piotr Klaban <makler@man.torun.pl>
- * @since  PHP 4.2.3
- * @package Numbers_Words
+ * @category Numbers
+ * @package  Numbers_Words
+ * @author   Piotr Klaban <makler@man.torun.pl>
+ * @license  PHP 3.0 http://www.php.net/license/3_0.txt
+ * @link     http://pear.php.net/package/Numbers_Words
+ * @since    PHP 4.2.3
+ * @access   public
  */
 class Numbers_Words
 {
@@ -45,20 +44,19 @@ class Numbers_Words
     /**
      * Converts a number to its word representation
      *
-     * @param  integer $num   An integer between -infinity and infinity inclusive :)
+     * @param integer $num    An integer between -infinity and infinity inclusive :)
      *                        that should be converted to a words representation
-     *
-     * @param  string  $locale Language name abbreviation. Optional. Defaults to en_US.
-     *
-     * @return string  The corresponding word representation
+     * @param string  $locale Language name abbreviation. Optional. Defaults to en_US.
      *
      * @access public
      * @author Piotr Klaban <makler@man.torun.pl>
      * @since  PHP 4.2.3
+     * @return string  The corresponding word representation
      */
-    function toWords($num, $locale = 'en_US') {
+    function toWords($num, $locale = 'en_US')
+    {
 
-        include_once("Numbers/Words/lang.${locale}.php");
+        include_once "Numbers/Words/lang.${locale}.php";
 
         $classname = "Numbers_Words_${locale}";
 
@@ -77,16 +75,17 @@ class Numbers_Words
         return trim($obj->toWords((int)$num));
     }
     // }}}
+
     // {{{ toCurrency()
     /**
      * Converts a currency value to word representation (1.02 => one dollar two cents)
-     * If the number has not any fraction part, the "cents" number is omitted. 
+     * If the number has not any fraction part, the "cents" number is omitted.
      *
-     * @param  float   $num   A float/integer/string number representing currency value
+     * @param float  $num      A float/integer/string number representing currency value
      *
-     * @param  string  $locale Language name abbreviation. Optional. Defaults to en_US.
+     * @param string $locale   Language name abbreviation. Optional. Defaults to en_US.
      *
-     * @param  string  $int_curr International currency symbol
+     * @param string $int_curr International currency symbol
      *                 as defined by the ISO 4217 standard (three characters).
      *                 E.g. 'EUR', 'USD', 'PLN'. Optional.
      *                 Defaults to $def_currency defined in the language class.
@@ -96,11 +95,13 @@ class Numbers_Words
      * @access public
      * @author Piotr Klaban <makler@man.torun.pl>
      * @since  PHP 4.2.3
+     * @return string
      */
-    function toCurrency($num, $locale = 'en_US', $int_curr = '') {
+    function toCurrency($num, $locale = 'en_US', $int_curr = '')
+    {
         $ret = $num;
 
-        @include_once("Numbers/Words/lang.${locale}.php");
+        @include_once "Numbers/Words/lang.${locale}.php";
 
         $classname = "Numbers_Words_${locale}";
 
@@ -116,25 +117,25 @@ class Numbers_Words
 
         @$obj =& new $classname;
 
-        if (strpos($num, '.') === false)
-        {
-          $ret      = trim($obj->toCurrencyWords($int_curr, $num));
-        } else {
-            $currency = explode('.', $num, 2);
-            /* add leading zero */
-            if (strlen($currency[1]) == 1) {
-                $currency[1] .= '0';
-            }
-            $ret      = trim($obj->toCurrencyWords($int_curr, $currency[0], $currency[1]));
+        if (strpos($num, '.') === false) {
+            return trim($obj->toCurrencyWords($int_curr, $num));
         }
-        return $ret;
+
+        $currency = explode('.', $num, 2);
+        /* add leading zero */
+        if (strlen($currency[1]) == 1) {
+            $currency[1] .= '0';
+        }
+
+        return trim($obj->toCurrencyWords($int_curr, $currency[0], $currency[1]));
     }
     // }}}
+
     // {{{ getLocales()
     /**
      * Lists available locales for Numbers_Words
      *
-     * @param  mixed   string/array of strings $locale
+     * @param mixed $locale string/array of strings $locale
      *                 Optional searched language name abbreviation.
      *                 Default: all available locales.
      *
@@ -144,14 +145,19 @@ class Numbers_Words
      *
      * @access public
      * @static
+     * @return mixed[]
      */
-    function getLocales($locale = null) {
+    function getLocales($locale = null)
+    {
         $ret = array();
-       	if (isset($locale) && is_string($locale)) {
-       	    $locale = array($locale);
+        if (isset($locale) && is_string($locale)) {
+            $locale = array($locale);
         }
+
         $dname = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'Words' . DIRECTORY_SEPARATOR;
-        $dh=opendir($dname);
+
+        $dh = opendir($dname);
+
         if ($dh) {
             while ($fname = readdir($dh)) {
                 if (preg_match('#^lang\.([a-z_]+)\.php$#i', $fname, $matches)) {
@@ -164,20 +170,24 @@ class Numbers_Words
             closedir($dh);
             sort($ret);
         }
+
         return $ret;
     }
     // }}}
+
     // {{{ raiseError()
-   /**
-    * Trigger a PEAR error
-    *
-    * To improve performances, the PEAR.php file is included dynamically.
-    *
-    * @param string error message
-    */
+    /**
+     * Trigger a PEAR error
+     *
+     * To improve performances, the PEAR.php file is included dynamically.
+     *
+     * @param string $msg error message
+     *
+     * @return PEAR_Error
+     */
     function raiseError($msg)
     {
-        include_once('PEAR.php');
+        include_once 'PEAR.php';
         return PEAR::raiseError($msg);
     }
     // }}}
