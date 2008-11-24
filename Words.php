@@ -134,7 +134,6 @@ class Numbers_Words
     /**
      * Lists available locales for Numbers_Words
      *
-     * @param  string  $int_curr International currency symbol
      * @param  mixed   string/array of strings $locale
      *                 Optional searched language name abbreviation.
      *                 Default: all available locales.
