@@ -1,33 +1,40 @@
 <?php
-/* vim: set expandtab tabstop=4 shiftwidth=4: */
-// +----------------------------------------------------------------------+
-// | PHP version 4                                                        |
-// +----------------------------------------------------------------------+
-// | Copyright (c) 1997-2003 The PHP Group                                |
-// +----------------------------------------------------------------------+
-// | This source file is subject to version 3.0 of the PHP license,       |
-// | that is bundled with this package in the file LICENSE, and is        |
-// | available through the world-wide-web at                              |
-// | http://www.php.net/license/3_0.txt.                                  |
-// | If you did not receive a copy of the PHP license and are unable to   |
-// | obtain it through the world-wide-web, please send a note to          |
-// | license@php.net so we can mail you a copy immediately.               |
-// +----------------------------------------------------------------------+
-// | Authors: Kouber Saparev <kouber@php.net>                             |
-// +----------------------------------------------------------------------+
-//
-// $Id$
+/**
+ * Numbers_Words
+ *
+ * PHP version 4
+ *
+ * Copyright (c) 1997-2006 The PHP Group
+ *
+ * This source file is subject to version 3.0 of the PHP license,
+ * that is bundled with this package in the file LICENSE, and is
+ * available at through the world-wide-web at
+ * http://www.php.net/license/3_0.txt.
+ * If you did not receive a copy of the PHP license and are unable to
+ * obtain it through the world-wide-web, please send a note to
+ * license@php.net so we can mail you a copy immediately.
+ *
+ * @category Numbers
+ * @package  Numbers_Words
+ * @author   Kouber Saparev <kouber@php.net>
+ * @license  PHP 3.0 http://www.php.net/license/3_0.txt
+ * @version  CVS: $Id$
+ * @link     http://pear.php.net/package/Numbers_Words
+ */
 
 /**
  * Include needed files
  */
-require_once("Numbers/Words.php");
+require_once "Numbers/Words.php";
 
 /**
  * Class for translating numbers into Bulgarian.
  *
- * @author Kouber Saparev <kouber@php.net> 
- * @package Numbers_Words
+ * @category Numbers
+ * @package  Numbers_Words
+ * @author   Kouber Saparev <kouber@php.net>
+ * @license  PHP 3.0 http://www.php.net/license/3_0.txt
+ * @link     http://pear.php.net/package/Numbers_Words
  */
 class Numbers_Words_bg extends Numbers_Words
 {
@@ -39,14 +46,14 @@ class Numbers_Words_bg extends Numbers_Words
      * @var string
      * @access public
      */
-    var $locale      = 'bg';
+    var $locale = 'bg';
 
     /**
      * Language name in English.
      * @var string
      * @access public
      */
-    var $lang        = 'Bulgarian';
+    var $lang = 'Bulgarian';
 
     /**
      * Native language name.
@@ -262,7 +269,8 @@ class Numbers_Words_bg extends Numbers_Words
      * @author Kouber Saparev <kouber@php.net>
      * @see function _initDigits
      */
-    function Numbers_Words_bg() {
+    function Numbers_Words_bg()
+    {
         $this->_initDigits();
     }
     // }}}
@@ -278,7 +286,8 @@ class Numbers_Words_bg extends Numbers_Words
      * @access private
      * @author Kouber Saparev <kouber@php.net>
      */
-    function _initDigits() {
+    function _initDigits()
+    {
         if (!$this->_digits_initialized) {
             for ($i=3; $i<=9; $i++) {
                 $this->_digits[1][$i] =& $this->_digits[0][$i];
@@ -296,8 +305,8 @@ class Numbers_Words_bg extends Numbers_Words
     /**
      * Split a number to groups of three-digit numbers.
      *
-     * @param  mixed  $num   An integer or its string representation
-     *                       that need to be split
+     * @param mixed $num An integer or its string representation
+     *                   that need to be split
      *
      * @return array  Groups of three-digit numbers.
      *
@@ -305,20 +314,24 @@ class Numbers_Words_bg extends Numbers_Words
      * @author Kouber Saparev <kouber@php.net>
      * @since  PHP 4.2.3
      */
-
     function _splitNumber($num)
     {
         if (is_string($num)) {
             $ret = array();
+
             $strlen = strlen($num);
-            $first = substr($num, 0, $strlen%3);
+            $first  = substr($num, 0, $strlen%3);
+
             preg_match_all('/\d{3}/', substr($num, $strlen%3, $strlen), $m);
+
             $ret =& $m[0];
-            if ($first) array_unshift($ret, $first);
+            if ($first) {
+                array_unshift($ret, $first); 
+            }
             return $ret;
         }
-        else
-            return explode(' ', number_format($num, 0, '', ' ')); // a faster version for integers
+        
+        return explode(' ', number_format($num, 0, '', ' ')); // a faster version for integers
     }
     // }}}
 
@@ -328,16 +341,14 @@ class Numbers_Words_bg extends Numbers_Words
      * Converts a three-digit number to its word representation
      * in Bulgarian language.
      *
-     * @param  integer  $num     An integer between 1 and 999 inclusive.
-     *
-     * @param  integer  $gender  An integer which represents the gender of
+     * @param integer $num    An integer between 1 and 999 inclusive.
+     * @param integer $gender An integer which represents the gender of
      *                                                     the current digits group.
      *                                                     0 - neuter
      *                                                     1 - masculine
      *                                                    -1 - feminine
-     *
-     * @param  boolean  $last    A flag that determines if the current digits group
-     *                           is the last one.
+     * @param boolean $last   A flag that determines if the current digits group
+     *                        is the last one.
      *
      * @return string   The words for the given number.
      *
@@ -362,15 +373,15 @@ class Numbers_Words_bg extends Numbers_Words
         // process the "hundreds" digit.
         if ($s) {
             switch ($s) {
-                case 1:
-                    $ret[1] = $this->_misc_strings['sto'];
-                    break;
-                case 2:
-                case 3:
-                    $ret[1] = $this->_digits[0][$s].$this->_misc_strings['sta'];
-                    break;
-             default:
-                 $ret[1] = $this->_digits[0][$s].$this->_misc_strings['stotin'];
+            case 1:
+                $ret[1] = $this->_misc_strings['sto'];
+                break;
+            case 2:
+            case 3:
+                $ret[1] = $this->_digits[0][$s].$this->_misc_strings['sta'];
+                break;
+            default:
+                $ret[1] = $this->_digits[0][$s].$this->_misc_strings['stotin'];
             }
         }
 
@@ -429,8 +440,8 @@ class Numbers_Words_bg extends Numbers_Words
      * Converts a number to its word representation
      * in Bulgarian language.
      *
-     * @param  integer $num   An integer between 9.99*-10^302 and 9.99*10^302 (999 centillions)
-     *                        that need to be converted to words
+     * @param integer $num An integer between 9.99*-10^302 and 9.99*10^302 (999 centillions)
+     *                     that need to be converted to words
      *
      * @return string  The corresponding word representation
      *
@@ -440,19 +451,23 @@ class Numbers_Words_bg extends Numbers_Words
     function toWords($num = 0)
     {
         $ret = array();
+
         $ret_minus = '';
 
         // check if $num is a valid non-zero number
-        if (!$num || preg_match('/^-?0+$/', $num) || !preg_match('/^-?\d+$/', $num)) return $this->_zero;
+        if (!$num || preg_match('/^-?0+$/', $num) || !preg_match('/^-?\d+$/', $num)) {
+            return $this->_zero;
+        }
 
         // add a minus sign
         if (substr($num, 0, 1) == '-') {
             $ret_minus = $this->_minus . $this->_sep;
+
             $num = substr($num, 1);
         }
 
         // if the absolute value is greater than 9.99*10^302, return infinity
-        if (strlen($num)>306) {
+        if (strlen($num) > 306) {
             return $ret_minus . $this->_infinity;
         }
 
