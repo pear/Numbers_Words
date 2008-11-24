@@ -1,27 +1,27 @@
 <?php
-/* vim: set expandtab tabstop=4 softtabstop=4 shiftwidth=4: */
-//
-// +----------------------------------------------------------------------+
-// | PHP version 4                                                        |
-// +----------------------------------------------------------------------+
-// | Copyright (c) 1997-2003 The PHP Group                                |
-// +----------------------------------------------------------------------+
-// | This source file is subject to version 3.0 of the PHP license,       |
-// | that is bundled with this package in the file LICENSE, and is        |
-// | available at through the world-wide-web at                           |
-// | http://www.php.net/license/3_0.txt.                                  |
-// | If you did not receive a copy of the PHP license and are unable to   |
-// | obtain it through the world-wide-web, please send a note to          |
-// | license@php.net so we can mail you a copy immediately.               |
-// +----------------------------------------------------------------------+
-// | Authors: Piotr Klaban <makler@man.torun.pl>                          |
-// |          Andrey Demenev <demenev@gmail.com>                          |
-// +----------------------------------------------------------------------+
-//
-// $Id$
-//
-// Numbers_Words class extension to spell numbers in Russian language.
-//
+/**
+ * Numbers_Words
+ *
+ * PHP version 4
+ *
+ * Copyright (c) 1997-2006 The PHP Group
+ *
+ * This source file is subject to version 3.0 of the PHP license,
+ * that is bundled with this package in the file LICENSE, and is
+ * available at through the world-wide-web at
+ * http://www.php.net/license/3_0.txt.
+ * If you did not receive a copy of the PHP license and are unable to
+ * obtain it through the world-wide-web, please send a note to
+ * license@php.net so we can mail you a copy immediately.
+ *
+ * @category Numbers
+ * @package  Numbers_Words
+ * @author   Piotr Klaban <makler@man.torun.pl>
+ * @author   Andrey Demenev <demenev@gmail.com>
+ * @license  PHP 3.0 http://www.php.net/license/3_0.txt
+ * @version  CVS: $Id$
+ * @link     http://pear.php.net/package/Numbers_Words
+ */
 
 /**
  * Class for translating numbers into Russian.
@@ -33,13 +33,17 @@
 /**
  * Include needed files
  */
-require_once("Numbers/Words.php");
+require_once "Numbers/Words.php";
 
 /**
  * Class for translating numbers into Russian.
  *
- * @author Andrey Demenev
- * @package Numbers_Words
+ * @category Numbers
+ * @package  Numbers_Words
+ * @author   Piotr Klaban <makler@man.torun.pl>
+ * @author   Andrey Demenev <demenev@gmail.com>
+ * @license  PHP 3.0 http://www.php.net/license/3_0.txt
+ * @link     http://pear.php.net/package/Numbers_Words
  */
 class Numbers_Words_ru extends Numbers_Words
 {
@@ -51,14 +55,14 @@ class Numbers_Words_ru extends Numbers_Words
      * @var string
      * @access public
      */
-    var $locale      = 'ru';
+    var $locale = 'ru';
 
     /**
      * Language name in English
      * @var string
      * @access public
      */
-    var $lang        = 'Russian';
+    var $lang = 'Russian';
 
     /**
      * Native language name
@@ -244,9 +248,9 @@ class Numbers_Words_ru extends Numbers_Words
      * @access private
      */
     var $_digits = array(
-        array('ноль', 'одно', 'два', 'три', 'четыре','пять', 'шесть', 'семь', 'восемь', 'девять'),
-        array('ноль', 'один', 'два', 'три', 'четыре','пять', 'шесть', 'семь', 'восемь', 'девять'),
-        array('ноль', 'одна', 'две', 'три', 'четыре','пять', 'шесть', 'семь', 'восемь', 'девять')
+        array('ноль', 'одно', 'два', 'три', 'четыре', 'пять', 'шесть', 'семь', 'восемь', 'девять'),
+        array('ноль', 'один', 'два', 'три', 'четыре', 'пять', 'шесть', 'семь', 'восемь', 'девять'),
+        array('ноль', 'одна', 'две', 'три', 'четыре', 'пять', 'шесть', 'семь', 'восемь', 'девять')
     );
 
     /**
@@ -268,145 +272,145 @@ class Numbers_Words_ru extends Numbers_Words
      */
     var $_currency_names = array(
       'ALL' => array(
-                array(1,'лек','лека','леков'), 
-                array(2,'киндарка','киндарки','киндарок')
+                array(1, 'лек', 'лека', 'леков'), 
+                array(2, 'киндарка', 'киндарки', 'киндарок')
                ),
       'AUD' => array(
-                array(1,'австралийский доллар','австралийских доллара','австралийских долларов'),
-                array(1,'цент','цента','центов')
+                array(1, 'австралийский доллар', 'австралийских доллара', 'австралийских долларов'),
+                array(1, 'цент', 'цента', 'центов')
                ),
       'BGN' => array(
-                array(1,'лев','лева','левов'), 
-                array(2,'стотинка','стотинки','стотинок')
+                array(1, 'лев', 'лева', 'левов'), 
+                array(2, 'стотинка', 'стотинки', 'стотинок')
                ),
       'BRL' => array(
-                array(1,'бразильский реал','бразильских реала','бразильских реалов'), 
-                array(1,'сентаво','сентаво','сентаво')
+                array(1, 'бразильский реал', 'бразильских реала', 'бразильских реалов'), 
+                array(1, 'сентаво', 'сентаво', 'сентаво')
                ),
       'BYR' => array(
-                array(1,'белорусский рубль','белорусских рубля','белорусских рублей'), 
-                array(2,'копейка','копейки','копеек')
+                array(1, 'белорусский рубль', 'белорусских рубля', 'белорусских рублей'), 
+                array(2, 'копейка', 'копейки', 'копеек')
                ),
       'CAD' => array(
-                array(1,'канадский доллар','канадских доллара','канадских долларов'),
-                array(1,'цент','цента','центов')
+                array(1, 'канадский доллар', 'канадских доллара', 'канадских долларов'),
+                array(1, 'цент', 'цента', 'центов')
                ),
       'CHF' => array(
-                array(1,'швейцарский франк','швейцарских франка','швейцарских франков'),
-                array(1,'сантим','сантима','сантимов')
+                array(1, 'швейцарский франк', 'швейцарских франка', 'швейцарских франков'),
+                array(1, 'сантим', 'сантима', 'сантимов')
                ),
       'CYP' => array(
-                array(1,'кипрский фунт','кипрских фунта','кипрских фунтов'),
-                array(1,'цент','цента','центов')
+                array(1, 'кипрский фунт', 'кипрских фунта', 'кипрских фунтов'),
+                array(1, 'цент', 'цента', 'центов')
                ),
       'CZK' => array(
-                array(2,'чешская крона','чешских кроны','чешских крон'),
-                array(1,'галирж','галиржа','галиржей')
+                array(2, 'чешская крона', 'чешских кроны', 'чешских крон'),
+                array(1, 'галирж', 'галиржа', 'галиржей')
                ),
       'DKK' => array(
-                array(2,'датская крона','датских кроны','датских крон'),
-                array(1,'эре','эре','эре')
+                array(2, 'датская крона', 'датских кроны', 'датских крон'),
+                array(1, 'эре', 'эре', 'эре')
                ),
       'EEK' => array(
-                array(2,'эстонская крона','эстонских кроны','эстонских крон'),
-                array(1,'сенти','сенти','сенти')
+                array(2, 'эстонская крона', 'эстонских кроны', 'эстонских крон'),
+                array(1, 'сенти', 'сенти', 'сенти')
                ),
       'EUR' => array(
-                array(1,'евро','евро','евро'),
-                array(1,'евроцент','евроцента','евроцентов')
+                array(1, 'евро', 'евро', 'евро'),
+                array(1, 'евроцент', 'евроцента', 'евроцентов')
                ),
       'CYP' => array(
-                array(1,'фунт стерлингов','фунта стерлингов','фунтов стерлингов'),
-                array(1,'пенс','пенса','пенсов')
+                array(1, 'фунт стерлингов', 'фунта стерлингов', 'фунтов стерлингов'),
+                array(1, 'пенс', 'пенса', 'пенсов')
                ),
       'CAD' => array(
-                array(1,'гонконгский доллар','гонконгских доллара','гонконгских долларов'),
-                array(1,'цент','цента','центов')
+                array(1, 'гонконгский доллар', 'гонконгских доллара', 'гонконгских долларов'),
+                array(1, 'цент', 'цента', 'центов')
                ),
       'HRK' => array(
-                array(2,'хорватская куна','хорватских куны','хорватских кун'),
-                array(2,'липа','липы','лип')
+                array(2, 'хорватская куна', 'хорватских куны', 'хорватских кун'),
+                array(2, 'липа', 'липы', 'лип')
                ),
       'HUF' => array(
-                array(1,'венгерский форинт','венгерских форинта','венгерских форинтов'),
-                array(1,'филлер','филлера','филлеров')
+                array(1, 'венгерский форинт', 'венгерских форинта', 'венгерских форинтов'),
+                array(1, 'филлер', 'филлера', 'филлеров')
                ),
       'ISK' => array(
-                array(2,'исландская крона','исландских кроны','исландских крон'),
-                array(1,'эре','эре','эре')
+                array(2, 'исландская крона', 'исландских кроны', 'исландских крон'),
+                array(1, 'эре', 'эре', 'эре')
                ),
       'JPY' => array(
-                array(2,'иена','иены','иен'),
-                array(2,'сена','сены','сен')
+                array(2, 'иена', 'иены', 'иен'),
+                array(2, 'сена', 'сены', 'сен')
                ),
       'LTL' => array(
-                array(1,'лит','лита','литов'),
-                array(1,'цент','цента','центов')
+                array(1, 'лит', 'лита', 'литов'),
+                array(1, 'цент', 'цента', 'центов')
                ),
       'LVL' => array(
-                array(1,'лат','лата','латов'),
-                array(1,'сентим','сентима','сентимов')
+                array(1, 'лат', 'лата', 'латов'),
+                array(1, 'сентим', 'сентима', 'сентимов')
                ),
       'MKD' => array(
-                array(1,'македонский динар','македонских динара','македонских динаров'),
-                array(1,'дени','дени','дени')
+                array(1, 'македонский динар', 'македонских динара', 'македонских динаров'),
+                array(1, 'дени', 'дени', 'дени')
                ),
       'MTL' => array(
-                array(2,'мальтийская лира','мальтийских лиры','мальтийских лир'),
-                array(1,'сентим','сентима','сентимов')
+                array(2, 'мальтийская лира', 'мальтийских лиры', 'мальтийских лир'),
+                array(1, 'сентим', 'сентима', 'сентимов')
                ),
       'NOK' => array(
-                array(2,'норвежская крона','норвежских кроны','норвежских крон'),
-                array(0,'эре','эре','эре')
+                array(2, 'норвежская крона', 'норвежских кроны', 'норвежских крон'),
+                array(0, 'эре', 'эре', 'эре')
                ),
       'PLN' => array(
-                array(1,'злотый','злотых','злотых'),
-                array(1,'грош','гроша','грошей')
+                array(1, 'злотый', 'злотых', 'злотых'),
+                array(1, 'грош', 'гроша', 'грошей')
                ),
       'ROL' => array(
-                array(1,'румынский лей','румынских лей','румынских лей'),
-                array(1,'бани','бани','бани')
+                array(1, 'румынский лей', 'румынских лей', 'румынских лей'),
+                array(1, 'бани', 'бани', 'бани')
                ),
        // both RUR and RUR are used, I use RUB for shorter form
       'RUB' => array(
-                array(1,'рубль','рубля','рублей'),
-                array(2,'копейка','копейки','копеек')
+                array(1, 'рубль', 'рубля', 'рублей'),
+                array(2, 'копейка', 'копейки', 'копеек')
                ),
       'RUR' => array(
-                array(1,'российский рубль','российских рубля','российских рублей'),
-                array(2,'копейка','копейки','копеек')
+                array(1, 'российский рубль', 'российских рубля', 'российских рублей'),
+                array(2, 'копейка', 'копейки', 'копеек')
                ),
       'SEK' => array(
-                array(2,'шведская крона','шведских кроны','шведских крон'),
-                array(1,'эре','эре','эре')
+                array(2, 'шведская крона', 'шведских кроны', 'шведских крон'),
+                array(1, 'эре', 'эре', 'эре')
                ),
       'SIT' => array(
-                array(1,'словенский толар','словенских толара','словенских толаров'),
-                array(2,'стотина','стотины','стотин')
+                array(1, 'словенский толар', 'словенских толара', 'словенских толаров'),
+                array(2, 'стотина', 'стотины', 'стотин')
                ),
       'SKK' => array(
-                array(2,'словацкая крона','словацких кроны','словацких крон'),
-                array(0,'','','')
+                array(2, 'словацкая крона', 'словацких кроны', 'словацких крон'),
+                array(0, '', '', '')
                ),
       'TRL' => array(
-                array(2,'турецкая лира','турецких лиры','турецких лир'),
-                array(1,'пиастр','пиастра','пиастров')
+                array(2, 'турецкая лира', 'турецких лиры', 'турецких лир'),
+                array(1, 'пиастр', 'пиастра', 'пиастров')
                ),
       'UAH' => array(
-                array(2,'гривна','гривны','гривен'),
-                array(1,'цент','цента','центов')
+                array(2, 'гривна', 'гривны', 'гривен'),
+                array(1, 'цент', 'цента', 'центов')
                ),
       'USD' => array(
-                array(1,'доллар США','доллара США','долларов США'),
-                array(1,'цент','цента','центов')
+                array(1, 'доллар США', 'доллара США', 'долларов США'),
+                array(1, 'цент', 'цента', 'центов')
                ),
       'YUM' => array(
-                array(1,'югославский динар','югославских динара','югославских динаров'),
-                array(1,'пара','пара','пара')
+                array(1, 'югославский динар', 'югославских динара', 'югославских динаров'),
+                array(1, 'пара', 'пара', 'пара')
                ),
       'ZAR' => array(
-                array(1,'ранд','ранда','рандов'),
-                array(1,'цент','цента','центов')
+                array(1, 'ранд', 'ранда', 'рандов'),
+                array(1, 'цент', 'цента', 'центов')
                )
     );
 
@@ -424,10 +428,10 @@ class Numbers_Words_ru extends Numbers_Words
      * Converts a number to its word representation
      * in Russian language
      *
-     * @param  integer $num   An integer between -infinity and infinity inclusive :)
+     * @param integer $num    An integer between -infinity and infinity inclusive :)
      *                        that need to be converted to words
-     * @param  integer $gender Gender of string, 0=neutral, 1=male, 2=female.
-     *                         Optional, defaults to 1.
+     * @param integer $gender Gender of string, 0=neutral, 1=male, 2=female.
+     *                        Optional, defaults to 1.
      *
      * @return string  The corresponding word representation
      *
@@ -443,12 +447,12 @@ class Numbers_Words_ru extends Numbers_Words
      * Converts a number to its word representation
      * in Russian language and determines the case of string.
      *
-     * @param  integer $num   An integer between -infinity and infinity inclusive :)
+     * @param integer $num    An integer between -infinity and infinity inclusive :)
      *                        that need to be converted to words
-     * @param  integer $case A variable passed by reference which is set to case
-     *                       of the word associated with the number
-     * @param  integer $gender Gender of string, 0=neutral, 1=male, 2=female.
-     *                         Optional, defaults to 1.
+     * @param integer &$case  A variable passed by reference which is set to case
+     *                        of the word associated with the number
+     * @param integer $gender Gender of string, 0=neutral, 1=male, 2=female.
+     *                        Optional, defaults to 1.
      *
      * @return string  The corresponding word representation
      *
@@ -457,60 +461,66 @@ class Numbers_Words_ru extends Numbers_Words
      */
     function _toWordsWithCase($num, &$case, $gender = 1)
     {
-      $ret = '';
-      $case = 3;
+        $ret  = '';
+        $case = 3;
       
-      $num = trim($num);
+        $num = trim($num);
       
-      $sign = "";
-      if (substr($num, 0, 1) == '-') {
-        $sign = $this->_minus . $this->_sep;
-        $num = substr($num, 1);
-      }
-
-      while (strlen($num) % 3) $num = '0' . $num;
-      if ($num == 0 || $num == '') {
-        $ret .= $this->_digits[$gender][0];
-      }
-      
-      else {
-        $power = 0;
-        while ($power < strlen($num)) {
-            if (!$power) {
-                $groupgender = $gender;
-            } elseif ($power == 3) {
-                $groupgender = 2;
-            } else {
-                $groupgender = 1;
-            }
-            $group = $this->_groupToWords(substr($num,-$power-3,3),$groupgender,$_case);
-            if (!$power) {
-                $case = $_case;
-            }
-            if ($power == 3) {
-                if ($_case == 1) {
-                    $group .= $this->_sep . 'тысяча';
-                } elseif ($_case == 2) {
-                    $group .= $this->_sep . 'тысячи';
-                } else {
-                    $group .= $this->_sep . 'тысяч';
-                }
-            } elseif ($group && $power>3 && isset($this->_exponent[$power])) {
-                $group .= $this->_sep . $this->_exponent[$power];
-                if ($_case == 2) {
-                    $group .= 'а';
-                } elseif ($_case == 3) {
-                    $group .= 'ов';
-                }
-            }
-            if ($group) {
-                $ret = $group . $this->_sep . $ret;
-            }
-            $power+=3;
+        $sign = "";
+        if (substr($num, 0, 1) == '-') {
+            $sign = $this->_minus . $this->_sep;
+            $num  = substr($num, 1);
         }
-      }
 
-      return $sign . $ret;
+        while (strlen($num) % 3) {
+            $num = '0' . $num;
+        }
+
+        if ($num == 0 || $num == '') {
+            $ret .= $this->_digits[$gender][0];
+        } else {
+            $power = 0;
+
+            while ($power < strlen($num)) {
+                if (!$power) {
+                    $groupgender = $gender;
+                } elseif ($power == 3) {
+                    $groupgender = 2;
+                } else {
+                    $groupgender = 1;
+                }
+
+                $group = $this->_groupToWords(substr($num, -$power-3, 3), $groupgender, $_case);
+                if (!$power) {
+                    $case = $_case;
+                }
+
+                if ($power == 3) {
+                    if ($_case == 1) {
+                        $group .= $this->_sep . 'тысяча';
+                    } elseif ($_case == 2) {
+                        $group .= $this->_sep . 'тысячи';
+                    } else {
+                        $group .= $this->_sep . 'тысяч';
+                    }
+                } elseif ($group && $power>3 && isset($this->_exponent[$power])) {
+                    $group .= $this->_sep . $this->_exponent[$power];
+                    if ($_case == 2) {
+                        $group .= 'а';
+                    } elseif ($_case == 3) {
+                        $group .= 'ов';
+                    }
+                }
+
+                if ($group) {
+                    $ret = $group . $this->_sep . $ret;
+                }
+
+                $power += 3;
+            }
+        }
+
+        return $sign . $ret;
     }
 
     // }}}
@@ -520,11 +530,11 @@ class Numbers_Words_ru extends Numbers_Words
      * Converts a group of 3 digits to its word representation
      * in Russian language.
      *
-     * @param  integer $num   An integer between -infinity and infinity inclusive :)
+     * @param integer $num    An integer between -infinity and infinity inclusive :)
      *                        that need to be converted to words
-     * @param  integer $gender Gender of string, 0=neutral, 1=male, 2=female.
-     * @param  integer $case A variable passed by reference which is set to case
-     *                       of the word associated with the number
+     * @param integer $gender Gender of string, 0=neutral, 1=male, 2=female.
+     * @param integer &$case  A variable passed by reference which is set to case
+     *                        of the word associated with the number
      *
      * @return string  The corresponding word representation
      *
@@ -533,49 +543,63 @@ class Numbers_Words_ru extends Numbers_Words
      */
     function _groupToWords($num, $gender, &$case)
     {
-      $ret = '';        
-      $case = 3;
-      if ((int)$num == 0) {
-          $ret = '';
-      } elseif ($num < 10) {
-          $ret = $this->_digits[$gender][(int)$num];
-          if ($num == 1) $case = 1;
-          elseif ($num < 5) $case = 2;
-          else $case = 3;
-      } else {
-          $num = str_pad($num,3,'0',STR_PAD_LEFT);
-          $hundreds = (int)$num{0};
-          if ($hundreds) {
-              $ret = $this->_hundreds[$hundreds];
-              if (substr($num,1) != '00') {
-                  $ret .= $this->_sep;
-              }
-              $case = 3;
-          }
-          $tens=(int)$num{1};
-          $ones=(int)$num{2};
-          if ($tens || $ones) {
-              if ($tens == 1 && $ones == 0) $ret .= 'десять';
-              elseif ($tens == 1) $ret .= $this->_teens[$ones+10];
-              else {
-                  if ($tens > 0) {
-                      $ret .= $this->_tens[(int)$tens];
-                  }
-                  if ($ones > 0) {
-                      $ret .= $this->_sep
-                          .$this->_digits[$gender][$ones];
-                      if ($ones == 1) {
-                          $case = 1;
-                      } elseif ($ones < 5) {
-                          $case = 2;
-                      } else {
-                          $case = 3;
-                      }
-                  }
-              }
-          }
-      }
-      return $ret;
+        $ret  = '';        
+        $case = 3;
+
+        if ((int)$num == 0) {
+            $ret = '';
+        } elseif ($num < 10) {
+            $ret = $this->_digits[$gender][(int)$num];
+            if ($num == 1) {
+                $case = 1;
+            } elseif ($num < 5) {
+                $case = 2; 
+            } else {
+                $case = 3;
+            }
+
+        } else {
+            $num = str_pad($num, 3, '0', STR_PAD_LEFT);
+
+            $hundreds = (int)$num{0};
+            if ($hundreds) {
+                $ret = $this->_hundreds[$hundreds];
+                if (substr($num, 1) != '00') {
+                    $ret .= $this->_sep;
+                }
+
+                $case = 3;
+            }
+
+            $tens = (int)$num{1};
+            $ones = (int)$num{2};
+            if ($tens || $ones) {
+                if ($tens == 1 && $ones == 0) {
+                    $ret .= 'десять';
+                } elseif ($tens == 1) {
+                    $ret .= $this->_teens[$ones+10];
+                } else {
+                    if ($tens > 0) {
+                        $ret .= $this->_tens[(int)$tens];
+                    }
+
+                    if ($ones > 0) {
+                        $ret .= $this->_sep
+                                . $this->_digits[$gender][$ones];
+
+                        if ($ones == 1) {
+                            $case = 1;
+                        } elseif ($ones < 5) {
+                            $case = 2;
+                        } else {
+                            $case = 3;
+                        }
+                    }
+                }
+            }
+        }
+
+        return $ret;
     }
     // }}}
     // {{{ toCurrencyWords()
@@ -584,13 +608,13 @@ class Numbers_Words_ru extends Numbers_Words
      * Converts a currency value to its word representation
      * (with monetary units) in Russian language
      *
-     * @param  integer $int_curr An international currency symbol
-     *                 as defined by the ISO 4217 standard (three characters)
-     * @param  integer $decimal A money total amount without fraction part (e.g. amount of dollars)
-     * @param  integer $fraction Fractional part of the money amount (e.g. amount of cents)
-     *                 Optional. Defaults to false.
-     * @param  integer $convert_fraction Convert fraction to words (left as numeric if set to false).
-     *                 Optional. Defaults to true.
+     * @param integer $int_curr         An international currency symbol
+     *                                  as defined by the ISO 4217 standard (three characters)
+     * @param integer $decimal          A money total amount without fraction part (e.g. amount of dollars)
+     * @param integer $fraction         Fractional part of the money amount (e.g. amount of cents)
+     *                                  Optional. Defaults to false.
+     * @param integer $convert_fraction Convert fraction to words (left as numeric if set to false).
+     *                                  Optional. Defaults to true.
      *
      * @return string  The corresponding word representation for the currency
      *
@@ -603,8 +627,10 @@ class Numbers_Words_ru extends Numbers_Words
         if (!isset($this->_currency_names[$int_curr])) {
             $int_curr = $this->def_currency;
         }
+
         $curr_names = $this->_currency_names[$int_curr];
-        $ret = trim($this->_toWordsWithCase($decimal, $case, $curr_names[0][0]));
+
+        $ret  = trim($this->_toWordsWithCase($decimal, $case, $curr_names[0][0]));
         $ret .= $this->_sep . $curr_names[0][$case];
 
         if ($fraction !== false) {
@@ -613,6 +639,7 @@ class Numbers_Words_ru extends Numbers_Words
             } else {
                 $ret .= $this->_sep . $fraction;
             }
+
             $ret .= $this->_sep . $curr_names[1][$case];
         }
         return $ret;
