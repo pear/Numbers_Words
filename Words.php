@@ -74,7 +74,7 @@ class Numbers_Words
 
         @$obj =& new $classname;
 
-        return trim($obj->toWords($num));
+        return trim($obj->toWords((int)$num));
     }
     // }}}
     // {{{ toCurrency()
