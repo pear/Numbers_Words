@@ -165,7 +165,6 @@ class Numbers_Words_cs extends Numbers_Words
      * @since  PHP 4.2.3
      */
     function toWords($num, $power = 0, $powsuffix = '') {
-//    print "<br>$num,$power,$powsuffix<br>";
       $ret = '';        
         
       // add a minus sign
@@ -182,7 +181,6 @@ class Numbers_Words_cs extends Numbers_Words
           $maxp = strlen($num)-1;
           $curp = $maxp;
           for ($p = $maxp; $p > 0; --$p) { // power
-            
             // check for highest power
             if (isset($this->_exponent[$p])) {
               // send substr from $curp to $p
@@ -305,8 +303,7 @@ class Numbers_Words_cs extends Numbers_Words
           break; 
       }
 
-      if ($t != 1 && $d > 0 && ($power == 0 || $d > 1)) {
-      // 
+      if (($t != 1) && ($d > 0) && (($power == 0) || ($num > 1))) {
         $ret .= $this->_sep . $this->_digits[$d];
       }
   
@@ -320,9 +317,9 @@ class Numbers_Words_cs extends Numbers_Words
            // inflection of exponental words
           if ($num == 1)
             $idx = 0;
-          elseif ( ($num > 1) && ($num < 5) )
+          elseif ( (($num > 1) && ($num < 5)) || ((intval("$t$d") > 1) && (intval("$t$d") < 5)) )
             $idx = 1;
-          else		//if ($num >= 5)
+          else
             $idx = 2;
 
         $ret .= $this->_sep . $lev[$idx];
@@ -330,7 +327,7 @@ class Numbers_Words_cs extends Numbers_Words
     
       if ($powsuffix != '')
         $ret .= $this->_sep . $powsuffix;
-    
+
       return $ret;
     }
     // }}}
