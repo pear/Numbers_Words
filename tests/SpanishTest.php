@@ -21,29 +21,14 @@
 //
 
 require_once 'Numbers/Words.php';
-require_once 'PHPUnit/TestCase.php';
+require_once 'PHPUnit/Framework/TestCase.php';
 
-class Numbers_Words_spanish_TestCase extends PHPUnit_TestCase
+class Numbers_Words_Spanish_Test extends PHPUnit_Framework_TestCase
 {
-    //contains the MDB object of the db once we have connected
-    var $db;
-
-    function Numbers_Words_spanish_TestCase($name)
-    {
-        $this->PHPUnit_TestCase($name);
-    }
-
-    function setUp()
-    {
-    }
-
-    function tearDown()
-    {
-    }
 
     /**
-    * Testing numbers between 0 and 9
-    */
+     * Testing numbers between 0 and 9
+     */
     function testDigits()
     {
         $digits = array('cero',
@@ -65,8 +50,8 @@ class Numbers_Words_spanish_TestCase extends PHPUnit_TestCase
     }
 
     /**
-    * Testing numbers between 10 and 99
-    */
+     * Testing numbers between 10 and 99
+     */
     function testTens()
     {
         $tens = array(11 => 'once',
@@ -93,8 +78,8 @@ class Numbers_Words_spanish_TestCase extends PHPUnit_TestCase
     }
 
     /**
-    * Testing numbers between 100 and 999
-    */
+     * Testing numbers between 100 and 999
+     */
     function testHundreds()
     {
         $hundreds = array(100 => 'cien',
@@ -118,8 +103,8 @@ class Numbers_Words_spanish_TestCase extends PHPUnit_TestCase
     }
 
     /**
-    * Testing numbers between 1000 and 9999
-    */
+     * Testing numbers between 1000 and 9999
+     */
     function testThousands()
     {
         $thousands = array(1000 => 'mil',
@@ -142,4 +127,3 @@ class Numbers_Words_spanish_TestCase extends PHPUnit_TestCase
     }
 }
 
-?>

@@ -21,30 +21,20 @@
 //
 
 require_once 'Numbers/Words.php';
-require_once 'PHPUnit/TestCase.php';
+require_once 'PHPUnit/Framework/TestCase.php';
 
-class Numbers_Words_Polish_TestCase extends PHPUnit_TestCase
+class Numbers_Words_Polish_Test extends PHPUnit_Framework_TestCase
 {
-    var $db;
     var $handle;
-
-    function Numbers_Words_Polish_TestCase($name)
-    {
-        $this->handle = new Numbers_Words();
-        $this->PHPUnit_TestCase($name);
-    }
 
     function setUp()
     {
-    }
-
-    function tearDown()
-    {
+        $this->handle = new Numbers_Words();
     }
 
     /**
-    * Testing numbers between 0 and 9
-    */
+     * Testing numbers between 0 and 9
+     */
     function testDigits()
     {
         $digits = array('zero',
@@ -66,8 +56,8 @@ class Numbers_Words_Polish_TestCase extends PHPUnit_TestCase
     }
 
     /**
-    * Testing numbers between 10 and 99
-    */
+     * Testing numbers between 10 and 99
+     */
     function testTens()
     {
         $tens = array(11 => 'jedena¶cie',
@@ -94,8 +84,8 @@ class Numbers_Words_Polish_TestCase extends PHPUnit_TestCase
     }
 
     /**
-    * Testing numbers between 100 and 999
-    */
+     * Testing numbers between 100 and 999
+     */
     function testHundreds()
     {
         $hundreds = array(100 => 'sto',
@@ -119,8 +109,8 @@ class Numbers_Words_Polish_TestCase extends PHPUnit_TestCase
     }
 
     /**
-    * Testing numbers between 1000 and 9999
-    */
+     * Testing numbers between 1000 and 9999
+     */
     function testThousands()
     {
         $thousands = array(1000 => 'jeden tysi±c',
@@ -142,5 +132,3 @@ class Numbers_Words_Polish_TestCase extends PHPUnit_TestCase
         }
     }
 }
-
-?>
