@@ -1,26 +1,28 @@
 <?php
-/* vim: set expandtab tabstop=4 softtabstop=4 shiftwidth=4: */
-//
-// +----------------------------------------------------------------------+
-// | PHP version 4                                                        |
-// +----------------------------------------------------------------------+
-// | Copyright (c) 1997-2003 The PHP Group                                |
-// +----------------------------------------------------------------------+
-// | This source file is subject to version 3.0 of the PHP license,       |
-// | that is bundled with this package in the file LICENSE, and is        |
-// | available at through the world-wide-web at                           |
-// | http://www.php.net/license/3_0.txt.                                  |
-// | If you did not receive a copy of the PHP license and are unable to   |
-// | obtain it through the world-wide-web, please send a note to          |
-// | license@php.net so we can mail you a copy immediately.               |
-// +----------------------------------------------------------------------+
-// | Authors: Marcelo Subtil Marcal <jason@conectiva.com.br>, Mario H.C.T. <mariolinux@mitus.com.br>
-// +----------------------------------------------------------------------+
-//
-// $Id$
-//
-// Numbers_Words class extension to spell numbers in Brazilian Portuguese language.
-//
+/**
+ * Numbers_Words
+ *
+ * PHP version 4
+ *
+ * Copyright (c) 1997-2006 The PHP Group
+ *
+ * This source file is subject to version 3.0 of the PHP license,
+ * that is bundled with this package in the file LICENSE, and is
+ * available at through the world-wide-web at
+ * http://www.php.net/license/3_0.txt.
+ * If you did not receive a copy of the PHP license and are unable to
+ * obtain it through the world-wide-web, please send a note to
+ * license@php.net so we can mail you a copy immediately.
+ *
+ * @category Numbers
+ * @package  Numbers_Words
+ * @author   Marcelo Subtil Marcal <jason@conectiva.com.br>
+ * @author   Mario H.C.T. <mariolinux@mitus.com.br>
+ * @license  PHP 3.0 http://www.php.net/license/3_0.txt
+ * @version  CVS: $Id$
+ * @link     http://pear.php.net/package/Numbers_Words
+ */
+
 
 
 /**
@@ -38,8 +40,12 @@ require_once "Numbers/Words.php";
 /**
  * Class for translating numbers into Brazilian Portuguese.
  *
- * @author Marcelo Subtil Marcal <jason@conectiva.com.br>
- * @package Numbers_Words
+ * @category Numbers
+ * @package  Numbers_Words
+ * @author   Marcelo Subtil Marcal <jason@conectiva.com.br>
+ * @author   Mario H.C.T. <mariolinux@mitus.com.br>
+ * @license  PHP 3.0 http://www.php.net/license/3_0.txt
+ * @link     http://pear.php.net/package/Numbers_Words
  */
 class Numbers_Words_pt_BR extends Numbers_Words
 {
@@ -49,14 +55,14 @@ class Numbers_Words_pt_BR extends Numbers_Words
      * @var string
      * @access public
      */
-    var $locale      = 'pt_BR';
+    var $locale = 'pt_BR';
 
     /**
      * Language name in English
      * @var string
      * @access public
      */
-    var $lang        = 'Brazilian Portuguese';
+    var $lang = 'Brazilian Portuguese';
 
     /**
      * Native language name
@@ -204,8 +210,8 @@ class Numbers_Words_pt_BR extends Numbers_Words
      * Converts a number to its word representation
      * in Brazilian Portuguese language
      *
-     * @param  integer $num   An integer between -infinity and infinity inclusive :)
-     *                        that need to be converted to words
+     * @param integer $num An integer between -infinity and infinity inclusive :)
+     *                     that need to be converted to words
      *
      * @return string  The corresponding word representation
      *
@@ -213,7 +219,8 @@ class Numbers_Words_pt_BR extends Numbers_Words
      * @author Marcelo Subtil Marcal <jason@conectiva.com.br>
      * @since  PHP 4.2.3
      */
-    function toWords($num) {
+    function toWords($num)
+    {
 
         $ret = '';
 
@@ -226,7 +233,7 @@ class Numbers_Words_pt_BR extends Numbers_Words
 
         // strip excessive zero signs and spaces
         $num = trim($num);
-        $num = preg_replace('/^0+/','',$num);
+        $num = preg_replace('/^0+/', '', $num);
 
         while (strlen($num) % 3 != 0) {
             $num = "0" . $num;
@@ -264,13 +271,13 @@ class Numbers_Words_pt_BR extends Numbers_Words
      * Converts a currency value to its word representation
      * (with monetary units) in Portuguese language
      *
-     * @param  integer $int_curr An international currency symbol
-     *                 as defined by the ISO 4217 standard (three characters)
-     * @param  integer $decimal A money total amount without fraction part (e.g. amount of dollars)
-     * @param  integer $fraction Fractional part of the money amount (e.g.  amount of cents)
-     *                 Optional. Defaults to false. 
-     * @param  integer $convert_fraction Convert fraction to words (left as numeric if set to false).
-     *                 Optional. Defaults to true.
+     * @param integer $int_curr         An international currency symbol
+     *                                   as defined by the ISO 4217 standard (three characters)
+     * @param integer $decimal          A money total amount without fraction part (e.g. amount of dollars)
+     * @param integer $fraction         Fractional part of the money amount (e.g.  amount of cents)
+     *                                   Optional. Defaults to false.
+     * @param integer $convert_fraction Convert fraction to words (left as numeric if set to false).
+     *                                   Optional. Defaults to true.
      *
      * @return string  The corresponding word representation for the currency
      *
@@ -278,40 +285,46 @@ class Numbers_Words_pt_BR extends Numbers_Words
      * @author Mario H.C.T. <mariolinux@mitus.com.br>
      * @since  Numbers_Words 0.10.1
      */
-    function toCurrencyWords($int_curr, $decimal, $fraction = false, $convert_fraction = true) {
+    function toCurrencyWords($int_curr, $decimal, $fraction = false, $convert_fraction = true)
+    {
         $int_curr = strtoupper($int_curr);
-        if (!isset($this->_currency_name[$int_curr])){
+        if (!isset($this->_currency_name[$int_curr])) {
             $int_curr = $this->def_currency;
         }
         $curr_names = $this->_currency_names[$int_curr];
-        $ret  = trim($this->toWords($decimal));
-        $lev  = ($decimal == 1) ? 0 : 1;
+
+        $ret = trim($this->toWords($decimal));
+        $lev = ($decimal == 1) ? 0 : 1;
         if ($lev > 0) {
             if (count($curr_names[0]) > 1) {
                 $ret .= $this->_sep . $curr_names[0][$lev];
             } else {
-                if ($int_curr == "BRL")
+                if ($int_curr == "BRL") {
                     $ret .= $this->_sep . $curr_names[0][0] . 'is';
-                else
+                } else {
                     $ret .= $this->_sep . $curr_names[0][0] . 's';
+                }
             }
         } else {
-            if ($int_curr == "BRL")
+            if ($int_curr == "BRL") {
                 $ret .= $this->_sep . $curr_names[0][0] . 'l';
-            else
+            } else {
                 $ret .= $this->_sep . $curr_names[0][0];
+            }
         }
-                  
+
         if ($fraction !== false) {
-            if ($int_curr == "BRL")
+            if ($int_curr == "BRL") {
                 $ret .= $this->_sep . 'e';
-               
+            }
+
             if ($convert_fraction) {
                 $ret .= $this->_sep . trim($this->toWords($fraction));
             } else {
                 $ret .= $this->_sep . $fraction;
             }
-            $lev  = ($fraction == 1) ? 0 : 1;
+
+            $lev = ($fraction == 1) ? 0 : 1;
             if ($lev > 0) {
                 if (count($curr_names[1]) > 1) {
                     $ret .= $this->_sep . $curr_names[1][$lev];
@@ -321,9 +334,9 @@ class Numbers_Words_pt_BR extends Numbers_Words
             } else {
                 $ret .= $this->_sep . $curr_names[1][0];
             }
-       }
+        }
 
-       return $ret;
+        return $ret;
     }
     // }}}
 }

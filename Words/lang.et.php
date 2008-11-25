@@ -21,20 +21,22 @@
  * @version  CVS: $Id$
  * @link     http://pear.php.net/package/Numbers_Words
  */
-
 require_once "Numbers/Words.php";
 
 /**
  * Class for translating numbers into Estonian.
  *
- * @author Erkki Saarniit
- * @package Numbers_Words
+ * @category Numbers
+ * @package  Numbers_Words
+ * @author   Erkki Saarniit <erkki@center.ee>
+ * @license  PHP 3.0 http://www.php.net/license/3_0.txt
+ * @link     http://pear.php.net/package/Numbers_Words
  */
 class Numbers_Words_et extends Numbers_Words
 {
 
     // {{{ properties
-    
+
     /**
      * Locale name
      * @var string
@@ -55,14 +57,14 @@ class Numbers_Words_et extends Numbers_Words
      * @access public
      */
     var $lang_native = 'eesti keel';
-    
+
     /**
      * The word for the minus sign
      * @var string
      * @access private
      */
     var $_minus = 'miinus'; // minus sign
-    
+
     /**
      * The sufixes for exponents (singular and plural)
      * Names partly based on:
@@ -209,12 +211,12 @@ class Numbers_Words_et extends Numbers_Words
      * Converts a number to its word representation
      * in Estonian language
      *
-     * @param  integer $num   An integer between -infinity and infinity inclusive :)
-     *                        that need to be converted to words
-     * @param  integer $power The power of ten for the rest of the number to the right.
-     *                        Optional, defaults to 0.
-     * @param  integer $powsuffix The power name to be added to the end of the return string.
-     *                        Used internally. Optional, defaults to ''.
+     * @param integer $num       An integer between -infinity and infinity inclusive :)
+     *                           that need to be converted to words
+     * @param integer $power     The power of ten for the rest of the number to the right.
+     *                           Optional, defaults to 0.
+     * @param integer $powsuffix The power name to be added to the end of the return string.
+     *                            Used internally. Optional, defaults to ''.
      *
      * @return string  The corresponding word representation
      *
@@ -223,16 +225,16 @@ class Numbers_Words_et extends Numbers_Words
      */
     function toWords($num, $power = 0, $powsuffix = '')
     {
-        $ret = '';        
-      
+        $ret = '';
+
         if (substr($num, 0, 1) == '-') {
             $ret = $this->_sep . $this->_minus;
             $num = substr($num, 1);
         }
-        
+
         $num = trim($num);
         $num = preg_replace('/^0+/', '', $num);
-        
+
         if (strlen($num) > 3) {
             $maxp = strlen($num) - 1;
             $curp = $maxp;
@@ -262,25 +264,25 @@ class Numbers_Words_et extends Numbers_Words
         } elseif ($num == 0 || $num == '') {
             return $this->_sep . $this->_digits[0];
         }
-    
+
         $h = $t = $d = 0;
-      
+
         switch(strlen($num)) {
         case 3:
-            $h = (int)substr($num,-3,1);
+            $h = (int)substr($num, -3, 1);
 
         case 2:
-            $t = (int)substr($num,-2,1);
+            $t = (int)substr($num, -2, 1);
 
         case 1:
-            $d = (int)substr($num,-1,1);
+            $d = (int)substr($num, -1, 1);
             break;
 
         case 0:
             return;
             break;
         }
-    
+
         if ($h) {
             $ret .= $this->_sep . $this->_digits[$h] . 'sada';
         }
@@ -316,7 +318,7 @@ class Numbers_Words_et extends Numbers_Words
                 break;
             }
 
-            break; 
+            break;
         }
 
         if ($t != 1 && $d > 0) {
@@ -329,11 +331,11 @@ class Numbers_Words_et extends Numbers_Words
 
         if ($power > 0) {
             if (isset($this->_exponent[$power])) {
-              $lev = $this->_exponent[$power];
+                $lev = $this->_exponent[$power];
             }
-        
+
             if (!isset($lev) || !is_array($lev)) {
-              return null;
+                return null;
             }
 
             $ret .= $this->_sep . $lev[0].($num != 1 && $power!= 3 ? 'it' : '');
@@ -342,7 +344,7 @@ class Numbers_Words_et extends Numbers_Words
         if ($powsuffix != '') {
             $ret .= $this->_sep . $powsuffix;
         }
-    
+
         return $ret;
     }
     // }}}
