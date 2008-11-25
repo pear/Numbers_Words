@@ -1,27 +1,27 @@
 <?php
-/* vim: set expandtab tabstop=4 shiftwidth=4: */
-//
-// +----------------------------------------------------------------------+
-// | PHP version 4                                                        |
-// +----------------------------------------------------------------------+
-// | Copyright (c) 1997-2003 The PHP Group                                |
-// +----------------------------------------------------------------------+
-// | This source file is subject to version 3.0 of the PHP license,       |
-// | that is bundled with this package in the file LICENSE, and is        |
-// | available at through the world-wide-web at                           |
-// | http://www.php.net/license/3_0.txt.                                  |
-// | If you did not receive a copy of the PHP license and are unable to   |
-// | obtain it through the world-wide-web, please send a note to          |
-// | license@php.net so we can mail you a copy immediately.               |
-// +----------------------------------------------------------------------+
-// | Authors: Martin Marrese  <mmare@mecon.gov.ar>                        |
-// | Based On: lang_es.php  -  Xavier Noguer                              |
-// +----------------------------------------------------------------------+
-// $Id$
-//
-// Numbers_Words class extension to spell numbers in Argentinian Spanish 
-// 
-//
+/**
+ * Numbers_Words
+ *
+ * PHP version 4
+ *
+ * Copyright (c) 1997-2006 The PHP Group
+ *
+ * This source file is subject to version 3.0 of the PHP license,
+ * that is bundled with this package in the file LICENSE, and is
+ * available at through the world-wide-web at
+ * http://www.php.net/license/3_0.txt.
+ * If you did not receive a copy of the PHP license and are unable to
+ * obtain it through the world-wide-web, please send a note to
+ * license@php.net so we can mail you a copy immediately.
+ *
+ * @category Numbers
+ * @package  Numbers_Words
+ * @author   Xavier Noguer
+ * @author   Martin Marrese  <mmare@mecon.gov.ar>
+ * @license  PHP 3.0 http://www.php.net/license/3_0.txt
+ * @version  CVS: $Id$
+ * @link     http://pear.php.net/package/Numbers_Words
+ */
 
 /**
  * Class for translating numbers into Argentinian Spanish.
@@ -33,15 +33,19 @@
 /**
  * Include needed files
  */
-require_once("Numbers/Words.php");
+require_once "Numbers/Words.php";
 
 /**
  * Class for translating numbers into Argentinian Spanish.
  * It supports up to decallones (10^6).
  * It doesn't support spanish tonic accents (acentos).
  *
- * @author Martin Marrese
- * @package Numbers_Words
+ * @category Numbers
+ * @package  Numbers_Words
+ * @author   Xavier Noguer
+ * @author   Martin Marrese  <mmare@mecon.gov.ar>
+ * @license  PHP 3.0 http://www.php.net/license/3_0.txt
+ * @link     http://pear.php.net/package/Numbers_Words
  */
 class Numbers_Words_es_AR extends Numbers_Words
 {
@@ -52,15 +56,15 @@ class Numbers_Words_es_AR extends Numbers_Words
      * @var string
      * @access public
      */
-    var $locale      = 'es_AR';
-    
+    var $locale = 'es_AR';
+
     /**
      * Language name in English
      * @var string
      * @access public
      */
-    var $lang        = 'Spanish';
-    
+    var $lang = 'Spanish';
+
     /**
      * Native language name
      * @var string
@@ -109,7 +113,7 @@ class Numbers_Words_es_AR extends Numbers_Words
      * @access private
      */
     var $_sep = ' ';
-    
+
     /**
      * The currency names (based on the below links,
      * informations from central bank websites and on encyclopedias)
@@ -166,18 +170,19 @@ class Numbers_Words_es_AR extends Numbers_Words
      * @access public
      */
     var $def_currency = 'ARS'; // Argentinian Peso
-    
+
     // }}}
     // {{{ toWords()
     /**
      * Converts a number to its word representation
      * in Argentinian Spanish.
      *
-     * @param  float $num     An float between -infinity and infinity inclusive :)
+     * @param float   $num   An float between -infinity and infinity inclusive :)
      *                        that should be converted to a words representation
-     * @param  integer $power The power of ten for the rest of the number to the right.
+     * @param integer $power The power of ten for the rest of the number to the right.
      *                        For example toWords(12,3) should give "doce mil".
      *                        Optional, defaults to 0.
+     *
      * @return string  The corresponding word representation
      *
      * @access private
@@ -189,31 +194,28 @@ class Numbers_Words_es_AR extends Numbers_Words
         $ret = '';
 
         // add a the word for the minus sign if necessary
-        if (substr($num, 0, 1) == '-')
-        {
+        if (substr($num, 0, 1) == '-') {
             $ret = $this->_sep . $this->_minus;
             $num = substr($num, 1);
         }
 
 
         // strip excessive zero signs
-        $num = preg_replace('/^0+/','',$num);
+        $num = preg_replace('/^0+/', '', $num);
 
-        $num_tmp = split ('\.', $num);
+        $num_tmp = split('\.', $num);
 
         $num = $num_tmp[0];
         $dec = (@$num_tmp[1]) ? $num_tmp[1] : '';
 
-        if (strlen($num) > 6)
-        {
+        if (strlen($num) > 6) {
             $current_power = 6;
             // check for highest power
-            if (isset($this->_exponent[$power]))
-            {
+            if (isset($this->_exponent[$power])) {
                 // convert the number above the first 6 digits
                 // with it's corresponding $power.
                 $snum = substr($num, 0, -6);
-                $snum = preg_replace('/^0+/','',$snum);
+                $snum = preg_replace('/^0+/', '', $snum);
                 if ($snum !== '') {
                     $ret .= $this->toWords($snum, $power + 6);
                 }
@@ -222,12 +224,10 @@ class Numbers_Words_es_AR extends Numbers_Words
             if ($num == 0) {
                 return $ret;
             }
-        }
-        elseif ($num == 0 || $num == '') {
+        } elseif ($num == 0 || $num == '') {
             return(' '.$this->_digits[0]);
             $current_power = strlen($num);
-        }
-        else {
+        } else {
             $current_power = strlen($num);
         }
 
@@ -235,8 +235,7 @@ class Numbers_Words_es_AR extends Numbers_Words
         $thousands = floor($num / 1000);
         if ($thousands == 1) {
             $ret .= $this->_sep . 'mil';
-        }
-        elseif ($thousands > 1) {
+        } elseif ($thousands > 1) {
             $ret .= $this->toWords($thousands, 3);
         }
 
@@ -246,141 +245,131 @@ class Numbers_Words_es_AR extends Numbers_Words
         $d = floor($num % 10);
 
         // cientos: doscientos, trescientos, etc...
-        switch ($h)
-        {
-            case 1:
-                if (($d == 0) and ($t == 0)) { // is it's '100' use 'cien'
-                    $ret .= $this->_sep . 'cien';
-                }
-                else {
-                    $ret .= $this->_sep . 'ciento';
-                }
-                break;
-            case 2:
-            case 3:
-            case 4:
-            case 6:
-            case 8:
-                $ret .= $this->_sep . $this->_digits[$h] . 'cientos';
-                break;
-            case 5:
-                $ret .= $this->_sep . 'quinientos';
-                break;
-            case 7:
-                $ret .= $this->_sep . 'setecientos';
-                break;
-            case 9:
-                $ret .= $this->_sep . 'novecientos';
-                break;
+        switch ($h) {
+        case 1:
+            if (($d == 0) and ($t == 0)) { // is it's '100' use 'cien'
+                $ret .= $this->_sep . 'cien';
+            } else {
+                $ret .= $this->_sep . 'ciento';
+            }
+            break;
+        case 2:
+        case 3:
+        case 4:
+        case 6:
+        case 8:
+            $ret .= $this->_sep . $this->_digits[$h] . 'cientos';
+            break;
+        case 5:
+            $ret .= $this->_sep . 'quinientos';
+            break;
+        case 7:
+            $ret .= $this->_sep . 'setecientos';
+            break;
+        case 9:
+            $ret .= $this->_sep . 'novecientos';
+            break;
         }
 
         // decenas: veinte, treinta, etc...
-        switch ($t)
-        {
-            case 9:
-                $ret .= $this->_sep . 'noventa';
-                break;
+        switch ($t) {
+        case 9:
+            $ret .= $this->_sep . 'noventa';
+            break;
 
-            case 8:
-                $ret .= $this->_sep . 'ochenta';
-                break;
+        case 8:
+            $ret .= $this->_sep . 'ochenta';
+            break;
 
-            case 7:
-                $ret .= $this->_sep . 'setenta';
-                break;
+        case 7:
+            $ret .= $this->_sep . 'setenta';
+            break;
 
-            case 6:
-                $ret .= $this->_sep . 'sesenta';
-                break;
+        case 6:
+            $ret .= $this->_sep . 'sesenta';
+            break;
 
-            case 5:
-                $ret .= $this->_sep . 'cincuenta';
-                break;
+        case 5:
+            $ret .= $this->_sep . 'cincuenta';
+            break;
 
-            case 4:
-                $ret .= $this->_sep . 'cuarenta';
-                break;
+        case 4:
+            $ret .= $this->_sep . 'cuarenta';
+            break;
 
-            case 3:
-                $ret .= $this->_sep . 'treinta';
-                break;
+        case 3:
+            $ret .= $this->_sep . 'treinta';
+            break;
 
-            case 2:
-                if ($d == 0) {
-                    $ret .= $this->_sep . 'veinte';
+        case 2:
+            if ($d == 0) {
+                $ret .= $this->_sep . 'veinte';
+            } else {
+                if (($power > 0) and ($d == 1)) {
+                    $ret .= $this->_sep . 'veintiún';
+                } else {
+                    $ret .= $this->_sep . 'veinti' . $this->_digits[$d];
                 }
-                else {
-                    if (($power > 0) and ($d == 1)) {
-                        $ret .= $this->_sep . 'veintiún';
-                    }
-                    else {
-                        $ret .= $this->_sep . 'veinti' . $this->_digits[$d];
-                    }
-                }
+            }
+            break;
+
+        case 1:
+            switch ($d) {
+            case 0:
+                $ret .= $this->_sep . 'diez';
                 break;
 
             case 1:
-                switch ($d)
-                {
-                    case 0:
-                        $ret .= $this->_sep . 'diez';
-                        break;
+                $ret .= $this->_sep . 'once';
+                break;
 
-                    case 1:
-                        $ret .= $this->_sep . 'once';
-                        break;
+            case 2:
+                $ret .= $this->_sep . 'doce';
+                break;
 
-                    case 2:
-                        $ret .= $this->_sep . 'doce';
-                        break;
+            case 3:
+                $ret .= $this->_sep . 'trece';
+                break;
 
-                    case 3:
-                        $ret .= $this->_sep . 'trece';
-                        break;
+            case 4:
+                $ret .= $this->_sep . 'catorce';
+                break;
 
-                    case 4:
-                        $ret .= $this->_sep . 'catorce';
-                        break;
+            case 5:
+                $ret .= $this->_sep . 'quince';
+                break;
 
-                    case 5:
-                        $ret .= $this->_sep . 'quince';
-                        break;
-
-                    case 6:
-                    case 7:
-                    case 9:
-                    case 8:
-                        $ret .= $this->_sep . 'dieci' . $this->_digits[$d];
-                        break;
-                }
+            case 6:
+            case 7:
+            case 9:
+            case 8:
+                $ret .= $this->_sep . 'dieci' . $this->_digits[$d];
+                break;
+            }
             break;
         }
 
         // add digits only if it is a multiple of 10 and not 1x or 2x
-        if (($t != 1) and ($t != 2) and ($d > 0))
-        {
-            if($t != 0) // don't add 'y' for numbers below 10
-            {
+        if (($t != 1) and ($t != 2) and ($d > 0)) {
+
+            // don't add 'y' for numbers below 10
+            if ($t != 0) {
                 // use 'un' instead of 'uno' when there is a suffix ('mil', 'millones', etc...)
-                if(($power > 0) and ($d == 1)) {
+                if (($power > 0) and ($d == 1)) {
                     $ret .= $this->_sep.' y un';
-                }
-                else {
+                } else {
                     $ret .= $this->_sep.'y '.$this->_digits[$d];
                 }
-            }
-            else {
-                if(($power > 0) and ($d == 1)) {
+            } else {
+                if (($power > 0) and ($d == 1)) {
                     $ret .= $this->_sep.'un';
-                }
-                else {
+                } else {
                     $ret .= $this->_sep.$this->_digits[$d];
                 }
             }
         }
 
-        if ($power > 0)
-        {
+        if ($power > 0) {
             if (isset($this->_exponent[$power])) {
                 $lev = $this->_exponent[$power];
             }
@@ -392,20 +381,19 @@ class Numbers_Words_es_AR extends Numbers_Words
             // if it's only one use the singular suffix
             if (($d == 1) and ($t == 0) and ($h == 0)) {
                 $suffix = $lev[0];
-            }
-            else {
+            } else {
                 $suffix = $lev[1];
             }
-            if ($num != 0)  {
+            if ($num != 0) {
                 $ret .= $this->_sep . $suffix;
             }
         }
 
         if ($dec) {
-            $dec = $this->toWords(trim($dec));
-            $ret.= ' con ' . trim ($dec);
+            $dec  = $this->toWords(trim($dec));
+            $ret .= ' con ' . trim($dec);
         }
-        
+
         return $ret;
     }
     // }}}
@@ -416,50 +404,57 @@ class Numbers_Words_es_AR extends Numbers_Words
      * Converts a currency value to its word representation
      * (with monetary units) in Agentinian Spanish language
      *
-     * @param  integer $int_curr An international currency symbol
-     *                 as defined by the ISO 4217 standard (three characters)
-     * @param  integer $decimal A money total amount without fraction part (e.g. amount of dollars)
-     * @param  integer $fraction Fractional part of the money amount (e.g. amount of cents)
-     *                 Optional. Defaults to false.
-     * @param  integer $convert_fraction Convert fraction to words (left as numeric if set to false).
-     *                 Optional. Defaults to true.
+     * @param integer $int_curr         An international currency symbol
+     *                                  as defined by the ISO 4217 standard (three characters)
+     * @param integer $decimal          A money total amount without fraction part (e.g. amount of dollars)
+     * @param integer $fraction         Fractional part of the money amount (e.g. amount of cents)
+     *                                  Optional. Defaults to false.
+     * @param integer $convert_fraction Convert fraction to words (left as numeric if set to false).
+     *                                  Optional. Defaults to true.
      *
      * @return string  The corresponding word representation for the currency
      *
      * @access public
      * @author Martin Marrese
      */
-    function toCurrencyWords($int_curr, $decimal, $fraction = false, $convert_fraction = true) {
+    function toCurrencyWords($int_curr, $decimal, $fraction = false, $convert_fraction = true)
+    {
         $int_curr = strtoupper($int_curr);
         if (!isset($this->_currency_names[$int_curr])) {
             $int_curr = $this->def_currency;
         }
+
         $curr_names = $this->_currency_names[$int_curr];
-        $lev  = ($decimal == 1) ? 0 : 1;
+
+        $lev = ($decimal == 1) ? 0 : 1;
         if ($lev > 0) {
             if (count($curr_names[0]) > 1) {
                 $ret = $curr_names[0][$lev];
             } else {
                 $ret = $curr_names[0][0] . 's';
             }
+
         } else {
             $ret = $curr_names[0][0];
         }
+
         $ret .= $this->_sep . trim($this->toWords($decimal));
-      
+
         if ($fraction !== false) {
             if ($convert_fraction) {
                 $ret .= $this->_sep .'con'. $this->_sep . trim($this->toWords($fraction));
             } else {
                 $ret .= $this->_sep .'con'. $this->_sep . $fraction;
             }
-            $lev  = ($fraction == 1) ? 0 : 1;
+
+            $lev = ($fraction == 1) ? 0 : 1;
             if ($lev > 0) {
                 if (count($curr_names[1]) > 1) {
                     $ret .= $this->_sep . $curr_names[1][$lev];
                 } else {
                     $ret .= $this->_sep . $curr_names[1][0] . 's';
                 }
+
             } else {
                 $ret .= $this->_sep . $curr_names[1][0];
             }
@@ -469,6 +464,6 @@ class Numbers_Words_es_AR extends Numbers_Words
     // }}}
 
 
-    
+
 }
 ?>
