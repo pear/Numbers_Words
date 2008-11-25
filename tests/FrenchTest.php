@@ -20,8 +20,8 @@ declare(encoding='iso-8859-15');
 //
 // Numbers_Words class extension to spell numbers in French.
 //
-if (!defined('PHPUNIT_MAIN_METHOD')) {
-    define('PHPUNIT_MAIN_METHOD', 'Numbers_Words_FrenchTest::main');
+if (!defined('PHPUnit_MAIN_METHOD')) {
+    define('PHPUnit_MAIN_METHOD', 'Numbers_Words_FrenchTest::main');
 }
 
 require_once 'Numbers/Words.php';
@@ -144,7 +144,7 @@ class Numbers_Words_FrenchTest extends PHPUnit_Framework_TestCase
     }
 }
 
-if (PHPUNIT_MAIN_METHOD == 'Numbers_Words_FrenchTest::main') {
+if (PHPUnit_MAIN_METHOD == 'Numbers_Words_FrenchTest::main') {
     Numbers_Words_FrenchTest::main();
 }
 ?>

@@ -18,12 +18,11 @@
 // +----------------------------------------------------------------------+
 //
 
-if (!defined('PHPUNIT_MAIN_METHOD')) {
-    define('PHPUNIT_MAIN_METHOD', 'Numbers_Words_AllTests::main');
+if (!defined('PHPUnit_MAIN_METHOD')) {
+    define('PHPUnit_MAIN_METHOD', 'Numbers_Words_AllTests::main');
 }
 
 require_once 'PHPUnit/Framework/TestSuite.php';
-require_once 'PHPUnit/TextUI/TestRunner.php';
 
 require_once 'FrenchTest.php';
 require_once 'FrenchBeTest.php';
@@ -35,6 +34,7 @@ class Numbers_Words_AllTests {
 
     public static function main()
     {
+        require_once 'PHPUnit/TextUI/TestRunner.php';
         PHPUnit_TextUI_TestRunner::run(self::suite());
     }
 
@@ -52,6 +52,7 @@ class Numbers_Words_AllTests {
     }
 }
 
-if (PHPUNIT_MAIN_METHOD == 'Numbers_Words_AllTests::main') {
+if (PHPUnit_MAIN_METHOD == 'Numbers_Words_AllTests::main') {
     Numbers_Words_AllTests::main();
 }
+?>
