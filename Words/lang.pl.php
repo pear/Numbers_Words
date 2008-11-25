@@ -1,26 +1,26 @@
 <?php
-/* vim: set expandtab tabstop=4 softtabstop=4 shiftwidth=4: */
-//
-// +----------------------------------------------------------------------+
-// | PHP version 4                                                        |
-// +----------------------------------------------------------------------+
-// | Copyright (c) 1997-2003 The PHP Group                                |
-// +----------------------------------------------------------------------+
-// | This source file is subject to version 3.0 of the PHP license,       |
-// | that is bundled with this package in the file LICENSE, and is        |
-// | available at through the world-wide-web at                           |
-// | http://www.php.net/license/3_0.txt.                                  |
-// | If you did not receive a copy of the PHP license and are unable to   |
-// | obtain it through the world-wide-web, please send a note to          |
-// | license@php.net so we can mail you a copy immediately.               |
-// +----------------------------------------------------------------------+
-// | Authors: Piotr Klaban <makler@man.torun.pl>                          |
-// +----------------------------------------------------------------------+
-//
-// $Id$
-//
-// Numbers_Words class extension to spell numbers in Polish.
-//
+/**
+ * Numbers_Words
+ *
+ * PHP version 4
+ *
+ * Copyright (c) 1997-2006 The PHP Group
+ *
+ * This source file is subject to version 3.0 of the PHP license,
+ * that is bundled with this package in the file LICENSE, and is
+ * available at through the world-wide-web at
+ * http://www.php.net/license/3_0.txt.
+ * If you did not receive a copy of the PHP license and are unable to
+ * obtain it through the world-wide-web, please send a note to
+ * license@php.net so we can mail you a copy immediately.
+ *
+ * @category Numbers
+ * @package  Numbers_Words
+ * @author   Piotr Klaban <makler@man.torun.pl>
+ * @license  PHP 3.0 http://www.php.net/license/3_0.txt
+ * @version  CVS: $Id$
+ * @link     http://pear.php.net/package/Numbers_Words
+ */
 
 /**
  * Class for translating numbers into Polish.
@@ -32,32 +32,35 @@
 /**
  * Include needed files
  */
-require_once("Numbers/Words.php");
+require_once "Numbers/Words.php";
 
 /**
  * Class for translating numbers into Polish.
  *
- * @author Piotr Klaban
- * @package Numbers_Words
+ * @category Numbers
+ * @package  Numbers_Words
+ * @author   Piotr Klaban <makler@man.torun.pl>
+ * @license  PHP 3.0 http://www.php.net/license/3_0.txt
+ * @link     http://pear.php.net/package/Numbers_Words
  */
 class Numbers_Words_pl extends Numbers_Words
 {
 
     // {{{ properties
-    
+
     /**
      * Locale name
      * @var string
      * @access public
      */
-    var $locale      = 'pl';
+    var $locale = 'pl';
 
     /**
      * Language name in English
      * @var string
      * @access public
      */
-    var $lang        = 'Polish';
+    var $lang = 'Polish';
 
     /**
      * Native language name
@@ -72,7 +75,7 @@ class Numbers_Words_pl extends Numbers_Words
      * @access private
      */
     var $_minus = 'minus'; // minus sign
-    
+
     /**
      * The sufixes for exponents (singular and plural)
      * Names based on:
@@ -125,7 +128,7 @@ class Numbers_Words_pl extends Numbers_Words
       543 => array('nonagiliard','nonagiliardy','nonagiliardów'),
       600 => array('centylion','centyliony','centylionów'),
       603 => array('centyliard','centyliardy','centyliardów'),
-  6000018 => array('milinilitrylion','milinilitryliony','milinilitrylionów')
+      6000018 => array('milinilitrylion','milinilitryliony','milinilitrylionów')
         );
 
     /**
@@ -208,12 +211,12 @@ class Numbers_Words_pl extends Numbers_Words
      * Converts a number to its word representation
      * in Polish language
      *
-     * @param  integer $num   An integer between -infinity and infinity inclusive :)
-     *                        that need to be converted to words
-     * @param  integer $power The power of ten for the rest of the number to the right.
-     *                        Optional, defaults to 0.
-     * @param  integer $powsuffix The power name to be added to the end of the return string.
-     *                        Used internally. Optional, defaults to ''.
+     * @param integer $num       An integer between -infinity and infinity inclusive :)
+     *                           that need to be converted to words
+     * @param integer $power     The power of ten for the rest of the number to the right.
+     *                           Optional, defaults to 0.
+     * @param integer $powsuffix The power name to be added to the end of the return string.
+     *                            Used internally. Optional, defaults to ''.
      *
      * @return string  The corresponding word representation
      *
@@ -221,201 +224,211 @@ class Numbers_Words_pl extends Numbers_Words
      * @author Piotr Klaban <makler@man.torun.pl>
      * @since  PHP 4.2.3
      */
-    function toWords($num, $power = 0, $powsuffix = '') {
-      $ret = '';        
+    function toWords($num, $power = 0, $powsuffix = '')
+    {
+        $ret = '';
 
-      // add a minus sign
-      if (substr($num, 0, 1) == '-') {
-        $ret = $this->_sep . $this->_minus;
-        $num = substr($num, 1);
-      }
-        
-      // strip excessive zero signs and spaces
-      $num = trim($num);
-      $num = preg_replace('/^0+/','',$num);
-        
-      if (strlen($num) > 3) {
-          $maxp = strlen($num)-1;
-          $curp = $maxp;
-          for ($p = $maxp; $p > 0; --$p) { // power
-            
-            // check for highest power
-            if (isset($this->_exponent[$p])) {
-              // send substr from $curp to $p
-              $snum = substr($num, $maxp - $curp, $curp - $p + 1);
-              $snum = preg_replace('/^0+/','',$snum);
-              if ($snum !== '') {
-                  $cursuffix = $this->_exponent[$power][count($this->_exponent[$power])-1];
-                  if ($powsuffix != '')
-                    $cursuffix .= $this->_sep . $powsuffix;
-                  $ret .= $this->toWords($snum, $p, $cursuffix);
-              }
-              $curp = $p - 1;
-              continue;
+        // add a minus sign
+        if (substr($num, 0, 1) == '-') {
+            $ret = $this->_sep . $this->_minus;
+            $num = substr($num, 1);
+        }
+
+        // strip excessive zero signs and spaces
+        $num = trim($num);
+        $num = preg_replace('/^0+/', '', $num);
+
+        if (strlen($num) > 3) {
+            $maxp = strlen($num)-1;
+            $curp = $maxp;
+            for ($p = $maxp; $p > 0; --$p) { // power
+
+                // check for highest power
+                if (isset($this->_exponent[$p])) {
+                    // send substr from $curp to $p
+                    $snum = substr($num, $maxp - $curp, $curp - $p + 1);
+                    $snum = preg_replace('/^0+/', '', $snum);
+                    if ($snum !== '') {
+                        $cursuffix = $this->_exponent[$power][count($this->_exponent[$power])-1];
+                        if ($powsuffix != '') {
+                            $cursuffix .= $this->_sep . $powsuffix;
+                        }
+
+                        $ret .= $this->toWords($snum, $p, $cursuffix);
+                    }
+                    $curp = $p - 1;
+                    continue;
+                }
             }
-          }
-          $num = substr($num, $maxp - $curp, $curp - $p + 1);
-          if ($num == 0) {
-              return $ret;
-          }
-      } elseif ($num == 0 || $num == '') {
-        return $this->_sep . $this->_digits[0];
-      }
-    
-      $h = $t = $d = 0;
-      
-      switch(strlen($num)) {
+            $num = substr($num, $maxp - $curp, $curp - $p + 1);
+            if ($num == 0) {
+                return $ret;
+            }
+        } elseif ($num == 0 || $num == '') {
+            return $this->_sep . $this->_digits[0];
+        }
+
+        $h = $t = $d = 0;
+
+        switch(strlen($num)) {
         case 3:
-          $h = (int)substr($num,-3,1);
+            $h = (int)substr($num, -3, 1);
 
         case 2:
-          $t = (int)substr($num,-2,1);
+            $t = (int)substr($num, -2, 1);
 
         case 1:
-          $d = (int)substr($num,-1,1);
-          break;
+            $d = (int)substr($num, -1, 1);
+            break;
 
         case 0:
-          return;
-          break;
-      }
-
-      switch ($h) {
-      case 9:
-          $ret .= $this->_sep . 'dziewiêæset';
-          break;
-
-      case 8:
-          $ret .= $this->_sep . 'osiemset';
-          break;
-
-      case 7:
-          $ret .= $this->_sep . 'siedemset';
-          break;
-
-      case 6:
-          $ret .= $this->_sep . 'sze¶æset';
-          break;
-
-      case 5:
-          $ret .= $this->_sep . 'piêæset';
-          break;
-
-      case 4:
-          $ret .= $this->_sep . 'czterysta';
-          break;
-
-      case 3:
-          $ret .= $this->_sep . 'trzysta';
-          break;
-
-      case 2:
-          $ret .= $this->_sep . 'dwie¶cie';
-          break;
-
-      case 1:
-          $ret .= $this->_sep . 'sto';
-          break;
-      }
-
-      switch ($t) {
-      case 9:
-      case 8:
-      case 7:
-      case 6:
-      case 5:
-          $ret .= $this->_sep . $this->_digits[$t] . 'dziesi±t';
-          break;
-
-      case 4:
-          $ret .= $this->_sep . 'czterdzie¶ci';
-          break;
-
-      case 3:
-          $ret .= $this->_sep . 'trzydzie¶ci';
-          break;
-
-      case 2:
-          $ret .= $this->_sep . 'dwadzie¶cia';
-          break;
-
-      case 1:
-          switch ($d) {
-          case 0:
-              $ret .= $this->_sep . 'dziesiêæ';
-              break;
-
-          case 1:
-              $ret .= $this->_sep . 'jedena¶cie';
-              break;
-
-          case 2:
-          case 3:
-          case 7:
-          case 8:
-              $ret .= $this->_sep . $this->_digits[$d] . 'na¶cie';
-              break;
-
-          case 4:
-              $ret .= $this->_sep . 'czterna¶cie';
-              break;
-
-          case 5:
-              $ret .= $this->_sep . 'piêtna¶cie';
-              break;
-
-          case 6:
-              $ret .= $this->_sep . 'szesna¶cie';
-              break;
-
-          case 9:
-              $ret .= $this->_sep . 'dziewiêtna¶cie';
-              break;
-          }
-          break; 
-      }
-
-      if ($t != 1 && $d > 0)
-        $ret .= $this->_sep . $this->_digits[$d];
-  
-      if ($t == 1)
-        $d = 0;
-
-      if (( $h + $t ) > 0 && $d == 1)
-        $d = 0;
-
-      if ($power > 0) {
-        if (isset($this->_exponent[$power]))
-          $lev = $this->_exponent[$power];
-
-        if (!isset($lev) || !is_array($lev))
-          return null;
- 
-        switch ($d) {
-          case 1:
-            $suf = $lev[0];
-            break;
-          case 2:
-          case 3:
-          case 4:
-            $suf = $lev[1];
-            break;
-          case 0:
-          case 5:
-          case 6:
-          case 7:
-          case 8:
-          case 9:
-            $suf = $lev[2];
+            return;
             break;
         }
-        $ret .= $this->_sep . $suf;
-      }
-  
-      if ($powsuffix != '')
-        $ret .= $this->_sep . $powsuffix;
 
-      return $ret;
+        switch ($h) {
+        case 9:
+            $ret .= $this->_sep . 'dziewiêæset';
+            break;
+
+        case 8:
+            $ret .= $this->_sep . 'osiemset';
+            break;
+
+        case 7:
+            $ret .= $this->_sep . 'siedemset';
+            break;
+
+        case 6:
+            $ret .= $this->_sep . 'sze¶æset';
+            break;
+
+        case 5:
+            $ret .= $this->_sep . 'piêæset';
+            break;
+
+        case 4:
+            $ret .= $this->_sep . 'czterysta';
+            break;
+
+        case 3:
+            $ret .= $this->_sep . 'trzysta';
+            break;
+
+        case 2:
+            $ret .= $this->_sep . 'dwie¶cie';
+            break;
+
+        case 1:
+            $ret .= $this->_sep . 'sto';
+            break;
+        }
+
+        switch ($t) {
+        case 9:
+        case 8:
+        case 7:
+        case 6:
+        case 5:
+            $ret .= $this->_sep . $this->_digits[$t] . 'dziesi±t';
+            break;
+
+        case 4:
+            $ret .= $this->_sep . 'czterdzie¶ci';
+            break;
+
+        case 3:
+            $ret .= $this->_sep . 'trzydzie¶ci';
+            break;
+
+        case 2:
+            $ret .= $this->_sep . 'dwadzie¶cia';
+            break;
+
+        case 1:
+            switch ($d) {
+            case 0:
+                $ret .= $this->_sep . 'dziesiêæ';
+                break;
+
+            case 1:
+                $ret .= $this->_sep . 'jedena¶cie';
+                break;
+
+            case 2:
+            case 3:
+            case 7:
+            case 8:
+                $ret .= $this->_sep . $this->_digits[$d] . 'na¶cie';
+                break;
+
+            case 4:
+                $ret .= $this->_sep . 'czterna¶cie';
+                break;
+
+            case 5:
+                $ret .= $this->_sep . 'piêtna¶cie';
+                break;
+
+            case 6:
+                $ret .= $this->_sep . 'szesna¶cie';
+                break;
+
+            case 9:
+                $ret .= $this->_sep . 'dziewiêtna¶cie';
+                break;
+            }
+            break;
+        }
+
+        if ($t != 1 && $d > 0) {
+            $ret .= $this->_sep . $this->_digits[$d];
+        }
+
+        if ($t == 1) {
+            $d = 0;
+        }
+
+        if (( $h + $t ) > 0 && $d == 1) {
+            $d = 0;
+        }
+
+        if ($power > 0) {
+            if (isset($this->_exponent[$power])) {
+                $lev = $this->_exponent[$power];
+            }
+
+            if (!isset($lev) || !is_array($lev)) {
+                return null;
+            }
+
+            switch ($d) {
+            case 1:
+                $suf = $lev[0];
+                break;
+            case 2:
+            case 3:
+            case 4:
+                $suf = $lev[1];
+                break;
+            case 0:
+            case 5:
+            case 6:
+            case 7:
+            case 8:
+            case 9:
+                $suf = $lev[2];
+                break;
+            }
+
+            $ret .= $this->_sep . $suf;
+        }
+
+        if ($powsuffix != '') {
+            $ret .= $this->_sep . $powsuffix;
+        }
+
+        return $ret;
     }
     // }}}
     // {{{ toCurrencyWords()
@@ -424,13 +437,13 @@ class Numbers_Words_pl extends Numbers_Words
      * Converts a currency value to its word representation
      * (with monetary units) in Polish language
      *
-     * @param  integer $int_curr An international currency symbol
-     *                 as defined by the ISO 4217 standard (three characters)
-     * @param  integer $decimal A money total amount without fraction part (e.g. amount of dollars)
-     * @param  integer $fraction Fractional part of the money amount (e.g. amount of cents)
-     *                 Optional. Defaults to false.
-     * @param  integer $convert_fraction Convert fraction to words (left as numeric if set to false).
-     *                 Optional. Defaults to true.
+     * @param integer $int_curr         An international currency symbol
+     *                                  as defined by the ISO 4217 standard (three characters)
+     * @param integer $decimal          A money total amount without fraction part (e.g. amount of dollars)
+     * @param integer $fraction         Fractional part of the money amount (e.g. amount of cents)
+     *                                  Optional. Defaults to false.
+     * @param integer $convert_fraction Convert fraction to words (left as numeric if set to false).
+     *                                  Optional. Defaults to true.
      *
      * @return string  The corresponding word representation for the currency
      *
@@ -438,36 +451,40 @@ class Numbers_Words_pl extends Numbers_Words
      * @author Piotr Klaban <makler@man.torun.pl>
      * @since  Numbers_Words 0.4
      */
-    function toCurrencyWords($int_curr, $decimal, $fraction = false, $convert_fraction = true) {
+    function toCurrencyWords($int_curr, $decimal, $fraction = false, $convert_fraction = true)
+    {
         $int_curr = strtoupper($int_curr);
         if (!isset($this->_currency_names[$int_curr])) {
             $int_curr = $this->def_currency;
         }
+
         $curr_names = $this->_currency_names[$int_curr];
+
         $ret  = trim($this->toWords($decimal));
         $lev  = $this->_get_numlevel($decimal);
         $ret .= $this->_sep . $curr_names[0][$lev];
-      
+
         if ($fraction !== false) {
             if ($convert_fraction) {
                 $ret .= $this->_sep . trim($this->toWords($fraction));
             } else {
                 $ret .= $this->_sep . $fraction;
             }
-            $lev  = $this->_get_numlevel($fraction);    
+            $lev  = $this->_get_numlevel($fraction);
             $ret .= $this->_sep . $curr_names[1][$lev];
         }
+
         return $ret;
     }
     // }}}
     // {{{ _get_numlevel()
-    
+
     /**
      * Returns grammatical "level" of the number - this is necessary
      * for choosing the right suffix for exponents and currency names.
      *
-     * @param  integer $num   An integer between -infinity and infinity inclusive
-     *                        that need to be converted to words
+     * @param integer $num An integer between -infinity and infinity inclusive
+     *                     that need to be converted to words
      *
      * @return integer  The grammatical "level" of the number.
      *
@@ -475,42 +492,47 @@ class Numbers_Words_pl extends Numbers_Words
      * @author Piotr Klaban <makler@man.torun.pl>
      * @since  Numbers_Words 0.4
      */
-    function _get_numlevel($num) {
-        $num = (int)substr($num,-3);
+    function _get_numlevel($num)
+    {
+        $num = (int)substr($num, -3);
+
         $h = $t = $d = $lev = 0;
-        
-        switch(strlen($num)) {
-            case 3:
-                $h = (int)substr($num,-3,1);
 
-            case 2:
-                $t = (int)substr($num,-2,1);
+        switch (strlen($num)) {
+        case 3:
+            $h = (int)substr($num, -3, 1);
 
-            case 1:
-                $d = (int)substr($num,-1,1);
-                break;
+        case 2:
+            $t = (int)substr($num, -2, 1);
 
-            case 0:
-                return $lev;
-                break;
+        case 1:
+            $d = (int)substr($num, -1, 1);
+            break;
+
+        case 0:
+            return $lev;
+            break;
         }
-        if ($t == 1)
-            $d = 0;
 
-        if (( $h + $t ) > 0 && $d == 1)
+        if ($t == 1) {
             $d = 0;
+        }
+
+        if (( $h + $t ) > 0 && $d == 1) {
+            $d = 0;
+        }
 
         switch ($d) {
-            case 1:
-                $lev = 0;
-                break;
-            case 2:
-            case 3:
-            case 4:
-                $lev = 1;
-                break;
-            default:
-                $lev = 2;
+        case 1:
+            $lev = 0;
+            break;
+        case 2:
+        case 3:
+        case 4:
+            $lev = 1;
+            break;
+        default:
+            $lev = 2;
         }
         return $lev;
     }
