@@ -25,8 +25,9 @@ if (!defined('PHPUNIT_MAIN_METHOD')) {
 require_once 'PHPUnit/Framework/TestSuite.php';
 require_once 'PHPUnit/TextUI/TestRunner.php';
 
-require_once 'SpanishTest.php';
+require_once 'GermanTest.php';
 require_once 'PolishTest.php';
+require_once 'SpanishTest.php';
 
 class Numbers_Words_AllTests {
 
@@ -39,8 +40,9 @@ class Numbers_Words_AllTests {
     {
         $suite = new PHPUnit_Framework_TestSuite();
 
-        $suite->addTestSuite('Numbers_Words_Spanish_Test');
+        $suite->addTestSuite('Numbers_Words_German_Test');
         $suite->addTestSuite('Numbers_Words_Polish_Test');
+        $suite->addTestSuite('Numbers_Words_Spanish_Test');
 
         return $suite;
     }
