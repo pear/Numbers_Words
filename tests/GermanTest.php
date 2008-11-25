@@ -21,7 +21,7 @@ declare(encoding='iso-8859-15');
 // Numbers_Words class extension to spell numbers in German.
 //
 if (!defined('PHPUNIT_MAIN_METHOD')) {
-    define('PHPUNIT_MAIN_METHOD', 'Numbers_Words_German_Test::main');
+    define('PHPUNIT_MAIN_METHOD', 'Numbers_Words_GermanTest::main');
 }
 
 require_once 'Numbers/Words.php';
@@ -144,7 +144,7 @@ class Numbers_Words_GermanTest extends PHPUnit_Framework_TestCase
     }
 }
 
-if (PHPUNIT_MAIN_METHOD == 'Numbers_Words_German_Test::main') {
-    Numbers_Words_German_Test::main();
+if (PHPUNIT_MAIN_METHOD == 'Numbers_Words_GermanTest::main') {
+    Numbers_Words_GermanTest::main();
 }
 ?>
