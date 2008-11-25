@@ -16,7 +16,7 @@
  *
  * @category Numbers
  * @package  Numbers_Words
- * @author   Hadar Porat
+ * @author   Hadar Porat <hpman28@gmail.com>
  * @license  PHP 3.0 http://www.php.net/license/3_0.txt
  * @version  CVS: $Id$
  * @link     http://pear.php.net/package/Numbers_Words
@@ -39,7 +39,7 @@ require_once "Numbers/Words.php";
  *
  * @category Numbers
  * @package  Numbers_Words
- * @author   Hadar Porat
+ * @author   Hadar Porat <hpman28@gmail.com>
  * @license  PHP 3.0 http://www.php.net/license/3_0.txt
  * @link     http://pear.php.net/package/Numbers_Words
  */
