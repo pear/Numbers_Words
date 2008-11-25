@@ -40,9 +40,9 @@ class Numbers_Words_AllTests {
     {
         $suite = new PHPUnit_Framework_TestSuite();
 
-        $suite->addTestSuite('Numbers_Words_German_Test');
-        $suite->addTestSuite('Numbers_Words_Polish_Test');
-        $suite->addTestSuite('Numbers_Words_Spanish_Test');
+        $suite->addTestSuite('Numbers_Words_GermanTest');
+        $suite->addTestSuite('Numbers_Words_PolishTest');
+        $suite->addTestSuite('Numbers_Words_SpanishTest');
 
         return $suite;
     }

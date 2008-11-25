@@ -27,7 +27,7 @@ if (!defined('PHPUNIT_MAIN_METHOD')) {
 require_once 'Numbers/Words.php';
 require_once 'PHPUnit/Framework.php';
 
-class Numbers_Words_German_Test extends PHPUnit_Framework_TestCase
+class Numbers_Words_GermanTest extends PHPUnit_Framework_TestCase
 {
     var $handle;
 
@@ -35,7 +35,7 @@ class Numbers_Words_German_Test extends PHPUnit_Framework_TestCase
     {
         require_once 'PHPUnit/TextUI/TestRunner.php';
         PHPUnit_TextUI_TestRunner::run(
-            new PHPUnit_Framework_TestSuite('Numbers_Words_German_Test')
+            new PHPUnit_Framework_TestSuite('Numbers_Words_GermanTest')
         );
     }
 

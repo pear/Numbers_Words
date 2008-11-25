@@ -23,7 +23,7 @@
 require_once 'Numbers/Words.php';
 require_once 'PHPUnit/Framework/TestCase.php';
 
-class Numbers_Words_Polish_Test extends PHPUnit_Framework_TestCase
+class Numbers_Words_PolishTest extends PHPUnit_Framework_TestCase
 {
     var $handle;
 
