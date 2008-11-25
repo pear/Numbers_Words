@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package packagerversion="1.4.8" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
-http://pear.php.net/dtd/tasks-1.0.xsd
-http://pear.php.net/dtd/package-2.0
-http://pear.php.net/dtd/package-2.0.xsd">
+<package packagerversion="1.7.1" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
  <name>Numbers_Words</name>
  <channel>pear.php.net</channel>
  <summary>The PEAR Numbers_Words package provides methods for spelling numerals in words.</summary>
@@ -37,24 +34,23 @@ The following languages are supported:
     * pl (Polish) by me
     * pt_BR (Brazilian Portuguese) by Marcelo Subtil Marcal and Mario H.C.T.
     * ru (Russian) by Andrey Demenev
-    * sv (Swedish) by Robin Ericsson
-  
- </description>
+    * sv (Swedish) by Robin Ericsson</description>
  <lead>
   <name>Piotr Klaban</name>
   <user>makler</user>
   <email>makler@man.torun.pl</email>
-  <active>yes</active>
+  <active>no</active>
  </lead>
  <developer>
   <name>Marcelo Subtil Marcal</name>
   <user>msmarcal</user>
   <email>msmarcal@php.net</email>
-  <active>yes</active>
+  <active>no</active>
  </developer>
- <date>2006-06-12</date>
+ <date>2008-11-25</date>
+ <time>18:59:29</time>
  <version>
-  <release>0.15.0</release>
+  <release>0.16.0</release>
   <api>0.15.0</api>
  </version>
  <stability>
@@ -62,51 +58,42 @@ The following languages are supported:
   <api>beta</api>
  </stability>
  <license uri="http://www.php.net/license">PHP License</license>
- <notes>
-* New file for Dutch language (Thanks to WHAM van Dinter);
-* package.xml updated to version 2.0;
-* Bugs fixed:
-- #5618 locale name (and file name) for Estonian is changed from ee to et;
-- #6654 bug in Russian translation (if x modulo 10 was equal to 0);
-* New feature added:
-- #7339 new Numbers_Words::getLocales() method is available (Thanks to Bertrand Gugger).
- </notes>
+ <notes>Bug #10744 Docblock for getLocales() is totally wrong
+Bug #14667 bad trascription for 101 numbers and 102 thousands
+Request #14746 Swap to PHPUnit 3
+Bug #14988 Non-int parsing returns bogus result
+Request #15145 PHPCS results - Fix 2098 errors and 422 warnings</notes>
  <contents>
-  <dir name="/">
-   <dir name="tests">
-    <file baseinstalldir="Numbers" name="clitest.php" role="test" />
-    <file baseinstalldir="Numbers" name="Numbers_Words_Polish_testcase.php" role="test" />
-    <file baseinstalldir="Numbers" name="Numbers_Words_Spanish_testcase.php" role="test" />
-    <file baseinstalldir="Numbers" name="test-numbers-words.php" role="test" />
-   </dir> <!-- /tests -->
-   <dir name="Words">
-    <file baseinstalldir="Numbers" name="lang.bg.php" role="php" />
-    <file baseinstalldir="Numbers" name="lang.cs.php" role="php" />
-    <file baseinstalldir="Numbers" name="lang.de.php" role="php" />
-    <file baseinstalldir="Numbers" name="lang.dk.php" role="php" />
-    <file baseinstalldir="Numbers" name="lang.en_100.php" role="php" />
-    <file baseinstalldir="Numbers" name="lang.en_GB.php" role="php" />
-    <file baseinstalldir="Numbers" name="lang.en_US.php" role="php" />
-    <file baseinstalldir="Numbers" name="lang.es.php" role="php" />
-    <file baseinstalldir="Numbers" name="lang.es_AR.php" role="php" />
-    <file baseinstalldir="Numbers" name="lang.et.php" role="php" />
-    <file baseinstalldir="Numbers" name="lang.fr.php" role="php" />
-    <file baseinstalldir="Numbers" name="lang.fr_BE.php" role="php" />
-    <file baseinstalldir="Numbers" name="lang.he.php" role="php" />
-    <file baseinstalldir="Numbers" name="lang.hu_HU.php" role="php" />
-    <file baseinstalldir="Numbers" name="lang.id.php" role="php" />
-    <file baseinstalldir="Numbers" name="lang.it_IT.php" role="php" />
-    <file baseinstalldir="Numbers" name="lang.lt.php" role="php" />
-    <file baseinstalldir="Numbers" name="lang.nl.php" role="php" />
-    <file baseinstalldir="Numbers" name="lang.pl.php" role="php" />
-    <file baseinstalldir="Numbers" name="lang.pt_BR.php" role="php" />
-    <file baseinstalldir="Numbers" name="lang.ru.php" role="php" />
-    <file baseinstalldir="Numbers" name="lang.sv.php" role="php" />
-   </dir> <!-- /Words -->
-   <file baseinstalldir="Numbers" name="ChangeLog" role="doc" />
-   <file baseinstalldir="Numbers" name="README" role="doc" />
-   <file baseinstalldir="Numbers" name="Words.php" role="php" />
-  </dir> <!-- / -->
+  <dir baseinstalldir="Numbers" name="/">
+   <file baseinstalldir="Numbers" md5sum="9b384df1cead412f608852dc692dc14f" name="tests/PolishTest.php" role="test" />
+   <file baseinstalldir="Numbers" md5sum="cec6e25eb8ee16cd9f1818d6392533d5" name="tests/SpanishTest.php" role="test" />
+   <file baseinstalldir="Numbers" md5sum="5064d6649e9db2325999ebdd9114a510" name="tests/test-numbers-words.php" role="test" />
+   <file baseinstalldir="Numbers" md5sum="98a4a4ab9931afc77671d831929651a6" name="Words/lang.bg.php" role="php" />
+   <file baseinstalldir="Numbers" md5sum="2a95cfae322e09e44e0919152e30cf20" name="Words/lang.cs.php" role="php" />
+   <file baseinstalldir="Numbers" md5sum="4f453e6e906802313146808bae7ed298" name="Words/lang.de.php" role="php" />
+   <file baseinstalldir="Numbers" md5sum="cc374ff92dc7cb028324a5d392ff2e28" name="Words/lang.dk.php" role="php" />
+   <file baseinstalldir="Numbers" md5sum="933522cca63f459819957a634a2fcc4d" name="Words/lang.en_100.php" role="php" />
+   <file baseinstalldir="Numbers" md5sum="d1eee1e83d14b420209137c57b6b5577" name="Words/lang.en_GB.php" role="php" />
+   <file baseinstalldir="Numbers" md5sum="99309ef5de1d4fec8b38923dba3680bf" name="Words/lang.en_US.php" role="php" />
+   <file baseinstalldir="Numbers" md5sum="3def0f85e98209efcd135a9d0dc15f6e" name="Words/lang.es.php" role="php" />
+   <file baseinstalldir="Numbers" md5sum="4f4bb287791cc8bb225e43875395484d" name="Words/lang.es_AR.php" role="php" />
+   <file baseinstalldir="Numbers" md5sum="9f658797ea09e206c315fc2daae3cb82" name="Words/lang.et.php" role="php" />
+   <file baseinstalldir="Numbers" md5sum="25636b13ddc4d4cde15714c1fa2a2ab0" name="Words/lang.fr.php" role="php" />
+   <file baseinstalldir="Numbers" md5sum="041fb30de1d8e64bf089fbd4301a6cf0" name="Words/lang.fr_BE.php" role="php" />
+   <file baseinstalldir="Numbers" md5sum="916262b5d17c0030d19792279d6c8cf8" name="Words/lang.he.php" role="php" />
+   <file baseinstalldir="Numbers" md5sum="2a6816e610590b266d6ee82571da9a50" name="Words/lang.hu_HU.php" role="php" />
+   <file baseinstalldir="Numbers" md5sum="006c53c43cf7a568826f43139324c895" name="Words/lang.id.php" role="php" />
+   <file baseinstalldir="Numbers" md5sum="272cc226da3ed94fab2ed63febb02bbf" name="Words/lang.it_IT.php" role="php" />
+   <file baseinstalldir="Numbers" md5sum="b3f61b03abcef90c088fa079b588b64c" name="Words/lang.lt.php" role="php" />
+   <file baseinstalldir="Numbers" md5sum="7bdd969d213f6452f07a67adc0c68cb8" name="Words/lang.nl.php" role="php" />
+   <file baseinstalldir="Numbers" md5sum="c12931ef1060a591269375bc06d699cd" name="Words/lang.pl.php" role="php" />
+   <file baseinstalldir="Numbers" md5sum="daf39e77f65aab8994174fba3d3e247c" name="Words/lang.pt_BR.php" role="php" />
+   <file baseinstalldir="Numbers" md5sum="f35b889acb74377e94d1d38752c5e799" name="Words/lang.ru.php" role="php" />
+   <file baseinstalldir="Numbers" md5sum="caffe368338724f76dfc0bb39d83396a" name="Words/lang.sv.php" role="php" />
+   <file baseinstalldir="Numbers" md5sum="1280e574f91fa6223f615d7c7c865bc8" name="ChangeLog" role="doc" />
+   <file baseinstalldir="Numbers" md5sum="02abe8b4dd4804b4dbce9eb955de37d9" name="README" role="doc" />
+   <file baseinstalldir="Numbers" md5sum="b2d401a8678403e8fdbb2fe5fbaeff18" name="Words.php" role="php" />
+  </dir>
  </contents>
  <dependencies>
   <required>
@@ -122,214 +109,42 @@ The following languages are supported:
  <changelog>
   <release>
    <version>
-    <release>0.14.0</release>
-    <api>0.14.0</api>
+    <release>0.1</release>
+    <api>0.1</api>
    </version>
    <stability>
     <release>beta</release>
     <api>beta</api>
    </stability>
-   <date>2005-09-05</date>
+   <date>2002-11-15</date>
    <license uri="http://www.php.net/license">PHP License</license>
-   <notes>Fixed plural of pence (Thanks to Peter Dunham and Rob King). Added toCurrency method to en_GB language file. Fraction part can be written in digits (Thanks to Rob King).
-   </notes>
-  </release>
- 
-  <release>
-   <version>
-    <release>0.13.1</release>
-    <api>0.13.0</api>
-   </version>
-   <stability>
-    <release>beta</release>
-    <api>beta</api>
-   </stability>
-   <date>2005-03-09</date>
-   <license uri="http://www.php.net/license">PHP License</license>
-   <notes>Fixed a problem with no leading zero in fraction of the currency value (reported by geekdom at gmail dot com).
-   </notes>
+   <notes>This is the initial release of the Numbers_Words package.</notes>
   </release>
   <release>
    <version>
-    <release>0.13.0</release>
-    <api>0.13.0</api>
+    <release>0.2</release>
+    <api>0.2</api>
    </version>
    <stability>
     <release>beta</release>
     <api>beta</api>
    </stability>
-   <date>2005-02-28</date>
+   <date>2002-11-19</date>
    <license uri="http://www.php.net/license">PHP License</license>
-   <notes>New files for Czech (thanks to Petr &apos;PePa&apos; Pavel) and Hebrew (thanks to Hadar Porat) languages.
-   </notes>
+   <notes>New lang definition file for en_100 (Donald Knuth number system).</notes>
   </release>
   <release>
    <version>
-    <release>0.12.0</release>
-    <api>0.12.0</api>
+    <release>0.3</release>
+    <api>0.3</api>
    </version>
    <stability>
     <release>beta</release>
     <api>beta</api>
    </stability>
-   <date>2005-01-11</date>
+   <date>2002-11-26</date>
    <license uri="http://www.php.net/license">PHP License</license>
-   <notes>New file for French (Belgium) language (Thanks to Philippe Bajoit).
-   </notes>
-  </release>
-  <release>
-   <version>
-    <release>0.11.0</release>
-    <api>0.11.0</api>
-   </version>
-   <stability>
-    <release>beta</release>
-    <api>beta</api>
-   </stability>
-   <date>2004-10-22</date>
-   <license uri="http://www.php.net/license">PHP License</license>
-   <notes>toCurrencyWords() support in pt_BR translation (Thanks to Mario H.C.T.)
-   </notes>
-  </release>
-  <release>
-   <version>
-    <release>0.10.1</release>
-    <api>0.10.1</api>
-   </version>
-   <stability>
-    <release>beta</release>
-    <api>beta</api>
-   </stability>
-   <date>2004-09-30</date>
-   <license uri="http://www.php.net/license">PHP License</license>
-   <notes>Small bug fix to German translation (the one thousand) (Thanks to neuner at futureweb dot at).
-   </notes>
-  </release>
-  <release>
-   <version>
-    <release>0.10.0</release>
-    <api>0.10.0</api>
-   </version>
-   <stability>
-    <release>beta</release>
-    <api>beta</api>
-   </stability>
-   <date>2004-09-20</date>
-   <license uri="http://www.php.net/license">PHP License</license>
-   <notes>New file for Danish language (Thanks to Jesper Veggerby).
-   </notes>
-  </release>
-  <release>
-   <version>
-    <release>0.9.0</release>
-    <api>0.9.0</api>
-   </version>
-   <stability>
-    <release>beta</release>
-    <api>beta</api>
-   </stability>
-   <date>2004-08-26</date>
-   <license uri="http://www.php.net/license">PHP License</license>
-   <notes>New file for Hungarian language (Thanks to Nils Homp).
-   </notes>
-  </release>
-  <release>
-   <version>
-    <release>0.8.1</release>
-    <api>0.8.1</api>
-   </version>
-   <stability>
-    <release>beta</release>
-    <api>beta</api>
-   </stability>
-   <date>2004-08-09</date>
-   <license uri="http://www.php.net/license">PHP License</license>
-   <notes>Fixed two bugs (missing t in 400, and wrong function call) in Russian translation.
-   </notes>
-  </release>
-  <release>
-   <version>
-    <release>0.8</release>
-    <api>0.8</api>
-   </version>
-   <stability>
-    <release>beta</release>
-    <api>beta</api>
-   </stability>
-   <date>2004-06-17</date>
-   <license uri="http://www.php.net/license">PHP License</license>
-   <notes>New file for Lithuanian language. Fixed a class method finding (should work for PHP5 and PHP4 now).
-   </notes>
-  </release>
-  <release>
-   <version>
-    <release>0.7.1</release>
-    <api>0.7.1</api>
-   </version>
-   <stability>
-    <release>beta</release>
-    <api>beta</api>
-   </stability>
-   <date>2004-05-25</date>
-   <license uri="http://www.php.net/license">PHP License</license>
-   <notes>Small bug fix (use toWords instead of towords) for PHP version 5.
-   </notes>
-  </release>
-  <release>
-   <version>
-    <release>0.7</release>
-    <api>0.7</api>
-   </version>
-   <stability>
-    <release>beta</release>
-    <api>beta</api>
-   </stability>
-   <date>2004-04-28</date>
-   <license uri="http://www.php.net/license">PHP License</license>
-   <notes>New file for Swedish language. Small fix in fr and bg translations.
-   </notes>
-  </release>
-  <release>
-   <version>
-    <release>0.6</release>
-    <api>0.6</api>
-   </version>
-   <stability>
-    <release>beta</release>
-    <api>beta</api>
-   </stability>
-   <date>2004-04-27</date>
-   <license uri="http://www.php.net/license">PHP License</license>
-   <notes>New file for Argentinian Spanish, Russian and Indonesian language.
-   </notes>
-  </release>
-  <release>
-   <version>
-    <release>0.5.1</release>
-    <api>0.5.1</api>
-   </version>
-   <stability>
-    <release>beta</release>
-    <api>beta</api>
-   </stability>
-   <date>2003-12-17</date>
-   <license uri="http://www.php.net/license">PHP License</license>
-   <notes>Small fix to French translation.
-   </notes>
-  </release>
-  <release>
-   <version>
-    <release>0.5</release>
-    <api>0.5</api>
-   </version>
-   <stability>
-    <release>beta</release>
-    <api>beta</api>
-   </stability>
-   <date>2003-12-16</date>
-   <license uri="http://www.php.net/license">PHP License</license>
-   <notes>New file for Bulgarian and French language. toCurrency() method in en_US translation.
-   </notes>
+   <notes>New lang files for de (German), pt_BR (Brazilian Portuguese), es (Spanish). First PEAR release.</notes>
   </release>
   <release>
    <version>
@@ -344,50 +159,219 @@ The following languages are supported:
    <license uri="http://www.php.net/license">PHP License</license>
    <notes>New lang files for: ee (Estonian) and it_IT (Italian).
 		Changes to es (extranous spaces) and Words.php
-		(trim output, new function toCurrency() for converting currency values).
-   </notes>
+		(trim output, new function toCurrency() for converting currency values).</notes>
   </release>
   <release>
    <version>
-    <release>0.3</release>
-    <api>0.3</api>
+    <release>0.5</release>
+    <api>0.5</api>
    </version>
    <stability>
     <release>beta</release>
     <api>beta</api>
    </stability>
-   <date>2002-11-26</date>
+   <date>2003-12-16</date>
    <license uri="http://www.php.net/license">PHP License</license>
-   <notes>New lang files for de (German), pt_BR (Brazilian Portuguese), es (Spanish). First PEAR release.
-   </notes>
+   <notes>New file for Bulgarian and French language. toCurrency() method in en_US translation.</notes>
   </release>
   <release>
    <version>
-    <release>0.2</release>
-    <api>0.2</api>
+    <release>0.5.1</release>
+    <api>0.5.1</api>
    </version>
    <stability>
     <release>beta</release>
     <api>beta</api>
    </stability>
-   <date>2002-11-19</date>
+   <date>2003-12-17</date>
    <license uri="http://www.php.net/license">PHP License</license>
-   <notes>New lang definition file for en_100 (Donald Knuth number system).
-   </notes>
+   <notes>Small fix to French translation.</notes>
   </release>
   <release>
    <version>
-    <release>0.1</release>
-    <api>0.1</api>
+    <release>0.6</release>
+    <api>0.6</api>
    </version>
    <stability>
     <release>beta</release>
     <api>beta</api>
    </stability>
-   <date>2002-11-15</date>
+   <date>2004-04-27</date>
    <license uri="http://www.php.net/license">PHP License</license>
-   <notes>This is the initial release of the Numbers_Words package.
-   </notes>
+   <notes>New file for Argentinian Spanish, Russian and Indonesian language.</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.7</release>
+    <api>0.7</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2004-04-28</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>New file for Swedish language. Small fix in fr and bg translations.</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.7.1</release>
+    <api>0.7.1</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2004-05-25</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>Small bug fix (use toWords instead of towords) for PHP version 5.</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.8</release>
+    <api>0.8</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2004-06-17</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>New file for Lithuanian language. Fixed a class method finding (should work for PHP5 and PHP4 now).</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.8.1</release>
+    <api>0.8.1</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2004-08-09</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>Fixed two bugs (missing t in 400, and wrong function call) in Russian translation.</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.9.0</release>
+    <api>0.9.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2004-08-26</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>New file for Hungarian language (Thanks to Nils Homp).</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.10.0</release>
+    <api>0.10.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2004-09-20</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>New file for Danish language (Thanks to Jesper Veggerby).</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.10.1</release>
+    <api>0.10.1</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2004-09-30</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>Small bug fix to German translation (the one thousand) (Thanks to neuner at futureweb dot at).</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.11.0</release>
+    <api>0.11.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2004-10-22</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>toCurrencyWords() support in pt_BR translation (Thanks to Mario H.C.T.)</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.12.0</release>
+    <api>0.12.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2005-01-11</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>New file for French (Belgium) language (Thanks to Philippe Bajoit).</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.13.0</release>
+    <api>0.13.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2005-02-28</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>New files for Czech (thanks to Petr &apos;PePa&apos; Pavel) and Hebrew (thanks to Hadar Porat) languages.</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.13.1</release>
+    <api>0.13.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2005-03-09</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>Fixed a problem with no leading zero in fraction of the currency value (reported by geekdom at gmail dot com).</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.14.0</release>
+    <api>0.14.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2005-09-05</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>Fixed plural of pence (Thanks to Peter Dunham and Rob King). Added toCurrency method to en_GB language file. Fraction part can be written in digits (Thanks to Rob King).</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.16.0</release>
+    <api>0.15.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2008-11-25</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>Bug #10744 Docblock for getLocales() is totally wrong
+Bug #14667 bad trascription for 101 numbers and 102 thousands
+Request #14746 Swap to PHPUnit 3
+Bug #14988 Non-int parsing returns bogus result
+Request #15145 PHPCS results - Fix 2098 errors and 422 warnings</notes>
   </release>
  </changelog>
 </package>
