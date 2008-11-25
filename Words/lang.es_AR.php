@@ -16,7 +16,7 @@
  *
  * @category Numbers
  * @package  Numbers_Words
- * @author   Xavier Noguer
+ * @author   Xavier Noguer   <xnoguer.php@gmail.com>
  * @author   Martin Marrese  <mmare@mecon.gov.ar>
  * @license  PHP 3.0 http://www.php.net/license/3_0.txt
  * @version  CVS: $Id$
@@ -42,7 +42,7 @@ require_once "Numbers/Words.php";
  *
  * @category Numbers
  * @package  Numbers_Words
- * @author   Xavier Noguer
+ * @author   Xavier Noguer   <xnoguer.php@gmail.com>
  * @author   Martin Marrese  <mmare@mecon.gov.ar>
  * @license  PHP 3.0 http://www.php.net/license/3_0.txt
  * @link     http://pear.php.net/package/Numbers_Words
