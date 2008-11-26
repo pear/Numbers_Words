@@ -143,6 +143,26 @@ class Numbers_Words_EnglishGbTest extends PHPUnit_Framework_TestCase
             $this->assertEquals($word, $this->handle->toWords($number, $this->lang));
         }
     }
+    
+    /**
+    * en_GB (old version) and en_US differentiate in their millions/billions/trillions
+    * because en_GB once used the long scale, and en_US the short scale.
+    * GB abandoned the long scale in 1974, though.
+    *
+    * Numbers_Words still provides the long scale. Use en_US to get short scaled numbers.
+    */
+    function testMore()
+    {
+        $morers = array(
+                  1000000 => 'one million',
+               2000000000 => 'two thousand million',
+            3000000000000 => 'three billion',
+        );
+        foreach ($morers as $number => $word) {
+            $this->assertEquals($word, $this->handle->toWords($number, $this->lang));
+        }
+    
+    }
 }
 
 if (PHPUnit_MAIN_METHOD == 'Numbers_Words_EnglishGbTest::main') {

@@ -21,22 +21,22 @@ declare(encoding='iso-8859-15');
 // Numbers_Words class extension to spell numbers in German.
 //
 if (!defined('PHPUnit_MAIN_METHOD')) {
-    define('PHPUnit_MAIN_METHOD', 'Numbers_Words_EnglishUsTest::main');
+    define('PHPUnit_MAIN_METHOD', 'Numbers_Words_English100Test::main');
 }
 
 require_once 'Numbers/Words.php';
 require_once 'PHPUnit/Framework.php';
 
-class Numbers_Words_EnglishUsTest extends PHPUnit_Framework_TestCase
+class Numbers_Words_English100Test extends PHPUnit_Framework_TestCase
 {
     var $handle;
-    var $lang = 'en_US';
+    var $lang = 'en_100';
 
     public static function main()
     {
         require_once 'PHPUnit/TextUI/TestRunner.php';
         PHPUnit_TextUI_TestRunner::run(
-            new PHPUnit_Framework_TestSuite('Numbers_Words_EnglishUsTest')
+            new PHPUnit_Framework_TestSuite('Numbers_Words_English100Test')
         );
     }
 
@@ -125,49 +125,49 @@ class Numbers_Words_EnglishUsTest extends PHPUnit_Framework_TestCase
      */
     function testThousands()
     {
-        $thousands = array(1000 => 'one thousand',
-                           1001 => 'one thousand one',
-                           1097 => 'one thousand ninety-seven',
-                           1104 => 'one thousand one hundred four',
-                           1243 => 'one thousand two hundred forty-three',
-                           2385 => 'two thousand three hundred eighty-five',
-                           3766 => 'three thousand seven hundred sixty-six',
-                           4196 => 'four thousand one hundred ninety-six',
-                           5846 => 'five thousand eight hundred forty-six',
-                           6459 => 'six thousand four hundred fifty-nine',
-                           7232 => 'seven thousand two hundred thirty-two',
-                           8569 => 'eight thousand five hundred sixty-nine',
-                           9539 => 'nine thousand five hundred thirty-nine'
+        $thousands = array(1000 => 'ten hundred',
+                           1001 => 'ten hundred one',
+                           1097 => 'ten hundred ninety-seven',
+                           1104 => 'eleven hundred four',
+                           1243 => 'twelve hundred forty-three',
+                           2385 => 'twenty-three hundred eighty-five',
+                           3766 => 'thirty-seven hundred sixty-six',
+                           4196 => 'forty-one hundred ninety-six',
+                           5846 => 'fifty-eight hundred forty-six',
+                           6459 => 'sixty-four hundred fifty-nine',
+                           7232 => 'seventy-two hundred thirty-two',
+                           8569 => 'eighty-five hundred sixty-nine',
+                           9539 => 'ninety-five hundred thirty-nine'
                           );
         foreach ($thousands as $number => $word) {
             $this->assertEquals($word, $this->handle->toWords($number, $this->lang));
         }
     }
-
-
-
+    
     /**
-    * en_GB (old version) and en_US differentiate in their millions/billions/trillions
-    * because en_GB once used the long scale, and en_US the short scale.
-    *
-    * We're testing the short scale here.
+    * Test *yllions and *ylliards
     */
     function testMore()
     {
         $morers = array(
-                  1000000 => 'one million',
-               2000000000 => 'two billion',
-            3000000000000 => 'three trillion',
+                    50000 => 'five myriad',
+                   600000 => 'sixty myriad',
+                  7000000 => 'seven hundred myriad',
+                 80000000 => 'eighty hundred myriad',
+                900000000 => 'nine myllion',
+               1000000000 => 'ten myllion',
+              11000000000 => 'one hundred ten myllion',
+             120000000000 => 'twelve hundred myllion',
+            1300000000000 => 'one myriad myllion thirty hundred myllion',
         );
         foreach ($morers as $number => $word) {
             $this->assertEquals($word, $this->handle->toWords($number, $this->lang));
         }
-
+    
     }
-
 }
 
-if (PHPUnit_MAIN_METHOD == 'Numbers_Words_EnglishUsTest::main') {
-    Numbers_Words_EnglishUsTest::main();
+if (PHPUnit_MAIN_METHOD == 'Numbers_Words_English100Test::main') {
+    Numbers_Words_English100Test::main();
 }
 ?>

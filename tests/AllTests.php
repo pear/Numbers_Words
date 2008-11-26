@@ -24,6 +24,7 @@ if (!defined('PHPUnit_MAIN_METHOD')) {
 
 require_once 'PHPUnit/Framework/TestSuite.php';
 
+require_once 'English100Test.php';
 require_once 'EnglishGbTest.php';
 require_once 'EnglishUsTest.php';
 require_once 'FrenchTest.php';
@@ -44,6 +45,7 @@ class Numbers_Words_AllTests {
     {
         $suite = new PHPUnit_Framework_TestSuite();
 
+        $suite->addTestSuite('Numbers_Words_English100Test');
         $suite->addTestSuite('Numbers_Words_EnglishGbTest');
         $suite->addTestSuite('Numbers_Words_EnglishUsTest');
         $suite->addTestSuite('Numbers_Words_FrenchTest');
