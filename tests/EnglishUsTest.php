@@ -147,22 +147,23 @@ class Numbers_Words_EnglishUsTest extends PHPUnit_Framework_TestCase
 
 
     /**
-    * en_GB (old version) and en_US differentiate in their millions/billions/trillions
-    * because en_GB once used the long scale, and en_US the short scale.
-    *
-    * We're testing the short scale here.
-    */
+     * en_GB (old version) and en_US differentiate in their millions/billions/trillions
+     * because en_GB once used the long scale, and en_US the short scale.
+     *
+     * We're testing the short scale here.
+     */
     function testMore()
     {
-        $morers = array(
-                  1000000 => 'one million',
-               2000000000 => 'two billion',
-            3000000000000 => 'three trillion',
-        );
-        foreach ($morers as $number => $word) {
-            $this->assertEquals($word, $this->handle->toWords($number, $this->lang));
-        }
 
+        $this->assertEquals('one million', $this->handle->toWords(1000000, $this->lang));
+
+        $this->assertEquals('two billion', $this->handle->toWords(2000000000, $this->lang));
+
+
+        // 32 bit systems vs PHP_INT_SIZE - 3 trillion is a little high, so use a string version.
+        $number = '3000000000000' > PHP_INT_SIZE? '3000000000000' : 3000000000000;
+
+        $this->assertEquals('three trillion', $this->handle->toWords($number, $this->lang));
     }
 
 }

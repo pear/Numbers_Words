@@ -1,25 +1,26 @@
 <?php
 declare(encoding='iso-8859-15');
-/* vim: set expandtab tabstop=4 shiftwidth=4: */
-//
-// +----------------------------------------------------------------------+
-// | PHP version 4                                                        |
-// +----------------------------------------------------------------------+
-// | Copyright (c) 1997-2003 The PHP Group                                |
-// +----------------------------------------------------------------------+
-// | This source file is subject to version 3.0 of the PHP license,       |
-// | that is bundled with this package in the file LICENSE, and is        |
-// | available at through the world-wide-web at                           |
-// | http://www.php.net/license/3_0.txt.                                  |
-// | If you did not receive a copy of the PHP license and are unable to   |
-// | obtain it through the world-wide-web, please send a note to          |
-// | license@php.net so we can mail you a copy immediately.               |
-// +----------------------------------------------------------------------+
-// | Authors: Piotr Klaban                                                |
-// +----------------------------------------------------------------------+
-//
-// Numbers_Words class extension to spell numbers in German.
-//
+/* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4 autoindent: */
+/**
+ * Numbers_Words class extension to spell numbers in British English.
+ *
+ * PHP versions 4 and 5
+ *
+ * LICENSE: This source file is subject to version 3.01 of the PHP license
+ * that is available through the world-wide-web at the following URI:
+ * http://www.php.net/license/3_01.txt.  If you did not receive a copy of
+ * the PHP License and are unable to obtain it through the web, please
+ * send a note to license@php.net so we can mail you a copy immediately.
+ *
+ * @category  Numbers
+ * @package   Numbers_Words
+ * @author    Christian Weiske <cweiske@php.net>
+ * @copyright 1997-2008 The PHP Group
+ * @license   http://www.php.net/license/3_01.txt  PHP License 3.01
+ * @version   CVS: $Id$
+ * @link      http://pear.php.net/package/Numbers_Words
+ * @since     File available only in CVS
+ */
 if (!defined('PHPUnit_MAIN_METHOD')) {
     define('PHPUnit_MAIN_METHOD', 'Numbers_Words_EnglishGbTest::main');
 }
@@ -153,14 +154,16 @@ class Numbers_Words_EnglishGbTest extends PHPUnit_Framework_TestCase
     */
     function testMore()
     {
-        $morers = array(
-                  1000000 => 'one million',
-               2000000000 => 'two thousand million',
-            3000000000000 => 'three billion',
-        );
-        foreach ($morers as $number => $word) {
-            $this->assertEquals($word, $this->handle->toWords($number, $this->lang));
-        }
+
+        $this->assertEquals('one million', $this->handle->toWords(1000000, $this->lang));
+
+        $this->assertEquals('two thousand million', $this->handle->toWords(2000000000, $this->lang));
+
+
+        // 32 bit systems vs PHP_INT_SIZE - 3 billion is a little high, so use a string version.
+        $number = '3000000000000' > PHP_INT_SIZE? '3000000000000' : 3000000000000;
+
+        $this->assertEquals('three billion', $this->handle->toWords($number, $this->lang));
     
     }
 }
