@@ -87,7 +87,11 @@ class Numbers_Words_FrenchTest extends PHPUnit_Framework_TestCase
                       60 => 'soixante',
                       67 => 'soixante-sept',
                       70 => 'soixante-dix',
-                      79 => 'soixante-dix-neuf'
+                      71 => 'soixante et onze',
+                      79 => 'soixante-dix-neuf',
+                      80 => 'quatre-vingts',
+                      81 => 'quatre-vingt-un',
+                      91 => 'quatre-vingt-onze'
                      );
         foreach ($tens as $number => $word) {
             $this->assertEquals($word, $this->handle->toWords($number, 'fr'));
