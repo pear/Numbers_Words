@@ -133,7 +133,7 @@ if ($html_on) {
 ?>
 </table>
 </center>
-<?
+<?php
 }
 
 ?>
