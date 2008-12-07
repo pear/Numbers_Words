@@ -66,8 +66,8 @@ class Numbers_Words_PortugueseBrazilianTest extends PHPUnit_Framework_TestCase
                       31 => 'trinta e um',
                       40 => 'quarenta',
                       43 => 'quarenta e três',
-                      50 => 'cinquenta',
-                      55 => 'cinquenta e cinco',
+                      50 => 'cinqüenta',
+                      55 => 'cinqüenta e cinco',
                       60 => 'sessenta',
                       67 => 'sessenta e sete',
                       70 => 'setenta',
@@ -87,9 +87,9 @@ class Numbers_Words_PortugueseBrazilianTest extends PHPUnit_Framework_TestCase
                           101 => 'cento e um',
                           199 => 'cento e noventa e nove',
                           203 => 'duzentos e três',
-                          287 => 'duzentos e sete',
+                          287 => 'duzentos e oitenta e sete',
                           300 => 'trezentos',
-                          356 => 'trezentos e cinquenta e seis',
+                          356 => 'trezentos e cinqüenta e seis',
                           410 => 'quatrocentos e dez',
                           434 => 'quatrocentos e trinta e quatro',
                           578 => 'quinhentos e setenta e oito',
@@ -117,12 +117,32 @@ class Numbers_Words_PortugueseBrazilianTest extends PHPUnit_Framework_TestCase
                            3766 => 'três mil setecentos e sessenta e seis',
                            4196 => 'quatro mil cento e noventa e seis',
                            5846 => 'cinco mil oitocentos e quarenta e seis',
-                           6459 => 'seis mil quatrocentos e cinquenta e nove',
+                           6459 => 'seis mil quatrocentos e cinqüenta e nove',
                            7232 => 'sete mil duzentos e trinta e dois',
                            8569 => 'oito mil quinhentos e sessenta e nove',
                            9539 => 'nove mil quinhentos e trinta e nove'
                           );
         foreach ($thousands as $number => $word) {
+            $this->assertEquals($word, Numbers_Words::toWords($number, 'pt_BR'));
+        }
+    }
+
+    /**
+     * Testing numbers greater than 9999
+     */
+    function testMillions()
+    {
+        $millions = array(1000001   => 'um milhão e um',
+                          2000025   => 'dois milhões e vinte e cinco',
+                          5100000   => 'cinco milhões e cem mil',
+                          7100100   => 'sete milhões cem mil e cem',
+                          8100345   => 'oito milhões cem mil trezentos e quarenta e cinco',
+                          8000016   => 'oito milhões e dezesseis',
+                          -8100345  => 'oito milhões cem mil trezentos e quarenta e cinco negativo',
+                          100000001 => 'cem milhões e um',
+                          345199054 => 'trezentos e quarenta e cinco milhões cento e noventa e nove mil e cinqüenta e quatro',
+                          );
+        foreach ($millions as $number => $word) {
             $this->assertEquals($word, Numbers_Words::toWords($number, 'pt_BR'));
         }
     }
