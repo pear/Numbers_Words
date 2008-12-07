@@ -113,6 +113,7 @@ class Numbers_Words_PortugueseBrazilianTest extends PHPUnit_Framework_TestCase
                            1097 => 'um mil e noventa e sete',
                            1104 => 'um mil cento e quatro',
                            1243 => 'um mil duzentos e quarenta e três',
+                           2200 => 'dois mil e duzentos',
                            2385 => 'dois mil trezentos e oitenta e cinco',
                            3766 => 'três mil setecentos e sessenta e seis',
                            4196 => 'quatro mil cento e noventa e seis',
