@@ -95,6 +95,7 @@ class Numbers_Words_PortugueseBrazilianTest extends PHPUnit_Framework_TestCase
                           578 => 'quinhentos e setenta e oito',
                           689 => 'seiscentos e oitenta e nove',
                           729 => 'setecentos e vinte e nove',
+                          717 => 'setecentos e dezessete',
                           894 => 'oitocentos e noventa e quatro',
                           999 => 'novecentos e noventa e nove'
                          );
@@ -136,6 +137,7 @@ class Numbers_Words_PortugueseBrazilianTest extends PHPUnit_Framework_TestCase
         $millions = array(1000001   => 'um milhão e um',
                           2000025   => 'dois milhões e vinte e cinco',
                           5100000   => 'cinco milhões e cem mil',
+                          5015004   => 'cinco milhões quinze mil e quatro',
                           7100100   => 'sete milhões cem mil e cem',
                           8100345   => 'oito milhões cem mil trezentos e quarenta e cinco',
                           8000016   => 'oito milhões e dezesseis',
