@@ -277,7 +277,7 @@ class Numbers_Words_pt_BR extends Numbers_Words
              */
             $ret[] = $exponent;
 
-            $word = array_filter($this->_parseChunk($chunk, strlen($chunk)));
+            $word = array_filter($this->_parseChunk($chunk));
             $ret[] = implode($this->_sep, $word);
         }
 
@@ -292,7 +292,6 @@ class Numbers_Words_pt_BR extends Numbers_Words
      * Recursive function that parses an indivial chunk
      *
      * @param string $chunk String representation of a 3-digit-max number
-     * @param int $i Width of number
      *
      * @return array Words of parsed number
      *
@@ -300,7 +299,7 @@ class Numbers_Words_pt_BR extends Numbers_Words
      * @author Igor Feghali <ifeghali@php.net>
      */
 
-    function _parseChunk($chunk, $i)
+    function _parseChunk($chunk)
     {
         /**
          * Base Case
@@ -323,10 +322,11 @@ class Numbers_Words_pt_BR extends Numbers_Words
             return array($this->_contractions[$chunk % 10]);
         }
 
+        $i = strlen($chunk)-1;
         $n = (int)$chunk[0];
-        $word = $this->_words[$i-1][$n];
+        $word = $this->_words[$i][$n];
 
-        return array_merge(array($word), $this->_parseChunk(substr($chunk, 1), --$i));
+        return array_merge(array($word), $this->_parseChunk(substr($chunk, 1)));
     }
 
     // }}}
