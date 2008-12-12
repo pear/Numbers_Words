@@ -303,6 +303,13 @@ class Numbers_Words_pt_BR extends Numbers_Words
     function _parseChunk($chunk, $i)
     {
         /**
+         * Base Case
+         */
+        if (!$chunk) {
+            return array();
+        }
+
+        /**
          * 100 is a special case
          */
         if ($chunk == 100) {
@@ -314,13 +321,6 @@ class Numbers_Words_pt_BR extends Numbers_Words
          */
         if (($chunk < 20) && ($chunk > 10)) {
             return array($this->_contractions[$chunk % 10]);
-        }
-
-        /**
-         * Testing Zero
-         */
-        if ($chunk == 0) {
-            return array();
         }
 
         $n = (int)$chunk[0];
