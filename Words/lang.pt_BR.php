@@ -1,35 +1,26 @@
 <?php
+/* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4: */
+
 /**
  * Numbers_Words
  *
- * PHP version 4
+ * PHP version 5
  *
- * Copyright (c) 1997-2006 The PHP Group
+ * LICENSE: This source file is subject to version 3.01 of the PHP license
+ * that is available through the world-wide-web at the following URI:
+ * http://www.php.net/license/3_01.txt.  If you did not receive a copy of
+ * the PHP License and are unable to obtain it through the web, please
+ * send a note to license@php.net so we can mail you a copy immediately.
  *
- * This source file is subject to version 3.0 of the PHP license,
- * that is bundled with this package in the file LICENSE, and is
- * available at through the world-wide-web at
- * http://www.php.net/license/3_0.txt.
- * If you did not receive a copy of the PHP license and are unable to
- * obtain it through the world-wide-web, please send a note to
- * license@php.net so we can mail you a copy immediately.
- *
- * @category Numbers
- * @package  Numbers_Words
- * @author   Marcelo Subtil Marcal <jason@conectiva.com.br>
- * @author   Mario H.C.T. <mariolinux@mitus.com.br>
- * @license  PHP 3.0 http://www.php.net/license/3_0.txt
- * @version  CVS: $Id$
- * @link     http://pear.php.net/package/Numbers_Words
- */
-
-
-
-/**
- * Class for translating numbers into Brazilian Portuguese.
- *
- * @author Marcelo Subtil Marcal <jason@conectiva.com.br>
- * @package Numbers_Words
+ * @category   Numbers
+ * @package    Numbers_Words
+ * @author     Marcelo Subtil Marcal <jason@conectiva.com.br>
+ * @author     Mario H.C.T. <mariolinux@mitus.com.br>
+ * @author     Igor Feghali <ifeghali@php.net>
+ * @copyright  1997-2008 The PHP Group
+ * @license    http://www.php.net/license/3_01.txt  PHP License 3.01
+ * @version    CVS: $Id$
+ * @link       http://pear.php.net/package/Numbers_Words
  */
 
 /**
@@ -44,12 +35,12 @@ require_once "Numbers/Words.php";
  * @package  Numbers_Words
  * @author   Marcelo Subtil Marcal <jason@conectiva.com.br>
  * @author   Mario H.C.T. <mariolinux@mitus.com.br>
- * @license  PHP 3.0 http://www.php.net/license/3_0.txt
+ * @author   Igor Feghali <ifeghali@php.net>
+ * @license  http://www.php.net/license/3_01.txt  PHP License 3.01
  * @link     http://pear.php.net/package/Numbers_Words
  */
 class Numbers_Words_pt_BR extends Numbers_Words
 {
-
     /**
      * Locale name
      * @var string
@@ -76,40 +67,24 @@ class Numbers_Words_pt_BR extends Numbers_Words
      * @var string
      * @access private
      */
-    var $_minus = 'menos';
+    var $_minus = 'negativo';
 
     /**
-     * The word separator
+     * The word separator for numerals
      * @var string
      * @access private
      */
-    var $_sep = ' ';
+    var $_sep = ' e ';
 
     /**
-     * The array containing the digits (indexed by the digits themselves).
+     * The array containing numbers 11-19.
+     * In Brazilian Portuguese numbers in that range are contracted
+     * in a single word.
      * @var array
      * @access private
      */
-    var $_unidade = array(
+    var $_contractions = array(
         '',
-        'um',
-        'dois',
-        'três',
-        'quatro',
-        'cinco',
-        'seis',
-        'sete',
-        'oito',
-        'nove'
-    );
-
-    /**
-     * The array containing numbers 10-19.
-     * @var array
-     * @access private
-     */
-    var $_dezena10 = array(
-        'dez',
         'onze',
         'doze',
         'treze',
@@ -121,49 +96,69 @@ class Numbers_Words_pt_BR extends Numbers_Words
         'dezenove'
     );
 
-    /**
-     * The array containing numbers for 10,20,...,90.
-     * @var array
-     * @access private
-     */
-    var $_dezena = array(
-        '',
-        'dez',
-        'vinte',
-        'trinta',
-        'quarenta',
-        'cinquenta',
-        'sessenta',
-        'setenta',
-        'oitenta',
-        'noventa'
+    var $_words = array(
+        /**
+         * The array containing the digits (indexed by the digits themselves).
+         * @var array
+         * @access private
+         */
+        array(
+            '',         // 0: not displayed
+            'um',
+            'dois',
+            'três',
+            'quatro',
+            'cinco',
+            'seis',
+            'sete',
+            'oito',
+            'nove'
+        ),
+
+        /**
+         * The array containing numbers for 10,20,...,90.
+         * @var array
+         * @access private
+         */
+        array(
+            '',         // 0: not displayed
+            'dez',
+            'vinte',
+            'trinta',
+            'quarenta',
+            'cinqüenta',
+            'sessenta',
+            'setenta',
+            'oitenta',
+            'noventa'
+        ),
+
+        /**
+         * The array containing numbers for hundreds.
+         * @var array
+         * @access private
+         */
+        array(
+            '',         // 0: not displayed
+            'cento',    // 'cem' is a special case handled in toWords()
+            'duzentos',
+            'trezentos',
+            'quatrocentos',
+            'quinhentos',
+            'seiscentos',
+            'setecentos',
+            'oitocentos',
+            'novecentos'
+        ),
     );
 
     /**
-     * The array containing numbers for hundrets.
+     * The sufixes for exponents (singular)
      * @var array
      * @access private
      */
-    var $_centena = array(
-        '',
-        'cem',
-        'duzentos',
-        'trezentos',
-        'quatrocentos',
-        'quinhentos',
-        'seiscentos',
-        'setecentos',
-        'oitocentos',
-        'novecentos'
-    );
-
-    /**
-     * The sufixes for exponents (singular and plural)
-     * @var array
-     * @access private
-     */
-    var $_expoente = array(
-        '',
+    var $_exponent = array(
+        '',         // 0: not displayed
         'mil',
         'milhão',
         'bilhão',
@@ -171,7 +166,7 @@ class Numbers_Words_pt_BR extends Numbers_Words
         'quatrilhão',
         'quintilhão',
         'sextilhão',
-        'setilhão',
+        'septilhão',
         'octilhão',
         'nonilhão',
         'decilhão',
@@ -195,7 +190,7 @@ class Numbers_Words_pt_BR extends Numbers_Words
      * @access private
      */
     var $_currency_names = array(
-        'BRL' => array(array('rea'), array('centavo')) );
+        'BRL' => array(array('real'), array('centavo')) );
 
     /**
      * The default currency name
@@ -210,58 +205,128 @@ class Numbers_Words_pt_BR extends Numbers_Words
      * Converts a number to its word representation
      * in Brazilian Portuguese language
      *
-     * @param integer $num An integer between -infinity and infinity inclusive :)
-     *                     that need to be converted to words
+     * @param integer $num An integer between -999E54 and 999E54
      *
      * @return string  The corresponding word representation
      *
      * @access public
-     * @author Marcelo Subtil Marcal <jason@conectiva.com.br>
-     * @since  PHP 4.2.3
+     * @author Igor Feghali <ifeghali@php.net>
      */
     function toWords($num)
     {
+        $ret = array();
+        $words = array();
 
-        $ret = '';
+        /**
+         * Removes leading zeros, spaces, decimals etc.
+         * Adds thousands separator.
+         */
+        $num = number_format($num, 0, '.', '.');
 
-        $num = trim($num);
-
-        if (substr($num, 0, 1) == '-') {
-            $ret = $this->_sep . $this->_minus;
-            $num = substr($num, 1);
+        /**
+         * Testing Zero
+         */
+        if ($num == 0) {
+            return 'zero';
         }
 
-        // strip excessive zero signs and spaces
-        $num = trim($num);
-        $num = preg_replace('/^0+/', '', $num);
-
-        while (strlen($num) % 3 != 0) {
-            $num = "0" . $num;
+        /**
+         * Negative ?
+         */
+        if ($num < 0) {
+            $ret[] = $this->_minus;
+            $num = -$num;
         }
 
-        $num = ereg_replace("(...)", "\\1.", $num);
-        $num = ereg_replace("\.$", "", $num);
+        /**
+         * Breaks into chunks of 3 digits.
+         * Reversing array to process from right to left.
+         */
+        $chunks = array_reverse(explode(".", $num));
 
-        $inteiro = explode(".", $num);
-
-        for ($i = 0; $i < count($inteiro); $i++) {
-            $ret .= (($inteiro[$i] > 100) && ($inteiro[$i] < 200)) ? "cento" : $this->_centena[$inteiro[$i][0]];
-            $ret .= ($inteiro[$i][0] && ($inteiro[$i][1] || $inteiro[$i][2])) ? " e " : "";
-            $ret .= ($inteiro[$i][1] < 2) ? "" : $this->_dezena[$inteiro[$i][1]];
-            $ret .= (($inteiro[$i][1] > 1) && ($inteiro[$i][2])) ? " e " : "";
-            $ret .= ($inteiro > 0) ? ( ($inteiro[$i][1] == 1) ? $this->_dezena10[$inteiro[$i][2]] : $this->_unidade[$inteiro[$i][2]] ) : "";
-            $ret .= $inteiro[$i] > 0 ? " " . ($inteiro[$i] > 1 ? str_replace("ão", "ões", $this->_expoente[count($inteiro)-1-$i]) : $this->_expoente[count($inteiro)-1-$i]) : "";
-
-            if ($ret && (isset($inteiro[$i+1]))) {
-                if ($inteiro[$i+1] != "000") {
-                    $ret .= ($i+1) == (count($inteiro)-1) ? " e " : ", ";
-                }
+        /**
+         * Looping through the chunks
+         */
+        $sep = false;
+        foreach ($chunks as $index => $chunk) {
+            /**
+             * Testing Range
+             */
+            if (!array_key_exists($index, $this->_exponent)) {
+                return Numbers_Words::raiseError('Number out of range.');
             }
 
+            /**
+             * Testing Zero
+             */
+            if ($chunk == 0) {
+                continue;
+            }
+
+            /**
+             * Testing plural of exponent
+             */
+            if ($chunk > 1) {
+                $exponent = str_replace('ão', 'ões', $this->_exponent[$index]);
+            } else {
+                $exponent = $this->_exponent[$index];
+            }
+
+            /**
+             * Adding exponent
+             */
+            $ret[] = $exponent;
+
+            $word = array_filter($this->_parseChunk($chunk, strlen($chunk)));
+            $ret[] = implode($this->_sep, $word);
         }
 
-        return $ret ? " $ret" : " zero";
+        $ret = array_reverse(array_filter($ret));
+        return implode(' ', $ret);
+    }
 
+    // }}}
+    // {{{ _parseChunck()
+
+    /**
+     * Recursive function that parses an indivial chunk
+     *
+     * @param string $chunk String representation of a 3-digit-max number
+     * @param int $i Width of number
+     *
+     * @return array Words of parsed number
+     *
+     * @access private
+     * @author Igor Feghali <ifeghali@php.net>
+     */
+
+    function _parseChunk($chunk, $i)
+    {
+        /**
+         * 100 is a special case
+         */
+        if ($chunk == 100) {
+            return array('cem');
+        }
+
+        /**
+         * Testing contractions (11~19)
+         */
+        if (($chunk < 20) && ($chunk > 10)) {
+            return array($this->_contractions[$chunk % 10]);
+        }
+
+        /**
+         * Testing Zero
+         */
+        if ($chunk == 0) {
+            return array();
+        }
+
+        $n = (int)$chunk[0];
+        $word = $this->_words[$i-1][$n];
+
+        return array_merge(array($word), $this->_parseChunk(substr($chunk, 1), --$i));
     }
 
     // }}}
