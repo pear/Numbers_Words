@@ -47,6 +47,11 @@ class Numbers_Words_PortugueseBrazilianTest extends PHPUnit_Framework_TestCase
         {
             $number = Numbers_Words::toWords($i, 'pt_BR');
             $this->assertEquals($digits[$i], $number);
+
+            if ($i > 0) {
+                $number = Numbers_Words::toWords(-$i, 'pt_BR');
+                $this->assertEquals($digits[$i].' negativo', $number);
+            }
         }
     }
 
@@ -75,6 +80,7 @@ class Numbers_Words_PortugueseBrazilianTest extends PHPUnit_Framework_TestCase
                      );
         foreach ($tens as $number => $word) {
             $this->assertEquals($word, Numbers_Words::toWords($number, 'pt_BR'));
+            $this->assertEquals("$word negativo", Numbers_Words::toWords(-$number, 'pt_BR'));
         }
     }
 
@@ -101,6 +107,7 @@ class Numbers_Words_PortugueseBrazilianTest extends PHPUnit_Framework_TestCase
                          );
         foreach ($hundreds as $number => $word) {
             $this->assertEquals($word, Numbers_Words::toWords($number, 'pt_BR'));
+            $this->assertEquals("$word negativo", Numbers_Words::toWords(-$number, 'pt_BR'));
         }
     }
 
@@ -126,6 +133,7 @@ class Numbers_Words_PortugueseBrazilianTest extends PHPUnit_Framework_TestCase
                           );
         foreach ($thousands as $number => $word) {
             $this->assertEquals($word, Numbers_Words::toWords($number, 'pt_BR'));
+            $this->assertEquals("$word negativo", Numbers_Words::toWords(-$number, 'pt_BR'));
         }
     }
 
@@ -141,12 +149,12 @@ class Numbers_Words_PortugueseBrazilianTest extends PHPUnit_Framework_TestCase
                           7100100   => 'sete milhões cem mil e cem',
                           8100345   => 'oito milhões cem mil trezentos e quarenta e cinco',
                           8000016   => 'oito milhões e dezesseis',
-                          -8100345  => 'oito milhões cem mil trezentos e quarenta e cinco negativo',
                           100000001 => 'cem milhões e um',
                           345199054 => 'trezentos e quarenta e cinco milhões cento e noventa e nove mil e cinqüenta e quatro',
                           );
         foreach ($millions as $number => $word) {
             $this->assertEquals($word, Numbers_Words::toWords($number, 'pt_BR'));
+            $this->assertEquals("$word negativo", Numbers_Words::toWords(-$number, 'pt_BR'));
         }
     }
 }
