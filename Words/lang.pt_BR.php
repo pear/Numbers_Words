@@ -29,7 +29,8 @@
 require_once "Numbers/Words.php";
 
 /**
- * Class for translating numbers into Brazilian Portuguese.
+ * Class for translating numbers into Brazilian Portuguese. This class complies
+ * to Brazilian Academy of Letters rules as of 2008-12-12.
  *
  * @category Numbers
  * @package  Numbers_Words
@@ -214,8 +215,18 @@ class Numbers_Words_pt_BR extends Numbers_Words
      */
     function toWords($num)
     {
+        $neg = 0;
         $ret = array();
         $words = array();
+
+        /**
+         * Negative ?
+         */
+        if ($num < 0) {
+            $ret[] = $this->_minus;
+            $num = -$num;
+            $neg = 1;
+        }
 
         /**
          * Removes leading zeros, spaces, decimals etc.
@@ -228,14 +239,6 @@ class Numbers_Words_pt_BR extends Numbers_Words
          */
         if ($num == 0) {
             return 'zero';
-        }
-
-        /**
-         * Negative ?
-         */
-        if ($num < 0) {
-            $ret[] = $this->_minus;
-            $num = -$num;
         }
 
         /**
@@ -277,8 +280,20 @@ class Numbers_Words_pt_BR extends Numbers_Words
              */
             $ret[] = $exponent;
 
+            /**
+             * Actual Number
+             */
             $word = array_filter($this->_parseChunk($chunk));
             $ret[] = implode($this->_sep, $word);
+        }
+
+        /**
+         * In Brazilian Portuguese the last chunck must be separated under 
+         * special conditions.
+         */
+        if ((count($ret) > 2+$neg)
+             && $this->_mustSeparate($chunks)) {
+                $ret[1+$neg] = trim($this->_sep.$ret[1+$neg]);
         }
 
         $ret = array_reverse(array_filter($ret));
@@ -298,7 +313,6 @@ class Numbers_Words_pt_BR extends Numbers_Words
      * @access private
      * @author Igor Feghali <ifeghali@php.net>
      */
-
     function _parseChunk($chunk)
     {
         /**
@@ -327,6 +341,36 @@ class Numbers_Words_pt_BR extends Numbers_Words
         $word = $this->_words[$i][$n];
 
         return array_merge(array($word), $this->_parseChunk(substr($chunk, 1)));
+    }
+
+    // }}}
+    // {{{ _mustSeparate()
+
+    /**
+     * In Brazilian Portuguese the last chunk must be separated from the others 
+     * when it is a hundred (100, 200, 300 etc.) or less than 100.
+     *
+     * @param array $chunks Array of integers that contains all the chunks of 
+     *                      the target number, in reverse order.
+     *
+     * @return boolean Returns true when last chunk must be separated
+     *
+     * @access private
+     * @author Igor Feghali <ifeghali@php.net>
+     */
+    function _mustSeparate($chunks)
+    {
+        $chunk = null;
+
+        /**
+         * Find first chunk != 0
+         */
+        while (!$chunk = current($chunks));
+
+        if (($chunk < 100) || !($chunk % 100)) {
+            return true;
+        }
+        return false;
     }
 
     // }}}
