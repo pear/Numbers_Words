@@ -220,6 +220,12 @@ class Numbers_Words_pt_BR extends Numbers_Words
         $words = array();
 
         /**
+         * Removes leading zeros, spaces, decimals etc.
+         * Adds thousands separator.
+         */
+        $num = number_format($num, 0, '.', '.');
+
+        /**
          * Negative ?
          */
         if ($num < 0) {
@@ -227,12 +233,6 @@ class Numbers_Words_pt_BR extends Numbers_Words
             $num = -$num;
             $neg = 1;
         }
-
-        /**
-         * Removes leading zeros, spaces, decimals etc.
-         * Adds thousands separator.
-         */
-        $num = number_format($num, 0, '.', '.');
 
         /**
          * Testing Zero
