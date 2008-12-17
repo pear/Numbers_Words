@@ -157,5 +157,31 @@ class Numbers_Words_PortugueseBrazilianTest extends PHPUnit_Framework_TestCase
             $this->assertEquals("$word negativo", Numbers_Words::toWords(-$number, 'pt_BR'));
         }
     }
+
+    /**
+     * Testing Currency
+     */
+    function testCurrency()
+    {
+        $millions = array(1.00 => 'um real',
+                          1.01 => 'um real e um centavo',
+                          1.10 => 'um real e dez centavos',
+                          1.11 => 'um real e onze centavos',
+                          1.21 => 'um real e vinte e um centavos',
+                          2.00 => 'dois reais',
+                          2.01 => 'dois reais e um centavo',
+                          2.10 => 'dois reais e dez centavos',
+                          2.11 => 'dois reais e onze centavos',
+                          2.21 => 'dois reais e vinte e um centavos',
+                       1000.00 => 'mil reais',
+                    1000000.00 => 'um milhão de reais',
+                    1000001.00 => 'um milhão e um real',
+                    1100000.00 => 'um milhão e cem mil reais',
+                          );
+        foreach ($millions as $number => $word) {
+            $this->assertEquals($word, Numbers_Words::toCurrency($number, 'pt_BR'));
+            $this->assertEquals("$word negativo", Numbers_Words::toWords(-$number, 'pt_BR'));
+        }
+    }
 }
 
