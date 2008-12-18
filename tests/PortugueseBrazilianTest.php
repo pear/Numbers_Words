@@ -173,6 +173,8 @@ class Numbers_Words_PortugueseBrazilianTest extends PHPUnit_Framework_TestCase
                        '2.10' => 'dois reais e dez centavos',
                        '2.11' => 'dois reais e onze centavos',
                        '2.21' => 'dois reais e vinte e um centavos',
+                       '0.01' => 'um centavo de real',
+                       '0.45' => 'quarenta e cinco centavos de real',
                     '1000.00' => 'mil reais',
                  '1000000.00' => 'um milhão de reais',
                  '1000001.00' => 'um milhão e um real',
