@@ -410,18 +410,18 @@ class Numbers_Words_pt_BR extends Numbers_Words
         $ret = array();
 
         /**
+         * Removes leading zeros, spaces, decimals etc.
+         * Adds thousands separator.
+         */
+        $num = number_format($decimal, 0, '.', '.');
+
+        /**
          * Negative ?
          */
         if ($num < 0) {
             $num = -$num;
             $neg = 1;
         }
-
-        /**
-         * Removes leading zeros, spaces, decimals etc.
-         * Adds thousands separator.
-         */
-        $num = number_format($decimal, 0, '.', '.');
 
         /**
          * Checking if given currency exists in driver.
@@ -489,7 +489,7 @@ class Numbers_Words_pt_BR extends Numbers_Words
             }
         }
 
-        return implode($this->sep, $ret);
+        return implode($this->_sep, $ret);
     }
     // }}}
 }
