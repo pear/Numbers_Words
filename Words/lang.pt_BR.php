@@ -413,7 +413,7 @@ class Numbers_Words_pt_BR extends Numbers_Words
          * Removes leading zeros, spaces, decimals etc.
          * Adds thousands separator.
          */
-        $num = number_format($decimal, 0, '.', '.');
+        $num = number_format($decimal, 0, '', '');
 
         /**
          * Negative ?
