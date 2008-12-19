@@ -175,14 +175,14 @@ class Numbers_Words_PortugueseBrazilianTest extends PHPUnit_Framework_TestCase
                        '2.21' => 'dois reais e vinte e um centavos',
                        '0.01' => 'um centavo de real',
                        '0.45' => 'quarenta e cinco centavos de real',
-                    '1000.00' => 'mil reais',
+                    '1000.00' => 'um mil reais',
                  '1000000.00' => 'um milhão de reais',
                  '1000001.00' => 'um milhão e um real',
                  '1100000.00' => 'um milhão e cem mil reais',
                           );
         foreach ($money as $number => $word) {
             $this->assertEquals($word, Numbers_Words::toCurrency($number, 'pt_BR'));
-            $this->assertEquals("$word negativo", Numbers_Words::toWords(-$number, 'pt_BR'));
+            $this->assertEquals("$word negativo", Numbers_Words::toCurrency(-$number, 'pt_BR'));
         }
     }
 }
