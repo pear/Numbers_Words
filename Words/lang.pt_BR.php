@@ -78,6 +78,13 @@ class Numbers_Words_pt_BR extends Numbers_Words
     var $_sep = ' e ';
 
     /**
+     * The special separator for numbers and currency names
+     * @var string
+     * @access private
+     */
+    var $_curr_sep = ' de ';
+
+    /**
      * The array containing numbers 11-19.
      * In Brazilian Portuguese numbers in that range are contracted
      * in a single word.
@@ -408,20 +415,23 @@ class Numbers_Words_pt_BR extends Numbers_Words
     {
         $neg = 0;
         $ret = array();
+        $nodec = false;
+
+        /**
+         * Negative ?
+         * We can lose the '-' sign if we do the 
+         * check after number_format() call (i.e. -0.01)
+         */
+        if (substr($decimal, 0, 1) == '-') {
+            $decimal = -$decimal;
+            $neg = 1;
+        }
 
         /**
          * Removes leading zeros, spaces, decimals etc.
          * Adds thousands separator.
          */
         $num = number_format($decimal, 0, '', '');
-
-        /**
-         * Negative ?
-         */
-        if ($num < 0) {
-            $num = -$num;
-            $neg = 1;
-        }
 
         /**
          * Checking if given currency exists in driver.
@@ -437,18 +447,20 @@ class Numbers_Words_pt_BR extends Numbers_Words
          */
         $curr_names = $this->_currency_names[$int_curr];
 
-        /**
-         * Word representation of decimal
-         */
-        $ret[] = $this->toWords($num);
+        if ($num > 0) {
+            /**
+             * Word representation of decimal
+             */
+            $ret[] = $this->toWords($num);
 
-        /**
-         * Testing plural
-         */
-        if ($num > 1) {
-            $ret[] = $curr_names[0][1];
-        } else {
-            $ret[] = $curr_names[0][0];
+            /**
+             * Testing plural
+             */
+            if ($num > 1) {
+                $ret[] = $curr_names[0][1];
+            } else {
+                $ret[] = $curr_names[0][0];
+            }
         }
 
         /**
@@ -471,6 +483,15 @@ class Numbers_Words_pt_BR extends Numbers_Words
             }
 
             /**
+             * Have we got decimal?
+             */
+            if (count($ret)) {
+                $ret[] = trim($this->_sep);
+            } else {
+                $nodec = true;
+            }
+
+            /**
              * Word representation of fraction
              */
             if ($convert_fraction) {
@@ -487,9 +508,25 @@ class Numbers_Words_pt_BR extends Numbers_Words
             } else {
                 $ret[] = $curr_names[1][0];
             }
+
+            /**
+             * Have we got decimal?
+             * If not, include currency name after cents.
+             */
+            if ($nodec) {
+                $ret[] = trim($this->_curr_sep);
+                $ret[] = $curr_names[0][0];
+            }
         }
 
-        return implode($this->_sep, $ret);
+        /**
+         * Negative ?
+         */
+        if ($neg) {
+            $ret[] = $this->_minus;
+        }
+
+        return implode(' ', $ret);
     }
     // }}}
 }
