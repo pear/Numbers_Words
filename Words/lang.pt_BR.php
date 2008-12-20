@@ -12,13 +12,13 @@
  * the PHP License and are unable to obtain it through the web, please
  * send a note to license@php.net so we can mail you a copy immediately.
  *
- * @category   Numbers
- * @package    Numbers_Words
- * @author     Igor Feghali <ifeghali@php.net>
- * @copyright  1997-2008 The PHP Group
- * @license    http://www.php.net/license/3_01.txt  PHP License 3.01
- * @version    CVS: $Id$
- * @link       http://pear.php.net/package/Numbers_Words
+ * @category  Numbers
+ * @package   Numbers_Words
+ * @author    Igor Feghali <ifeghali@php.net>
+ * @copyright 1997-2008 The PHP Group
+ * @license   http://www.php.net/license/3_01.txt  PHP License 3.01
+ * @version   CVS: $Id$
+ * @link      http://pear.php.net/package/Numbers_Words
  */
 
 /**
@@ -229,8 +229,8 @@ class Numbers_Words_pt_BR extends Numbers_Words
      */
     function toWords($num)
     {
-        $neg = 0;
-        $ret = array();
+        $neg   = 0;
+        $ret   = array();
         $words = array();
 
         /**
@@ -238,8 +238,8 @@ class Numbers_Words_pt_BR extends Numbers_Words
          */
         if ($num < 0) {
             $ret[] = $this->_minus;
-            $num = -$num;
-            $neg = 1;
+            $num   = -$num;
+            $neg   = 1;
         }
 
         /**
@@ -296,7 +296,7 @@ class Numbers_Words_pt_BR extends Numbers_Words
             /**
              * Actual Number
              */
-            $word = array_filter($this->_parseChunk($chunk));
+            $word  = array_filter($this->_parseChunk($chunk));
             $ret[] = implode($this->_sep, $word);
         }
 
@@ -350,8 +350,8 @@ class Numbers_Words_pt_BR extends Numbers_Words
             return array($this->_contractions[$chunk % 10]);
         }
 
-        $i = strlen($chunk)-1;
-        $n = (int)$chunk[0];
+        $i    = strlen($chunk)-1;
+        $n    = (int)$chunk[0];
         $word = $this->_words[$i][$n];
 
         return array_merge(array($word), $this->_parseChunk(substr($chunk, 1)));
@@ -415,8 +415,8 @@ class Numbers_Words_pt_BR extends Numbers_Words
      */
     function toCurrencyWords($int_curr, $decimal, $fraction = false, $convert_fraction = true)
     {
-        $neg = 0;
-        $ret = array();
+        $neg   = 0;
+        $ret   = array();
         $nodec = false;
 
         /**
@@ -426,7 +426,7 @@ class Numbers_Words_pt_BR extends Numbers_Words
          */
         if (substr($decimal, 0, 1) == '-') {
             $decimal = -$decimal;
-            $neg = 1;
+            $neg     = 1;
         }
 
         /**
