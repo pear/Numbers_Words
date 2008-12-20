@@ -14,8 +14,6 @@
  *
  * @category   Numbers
  * @package    Numbers_Words
- * @author     Marcelo Subtil Marcal <jason@conectiva.com.br>
- * @author     Mario H.C.T. <mariolinux@mitus.com.br>
  * @author     Igor Feghali <ifeghali@php.net>
  * @copyright  1997-2008 The PHP Group
  * @license    http://www.php.net/license/3_01.txt  PHP License 3.01
@@ -34,8 +32,6 @@ require_once "Numbers/Words.php";
  *
  * @category Numbers
  * @package  Numbers_Words
- * @author   Marcelo Subtil Marcal <jason@conectiva.com.br>
- * @author   Mario H.C.T. <mariolinux@mitus.com.br>
  * @author   Igor Feghali <ifeghali@php.net>
  * @license  http://www.php.net/license/3_01.txt  PHP License 3.01
  * @link     http://pear.php.net/package/Numbers_Words
@@ -229,6 +225,7 @@ class Numbers_Words_pt_BR extends Numbers_Words
      *
      * @access public
      * @author Igor Feghali <ifeghali@php.net>
+     * @since  Numbers_Words 0.11.0
      */
     function toWords($num)
     {
@@ -329,6 +326,7 @@ class Numbers_Words_pt_BR extends Numbers_Words
      *
      * @access private
      * @author Igor Feghali <ifeghali@php.net>
+     * @since  Numbers_Words 0.15.1
      */
     function _parseChunk($chunk)
     {
@@ -374,6 +372,7 @@ class Numbers_Words_pt_BR extends Numbers_Words
      *
      * @access private
      * @author Igor Feghali <ifeghali@php.net>
+     * @since  Numbers_Words 0.15.1
      */
     function _mustSeparate($chunks)
     {
@@ -454,7 +453,14 @@ class Numbers_Words_pt_BR extends Numbers_Words
             $ret[] = $this->toWords($num);
 
             /**
-             * Testing plural
+             * Special case.
+             */
+            if (substr($num, -6) == '000000') {
+                $ret[] = trim($this->_curr_sep);
+            }
+
+            /**
+             * Testing plural. Adding currency name
              */
             if ($num > 1) {
                 $ret[] = $curr_names[0][1];
