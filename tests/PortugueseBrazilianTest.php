@@ -146,11 +146,14 @@ class Numbers_Words_PortugueseBrazilianTest extends PHPUnit_Framework_TestCase
                           2000025   => 'dois milhões e vinte e cinco',
                           5100000   => 'cinco milhões e cem mil',
                           5015004   => 'cinco milhões quinze mil e quatro',
+                          5123000   => 'cinco milhões cento e vinte e três mil',
                           7100100   => 'sete milhões cem mil e cem',
                           8100345   => 'oito milhões cem mil trezentos e quarenta e cinco',
                           8000016   => 'oito milhões e dezesseis',
                           100000001 => 'cem milhões e um',
                           345199054 => 'trezentos e quarenta e cinco milhões cento e noventa e nove mil e cinqüenta e quatro',
+                         1000077000 => 'um bilhão e setenta e sete mil',
+                         1000777000 => 'um bilhão setecentos e setenta e sete mil',
                           );
         foreach ($millions as $number => $word) {
             $this->assertEquals($word, Numbers_Words::toWords($number, 'pt_BR'));

@@ -264,7 +264,6 @@ class Numbers_Words_pt_BR extends Numbers_Words
         /**
          * Looping through the chunks
          */
-        $sep = false;
         foreach ($chunks as $index => $chunk) {
             /**
              * Testing Range
@@ -379,9 +378,13 @@ class Numbers_Words_pt_BR extends Numbers_Words
         $chunk = null;
 
         /**
-         * Find first chunk != 0
+         * Find first occurrence != 0.
+         * (first chunk in array but last logical chunk)
          */
-        while (!$chunk = current($chunks));
+        reset($chunks);
+        do {
+            list(,$chunk) = each($chunks);
+        } while ($chunk === '000');
 
         if (($chunk < 100) || !($chunk % 100)) {
             return true;
