@@ -83,7 +83,6 @@ class Numbers_Words_fr_BE extends Numbers_Words
         50=>'cinquante',// 50
         60=>'soixante', // 60
         70=>'septante', // 70
-        80=>'quatre-vingt', // 80
         90=>'nonante',  // 90
        100=>'cent'      // 100
     );
@@ -336,6 +335,16 @@ class Numbers_Words_fr_BE extends Numbers_Words
                     $ret .= $this->_misc_numbers[10].'-'.$this->_digits[$e];
                 }
                 $e = 0;
+            } elseif ($d==8) {
+                $ret .= $this->_digits[4].$this->_dash.$this->_misc_numbers[20];
+                $resto = $d*10+$e-80;
+                if ($resto) {
+                    $ret .= $this->_dash;
+                    $ret .= $this->_showDigitsGroup($resto);
+                    $e = 0;
+                } else {
+                    $ret .= $this->_plural;
+                }
             } else {
                 $ret .= $this->_misc_numbers[$d*10];
             }
