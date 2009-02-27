@@ -41,14 +41,38 @@ The following languages are supported:
   <email>makler@man.torun.pl</email>
   <active>no</active>
  </lead>
+ <lead>
+  <name>Kouber Saparev</name>
+  <user>kouber</user>
+  <email>kouber@php.net</email>
+  <active>yes</active>
+ </lead>
  <developer>
   <name>Marcelo Subtil Marcal</name>
   <user>msmarcal</user>
   <email>msmarcal@php.net</email>
-  <active>no</active>
+  <active>yes</active>
  </developer>
- <date>2008-11-25</date>
- <time>18:59:29</time>
+ <developer>
+  <name>Igor Feghali</name>
+  <user>ifeghali</user>
+  <email>ifeghali@php.net</email>
+  <active>yes</active>
+ </developer>
+ <contributor>
+  <name>Xavier Noguer</name>
+  <user>xnoguer</user>
+  <email>xnoguer.php@gmail.com</email>
+  <active>yes</active>
+ </contributor>
+ <contributor>
+  <name>Hadar Porat</name>
+  <user>hadar_p</user>
+  <email>hpman28@gmail.com</email>
+  <active>yes</active>
+ </contributor>
+ <date>2009-02-27</date>
+ <time>21:25:29</time>
  <version>
   <release>0.16.0</release>
   <api>0.15.0</api>
