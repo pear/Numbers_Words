@@ -94,7 +94,7 @@ class Numbers_Words_ItalianTest extends PHPUnit_Framework_TestCase
             356 => 'trecentocinquantasei',
             410 => 'quattrocentodieci',
             434 => 'quattrocentotrentaquattro',
-            578 => 'cinquecentosettantotto',
+            578 => 'cinquecentosettantaotto',
             689 => 'seicentoottantanove',
             729 => 'settecentoventinove',
             894 => 'ottocentonovantaquattro',
