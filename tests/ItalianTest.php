@@ -64,7 +64,7 @@ class Numbers_Words_ItalianTest extends PHPUnit_Framework_TestCase
             21 => 'ventiuno',
             26 => 'ventisei',
             30 => 'trenta',
-            31 => 'trentuno',
+            31 => 'trentauno',
             40 => 'quaranta',
             43 => 'quarantatre',
             50 => 'cinquanta',
