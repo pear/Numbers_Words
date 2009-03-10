@@ -1,3 +1,14 @@
+2008-03-10
+	* Numbers_Words: Version 0.16.0 released.
+	* Words.php: fixed wrong getLocales() Docblock  bug (#10744) (Daniel O'Connor).
+	* Words.php: fixed bogus non-int parsing (#14988) (Daniel O'Connor).
+	* Words/lang.cs.php: fixed bad trascription for 101 numbers and 102 thousands bug (#14667) (Daniel O'Connor).
+	* Words/lang.fr_BE.php: fixed a bug involving incorrect values for 80 and 81 (Kouber Saparev).
+	* Words/lang.pt_BR.php: bug fix (#15260) (Igor Feghali).
+	* tests/*: Swap to PHPUnit 3 (Daniel O'Connor).
+	* Numerous language unit tests added (bg, en_100, en_gb, en_us, fr, fr_BE, de, it, pt_BR).
+	* Fix numerous coding standard issues (bug #15145).
+
 2006-06-12
 	* Numbers_Words: Version 0.15.0 released.
 	* Words/lang.nl.php: New language file: nl for Dutch (Thanks to WHAM van Dinter)
