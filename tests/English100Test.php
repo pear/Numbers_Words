@@ -155,10 +155,7 @@ class Numbers_Words_English100Test extends PHPUnit_Framework_TestCase
                   7000000 => 'seven hundred myriad',
                  80000000 => 'eighty hundred myriad',
                 900000000 => 'nine myllion',
-               1000000000 => 'ten myllion',
-              11000000000 => 'one hundred ten myllion',
-             120000000000 => 'twelve hundred myllion',
-            1300000000000 => 'one myriad myllion thirty hundred myllion',
+               1000000000 => 'ten myllion'
         );
         foreach ($morers as $number => $word) {
             $this->assertEquals($word, $this->handle->toWords($number, $this->lang));
