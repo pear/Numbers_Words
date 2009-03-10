@@ -72,7 +72,11 @@ class Numbers_Words
 
         @$obj = new $classname;
 
-        return trim($obj->toWords((int)$num));
+        if (!is_int($num)) {
+            $num = preg_replace('/^(\d+)([^\d].*?)?$/', '$1', $num);
+        }
+
+        return trim($obj->toWords($num));
     }
     // }}}
 
