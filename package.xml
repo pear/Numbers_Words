@@ -15,11 +15,11 @@ you can convert a number (decimal and fraction part) to words with currency name
 The following languages are supported:
     * bg (Bulgarian) by Kouber Saparev
     * cs (Czech) by Petr &apos;PePa&apos; Pavel
-    * de (German) by me
+    * de (German) by Piotr Klaban
     * dk (Danish) by Jesper Veggerby
-    * en_100 (Donald Knuth system, English) by me
-    * en_GB (British English) by me
-    * en_US (American English) by me
+    * en_100 (Donald Knuth system, English) by Piotr Klaban
+    * en_GB (British English) by Piotr Klaban
+    * en_US (American English) by Piotr Klaban
     * es (Spanish Castellano) by Xavier Noguer
     * es_AR (Argentinian Spanish) by Martin Marrese
     * et (Estonian) by Erkki Saarniit
@@ -31,7 +31,7 @@ The following languages are supported:
     * it_IT (Italian) by Filippo Beltramini and Davide Caironi
     * lt (Lithuanian) by Laurynas Butkus
     * nl (Dutch) by WHAM van Dinter
-    * pl (Polish) by me
+    * pl (Polish) by Piotr Klaban
     * pt_BR (Brazilian Portuguese) by Marcelo Subtil Marcal and Mario H.C.T.
     * ru (Russian) by Andrey Demenev
     * sv (Swedish) by Robin Ericsson</description>
