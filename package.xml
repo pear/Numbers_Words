@@ -71,10 +71,10 @@ The following languages are supported:
   <email>hpman28@gmail.com</email>
   <active>yes</active>
  </contributor>
- <date>2009-03-10</date>
- <time>18:18:18</time>
+ <date>2009-03-14</date>
+ <time>21:23:00</time>
  <version>
-  <release>0.16.0</release>
+  <release>0.16.1</release>
   <api>0.16.0</api>
  </version>
  <stability>
@@ -83,14 +83,9 @@ The following languages are supported:
  </stability>
  <license uri="http://www.php.net/license">PHP License</license>
  <notes>
-  * Added numerous language unit tests (Bulgarian, English 100, English GB, English US, French, French Belgium, German, Italian, Portuguese Brazilian);
-  * Swap all tests to PHPUnit 3;
-	* Bugs fixed:
-	- #10744 wrong getLocales() Docblock;
-	- #14988 bogus non-int parsing;
-	- #14667 bad trascription for 101 numbers and 102 thousands bug;
-	- incorrect values for 80 and 81 in French Belgium;
-  - #15260 uninitialized string offset in Brazilian Portuguese.
+  * Clean up package definition and tests;
+  * Better cast/sanitation of non-integer values;
+  * Fixed bug #16019 (incorrect trimming of vowels in the Italian extension).
  </notes>
  <contents>
   <dir baseinstalldir="Numbers" name="/">
@@ -146,6 +141,24 @@ The following languages are supported:
  </dependencies>
  <phprelease />
  <changelog>
+  <release>
+   <version>
+    <release>0.16.1</release>
+    <api>0.16.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2009-03-14</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>
+    * Clean up package definition and tests;
+    * Better cast/sanitation of non-integer values;
+    * Fixed bug #16019 (incorrect trimming of vowels in the Italian extension).
+   </notes>
+  </release>
+
   <release>
    <version>
     <release>0.16.0</release>

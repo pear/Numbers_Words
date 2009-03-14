@@ -1,3 +1,9 @@
+2008-03-14
+	* Words.php: better cast/sanitize to int.
+	* Words/lang.it_IT.php: fixed incorrect trimming of vowels (Bug #16019) (Filippo Beltramini).
+	* tests/ItalianTest.php: incorrect trimming, reveling Bug #16019 (Lorenzo Alberton).
+	* tests/*: fix line endings.
+
 2008-03-10
 	* Numbers_Words: Version 0.16.0 released.
 	* Words.php: fixed wrong getLocales() Docblock  bug (#10744) (Daniel O'Connor).
