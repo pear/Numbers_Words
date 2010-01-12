@@ -494,7 +494,10 @@ class Numbers_Words_pl extends Numbers_Words
      */
     function _get_numlevel($num)
     {
-        $num = (int)substr($num, -3);
+        if (strlen($num) > 3) {
+            $num = substr($num, -3);
+        }
+        $num = (int) $num;
 
         $h = $t = $d = $lev = 0;
 
