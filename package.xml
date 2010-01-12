@@ -137,6 +137,10 @@ The following languages are supported:
    <pearinstaller>
     <min>1.4.0b1</min>
    </pearinstaller>
+   <package>
+    <name>Math_BigInteger</name>
+    <channel>pear.php.net</channel>
+   </package>
   </required>
  </dependencies>
  <phprelease />

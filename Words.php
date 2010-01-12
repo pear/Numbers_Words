@@ -122,14 +122,45 @@ class Numbers_Words
 
         @$obj = new $classname;
 
+        // round if a float is passed, use Math_BigInteger otherwise
+        if (is_float($num)) {
+            $num = round($num, 2);
+        }
+
         if (strpos($num, '.') === false) {
             return trim($obj->toCurrencyWords($int_curr, $num));
         }
 
         $currency = explode('.', $num, 2);
-        /* add leading zero */
-        if (strlen($currency[1]) == 1) {
+
+        $len = strlen($currency[1]);
+
+        if ($len == 1) {
+            // add leading zero
             $currency[1] .= '0';
+        } elseif ($len > 2) {
+            // round without losing precision
+            include_once "Math/BigInteger.php";
+
+            // get the 3rd digit after the comma
+            $round_digit = substr($currency[1], 2, 1);
+
+            $currency[1] = substr($currency[1], 0, 2);
+            
+            if ($round_digit >= 5) {
+                // round up
+                $int = new Math_BigInteger(join($currency));
+                $int = $int->add(new Math_BigInteger(1));
+                $int_str = $int->toString();
+
+                $currency[0] = substr($int_str, 0, -2);
+                $currency[1] = substr($int_str, -2);
+
+                // check if the rounded decimal part became zero
+                if ($currency[1] == '00') {
+                    $currency[1] = false;
+                }
+            }
         }
 
         return trim($obj->toCurrencyWords($int_curr, $currency[0], $currency[1]));
