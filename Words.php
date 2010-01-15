@@ -139,16 +139,16 @@ class Numbers_Words
             // add leading zero
             $currency[1] .= '0';
         } elseif ($len > 2) {
-            // round without losing precision
-            include_once "Math/BigInteger.php";
-
             // get the 3rd digit after the comma
             $round_digit = substr($currency[1], 2, 1);
-
+            
+            // cut everything after the 2nd digit
             $currency[1] = substr($currency[1], 0, 2);
             
             if ($round_digit >= 5) {
-                // round up
+                // round up without losing precision
+                include_once "Math/BigInteger.php";
+
                 $int = new Math_BigInteger(join($currency));
                 $int = $int->add(new Math_BigInteger(1));
                 $int_str = $int->toString();
