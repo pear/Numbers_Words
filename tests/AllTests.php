@@ -22,7 +22,7 @@ if (!defined('PHPUnit_MAIN_METHOD')) {
     define('PHPUnit_MAIN_METHOD', 'Numbers_Words_AllTests::main');
 }
 
-require_once 'PHPUnit/Framework/TestSuite.php';
+require_once 'PHPUnit/TextUI/TestRunner.php';
 
 require_once 'BulgarianTest.php';
 require_once 'English100Test.php';
@@ -40,7 +40,6 @@ class Numbers_Words_AllTests {
 
     public static function main()
     {
-        require_once 'PHPUnit/TextUI/TestRunner.php';
         PHPUnit_TextUI_TestRunner::run(self::suite());
     }
 
