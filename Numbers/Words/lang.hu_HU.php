@@ -276,7 +276,6 @@ class Numbers_Words_hu_HU extends Numbers_Words
         switch ($t) {
         case 9:
         case 5:
-        case 4:
             $ret .= $this->_sep . $this->_digits[$t] . 'ven';
             break;
         case 8:
@@ -288,6 +287,9 @@ class Numbers_Words_hu_HU extends Numbers_Words
             break;
         case 3:
             $ret .= $this->_sep . 'harminc';
+            break;
+        case 4:
+            $ret .= $this->_sep . 'negyven';
             break;
         case 2:
             switch ($d) {
