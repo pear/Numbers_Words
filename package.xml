@@ -71,10 +71,10 @@ The following languages are supported:
   <email>hpman28@gmail.com</email>
   <active>yes</active>
  </contributor>
- <date>2010-02-15</date>
- <time>06:38:24</time>
+ <date>2010-05-10</date>
+ <time>13:13:13</time>
  <version>
-  <release>0.16.1</release>
+  <release>0.16.2</release>
   <api>0.16.0</api>
  </version>
  <stability>
@@ -83,9 +83,11 @@ The following languages are supported:
  </stability>
  <license uri="http://www.php.net/license">PHP License</license>
  <notes>
-* Clean up package definition and tests;
-* Better cast/sanitation of non-integer values;
-* Fixed bug #16019 (incorrect trimming of vowels in the Italian extension).
+* Fixed bug #16435 (improper use of substr() in Polish extension);
+* Fixed bug #16667 (wrong spelling of 40 in Hungarian extension) (Vlajos);
+* Fixed bug #16733 (incorrect rounding of cents);
+* Added optional dependency on Math_BigInteger;
+* Improved unit tests (Daniel O'Connor).
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
@@ -490,6 +492,25 @@ Fixed plural of pence (Thanks to Peter Dunham and Rob King). Added toCurrency me
 * Clean up package definition and tests;
 * Better cast/sanitation of non-integer values;
 * Fixed bug #16019 (incorrect trimming of vowels in the Italian extension).
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.16.2</release>
+    <api>0.16.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2010-05-10</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>
+* Fixed bug #16435 (improper use of substr() in Polish extension);
+* Fixed bug #16667 (wrong spelling of 40 in Hungarian extension) (Vlajos);
+* Fixed bug #16733 (incorrect rounding of cents);
+* Added optional dependency on Math_BigInteger;
+* Improved unit tests (Daniel O'Connor).
    </notes>
   </release>
  </changelog>

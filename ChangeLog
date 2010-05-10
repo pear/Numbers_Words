@@ -1,4 +1,12 @@
-2008-03-14
+2010-05-10
+	* Numbers_Words: Version 0.16.2 released.
+	* Words.php: incorrect rounding of cents (Bug #16733).
+	* Words/lang.pl.php: improper use of substr() in Polish extension (Bug #16435).
+	* Words/lang.hu_HU.php: wrong spelling of 40 in Hungarian extension (Bug #16667) (Vlajos).
+	* tests/AllTests.php: switch to TextUI/TestRunner.php framework (Daniel O'Connor).
+
+2009-03-14
+	* Numbers_Words: Version 0.16.1 released.
 	* Words.php: better cast/sanitize to int.
 	* Words/lang.it_IT.php: fixed incorrect trimming of vowels (Bug #16019) (Filippo Beltramini).
 	* tests/ItalianTest.php: incorrect trimming, reveling Bug #16019 (Lorenzo Alberton).
