@@ -448,7 +448,7 @@ class Numbers_Words_bg extends Numbers_Words
      * @access public
      * @author Kouber Saparev <kouber@php.net>
      */
-    function toWords($num = 0)
+    function toWords($num = 0, $locale = null)
     {
         $ret = array();
 
