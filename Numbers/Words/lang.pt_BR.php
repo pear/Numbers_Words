@@ -227,7 +227,7 @@ class Numbers_Words_pt_BR extends Numbers_Words
      * @author Igor Feghali <ifeghali@php.net>
      * @since  Numbers_Words 0.11.0
      */
-    function toWords($num)
+    function toWords($num, $locale = null)
     {
         $neg   = 0;
         $ret   = array();
