@@ -382,7 +382,7 @@ class Numbers_Words_fr_BE extends Numbers_Words
      * @access public
      * @author Kouber Saparev <kouber@php.net>
      */
-    function toWords($num = 0)
+    function toWords($num = 0, $locale = null)
     {
         $ret = '';
 

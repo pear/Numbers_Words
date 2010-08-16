@@ -26,7 +26,11 @@ require_once 'PHPUnit/Framework/TestCase.php';
 
 class Numbers_Words_PortugueseBrazilianTest extends PHPUnit_Framework_TestCase
 {
+    protected $handle;
 
+    public function setUp() {
+        $this->handle = new Numbers_Words();
+    }
     /**
      * Testing numbers between 0 and 9
      */
@@ -45,11 +49,11 @@ class Numbers_Words_PortugueseBrazilianTest extends PHPUnit_Framework_TestCase
                        );
         for ($i = 0; $i < 10; $i++)
         {
-            $number = Numbers_Words::toWords($i, 'pt_BR');
+            $number = $this->handle->toWords($i, 'pt_BR');
             $this->assertEquals($digits[$i], $number);
 
             if ($i > 0) {
-                $number = Numbers_Words::toWords(-$i, 'pt_BR');
+                $number = $this->handle->toWords(-$i, 'pt_BR');
                 $this->assertEquals($digits[$i].' negativo', $number);
             }
         }
@@ -79,8 +83,8 @@ class Numbers_Words_PortugueseBrazilianTest extends PHPUnit_Framework_TestCase
                       79 => 'setenta e nove'
                      );
         foreach ($tens as $number => $word) {
-            $this->assertEquals($word, Numbers_Words::toWords($number, 'pt_BR'));
-            $this->assertEquals("$word negativo", Numbers_Words::toWords(-$number, 'pt_BR'));
+            $this->assertEquals($word, $this->handle->toWords($number, 'pt_BR'));
+            $this->assertEquals("$word negativo", $this->handle->toWords(-$number, 'pt_BR'));
         }
     }
 
@@ -106,8 +110,8 @@ class Numbers_Words_PortugueseBrazilianTest extends PHPUnit_Framework_TestCase
                           999 => 'novecentos e noventa e nove'
                          );
         foreach ($hundreds as $number => $word) {
-            $this->assertEquals($word, Numbers_Words::toWords($number, 'pt_BR'));
-            $this->assertEquals("$word negativo", Numbers_Words::toWords(-$number, 'pt_BR'));
+            $this->assertEquals($word, $this->handle->toWords($number, 'pt_BR'));
+            $this->assertEquals("$word negativo", $this->handle->toWords(-$number, 'pt_BR'));
         }
     }
 
@@ -132,8 +136,8 @@ class Numbers_Words_PortugueseBrazilianTest extends PHPUnit_Framework_TestCase
                            9539 => 'nove mil quinhentos e trinta e nove'
                           );
         foreach ($thousands as $number => $word) {
-            $this->assertEquals($word, Numbers_Words::toWords($number, 'pt_BR'));
-            $this->assertEquals("$word negativo", Numbers_Words::toWords(-$number, 'pt_BR'));
+            $this->assertEquals($word, $this->handle->toWords($number, 'pt_BR'));
+            $this->assertEquals("$word negativo", $this->handle->toWords(-$number, 'pt_BR'));
         }
     }
 
@@ -156,8 +160,8 @@ class Numbers_Words_PortugueseBrazilianTest extends PHPUnit_Framework_TestCase
                          1000777000 => 'um bilhão setecentos e setenta e sete mil',
                           );
         foreach ($millions as $number => $word) {
-            $this->assertEquals($word, Numbers_Words::toWords($number, 'pt_BR'));
-            $this->assertEquals("$word negativo", Numbers_Words::toWords(-$number, 'pt_BR'));
+            $this->assertEquals($word, $this->handle->toWords($number, 'pt_BR'));
+            $this->assertEquals("$word negativo", $this->handle->toWords(-$number, 'pt_BR'));
         }
     }
 
@@ -186,8 +190,8 @@ class Numbers_Words_PortugueseBrazilianTest extends PHPUnit_Framework_TestCase
                  '1000000000' => 'um bilhão de reais',
                           );
         foreach ($money as $number => $word) {
-            $this->assertEquals($word, Numbers_Words::toCurrency($number, 'pt_BR'));
-            $this->assertEquals("$word negativo", Numbers_Words::toCurrency(-$number, 'pt_BR'));
+            $this->assertEquals($word, $this->handle->toCurrency($number, 'pt_BR'));
+            $this->assertEquals("$word negativo", $this->handle->toCurrency(-$number, 'pt_BR'));
         }
     }
 }

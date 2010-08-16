@@ -26,6 +26,13 @@ require_once 'PHPUnit/Framework/TestCase.php';
 class Numbers_Words_SpanishTest extends PHPUnit_Framework_TestCase
 {
 
+    var $handle;
+
+    function setUp()
+    {
+        $this->handle = new Numbers_Words();
+    }
+
     /**
      * Testing numbers between 0 and 9
      */
@@ -44,7 +51,7 @@ class Numbers_Words_SpanishTest extends PHPUnit_Framework_TestCase
                        );
         for ($i = 0; $i < 10; $i++)
         {
-            $number = Numbers_Words::toWords($i, 'es');
+            $number = $this->handle->toWords($i, 'es');
             $this->assertEquals($digits[$i], $number);
         }
     }
@@ -73,7 +80,7 @@ class Numbers_Words_SpanishTest extends PHPUnit_Framework_TestCase
                       79 => 'setenta y nueve'
                      );
         foreach ($tens as $number => $word) {
-            $this->assertEquals($word, Numbers_Words::toWords($number, 'es'));
+            $this->assertEquals($word, $this->handle->toWords($number, 'es'));
         }
     }
 
@@ -98,7 +105,7 @@ class Numbers_Words_SpanishTest extends PHPUnit_Framework_TestCase
                           999 => 'novecientos noventa y nueve'
                          );
         foreach ($hundreds as $number => $word) {
-            $this->assertEquals($word, Numbers_Words::toWords($number, 'es'));
+            $this->assertEquals($word, $this->handle->toWords($number, 'es'));
         }
     }
 
@@ -122,7 +129,7 @@ class Numbers_Words_SpanishTest extends PHPUnit_Framework_TestCase
                            9539 => 'nueve mil quinientos treinta y nueve'
                           );
         foreach ($thousands as $number => $word) {
-            $this->assertEquals($word, Numbers_Words::toWords($number, 'es'));
+            $this->assertEquals($word, $this->handle->toWords($number, 'es'));
         }
     }
 }

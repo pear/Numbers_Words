@@ -26,7 +26,11 @@ require_once 'PHPUnit/Framework/TestCase.php';
 
 class Numbers_Words_ItalianTest extends PHPUnit_Framework_TestCase
 {
+    protected $handle;
 
+    public function setUp() {
+        $this->handle = new Numbers_Words();
+    }
     /**
      * Testing numbers between 0 and 9
      */
@@ -45,7 +49,7 @@ class Numbers_Words_ItalianTest extends PHPUnit_Framework_TestCase
             'nove',
         );
         for ($i = 0; $i < 10; $i++) {
-            $number = Numbers_Words::toWords($i, 'it_IT');
+            $number = $this->handle->toWords($i, 'it_IT');
             $this->assertEquals($digits[$i], $number);
         }
     }
@@ -75,7 +79,7 @@ class Numbers_Words_ItalianTest extends PHPUnit_Framework_TestCase
             79 => 'settantanove',
         );
         foreach ($tens as $number => $word) {
-            $this->assertEquals($word, Numbers_Words::toWords($number, 'it_IT'));
+            $this->assertEquals($word, $this->handle->toWords($number, 'it_IT'));
         }
     }
 
@@ -101,7 +105,7 @@ class Numbers_Words_ItalianTest extends PHPUnit_Framework_TestCase
             999 => 'novecentonovantanove'
         );
         foreach ($hundreds as $number => $word) {
-            $this->assertEquals($word, Numbers_Words::toWords($number, 'it_IT'));
+            $this->assertEquals($word, $this->handle->toWords($number, 'it_IT'));
         }
     }
 
@@ -127,7 +131,7 @@ class Numbers_Words_ItalianTest extends PHPUnit_Framework_TestCase
         );
 
         foreach ($thousands as $number => $word) {
-            $this->assertEquals($word, Numbers_Words::toWords($number, 'it_IT'));
+            $this->assertEquals($word, $this->handle->toWords($number, 'it_IT'));
         }
     }
 }
