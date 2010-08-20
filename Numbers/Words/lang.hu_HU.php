@@ -78,10 +78,10 @@ class Numbers_Words_hu_HU extends Numbers_Words
      * @var string
      * @access private
      */
-    var $_minus = 'Minusz'; // minus sign
+    var $_minus = 'Mínusz '; // minus sign
     
     /**
-     * The sufixes for exponents (singular and plural)
+     * The suffixes for exponents (singular and plural)
      * Names based on:
      * http://mek.oszk.hu/adatbazis/lexikon/phplex/lexikon/d/kisokos/186.html
      * @var array
@@ -129,6 +129,13 @@ class Numbers_Words_hu_HU extends Numbers_Words
      * @access private
      */
     var $_sep = '';
+    
+    /**
+     * The thousands word separator
+     * @var string
+     * @access private
+     */
+    var $_thousand_sep = '-';
 
     /**
      * The currency names (based on the below links,
@@ -206,9 +213,9 @@ class Numbers_Words_hu_HU extends Numbers_Words
      * @author Nils Homp
      * @since  PHP 4.2.3
      */
-    function toWords($num, $power = 0, $powsuffix = '') 
+    function toWords($num, $power = 0, $powsuffix = '', $chk_gt2000 = true, $gt2000 = false) 
     {
-        $ret = '';        
+    	$ret = '';        
         
         // add a minus sign
         if (substr($num, 0, 1) == '-') {
@@ -219,6 +226,8 @@ class Numbers_Words_hu_HU extends Numbers_Words
         // strip excessive zero signs and spaces
         $num = trim($num);
         $num = preg_replace('/^0+/', '', $num);
+        
+        if ($chk_gt2000) $gt2000 = $num > 2000;
         
         if (strlen($num) > 3) {
             $maxp = strlen($num)-1;
@@ -235,8 +244,9 @@ class Numbers_Words_hu_HU extends Numbers_Words
                         if ($powsuffix != '') {
                             $cursuffix .= $this->_sep . $powsuffix;
                         }
-
-                        $ret .= $this->toWords($snum, $p, $cursuffix);
+						
+                    	$ret .= $this->toWords($snum, $p, $cursuffix, false, $gt2000);
+                    	if ($gt2000) $ret .= $this->_thousand_sep;                        
                     }
                     $curp = $p - 1;
                     continue;
@@ -244,7 +254,7 @@ class Numbers_Words_hu_HU extends Numbers_Words
             }
             $num = substr($num, $maxp - $curp, $curp - $p + 1);
             if ($num == 0) {
-                return $ret;
+                return rtrim($ret, $this->_thousand_sep);
             }
         } elseif ($num == 0 || $num == '') {
             return $this->_sep . $this->_digits[0];
