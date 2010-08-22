@@ -204,7 +204,7 @@ class Numbers_Words_es_MX extends Numbers_Words
         // strip excessive zero signs
         $num = preg_replace('/^0+/', '', $num);
 
-        $num_tmp = split('\.', $num);
+        $num_tmp = explode('.', $num);
 
         $num = $num_tmp[0];
         $dec = (@$num_tmp[1]) ? $num_tmp[1] : '';
