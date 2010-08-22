@@ -79,9 +79,9 @@ in alphabetical order):
 
   en_GB  - British English notation of numbers, where
            one billion is 1000000 times one million.
-	   1000 times million is just 'thousand million' here.
-	   I do not use a word billiard here, because
-	   English people do not use it often, and even could not know it.
+           1000 times million is just 'thousand million' here.
+           I do not use a word billiard here, because
+           English people do not use it often, and even could not know it.
            Author: Piotr Klaban
 
   en_US  - American English notation of numbers, where
@@ -132,6 +132,9 @@ in alphabetical order):
 
   sv     - Swedich language.
            Author: Robin Ericsson
+
+  tr_TR  - Turkish language.
+           Author: Shahriyar Imanov
 
 ** What if numbers have fraction part?
 
