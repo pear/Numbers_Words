@@ -46,8 +46,8 @@ while (strlen($shownum) % 3 != 0) {
   $shownum = " " . $shownum;
 }
 
-$shownum = ereg_replace("(...)", "\\1 ", $shownum);
-$shownum = ereg_replace(" $", "", $shownum);
+$shownum = preg_replace("/(...)/", "\\1 ", $shownum);
+$shownum = preg_replace("/ $/", "", $shownum);
 
 if ($html_on)
     echo "<center>Test number: <b><u>$shownum</u></b></center><p>\n";
