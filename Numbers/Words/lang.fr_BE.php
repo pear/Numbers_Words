@@ -369,7 +369,7 @@ class Numbers_Words_fr_BE extends Numbers_Words
     }
     // }}}
 
-    // {{{ toWords()
+    // {{{ _toWords()
 
     /**
      * Converts a number to its word representation
@@ -379,10 +379,11 @@ class Numbers_Words_fr_BE extends Numbers_Words
      *                        and 9.99*10^302 (999 centillions) that need to be converted to words
      *
      * @return string  The corresponding word representation
-     * @access public
+     * @access private
      * @author Kouber Saparev <kouber@php.net>
+     * @since  Numbers_Words 0.16.3
      */
-    function toWords($num = 0, $locale = null)
+    function _toWords($num = 0)
     {
         $ret = '';
 

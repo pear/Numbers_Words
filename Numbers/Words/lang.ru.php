@@ -422,7 +422,7 @@ class Numbers_Words_ru extends Numbers_Words
     var $def_currency = 'RUB'; // Russian rouble
 
     // }}}
-    // {{{ toWords()
+    // {{{ _toWords()
 
     /**
      * Converts a number to its word representation
@@ -437,8 +437,9 @@ class Numbers_Words_ru extends Numbers_Words
      *
      * @access private
      * @author Andrey Demenev <demenev@on-line.jar.ru>
+     * @since  Numbers_Words 0.16.3
      */
-    function toWords($num, $gender = 1) 
+    function _toWords($num, $gender = 1) 
     {
         return $this->_toWordsWithCase($num, $dummy, $gender);
     }

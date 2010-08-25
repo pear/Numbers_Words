@@ -145,7 +145,7 @@ class Numbers_Words_nl extends Numbers_Words
     var $_sep2 = '-';
 
     // }}}
-    // {{{ toWords()
+    // {{{ _toWords()
 
     /**
      * Converts a number to its word representation
@@ -160,12 +160,12 @@ class Numbers_Words_nl extends Numbers_Words
      *
      * @return string  The corresponding word representation
      *
-     * @access public
+     * @access private
      * @author Piotr Klaban <makler@man.torun.pl>
      * @author WHAM van Dinter <willem@fkkc.nl>
-     * @since  PHP 4.2.3
+     * @since  Numbers_Words 0.16.3
      */
-    function toWords($num, $power = 0, $powsuffix = '')
+    function _toWords($num, $power = 0, $powsuffix = '')
     {
         $ret = '';
 
@@ -195,7 +195,7 @@ class Numbers_Words_nl extends Numbers_Words
                             $cursuffix .= $this->_sep . $powsuffix;
                         }
 
-                        $ret .= $this->toWords($snum, $p, $cursuffix);
+                        $ret .= $this->_toWords($snum, $p, $cursuffix);
                     }
                     $curp = $p - 1;
                     continue;

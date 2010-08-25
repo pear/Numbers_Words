@@ -110,7 +110,7 @@ class Numbers_Words_it_IT extends Numbers_Words
      */
     var $_sep = '';
     // }}}
-    // {{{ toWords()
+    // {{{ _toWords()
     /**
      * Converts a number to its word representation
      * in italiano.
@@ -123,11 +123,11 @@ class Numbers_Words_it_IT extends Numbers_Words
      *
      * @return string  The corresponding word representation
      *
-     * @access public
+     * @access private
      * @author Filippo Beltramini
-     * @since  PHP 4.2.3
+     * @since  Numbers_Words 0.16.3
      */
-    function toWords($num, $power = 0)
+    function _toWords($num, $power = 0)
     {
         // The return string;
         $ret = '';
@@ -151,7 +151,7 @@ class Numbers_Words_it_IT extends Numbers_Words
                 $snum = substr($num, 0, -6);
                 $snum = preg_replace('/^0+/', '', $snum);
                 if ($snum !== '') {
-                    $ret .= $this->toWords($snum, $power + 6);
+                    $ret .= $this->_toWords($snum, $power + 6);
                 }
             }
             $num = substr($num, -6);
@@ -170,7 +170,7 @@ class Numbers_Words_it_IT extends Numbers_Words
         if ($thousands == 1) {
             $ret .= $this->_sep . 'mille' . $this->_sep;
         } elseif ($thousands > 1) {
-            $ret .= $this->toWords($thousands, 3) . $this->_sep;//. 'mil' . $this->_sep;
+            $ret .= $this->_toWords($thousands, 3) . $this->_sep;//. 'mil' . $this->_sep;
         }
 
         // values for digits, tens and hundreds

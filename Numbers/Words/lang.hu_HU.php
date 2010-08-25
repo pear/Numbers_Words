@@ -194,7 +194,7 @@ class Numbers_Words_hu_HU extends Numbers_Words
     var $def_currency = 'HUF'; // forint
 
     // }}}
-    // {{{ toWords()
+    // {{{ _toWords()
 
     /**
      * Converts a number to its word representation
@@ -209,11 +209,11 @@ class Numbers_Words_hu_HU extends Numbers_Words
      *
      * @return string  The corresponding word representation
      *
-     * @access public
+     * @access private
      * @author Nils Homp
-     * @since  PHP 4.2.3
+     * @since  Numbers_Words 0.16.3
      */
-    function toWords($num, $power = 0, $powsuffix = '', $chk_gt2000 = true, $gt2000 = false) 
+    function _toWords($num, $power = 0, $powsuffix = '', $chk_gt2000 = true, $gt2000 = false) 
     {
     	$ret = '';        
         
@@ -245,7 +245,7 @@ class Numbers_Words_hu_HU extends Numbers_Words
                             $cursuffix .= $this->_sep . $powsuffix;
                         }
 						
-                    	$ret .= $this->toWords($snum, $p, $cursuffix, false, $gt2000);
+                    	$ret .= $this->_toWords($snum, $p, $cursuffix, false, $gt2000);
                     	if ($gt2000) $ret .= $this->_thousand_sep;                        
                     }
                     $curp = $p - 1;
@@ -390,7 +390,7 @@ class Numbers_Words_hu_HU extends Numbers_Words
         }
         $curr_names = $this->_currency_names[$int_curr];
 
-        $ret = trim($this->toWords($decimal));
+        $ret = trim($this->_toWords($decimal));
         $lev = ($decimal == 1) ? 0 : 1;
         if ($lev > 0) {
             if (count($curr_names[0]) > 1) {
@@ -404,7 +404,7 @@ class Numbers_Words_hu_HU extends Numbers_Words
       
         if ($fraction !== false) {
             if ($convert_fraction) {
-                $ret .= $this->_sep . trim($this->toWords($fraction));
+                $ret .= $this->_sep . trim($this->_toWords($fraction));
             } else {
                 $ret .= $this->_sep . $fraction;
             }

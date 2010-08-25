@@ -144,7 +144,7 @@ class Numbers_Words_pt_BR extends Numbers_Words
          */
         array(
             '',         // 0: not displayed
-            'cento',    // 'cem' is a special case handled in toWords()
+            'cento',    // 'cem' is a special case handled in _toWords()
             'duzentos',
             'trezentos',
             'quatrocentos',
@@ -213,7 +213,7 @@ class Numbers_Words_pt_BR extends Numbers_Words
      */
     var $def_currency = 'BRL'; // Real
 
-    // {{{ toWords()
+    // {{{ _toWords()
 
     /**
      * Converts a number to its word representation
@@ -223,11 +223,11 @@ class Numbers_Words_pt_BR extends Numbers_Words
      *
      * @return string  The corresponding word representation
      *
-     * @access public
+     * @access private
      * @author Igor Feghali <ifeghali@php.net>
-     * @since  Numbers_Words 0.11.0
+     * @since  Numbers_Words 0.16.3
      */
-    function toWords($num, $locale = null)
+    function _toWords($num)
     {
         $neg   = 0;
         $ret   = array();
@@ -453,7 +453,7 @@ class Numbers_Words_pt_BR extends Numbers_Words
             /**
              * Word representation of decimal
              */
-            $ret[] = $this->toWords($num);
+            $ret[] = $this->_toWords($num);
 
             /**
              * Special case.
@@ -504,7 +504,7 @@ class Numbers_Words_pt_BR extends Numbers_Words
              * Word representation of fraction
              */
             if ($convert_fraction) {
-                $ret[] = $this->toWords($num);
+                $ret[] = $this->_toWords($num);
             } else {
                 $ret[] = $num;
             }
