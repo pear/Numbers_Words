@@ -539,5 +539,3 @@ class Numbers_Words_pt_BR extends Numbers_Words
     }
     // }}}
 }
-
-?>

@@ -467,4 +467,3 @@ class Numbers_Words_es_AR extends Numbers_Words
 
 
 }
-?>

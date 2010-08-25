@@ -541,5 +541,3 @@ class Numbers_Words_pl extends Numbers_Words
     }
     // }}}
 }
-
-?>

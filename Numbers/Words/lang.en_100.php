@@ -312,5 +312,3 @@ class Numbers_Words_en_100 extends Numbers_Words
     }
     // }}}
 }
-
-?>

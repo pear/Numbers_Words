@@ -321,5 +321,3 @@ class Numbers_Words_sv extends Numbers_Words
     }
     // }}}
 }
-
-?>

@@ -327,5 +327,3 @@ class Numbers_Words_de extends Numbers_Words
     }
     // }}}
 }
-
-?>

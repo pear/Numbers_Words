@@ -446,4 +446,3 @@ class Numbers_Words_fr extends Numbers_Words
     }
     // }}}
 }
-?>

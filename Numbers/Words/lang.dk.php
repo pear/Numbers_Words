@@ -425,5 +425,3 @@ class Numbers_Words_dk extends Numbers_Words
 
 
 }
-
-?>

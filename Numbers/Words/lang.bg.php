@@ -518,4 +518,3 @@ class Numbers_Words_bg extends Numbers_Words
     }
     // }}}
 }
-?>

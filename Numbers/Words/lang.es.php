@@ -329,4 +329,3 @@ class Numbers_Words_es extends Numbers_Words
     }
     // }}}
 }
-?>

@@ -431,5 +431,3 @@ class Numbers_Words_en_GB extends Numbers_Words
 
 
 }
-
-?>

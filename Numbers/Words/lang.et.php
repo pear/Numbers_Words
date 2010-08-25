@@ -350,5 +350,3 @@ class Numbers_Words_et extends Numbers_Words
     }
     // }}}
 }
-
-?>

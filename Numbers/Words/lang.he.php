@@ -521,5 +521,3 @@ class Numbers_Words_he extends Numbers_Words
     // }}}
 
 }
-
-?>

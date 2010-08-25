@@ -424,5 +424,3 @@ class Numbers_Words_hu_HU extends Numbers_Words
     // }}}
 
 }
-
-?>

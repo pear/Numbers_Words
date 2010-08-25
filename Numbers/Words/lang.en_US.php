@@ -522,5 +522,3 @@ class Numbers_Words_en_US extends Numbers_Words
     // }}}
 
 }
-
-?>

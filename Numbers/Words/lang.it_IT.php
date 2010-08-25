@@ -391,4 +391,3 @@ class Numbers_Words_it_IT extends Numbers_Words
     }
     // }}}
 }
-?>

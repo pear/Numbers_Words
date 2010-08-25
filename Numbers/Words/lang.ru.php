@@ -648,5 +648,3 @@ class Numbers_Words_ru extends Numbers_Words
     // }}}
 
 }
-
-?>

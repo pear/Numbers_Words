@@ -319,5 +319,3 @@ class Numbers_Words_lt extends Numbers_Words
     // }}}
 
 }
-
-?>
