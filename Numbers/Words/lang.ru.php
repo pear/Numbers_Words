@@ -439,8 +439,16 @@ class Numbers_Words_ru extends Numbers_Words
      * @author Andrey Demenev <demenev@on-line.jar.ru>
      * @since  Numbers_Words 0.16.3
      */
-    function _toWords($num, $gender = 1) 
+    function _toWords($num, $options = array()) 
     {
+        $dummy  = null;
+        $gender = 1;
+
+        /**
+         * Loads user options
+         */
+        extract($options, EXTR_IF_EXISTS);
+
         return $this->_toWordsWithCase($num, $dummy, $gender);
     }
 

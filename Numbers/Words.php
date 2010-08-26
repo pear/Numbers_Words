@@ -54,17 +54,18 @@ class Numbers_Words
     /**
      * Converts a number to its word representation
      *
-     * @param integer $num    An integer between -infinity and infinity inclusive :)
-     *                        that should be converted to a words representation
-     * @param string  $locale Language name abbreviation. Optional. Defaults to
-     *                        current loaded driver or en_US if any.
+     * @param integer $num     An integer between -infinity and infinity inclusive :)
+     *                         that should be converted to a words representation
+     * @param string  $locale  Language name abbreviation. Optional. Defaults to
+     *                         current loaded driver or en_US if any.
+     * @param array   $options Specific driver options
      *
      * @access public
      * @author Piotr Klaban <makler@man.torun.pl>
      * @since  PHP 4.2.3
      * @return string  The corresponding word representation
      */
-    function toWords($num, $locale = '')
+    function toWords($num, $locale = '', $options = array())
     {
         if (empty($locale)) {
             $locale = $this->locale;
@@ -93,12 +94,43 @@ class Numbers_Words
             $num = preg_replace('/^[^\d]*?(-?)[ \t\n]*?(\d+)([^\d].*?)?$/', '$1$2', $num);
         }
 
-        if ($classname == get_class($this)) {
+        $truth_table  = ($classname == get_class($this)) ? 'T' : 'F';
+        $truth_table .= (empty($options)) ? 'T' : 'F';
+
+        switch ($truth_table) {
+
+        /**
+         * We are a language driver
+         */
+        case 'TT':
             return trim($this->_toWords($num));
-        } else {
+            break;
+
+        /**
+         * We are a language driver with custom options
+         */
+        case 'TF':
+            return trim($this->_toWords($num, $options));
+            break;
+
+        /**
+         * We are the parent class
+         */
+        case 'FT':
             @$obj = new $classname;
             return trim($obj->_toWords($num));
+            break;
+
+        /**
+         * We are the parent class and should pass driver options
+         */
+        case 'FF':
+            @$obj = new $classname;
+            return trim($obj->_toWords($num, $options));
+            break;
+
         }
+
     }
     // }}}
 

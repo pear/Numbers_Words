@@ -213,8 +213,18 @@ class Numbers_Words_hu_HU extends Numbers_Words
      * @author Nils Homp
      * @since  Numbers_Words 0.16.3
      */
-    function _toWords($num, $power = 0, $powsuffix = '', $chk_gt2000 = true, $gt2000 = false) 
+    function _toWords($num, $options = array(), $power = 0, $powsuffix = '', $gt2000 = false)
     {
+        $chk_gt2000 = true;
+
+        /**
+         * Loads user options
+         */
+        extract($options, EXTR_IF_EXISTS);
+
+        /**
+         * Return string
+         */
     	$ret = '';        
         
         // add a minus sign
@@ -245,8 +255,15 @@ class Numbers_Words_hu_HU extends Numbers_Words
                             $cursuffix .= $this->_sep . $powsuffix;
                         }
 						
-                    	$ret .= $this->_toWords($snum, $p, $cursuffix, false, $gt2000);
-                    	if ($gt2000) $ret .= $this->_thousand_sep;                        
+                        $ret .= $this->_toWords(
+                            $snum,
+                            array('chk_gt2000' => false),
+                            $p,
+                            $cursuffix,
+                            $gt2000
+                        );
+
+                    	if ($gt2000) $ret .= $this->_thousand_sep;
                     }
                     $curp = $p - 1;
                     continue;
