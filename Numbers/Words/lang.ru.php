@@ -435,7 +435,7 @@ class Numbers_Words_ru extends Numbers_Words
      *
      * @return string  The corresponding word representation
      *
-     * @access private
+     * @access protected
      * @author Andrey Demenev <demenev@on-line.jar.ru>
      * @since  Numbers_Words 0.16.3
      */

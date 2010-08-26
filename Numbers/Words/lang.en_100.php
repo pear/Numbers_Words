@@ -142,7 +142,7 @@ class Numbers_Words_en_100 extends Numbers_Words
      *
      * @return string  The corresponding word representation
      *
-     * @access private
+     * @access protected
      * @author Piotr Klaban <makler@man.torun.pl>
      * @since  Numbers_Words 0.16.3
      */

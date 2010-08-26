@@ -131,7 +131,7 @@ class Numbers_Words_lt extends Numbers_Words
      *
      * @return string  The corresponding word representation
      *
-     * @access private
+     * @access protected
      * @author Laurynas Butkus <lauris@night.lt>
      * @since  Numbers_Words 0.16.3
      */

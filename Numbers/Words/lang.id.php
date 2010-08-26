@@ -136,7 +136,7 @@ class Numbers_Words_id extends Numbers_Words
      *
      * @return string  The corresponding word representation
      *
-     * @access private
+     * @access protected
      * @author Ernas M. Jamil
      * @since  Numbers_Words 0.16.3
      */

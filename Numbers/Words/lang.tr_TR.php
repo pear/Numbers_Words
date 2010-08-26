@@ -174,7 +174,7 @@ class Numbers_Words_tr_TR extends Numbers_Words
      *                        Optional, defaults to 0.
      * @return string  The corresponding word representation
      *
-     * @access private
+     * @access protected
      * @author Filippo Beltramini
      * @since  Numbers_Words 0.16.3
      */

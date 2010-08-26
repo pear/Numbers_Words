@@ -223,7 +223,7 @@ class Numbers_Words_pt_BR extends Numbers_Words
      *
      * @return string  The corresponding word representation
      *
-     * @access private
+     * @access protected
      * @author Igor Feghali <ifeghali@php.net>
      * @since  Numbers_Words 0.16.3
      */

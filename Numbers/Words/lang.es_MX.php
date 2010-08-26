@@ -186,7 +186,7 @@ class Numbers_Words_es_MX extends Numbers_Words
      *
      * @return string  The corresponding word representation
      *
-     * @access private
+     * @access protected
      * @author Martin Marrese
      * @since  Numbers_Words 0.16.3
      */

@@ -167,7 +167,7 @@ class Numbers_Words_dk extends Numbers_Words
      *
      * @return string  The corresponding word representation
      *
-     * @access private
+     * @access protected
      * @author Jesper Veggerby <pear.nosey@veggerby.dk>
      * @since  Numbers_Words 0.16.3
      */

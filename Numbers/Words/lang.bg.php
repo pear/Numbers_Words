@@ -445,7 +445,7 @@ class Numbers_Words_bg extends Numbers_Words
      *
      * @return string  The corresponding word representation
      *
-     * @access private
+     * @access protected
      * @author Kouber Saparev <kouber@php.net>
      * @since  Numbers_Words 0.16.3
      */

@@ -220,8 +220,7 @@ class Numbers_Words_et extends Numbers_Words
      *
      * @return string  The corresponding word representation
      *
-     * @access private
-     * @since  PHP 4.2.3
+     * @access protected
      * @since  Numbers_Words 0.16.3
      */
     function _toWords($num, $power = 0, $powsuffix = '')

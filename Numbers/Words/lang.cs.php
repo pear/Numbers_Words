@@ -162,7 +162,7 @@ class Numbers_Words_cs extends Numbers_Words
      *
      * @return string  The corresponding word representation
      *
-     * @access private
+     * @access protected
      * @author Petr 'PePa' Pavel <petr.pavel@pepa.info>
      * @since  Numbers_Words 0.16.3
      */

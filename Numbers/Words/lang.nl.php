@@ -160,7 +160,7 @@ class Numbers_Words_nl extends Numbers_Words
      *
      * @return string  The corresponding word representation
      *
-     * @access private
+     * @access protected
      * @author Piotr Klaban <makler@man.torun.pl>
      * @author WHAM van Dinter <willem@fkkc.nl>
      * @since  Numbers_Words 0.16.3

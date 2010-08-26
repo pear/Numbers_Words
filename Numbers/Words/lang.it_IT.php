@@ -123,7 +123,7 @@ class Numbers_Words_it_IT extends Numbers_Words
      *
      * @return string  The corresponding word representation
      *
-     * @access private
+     * @access protected
      * @author Filippo Beltramini
      * @since  Numbers_Words 0.16.3
      */
