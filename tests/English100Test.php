@@ -167,4 +167,3 @@ class Numbers_Words_English100Test extends PHPUnit_Framework_TestCase
 if (PHPUnit_MAIN_METHOD == 'Numbers_Words_English100Test::main') {
     Numbers_Words_English100Test::main();
 }
-?>

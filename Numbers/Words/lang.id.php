@@ -19,7 +19,7 @@
  * @author   Ernas M. Jamil <ernasm@samba.co.id>
  * @author   Arif Rifai Dwiyanto
  * @license  PHP 3.0 http://www.php.net/license/3_0.txt
- * @version  CVS: $Id$
+ * @version  SVN: $Id$
  * @link     http://pear.php.net/package/Numbers_Words
  */
 

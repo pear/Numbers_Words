@@ -20,7 +20,7 @@
  * @package  Numbers_Words
  * @author   Piotr Klaban <makler@man.torun.pl>
  * @license  PHP 3.0 http://www.php.net/license/3_0.txt
- * @version  CVS: $Id$
+ * @version  SVN: $Id$
  * @link     http://pear.php.net/package/Numbers_Words
  */
 
@@ -283,4 +283,3 @@ class Numbers_Words
 }
 
 // }}}
-?>

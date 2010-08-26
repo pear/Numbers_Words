@@ -133,4 +133,3 @@ class Numbers_Words_SpanishTest extends PHPUnit_Framework_TestCase
         }
     }
 }
-

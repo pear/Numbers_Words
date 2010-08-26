@@ -19,7 +19,7 @@
  * @author   Piotr Klaban <makler@man.torun.pl>
  * @author   Robin Ericsson <robin.ericsson@profecta.se>
  * @license  PHP 3.0 http://www.php.net/license/3_0.txt
- * @version  CVS: $Id$
+ * @version  SVN: $Id$
  * @link     http://pear.php.net/package/Numbers_Words
  */
 

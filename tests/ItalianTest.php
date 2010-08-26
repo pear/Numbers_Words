@@ -16,9 +16,8 @@
  * @author     Lorenzo Alberton <l.alberton@quipo.it>
  * @copyright  1997-2008 The PHP Group
  * @license    http://www.php.net/license/3_01.txt  PHP License 3.01
- * @version    CVS: $Id$
+ * @version    SVN: $Id$
  * @link       http://pear.php.net/package/Numbers_Words
- * @since      File available only in CVS
  */
 
 require_once 'Numbers/Words.php';
@@ -135,4 +134,3 @@ class Numbers_Words_ItalianTest extends PHPUnit_Framework_TestCase
         }
     }
 }
-

@@ -151,4 +151,3 @@ class Numbers_Words_FrenchTest extends PHPUnit_Framework_TestCase
 if (PHPUnit_MAIN_METHOD == 'Numbers_Words_FrenchTest::main') {
     Numbers_Words_FrenchTest::main();
 }
-?>

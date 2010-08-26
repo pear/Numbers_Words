@@ -168,4 +168,3 @@ class Numbers_Words_HungarianTest extends PHPUnit_Framework_TestCase
 if (PHPUnit_MAIN_METHOD == 'Numbers_Words_HungarianTest::main') {
     Numbers_Words_HungarianTest::main();
 }
-?>

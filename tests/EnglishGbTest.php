@@ -17,9 +17,8 @@ declare(encoding='iso-8859-15');
  * @author    Christian Weiske <cweiske@php.net>
  * @copyright 1997-2008 The PHP Group
  * @license   http://www.php.net/license/3_01.txt  PHP License 3.01
- * @version   CVS: $Id$
+ * @version   SVN: $Id$
  * @link      http://pear.php.net/package/Numbers_Words
- * @since     File available only in CVS
  */
 if (!defined('PHPUnit_MAIN_METHOD')) {
     define('PHPUnit_MAIN_METHOD', 'Numbers_Words_EnglishGbTest::main');
@@ -171,4 +170,3 @@ class Numbers_Words_EnglishGbTest extends PHPUnit_Framework_TestCase
 if (PHPUnit_MAIN_METHOD == 'Numbers_Words_EnglishGbTest::main') {
     Numbers_Words_EnglishGbTest::main();
 }
-?>

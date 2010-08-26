@@ -147,4 +147,3 @@ class Numbers_Words_BulgarianTest extends PHPUnit_Framework_TestCase
 if (PHPUnit_MAIN_METHOD == 'Numbers_Words_BulgarianTest::main') {
     Numbers_Words_BulgarianTest::main();
 }
-?>
