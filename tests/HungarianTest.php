@@ -18,7 +18,12 @@
  * @link      http://pear.php.net/package/Numbers_Words
  */
 
-error_reporting(E_ALL | E_STRICT);
+/*
+ * PEAR QA suggests that we do not set
+ * error_reporting
+ *
+ * error_reporting(E_ALL | E_STRICT);
+ */
 ini_set('display_errors', 1);
 
 if (!defined('PHPUnit_MAIN_METHOD')) {
