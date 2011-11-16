@@ -31,7 +31,7 @@ if (!defined('PHPUnit_MAIN_METHOD')) {
 }
 
 require_once 'Numbers/Words.php';
-require_once 'PHPUnit/Framework.php';
+require_once 'PHPUnit/Framework/TestCase.php';
 
 class Numbers_Words_HungarianTest extends PHPUnit_Framework_TestCase
 {
