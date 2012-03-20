@@ -71,70 +71,64 @@ The following languages are supported:
   <email>hpman28@gmail.com</email>
   <active>yes</active>
  </contributor>
- <date>2011-12-11</date>
- <time>01:05:40</time>
+ <date>2012-03-20</date>
+ <time>15:47:15</time>
  <version>
-  <release>0.16.3</release>
+  <release>0.16.4</release>
   <api>0.16.0</api>
  </version>
  <stability>
   <release>beta</release>
   <api>beta</api>
  </stability>
- <license uri="http://www.php.net/license">PHP License</license>
+ <license uri="http://www.php.net/license/">PHP</license>
  <notes>
-QA Release
-Bug #12512 Windows	incorrect declaration of toWords() in lang.fr.php (and others!)	ifeghali
-Bug #17373 bug in toWords function for hungarian translation	kouber
-Bug #17392 bugs in toWords function for hungarian translation	ifeghali
-Bug #17754 Patch: Using explode instead of split	ifeghali
-Request #17763 Independent	tr_TR Lang support	ifeghali
-Bug #17794 Patch: avoiding split in es_MX file	ifeghali
-Bug #18501 incorrect declaration of toWords() in lang.fr.php	kouber
-Bug #19013 remove error_reporting (for PEAR QA team)	ifeghali
+Currency names for Dutch
+Re-licensed to PHP 3.01 [ifeghali]
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
-   <file baseinstalldir="/" md5sum="054e6e3888f6dff5484b413cd7b40a6d" name="Numbers/Words.php" role="php" />
-   <file baseinstalldir="/" md5sum="ab9128ab2a2bcc81cfa82502befc755d" name="Numbers/Words/lang.bg.php" role="php" />
-   <file baseinstalldir="/" md5sum="d47eb2059d3a1a4ed6f32de6da028db4" name="Numbers/Words/lang.cs.php" role="php" />
-   <file baseinstalldir="/" md5sum="d233806326f61f496ab36ec65d6655fe" name="Numbers/Words/lang.de.php" role="php" />
-   <file baseinstalldir="/" md5sum="c7b8774e597a045f58d1a8bba4575d20" name="Numbers/Words/lang.dk.php" role="php" />
-   <file baseinstalldir="/" md5sum="fdb4c2a00a94be303cf75f169af75e17" name="Numbers/Words/lang.en_100.php" role="php" />
-   <file baseinstalldir="/" md5sum="4377b4966b55165fb14a51c070d45014" name="Numbers/Words/lang.en_GB.php" role="php" />
-   <file baseinstalldir="/" md5sum="adf56d233ab03cdd8d7870be7982154c" name="Numbers/Words/lang.en_US.php" role="php" />
-   <file baseinstalldir="/" md5sum="ae529d4bce1e5db0e80f4ed92a95a983" name="Numbers/Words/lang.es.php" role="php" />
-   <file baseinstalldir="/" md5sum="89b8175a18828c44d2b4b3c991ae737b" name="Numbers/Words/lang.es_AR.php" role="php" />
-   <file baseinstalldir="/" md5sum="968736a8a2e67ea30cc87108d97467a0" name="Numbers/Words/lang.es_MX.php" role="php" />
-   <file baseinstalldir="/" md5sum="4ebba99186908a102061a89bb3222ed0" name="Numbers/Words/lang.et.php" role="php" />
-   <file baseinstalldir="/" md5sum="b6b2c40a95a104109bf9c4ecd6d6dd3e" name="Numbers/Words/lang.fr.php" role="php" />
-   <file baseinstalldir="/" md5sum="de8ab13d0296d03dc4591688f5520561" name="Numbers/Words/lang.fr_BE.php" role="php" />
-   <file baseinstalldir="/" md5sum="63d79236331dd79ebec4ba07c36afa58" name="Numbers/Words/lang.he.php" role="php" />
-   <file baseinstalldir="/" md5sum="31331b7dc9d97826837fbcc28937b682" name="Numbers/Words/lang.hu_HU.php" role="php" />
-   <file baseinstalldir="/" md5sum="eb3bb9547e27ba9d9288c802f02ff6d7" name="Numbers/Words/lang.id.php" role="php" />
-   <file baseinstalldir="/" md5sum="c1a9fdae1258185f42ab12aa893ac88d" name="Numbers/Words/lang.it_IT.php" role="php" />
-   <file baseinstalldir="/" md5sum="81ab2ac803af65bb24d90cfc250f48c0" name="Numbers/Words/lang.lt.php" role="php" />
-   <file baseinstalldir="/" md5sum="59e99509d8a7cad687f84f03b61b2ab3" name="Numbers/Words/lang.nl.php" role="php" />
-   <file baseinstalldir="/" md5sum="580a738b59e86e2069fbc12af691aeb3" name="Numbers/Words/lang.pl.php" role="php" />
-   <file baseinstalldir="/" md5sum="5a1ef24b905c7f7e2a7bbb935e8de154" name="Numbers/Words/lang.pt_BR.php" role="php" />
-   <file baseinstalldir="/" md5sum="8957e870978319bc76faee5d7c0d7497" name="Numbers/Words/lang.ru.php" role="php" />
-   <file baseinstalldir="/" md5sum="4d2ac41b91488a607c92c2aaf0d2555d" name="Numbers/Words/lang.sv.php" role="php" />
-   <file baseinstalldir="/" md5sum="5d52dbb981757c93f6412ed01a4f6421" name="Numbers/Words/lang.tr_TR.php" role="php" />
+   <file baseinstalldir="/" md5sum="b86fe683713aa19e67edc1eaed4243ca" name="Numbers/Words.php" role="php" />
+   <file baseinstalldir="/" md5sum="98cb52d76e383abc1e36299af90d887f" name="Numbers/Words/lang.bg.php" role="php" />
+   <file baseinstalldir="/" md5sum="d6bdfe6cdbe8d065b3dbf70ecbf45e50" name="Numbers/Words/lang.cs.php" role="php" />
+   <file baseinstalldir="/" md5sum="f0473630d8a9ab4c8f728192611aeacf" name="Numbers/Words/lang.de.php" role="php" />
+   <file baseinstalldir="/" md5sum="541e73084b1d299c3d4f9dcabb43270c" name="Numbers/Words/lang.dk.php" role="php" />
+   <file baseinstalldir="/" md5sum="802d3b8a433976a27e337abeaf05dbb7" name="Numbers/Words/lang.en_100.php" role="php" />
+   <file baseinstalldir="/" md5sum="aeb6e3b51bda92bc6a8b6b6a347b92de" name="Numbers/Words/lang.en_GB.php" role="php" />
+   <file baseinstalldir="/" md5sum="466c219a841019550037c9541c9b7022" name="Numbers/Words/lang.en_US.php" role="php" />
+   <file baseinstalldir="/" md5sum="a43503af59c135b4eacb105a73df2275" name="Numbers/Words/lang.es.php" role="php" />
+   <file baseinstalldir="/" md5sum="2fd0d88c57e109010a41f2d5fbe3c959" name="Numbers/Words/lang.es_AR.php" role="php" />
+   <file baseinstalldir="/" md5sum="9f6f5ce03768bc460373147086cbcf8c" name="Numbers/Words/lang.es_MX.php" role="php" />
+   <file baseinstalldir="/" md5sum="e54f697b98df796147c8187fc8e61be9" name="Numbers/Words/lang.et.php" role="php" />
+   <file baseinstalldir="/" md5sum="bad3b31f66e474f82495dbf52dcf3d87" name="Numbers/Words/lang.fr.php" role="php" />
+   <file baseinstalldir="/" md5sum="8220801f953b976debec33e9fa7cc631" name="Numbers/Words/lang.fr_BE.php" role="php" />
+   <file baseinstalldir="/" md5sum="2a75435615cb06015d09bd89bba4cf50" name="Numbers/Words/lang.he.php" role="php" />
+   <file baseinstalldir="/" md5sum="1329b09fe7422a7a9d0c209fe891a91f" name="Numbers/Words/lang.hu_HU.php" role="php" />
+   <file baseinstalldir="/" md5sum="0d7688e6414a8e900c84dcfdea83b76e" name="Numbers/Words/lang.id.php" role="php" />
+   <file baseinstalldir="/" md5sum="3ea23d59a1d25c3359326b4796cb2672" name="Numbers/Words/lang.it_IT.php" role="php" />
+   <file baseinstalldir="/" md5sum="0ee7c6810b44f78c27b088e74dd04bf4" name="Numbers/Words/lang.lt.php" role="php" />
+   <file baseinstalldir="/" md5sum="bec5b122d9d40d1c9b60ff478a693afb" name="Numbers/Words/lang.nl.php" role="php" />
+   <file baseinstalldir="/" md5sum="a18edb72ef553f6ced30b27194ffcbbb" name="Numbers/Words/lang.pl.php" role="php" />
+   <file baseinstalldir="/" md5sum="5a3833f969747f4b57b69acf16b98dbb" name="Numbers/Words/lang.pt_BR.php" role="php" />
+   <file baseinstalldir="/" md5sum="bf302e8ce9eb92325c7fea8f65b0d677" name="Numbers/Words/lang.ru.php" role="php" />
+   <file baseinstalldir="/" md5sum="3e0f4e1e0cfff3ae0e6b08e644d61527" name="Numbers/Words/lang.sv.php" role="php" />
+   <file baseinstalldir="/" md5sum="cca7ad522f654c648fb4c8c16feaf7ea" name="Numbers/Words/lang.tr_TR.php" role="php" />
    <file baseinstalldir="Numbers" md5sum="79dac4cfa7799cd23006ac67be6624d9" name="tests/AllTests.php" role="test" />
    <file baseinstalldir="Numbers" md5sum="dd01d51f08c90f65f49fee192e37050a" name="tests/BulgarianTest.php" role="test" />
    <file baseinstalldir="Numbers" md5sum="2ba839e9803169aff4de6720df38e6cf" name="tests/English100Test.php" role="test" />
-   <file baseinstalldir="Numbers" md5sum="47e5245cce42d08801919f66c58a5a65" name="tests/EnglishGbTest.php" role="test" />
+   <file baseinstalldir="Numbers" md5sum="c92928fa9f9a99210b50dd88285aefc3" name="tests/EnglishGbTest.php" role="test" />
    <file baseinstalldir="Numbers" md5sum="4ac60ad5171cf381c7b98253bbbef5f1" name="tests/EnglishUsTest.php" role="test" />
-   <file baseinstalldir="Numbers" md5sum="722138fc380804d871be2f6802e3430a" name="tests/FrenchBeTest.php" role="test" />
+   <file baseinstalldir="Numbers" md5sum="30ca447f26a1407228cc4214255dfa8d" name="tests/FrenchBeTest.php" role="test" />
    <file baseinstalldir="Numbers" md5sum="812399e34e6c5856151d9c5b41ebee5c" name="tests/FrenchTest.php" role="test" />
-   <file baseinstalldir="Numbers" md5sum="018b0c474c66c79dcbf518f4c82d70b9" name="tests/GermanTest.php" role="test" />
+   <file baseinstalldir="Numbers" md5sum="2294228c16f9c143fbfd96afc5b2ddaf" name="tests/GermanTest.php" role="test" />
    <file baseinstalldir="/" md5sum="0b7969e0309516d82c937c76b1310111" name="tests/HungarianTest.php" role="test" />
-   <file baseinstalldir="Numbers" md5sum="7b50d79af338676fe49d0c9a9bd7ee41" name="tests/ItalianTest.php" role="test" />
-   <file baseinstalldir="Numbers" md5sum="4e40fffd558a9e5bded00f3ddbf3a5bb" name="tests/PolishTest.php" role="test" />
-   <file baseinstalldir="Numbers" md5sum="d791df1d10d3bd5c2e3b6d7c360955e4" name="tests/PortugueseBrazilianTest.php" role="test" />
+   <file baseinstalldir="Numbers" md5sum="eecb8b008c23004435533b5293b53948" name="tests/ItalianTest.php" role="test" />
+   <file baseinstalldir="Numbers" md5sum="5bda3cd3082c1efa7fd42a58686fa0ea" name="tests/PolishTest.php" role="test" />
+   <file baseinstalldir="Numbers" md5sum="2486594e7e8fa528ba833cce64bbe915" name="tests/PortugueseBrazilianTest.php" role="test" />
    <file baseinstalldir="Numbers" md5sum="aa8331d04d0213d48a31e06063d577ec" name="tests/SpanishTest.php" role="test" />
    <file baseinstalldir="Numbers" md5sum="40519eea1632fb9aba8996d9acdbea4f" name="tests/test-numbers-words.php" role="test" />
-   <file baseinstalldir="Numbers" md5sum="992f30402cfdb6b3544a1d890665a884" name="ChangeLog" role="doc" />
+   <file baseinstalldir="Numbers" md5sum="af9f381abf5cb30983e6298fcfccf80d" name="ChangeLog" role="doc" />
+   <file baseinstalldir="/" md5sum="cb564efdf78cce8ea6e4b5a4f7c05d97" name="LICENSE" role="doc" />
    <file baseinstalldir="Numbers" md5sum="b4cbf927457107e890a69d1435c4369a" name="README" role="doc" />
   </dir>
  </contents>
@@ -541,6 +535,22 @@ Request #17763 Independent	tr_TR Lang support	ifeghali
 Bug #17794 Patch: avoiding split in es_MX file	ifeghali
 Bug #18501 incorrect declaration of toWords() in lang.fr.php	kouber
 Bug #19013 remove error_reporting (for PEAR QA team)	ifeghali
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.16.4</release>
+    <api>0.16.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2012-03-20</date>
+   <license uri="http://www.php.net/license/">PHP</license>
+   <notes>
+Currency names for Dutch
+Re-licensed to PHP 3.01 [ifeghali]
    </notes>
   </release>
  </changelog>
