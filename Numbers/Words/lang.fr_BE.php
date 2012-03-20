@@ -6,10 +6,10 @@
  *
  * Copyright (c) 1997-2006 The PHP Group
  *
- * This source file is subject to version 3.0 of the PHP license,
+ * This source file is subject to version 3.01 of the PHP license,
  * that is bundled with this package in the file LICENSE, and is
  * available at through the world-wide-web at
- * http://www.php.net/license/3_0.txt.
+ * http://www.php.net/license/3_01.txt
  * If you did not receive a copy of the PHP license and are unable to
  * obtain it through the world-wide-web, please send a note to
  * license@php.net so we can mail you a copy immediately.
@@ -18,7 +18,7 @@
  * @package  Numbers_Words
  * @author   Kouber Saparev <kouber@php.net>
  * @author   Philippe Bajoit <phil@lebutch.org
- * @license  PHP 3.0 http://www.php.net/license/3_0.txt
+ * @license  PHP 3.01 http://www.php.net/license/3_01.txt
  * @version  SVN: $Id$
  * @link     http://pear.php.net/package/Numbers_Words
  */
@@ -35,7 +35,7 @@ require_once "Numbers/Words.php";
  * @package  Numbers_Words
  * @author   Kouber Saparev <kouber@php.net>
  * @author   Philippe Bajoit <phil@lebutch.org
- * @license  PHP 3.0 http://www.php.net/license/3_0.txt
+ * @license  PHP 3.01 http://www.php.net/license/3_01.txt
  * @link     http://pear.php.net/package/Numbers_Words
  */
 class Numbers_Words_fr_BE extends Numbers_Words
