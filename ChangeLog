@@ -1,3 +1,17 @@
+2012-02-22
+	* Numbers_Words: Version 0.16.4 released.
+	* Re-licensed to PHP 3.01 (ifeghali)
+
+2011-12-10
+	* Bug #12512 Windows incorrect declaration of toWords() (ifeghali)
+	* Bug #17373 bug in toWords function for hungarian translation (kouber)
+	* Bug #17392 bugs in toWords function for hungarian translation (ifeghali)
+	* Bug #17754 Patch: Using explode instead of split (ifeghali)
+	* Request #17763 Independent tr_TR Lang support (ifeghali)
+	* Bug #17794 Patch: avoiding split in es_MX file (ifeghali)
+	* Bug #18501 incorrect declaration of toWords() in lang.fr.php (kouber)
+	* Bug #19013 remove error_reporting (for PEAR QA team) (ifeghali)
+
 2010-05-10
 	* Numbers_Words: Version 0.16.2 released.
 	* Words.php: incorrect rounding of cents (Bug #16733).
