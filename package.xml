@@ -47,16 +47,16 @@ The following languages are supported:
   <email>kouber@php.net</email>
   <active>yes</active>
  </lead>
+ <lead>
+  <name>Igor Feghali</name>
+  <user>ifeghali</user>
+  <email>ifeghali@php.net</email>
+  <active>yes</active>
+ </lead>
  <developer>
   <name>Marcelo Subtil Marcal</name>
   <user>msmarcal</user>
   <email>msmarcal@php.net</email>
-  <active>yes</active>
- </developer>
- <developer>
-  <name>Igor Feghali</name>
-  <user>ifeghali</user>
-  <email>ifeghali@php.net</email>
   <active>yes</active>
  </developer>
  <contributor>
@@ -72,7 +72,7 @@ The following languages are supported:
   <active>yes</active>
  </contributor>
  <date>2012-03-20</date>
- <time>15:47:15</time>
+ <time>22:08:32</time>
  <version>
   <release>0.16.4</release>
   <api>0.16.0</api>
