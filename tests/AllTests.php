@@ -36,6 +36,7 @@ require_once 'PolishTest.php';
 require_once 'PortugueseBrazilianTest.php';
 require_once 'SpanishTest.php';
 require_once 'HungarianTest.php';
+require_once 'LithuanianTest.php';
 
 class Numbers_Words_AllTests {
 
@@ -60,6 +61,7 @@ class Numbers_Words_AllTests {
         $suite->addTestSuite('Numbers_Words_PortugueseBrazilianTest');
         $suite->addTestSuite('Numbers_Words_SpanishTest');
         $suite->addTestSuite('Numbers_Words_HungarianTest');
+        $suite->addTestSuite('Numbers_Words_LithuanianTest');
 
         return $suite;
     }
