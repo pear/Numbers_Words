@@ -18,7 +18,7 @@ declare(encoding='iso-8859-15');
 // | Authors: Piotr Klaban                                                |
 // +----------------------------------------------------------------------+
 //
-// Numbers_Words class extension to spell numbers in German.
+// Numbers_Words class extension to spell numbers in English.
 //
 if (!defined('PHPUnit_MAIN_METHOD')) {
     define('PHPUnit_MAIN_METHOD', 'Numbers_Words_EnglishUsTest::main');
