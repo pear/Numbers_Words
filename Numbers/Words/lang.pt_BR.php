@@ -58,7 +58,7 @@ class Numbers_Words_pt_BR extends Numbers_Words
      * @var string
      * @access public
      */
-    var $lang_native = 'Português Brasileiro';
+    var $lang_native = 'PortuguÃªs Brasileiro';
 
     /**
      * The word for the minus sign
@@ -111,7 +111,7 @@ class Numbers_Words_pt_BR extends Numbers_Words
             '',         // 0: not displayed
             'um',
             'dois',
-            'três',
+            'trÃªs',
             'quatro',
             'cinco',
             'seis',
@@ -131,7 +131,7 @@ class Numbers_Words_pt_BR extends Numbers_Words
             'vinte',
             'trinta',
             'quarenta',
-            'cinqüenta',
+            'cinqÃ¼enta',
             'sessenta',
             'setenta',
             'oitenta',
@@ -165,23 +165,23 @@ class Numbers_Words_pt_BR extends Numbers_Words
     var $_exponent = array(
         '',         // 0: not displayed
         'mil',
-        'milhão',
-        'bilhão',
-        'trilhão',
-        'quatrilhão',
-        'quintilhão',
-        'sextilhão',
-        'septilhão',
-        'octilhão',
-        'nonilhão',
-        'decilhão',
-        'undecilhão',
-        'dodecilhão',
-        'tredecilhão',
-        'quatuordecilhão',
-        'quindecilhão',
-        'sedecilhão',
-        'septendecilhão'
+        'milhÃ£o',
+        'bilhÃ£o',
+        'trilhÃ£o',
+        'quatrilhÃ£o',
+        'quintilhÃ£o',
+        'sextilhÃ£o',
+        'septilhÃ£o',
+        'octilhÃ£o',
+        'nonilhÃ£o',
+        'decilhÃ£o',
+        'undecilhÃ£o',
+        'dodecilhÃ£o',
+        'tredecilhÃ£o',
+        'quatuordecilhÃ£o',
+        'quindecilhÃ£o',
+        'sedecilhÃ£o',
+        'septendecilhÃ£o'
     );
 
     /**
@@ -193,7 +193,7 @@ class Numbers_Words_pt_BR extends Numbers_Words
      */
     var $_currency_names = array(
         'BRL' => array(array('real', 'reais'), array('centavo', 'centavos')),
-        'USD' => array(array('dólar', 'dólares'), array('centavo', 'centavos')),
+        'USD' => array(array('dÃ³lar', 'dÃ³lares'), array('centavo', 'centavos')),
         'EUR' => array(array('euro', 'euros'), array('centavo', 'centavos')),
         'GBP' => array(array('libra esterlina', 'libras esterlinas'), array('centavo', 'centavos')),
         'JPY' => array(array('iene', 'ienes'), array('centavo', 'centavos')),
@@ -284,7 +284,7 @@ class Numbers_Words_pt_BR extends Numbers_Words
              * Testing plural of exponent
              */
             if ($chunk > 1) {
-                $exponent = str_replace('ão', 'ões', $this->_exponent[$index]);
+                $exponent = str_replace('Ã£o', 'Ãµes', $this->_exponent[$index]);
             } else {
                 $exponent = $this->_exponent[$index];
             }
