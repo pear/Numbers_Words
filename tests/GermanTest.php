@@ -1,5 +1,4 @@
 <?php
-declare(encoding='iso-8859-15');
 /* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4 autoindent: */
 /**
  * Numbers_Words class extension to spell numbers in German.
@@ -55,7 +54,7 @@ class Numbers_Words_GermanTest extends PHPUnit_Framework_TestCase
                         'zwei',
                         'drei',
                         'vier',
-                        'fünf',
+                        'fÃ¼nf',
                         'sechs',
                         'sieben',
                         'acht',
@@ -73,18 +72,18 @@ class Numbers_Words_GermanTest extends PHPUnit_Framework_TestCase
     function testTens()
     {
         $tens = array(11 => 'elf',
-                      12 => 'zwölf',
+                      12 => 'zwÃ¶lf',
                       16 => 'sechzehn',
                       19 => 'neunzehn',
                       20 => 'zwanzig',
                       21 => 'einundzwanzig',
                       26 => 'sechsundzwanzig',
-                      30 => 'dreißig',
-                      31 => 'einunddreißig',
+                      30 => 'dreiÃŸig',
+                      31 => 'einunddreiÃŸig',
                       40 => 'vierzig',
                       43 => 'dreiundvierzig',
-                      50 => 'fünfzig',
-                      55 => 'fünfundfünfzig',
+                      50 => 'fÃ¼nfzig',
+                      55 => 'fÃ¼nfundfÃ¼nfzig',
                       60 => 'sechzig',
                       67 => 'siebenundsechzig',
                       70 => 'siebzig',
@@ -106,10 +105,10 @@ class Numbers_Words_GermanTest extends PHPUnit_Framework_TestCase
                           203 => 'zweihundertdrei',
                           287 => 'zweihundertsiebenundachtzig',
                           300 => 'dreihundert',
-                          356 => 'dreihundertsechsundfünfzig',
+                          356 => 'dreihundertsechsundfÃ¼nfzig',
                           410 => 'vierhundertzehn',
-                          434 => 'vierhundertvierunddreißig',
-                          578 => 'fünfhundertachtundsiebzig',
+                          434 => 'vierhundertvierunddreiÃŸig',
+                          578 => 'fÃ¼nfhundertachtundsiebzig',
                           689 => 'sechshundertneunundachtzig',
                           729 => 'siebenhundertneunundzwanzig',
                           894 => 'achthundertvierundneunzig',
@@ -130,14 +129,14 @@ class Numbers_Words_GermanTest extends PHPUnit_Framework_TestCase
                            1097 => 'eintausendsiebenundneunzig',
                            1104 => 'eintausendeinhundertvier',
                            1243 => 'eintausendzweihundertdreiundvierzig',
-                           2385 => 'zweitausenddreihundertfünfundachtzig',
+                           2385 => 'zweitausenddreihundertfÃ¼nfundachtzig',
                            3766 => 'dreitausendsiebenhundertsechsundsechzig',
                            4196 => 'viertausendeinhundertsechsundneunzig',
-                           5846 => 'fünftausendachthundertsechsundvierzig',
-                           6459 => 'sechstausendvierhundertneunundfünfzig',
-                           7232 => 'siebentausendzweihundertzweiunddreißig',
-                           8569 => 'achttausendfünfhundertneunundsechzig',
-                           9539 => 'neuntausendfünfhundertneununddreißig'
+                           5846 => 'fÃ¼nftausendachthundertsechsundvierzig',
+                           6459 => 'sechstausendvierhundertneunundfÃ¼nfzig',
+                           7232 => 'siebentausendzweihundertzweiunddreiÃŸig',
+                           8569 => 'achttausendfÃ¼nfhundertneunundsechzig',
+                           9539 => 'neuntausendfÃ¼nfhundertneununddreiÃŸig'
                           );
         foreach ($thousands as $number => $word) {
             $this->assertEquals($word, $this->handle->toWords($number, 'de'));

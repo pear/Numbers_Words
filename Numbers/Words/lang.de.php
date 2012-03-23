@@ -120,7 +120,7 @@ class Numbers_Words_de extends Numbers_Words
      */
     var $_digits = array(
         0 => 'null', 'ein', 'zwei', 'drei', 'vier',
-        'fünf', 'sechs', 'sieben', 'acht', 'neun'
+        'fÃ¼nf', 'sechs', 'sieben', 'acht', 'neun'
     );
 
     /**
@@ -261,7 +261,7 @@ class Numbers_Words_de extends Numbers_Words
             break;
 
         case 3:
-            $ret .= $this->_sep . 'dreißig';
+            $ret .= $this->_sep . 'dreiÃŸig';
             break;
 
         case 2:
@@ -279,7 +279,7 @@ class Numbers_Words_de extends Numbers_Words
                 break;
 
             case 2:
-                $ret .= $this->_sep . 'zwölf';
+                $ret .= $this->_sep . 'zwÃ¶lf';
                 break;
 
             case 3:
