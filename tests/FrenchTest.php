@@ -49,7 +49,7 @@ class Numbers_Words_FrenchTest extends PHPUnit_Framework_TestCase
      */
     function testDigits()
     {
-        $digits = array('zéro',
+        $digits = array('zÃ©ro',
                         'un',
                         'deux',
                         'trois',

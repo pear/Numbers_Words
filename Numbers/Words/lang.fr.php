@@ -60,7 +60,7 @@ class Numbers_Words_fr extends Numbers_Words
      * @var string
      * @access public
      */
-    var $lang_native = 'Français';
+    var $lang_native = 'FranÃ§ais';
 
     /**
      * The words for some numbers.
@@ -96,7 +96,7 @@ class Numbers_Words_fr extends Numbers_Words
      * @var string
      * @access private
      */
-    var $_zero = 'zéro';
+    var $_zero = 'zÃ©ro';
 
     /**
      * The word for infinity.
