@@ -36,9 +36,8 @@
 require_once "Numbers/Words.php";
 
 /**
- * Class for translating numbers into Argentinian Spanish.
+ * Class for translating numbers into Venezuelan Spanish.
  * It supports up to decallones (10^6).
- * It doesn't support spanish tonic accents (acentos).
  *
  * @category Numbers
  * @package  Numbers_Words
@@ -165,7 +164,7 @@ class Numbers_Words_es_VE extends Numbers_Words
       'VEB' => array(array('bolívar', 'bolívares'), array('céntimo')),
       'YUM' => array(array('dinar', 'dinares'), array('para')),
       'ZAR' => array(array('rand'), array('cent'))
-    );
+      );
 
     /**
      * The default currency name
