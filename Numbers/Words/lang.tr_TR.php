@@ -76,7 +76,7 @@ class Numbers_Words_tr_TR extends Numbers_Words
     var $_minus = 'eksi';
 
     /**
-     * The sufixes for exponents (singular and plural)
+     * The sufixes for exponents - singular only
      * @var array
      * @access private
      */
@@ -304,13 +304,7 @@ class Numbers_Words_tr_TR extends Numbers_Words
                 return null;
             }
 
-            // if it's only one use the singular suffix
-            if (($d == 1) and ($t == 0) and ($h == 0)) {
-                $suffix = $lev[0];
-            }
-            else {
-                $suffix = $lev[1];
-            }
+            $suffix = $lev[0];
             if ($num != 0)  {
                 $ret .= $this->_sep . $suffix;
             }
