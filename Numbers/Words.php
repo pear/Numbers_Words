@@ -2,7 +2,7 @@
 /**
  * Numbers_Words
  *
- * PHP version 4
+ * PHP version 5
  *
  * Copyright (c) 1997-2006 The PHP Group
  *
@@ -25,6 +25,7 @@
  */
 
 // {{{ Numbers_Words
+require_once 'Numbers/Words/Exception.php';
 
 /**
  * The Numbers_Words class provides method to convert arabic numerals to words.
@@ -80,13 +81,13 @@ class Numbers_Words
         $classname = "Numbers_Words_${locale}";
 
         if (!class_exists($classname)) {
-            return Numbers_Words::raiseError("Unable to include the Numbers/Words/lang.${locale}.php file");
+            throw new Numbers_Words_Exception("Unable to include the Numbers/Words/lang.${locale}.php file");
         }
 
         $methods = get_class_methods($classname);
 
         if (!in_array('_toWords', $methods) && !in_array('_towords', $methods)) {
-            return Numbers_Words::raiseError("Unable to find _toWords method in '$classname' class");
+            throw new Numbers_Words_Exception("Unable to find _toWords method in '$classname' class");
         }
 
         if (!is_int($num)) {
@@ -164,13 +165,13 @@ class Numbers_Words
         $classname = "Numbers_Words_${locale}";
 
         if (!class_exists($classname)) {
-            return Numbers_Words::raiseError("Unable to include the Numbers/Words/lang.${locale}.php file");
+            throw new Numbers_Words_Exception("Unable to include the Numbers/Words/lang.${locale}.php file");
         }
 
         $methods = get_class_methods($classname);
 
         if (!in_array('toCurrencyWords', $methods) && !in_array('tocurrencywords', $methods)) {
-            return Numbers_Words::raiseError("Unable to find toCurrencyWords method in '$classname' class");
+            throw new Numbers_Words_Exception("Unable to find toCurrencyWords method in '$classname' class");
         }
 
         @$obj = new $classname;
@@ -261,23 +262,6 @@ class Numbers_Words
         }
 
         return $ret;
-    }
-    // }}}
-
-    // {{{ raiseError()
-    /**
-     * Trigger a PEAR error
-     *
-     * To improve performances, the PEAR.php file is included dynamically.
-     *
-     * @param string $msg error message
-     *
-     * @return PEAR_Error
-     */
-    function raiseError($msg)
-    {
-        include_once 'PEAR.php';
-        return PEAR::raiseError($msg);
     }
     // }}}
 }
