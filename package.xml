@@ -71,11 +71,11 @@ The following languages are supported:
   <email>hpman28@gmail.com</email>
   <active>yes</active>
  </contributor>
- <date>2012-03-20</date>
- <time>22:08:32</time>
+ <date>2012-07-01</date>
+ <time>17:11:22</time>
  <version>
-  <release>0.16.4</release>
-  <api>0.16.0</api>
+  <release>0.17.0</release>
+  <api>0.17.0</api>
  </version>
  <stability>
   <release>beta</release>
@@ -83,50 +83,53 @@ The following languages are supported:
  </stability>
  <license uri="http://www.php.net/license/">PHP</license>
  <notes>
-Currency names for Dutch
-Re-licensed to PHP 3.01 [ifeghali]
+Drop PHP 4
+Drop PEAR dependency
+Misc fixes and cleanup in Turkish driver
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
-   <file baseinstalldir="/" md5sum="b86fe683713aa19e67edc1eaed4243ca" name="Numbers/Words.php" role="php" />
-   <file baseinstalldir="/" md5sum="98cb52d76e383abc1e36299af90d887f" name="Numbers/Words/lang.bg.php" role="php" />
-   <file baseinstalldir="/" md5sum="d6bdfe6cdbe8d065b3dbf70ecbf45e50" name="Numbers/Words/lang.cs.php" role="php" />
-   <file baseinstalldir="/" md5sum="f0473630d8a9ab4c8f728192611aeacf" name="Numbers/Words/lang.de.php" role="php" />
-   <file baseinstalldir="/" md5sum="541e73084b1d299c3d4f9dcabb43270c" name="Numbers/Words/lang.dk.php" role="php" />
-   <file baseinstalldir="/" md5sum="802d3b8a433976a27e337abeaf05dbb7" name="Numbers/Words/lang.en_100.php" role="php" />
-   <file baseinstalldir="/" md5sum="aeb6e3b51bda92bc6a8b6b6a347b92de" name="Numbers/Words/lang.en_GB.php" role="php" />
-   <file baseinstalldir="/" md5sum="466c219a841019550037c9541c9b7022" name="Numbers/Words/lang.en_US.php" role="php" />
-   <file baseinstalldir="/" md5sum="a43503af59c135b4eacb105a73df2275" name="Numbers/Words/lang.es.php" role="php" />
-   <file baseinstalldir="/" md5sum="2fd0d88c57e109010a41f2d5fbe3c959" name="Numbers/Words/lang.es_AR.php" role="php" />
-   <file baseinstalldir="/" md5sum="9f6f5ce03768bc460373147086cbcf8c" name="Numbers/Words/lang.es_MX.php" role="php" />
-   <file baseinstalldir="/" md5sum="e54f697b98df796147c8187fc8e61be9" name="Numbers/Words/lang.et.php" role="php" />
-   <file baseinstalldir="/" md5sum="bad3b31f66e474f82495dbf52dcf3d87" name="Numbers/Words/lang.fr.php" role="php" />
-   <file baseinstalldir="/" md5sum="8220801f953b976debec33e9fa7cc631" name="Numbers/Words/lang.fr_BE.php" role="php" />
-   <file baseinstalldir="/" md5sum="2a75435615cb06015d09bd89bba4cf50" name="Numbers/Words/lang.he.php" role="php" />
-   <file baseinstalldir="/" md5sum="1329b09fe7422a7a9d0c209fe891a91f" name="Numbers/Words/lang.hu_HU.php" role="php" />
-   <file baseinstalldir="/" md5sum="0d7688e6414a8e900c84dcfdea83b76e" name="Numbers/Words/lang.id.php" role="php" />
-   <file baseinstalldir="/" md5sum="3ea23d59a1d25c3359326b4796cb2672" name="Numbers/Words/lang.it_IT.php" role="php" />
-   <file baseinstalldir="/" md5sum="0ee7c6810b44f78c27b088e74dd04bf4" name="Numbers/Words/lang.lt.php" role="php" />
-   <file baseinstalldir="/" md5sum="bec5b122d9d40d1c9b60ff478a693afb" name="Numbers/Words/lang.nl.php" role="php" />
-   <file baseinstalldir="/" md5sum="a18edb72ef553f6ced30b27194ffcbbb" name="Numbers/Words/lang.pl.php" role="php" />
-   <file baseinstalldir="/" md5sum="5a3833f969747f4b57b69acf16b98dbb" name="Numbers/Words/lang.pt_BR.php" role="php" />
-   <file baseinstalldir="/" md5sum="bf302e8ce9eb92325c7fea8f65b0d677" name="Numbers/Words/lang.ru.php" role="php" />
-   <file baseinstalldir="/" md5sum="3e0f4e1e0cfff3ae0e6b08e644d61527" name="Numbers/Words/lang.sv.php" role="php" />
-   <file baseinstalldir="/" md5sum="cca7ad522f654c648fb4c8c16feaf7ea" name="Numbers/Words/lang.tr_TR.php" role="php" />
-   <file baseinstalldir="Numbers" md5sum="79dac4cfa7799cd23006ac67be6624d9" name="tests/AllTests.php" role="test" />
-   <file baseinstalldir="Numbers" md5sum="dd01d51f08c90f65f49fee192e37050a" name="tests/BulgarianTest.php" role="test" />
-   <file baseinstalldir="Numbers" md5sum="2ba839e9803169aff4de6720df38e6cf" name="tests/English100Test.php" role="test" />
+   <file baseinstalldir="/" md5sum="447e1971db320565005851d28a099bf6" name="Numbers/Words.php" role="php" />
+   <file baseinstalldir="/" md5sum="6dffe446729e54b4edefe5f87fda83fd" name="Numbers/Words/Exception.php" role="php" />
+   <file baseinstalldir="/" md5sum="fd23364b2f565f2898c995cf91fffb0f" name="Numbers/Words/lang.bg.php" role="php" />
+   <file baseinstalldir="/" md5sum="7a2b5c363e9f1ba3b5d048f8745d60db" name="Numbers/Words/lang.cs.php" role="php" />
+   <file baseinstalldir="/" md5sum="710826efe3d65d616c81c128f6e675b5" name="Numbers/Words/lang.de.php" role="php" />
+   <file baseinstalldir="/" md5sum="e0030274f1033b06fd3489b8cabc9944" name="Numbers/Words/lang.dk.php" role="php" />
+   <file baseinstalldir="/" md5sum="dc897e83e89e140fecfb71a5fe231f5b" name="Numbers/Words/lang.en_100.php" role="php" />
+   <file baseinstalldir="/" md5sum="70da8296ccd5a83d10945cdbebd901c4" name="Numbers/Words/lang.en_GB.php" role="php" />
+   <file baseinstalldir="/" md5sum="3da720b6430f2a06075e1a5d04483d85" name="Numbers/Words/lang.en_US.php" role="php" />
+   <file baseinstalldir="/" md5sum="9b44c8a36971660e09e019e32d13992a" name="Numbers/Words/lang.es.php" role="php" />
+   <file baseinstalldir="/" md5sum="3842abee4411b50b2ebbeb27261b26c7" name="Numbers/Words/lang.es_AR.php" role="php" />
+   <file baseinstalldir="/" md5sum="78643f2e3993f28d3a33dca5ffae7f7d" name="Numbers/Words/lang.es_MX.php" role="php" />
+   <file baseinstalldir="/" md5sum="1cb2bca4025b880e32edae8fea590206" name="Numbers/Words/lang.es_VE.php" role="php" />
+   <file baseinstalldir="/" md5sum="0b278ffc8fe5043c437ff2a40b7bcbdf" name="Numbers/Words/lang.et.php" role="php" />
+   <file baseinstalldir="/" md5sum="fdc2ebf6df209e81bd491fbd843652b1" name="Numbers/Words/lang.fr.php" role="php" />
+   <file baseinstalldir="/" md5sum="3a79cd789cfc7a9fc0ebee7d803b9c80" name="Numbers/Words/lang.fr_BE.php" role="php" />
+   <file baseinstalldir="/" md5sum="cc18b9936ab575ef643faef2128359cc" name="Numbers/Words/lang.he.php" role="php" />
+   <file baseinstalldir="/" md5sum="7133b5a3ff04bcac4271f43343106c7e" name="Numbers/Words/lang.hu_HU.php" role="php" />
+   <file baseinstalldir="/" md5sum="49aea52f468712c2128418b0dbd5746e" name="Numbers/Words/lang.id.php" role="php" />
+   <file baseinstalldir="/" md5sum="950abd86346d1c3e1d986b60f33f5b96" name="Numbers/Words/lang.it_IT.php" role="php" />
+   <file baseinstalldir="/" md5sum="2ec2c9464ce499cacb1aa469a806df07" name="Numbers/Words/lang.lt.php" role="php" />
+   <file baseinstalldir="/" md5sum="ea4d161a08f555e8fa0561707c542d9c" name="Numbers/Words/lang.nl.php" role="php" />
+   <file baseinstalldir="/" md5sum="2c45c0e79d19dda6aecce2fec7855c0e" name="Numbers/Words/lang.pl.php" role="php" />
+   <file baseinstalldir="/" md5sum="eb023d47551090f0ee0be5182fae813a" name="Numbers/Words/lang.pt_BR.php" role="php" />
+   <file baseinstalldir="/" md5sum="41b3765bfaebc7d35db001db5cf2fb11" name="Numbers/Words/lang.ru.php" role="php" />
+   <file baseinstalldir="/" md5sum="bb841f34c342cd464cfc27bfd80e7f51" name="Numbers/Words/lang.sv.php" role="php" />
+   <file baseinstalldir="/" md5sum="2fa3152271aaa441ee73efd403480a21" name="Numbers/Words/lang.tr_TR.php" role="php" />
+   <file baseinstalldir="Numbers" md5sum="cb52653e79a328d0494ce69ee282a420" name="tests/BulgarianTest.php" role="test" />
+   <file baseinstalldir="Numbers" md5sum="615c0a1206cdeafc428c0b6d2df07a2e" name="tests/English100Test.php" role="test" />
    <file baseinstalldir="Numbers" md5sum="c92928fa9f9a99210b50dd88285aefc3" name="tests/EnglishGbTest.php" role="test" />
-   <file baseinstalldir="Numbers" md5sum="4ac60ad5171cf381c7b98253bbbef5f1" name="tests/EnglishUsTest.php" role="test" />
-   <file baseinstalldir="Numbers" md5sum="30ca447f26a1407228cc4214255dfa8d" name="tests/FrenchBeTest.php" role="test" />
-   <file baseinstalldir="Numbers" md5sum="812399e34e6c5856151d9c5b41ebee5c" name="tests/FrenchTest.php" role="test" />
-   <file baseinstalldir="Numbers" md5sum="2294228c16f9c143fbfd96afc5b2ddaf" name="tests/GermanTest.php" role="test" />
+   <file baseinstalldir="Numbers" md5sum="bc83743647eb021038da9005c08a9e74" name="tests/EnglishUsTest.php" role="test" />
+   <file baseinstalldir="Numbers" md5sum="ab91108899928cd80bd60dcbf549b22d" name="tests/FrenchBeTest.php" role="test" />
+   <file baseinstalldir="Numbers" md5sum="fca55cda0431f66294d045c83a3a5c47" name="tests/FrenchTest.php" role="test" />
+   <file baseinstalldir="Numbers" md5sum="a07caead24f6639b4ba2b31d287c9131" name="tests/GermanTest.php" role="test" />
    <file baseinstalldir="/" md5sum="0b7969e0309516d82c937c76b1310111" name="tests/HungarianTest.php" role="test" />
    <file baseinstalldir="Numbers" md5sum="eecb8b008c23004435533b5293b53948" name="tests/ItalianTest.php" role="test" />
+   <file baseinstalldir="/" md5sum="cdff4f835e1a410ec5499ffc2a0fb9b6" name="tests/LithuanianTest.php" role="test" />
    <file baseinstalldir="Numbers" md5sum="5bda3cd3082c1efa7fd42a58686fa0ea" name="tests/PolishTest.php" role="test" />
-   <file baseinstalldir="Numbers" md5sum="2486594e7e8fa528ba833cce64bbe915" name="tests/PortugueseBrazilianTest.php" role="test" />
-   <file baseinstalldir="Numbers" md5sum="aa8331d04d0213d48a31e06063d577ec" name="tests/SpanishTest.php" role="test" />
-   <file baseinstalldir="Numbers" md5sum="40519eea1632fb9aba8996d9acdbea4f" name="tests/test-numbers-words.php" role="test" />
+   <file baseinstalldir="Numbers" md5sum="48c6d47038b2d9a68bbf41a8639ba790" name="tests/PortugueseBrazilianTest.php" role="test" />
+   <file baseinstalldir="Numbers" md5sum="427088917b83d3da1e93824e045a9a00" name="tests/SpanishTest.php" role="test" />
+   <file baseinstalldir="Numbers" md5sum="a734d014b617f2a423c3709d283c1390" name="tests/test-numbers-words.php" role="test" />
    <file baseinstalldir="Numbers" md5sum="af9f381abf5cb30983e6298fcfccf80d" name="ChangeLog" role="doc" />
    <file baseinstalldir="/" md5sum="cb564efdf78cce8ea6e4b5a4f7c05d97" name="LICENSE" role="doc" />
    <file baseinstalldir="Numbers" md5sum="b4cbf927457107e890a69d1435c4369a" name="README" role="doc" />
@@ -551,6 +554,23 @@ Bug #19013 remove error_reporting (for PEAR QA team)	ifeghali
    <notes>
 Currency names for Dutch
 Re-licensed to PHP 3.01 [ifeghali]
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.17.0</release>
+    <api>0.17.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2012-07-01</date>
+   <license uri="http://www.php.net/license/">PHP</license>
+   <notes>
+Drop PHP 4
+Drop PEAR dependency
+Misc fixes and cleanup in Turkish driver
    </notes>
   </release>
  </changelog>
