@@ -2,7 +2,7 @@
 /**
  * Numbers_Words
  *
- * PHP version 4
+ * PHP version 5
  *
  * Copyright (c) 1997-2006 The PHP Group
  *
@@ -23,7 +23,6 @@
  * @link     http://pear.php.net/package/Numbers_Words
  */
 
-require_once "PEAR.php";
 require_once "Numbers/Words.php";
 
 /**

@@ -270,7 +270,7 @@ class Numbers_Words_pt_BR extends Numbers_Words
              * Testing Range
              */
             if (!array_key_exists($index, $this->_exponent)) {
-                return Numbers_Words::raiseError('Number out of range.');
+                throw new Numbers_Words_Exception('Number out of range.');
             }
 
             /**
@@ -489,7 +489,7 @@ class Numbers_Words_pt_BR extends Numbers_Words
              * Testing Range
              */
             if ($num < 0 || $num > 99) {
-                return Numbers_Words::raiseError('Fraction out of range.');
+                throw new Numbers_Words_Exception('Fraction out of range.');
             }
 
             /**
