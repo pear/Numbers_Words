@@ -5,7 +5,7 @@
  *
  * Numbers_Words class extension to spell numbers in Turkish.
  *
- * PHP version 4
+ * PHP version 5
  *
  * This source file is subject to version 3.01 of the PHP license,
  * that is bundled with this package in the file LICENSE, and is
