@@ -68,7 +68,7 @@ class Numbers_Words
      */
     function toWords($num, $locale = '', $options = array())
     {
-        if (empty($locale)) {
+        if (empty($locale) && isset($this) && $this instanceof Numbers_Words) {
             $locale = $this->locale;
         }
 
