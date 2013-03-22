@@ -15,6 +15,26 @@ class Numbers_WordsTest extends PHPUnit_Framework_TestCase
         $nw->locale = 'de';
         $this->assertEquals('eins', $nw->toWords(1));
     }
+
+    /**
+     * @expectedException Numbers_Words_Exception
+     * @expectedExceptionMessage Unable to include the Numbers/Words/lang.doesnotexist.php file
+     */
+    function testToWordsInvalidLocale()
+    {
+        $nw = new Numbers_Words();
+        $nw->toWords(1, 'doesnotexist');
+    }
+
+    /**
+     * @expectedException Numbers_Words_Exception
+     * @expectedExceptionMessage Unable to include the Numbers/Words/lang.doesnotexist.php file
+     */
+    function testToCurrencyInvalidLocale()
+    {
+        $nw = new Numbers_Words();
+        $nw->toCurrency(1, 'doesnotexist');
+    }
 }
 
 ?>
