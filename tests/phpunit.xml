@@ -1,0 +1,12 @@
+<phpunit
+    colors="true"
+    bootstrap="bootstrap.php"
+    verbose="true"
+    strict="true"
+>
+    <filter>
+        <whitelist>
+            <directory suffix=".php">../Numbers/</directory>
+        </whitelist>
+    </filter>
+</phpunit>
