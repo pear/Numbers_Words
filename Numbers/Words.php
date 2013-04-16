@@ -27,6 +27,11 @@
 // {{{ Numbers_Words
 require_once 'Numbers/Words/Exception.php';
 
+define("NUMBERS_WORDS_GENDER_MASCULINE",0);
+define("NUMBERS_WORDS_GENDER_FEMININE",1);
+define("NUMBERS_WORDS_GENDER_NEUTER",2);
+define("NUMBERS_WORDS_GENDER_ABSTRACT",3);
+
 /**
  * The Numbers_Words class provides method to convert arabic numerals to words.
  *
