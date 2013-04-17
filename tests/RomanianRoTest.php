@@ -49,17 +49,18 @@ class Numbers_Words_RomanianRoTest extends PHPUnit_Framework_TestCase
      */
     function testDigits()
     {
-        $digits = array('zero',
-                        'unu',
-                        'doi',
-                        'trei',
-                        'patru',
-                        'cinci',
-                        'șase',
-                        'șapte',
-                        'opt',
-                        'nouă'
-                       );
+        $digits = array(
+          'zero',
+          'unu',
+          'doi',
+          'trei',
+          'patru',
+          'cinci',
+          'șase',
+          'șapte',
+          'opt',
+          'nouă'
+        );
         for ($i = 0; $i < 10; $i++) {
             $number = $this->handle->toWords($i, $this->lang);
             $this->assertEquals($digits[$i], $number);
