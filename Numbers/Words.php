@@ -40,6 +40,34 @@ require_once 'Numbers/Words/Exception.php';
  */
 class Numbers_Words
 {
+    // {{{ constants
+
+    /**
+     * Masculine gender, for languages that need it
+     */
+    const GENDER_MASCULINE = 0;
+
+    /**
+      * Feminine gender, for languages that need it
+      */
+    const GENDER_FEMININE = 1;
+
+    /**
+      * Neuter gender, for languages that need it
+      */
+    const GENDER_NEUTER = 2;
+
+    /**
+      * This is not an actual gender; some languages
+      * have different ways of numbering actual things
+      * (e.g. Romanian: "un nor, doi nori" for "one cloud, two clouds")
+      * and for just counting in an abstract manner
+      * (e.g. Romanian: "unu, doi" for "one, two"
+      */
+    const GENDER_ABSTRACT = 3;
+
+    // }}}
+
     // {{{ properties
 
     /**
