@@ -94,8 +94,8 @@ class Numbers_Words_tr_TR extends Numbers_Words
      * @access private
      */
      var $_digits = array(
-      0 => 's?f?r', 'bir', 'iki', 'üç', 'dört',
-       'be?', 'alt?', 'yedi', 'sekiz', 'dokuz'
+      0 => 'sıfır', 'bir', 'iki', 'üç', 'dört',
+       'beş', 'altı', 'yedi', 'sekiz', 'dokuz'
     );
     
     /**
@@ -117,43 +117,43 @@ class Numbers_Words_tr_TR extends Numbers_Words
      */
     var $_currency_names = array(
       'ALL' => array(array('lek'), array('qindarka')),
-      'AUD' => array(array('Avusturalya dolar?'), array('sent')),
+      'AUD' => array(array('Avusturalya doları'), array('sent')),
       'BAM' => array(array('convertible marka'), array('fenig')),
-      'BGN' => array(array('Bulgar levas?'), array('stotinka','stotinki')),
+      'BGN' => array(array('Bulgar levası'), array('stotinka','stotinki')),
       'BRL' => array(array('real'), array('centavos')),
-      'BWP' => array(array('Botswana pulas?'), array('thebe')),
+      'BWP' => array(array('Botswana pulası'), array('thebe')),
       'BYR' => array(array('Belarus rublesi'), array('kopiejka')),
-      'CAD' => array(array('Kanada dolar?'), array('sent')),
-      'CHF' => array(array('?sveç frank?'), array('rapp')),
-        'CHF' => array(array('Çin yuan?'), array('fen')),
+      'CAD' => array(array('Kanada doları'), array('sent')),
+      'CHF' => array(array('?sveç frankı'), array('rapp')),
+        'CHF' => array(array('Çin yuanı'), array('fen')),
       'CYP' => array(array('K?br?s pound\'u'), array('sent')),
       'CZK' => array(array('Çek kronu'), array('halerz')),
       'DKK' => array(array('Danmarka kronu'), array('ore')),
       'EEK' => array(array('kroon'), array('senti')),
       'EUR' => array(array('Avro'), array('Avro-sent')),
       'GBP' => array(array('pound', 'pound'), array('pence', 'pence')),
-      'HKD' => array(array('Hong Kong dolar?'), array('sent')),
-      'HRK' => array(array('H?rvatistan kunas?'), array('lipa')),
+      'HKD' => array(array('Hong Kong doları'), array('sent')),
+      'HRK' => array(array('H?rvatistan kunası'), array('lipa')),
       'HUF' => array(array('Macar forinti'), array('filler')),
       'ILS' => array(array('yeni sheqel','yeni sheqels'), array('agora','agorot')),
       'ISK' => array(array('Izlanda kronu'), array('aurar')),
       'JPY' => array(array('Japon yeni'), array('sen')),
-      'LTL' => array(array('Litvanya litas?'), array('sent')),
-      'LVL' => array(array('Letonya lat?'), array('sentim')),
-      'MKD' => array(array('Makedonya dinar?'), array('deni')),
-      'MTL' => array(array('Malta liras?'), array('centym')),
+      'LTL' => array(array('Litvanya litası'), array('sent')),
+      'LVL' => array(array('Letonya latı'), array('sentim')),
+      'MKD' => array(array('Makedonya dinarı'), array('deni')),
+      'MTL' => array(array('Malta lirası'), array('centym')),
       'NOK' => array(array('Norveç kronu'), array('oere')),
       'PLN' => array(array('zloty', 'zlotys'), array('grosz')),
       'ROL' => array(array('Romanya leu'), array('bani')),
       'RUB' => array(array('Ruble'), array('kopiejka')),
-      'SEK' => array(array('?sveç kronu'), array('oere')),
+      'SEK' => array(array('İsveç kronu'), array('oere')),
       'SIT' => array(array('Tolar'), array('stotinia')),
       'SKK' => array(array('Slovakya kronu'), array()),
-      'TRY' => array(array('Türk Liras?'), array('kuru?')),
-      'UAH' => array(array('Ukrayna hryvnyas?'), array('kopiyka')),
-      'USD' => array(array('ABD Dolar?'), array('sent')),
+      'TRY' => array(array('Türk Lirası'), array('kuru?')),
+      'UAH' => array(array('Ukrayna hryvnyası'), array('kopiyka')),
+      'USD' => array(array('ABD Doları'), array('sent')),
       'YUM' => array(array('dinar'), array('para')),
-      'ZAR' => array(array('Güney Afrika rand?'), array('sent'))
+      'ZAR' => array(array('Güney Afrika randı'), array('sent'))
     );
 
     /**
@@ -260,11 +260,11 @@ class Numbers_Words_tr_TR extends Numbers_Words
                 break;
 
             case 7:
-                $ret .= $this->_sep . 'yetmi?';
+                $ret .= $this->_sep . 'yetmiş';
                 break;
 
             case 6:
-                $ret .= $this->_sep . 'altm??';
+                $ret .= $this->_sep . 'altmış';
                 break;
 
             case 5:
@@ -272,7 +272,7 @@ class Numbers_Words_tr_TR extends Numbers_Words
                 break;
 
             case 4:
-                $ret .= $this->_sep . 'k?rk';
+                $ret .= $this->_sep . 'kırk';
                 break;
 
             case 3:
