@@ -75,7 +75,14 @@ class Numbers_Words
      * @var string
      * @access public
      */
-    var $locale = 'en_US';
+    public $locale = 'en_US';
+
+    /**
+     * Default decimal mark
+     * @var string
+     * @access public
+     */
+    public $decimalPoint = '.';
 
     // }}}
     // {{{ toWords()
@@ -106,48 +113,24 @@ class Numbers_Words
 
         $classname = self::loadLocale($locale, '_toWords');
 
+        if (isset($this)) {
+          $obj = $this;
+        }
+        else {
+          $obj = new $classname;
+        }
+
         if (!is_int($num)) {
+            $num = $obj->normalizeNumber($num);
+
             // cast (sanitize) to int without losing precision
-            $num = preg_replace('/^[^\d]*?(-?)[ \t\n]*?(\d+)([^\d].*?)?$/', '$1$2', $num);
+            $num = preg_replace('/(.*?)('.preg_quote($obj->decimalPoint).'.*?)?$/', '$1', $num);
         }
 
-        $truth_table  = ($classname == get_class($this)) ? 'T' : 'F';
-        $truth_table .= (empty($options)) ? 'T' : 'F';
-
-        switch ($truth_table) {
-
-        /**
-         * We are a language driver
-         */
-        case 'TT':
-            return trim($this->_toWords($num));
-            break;
-
-        /**
-         * We are a language driver with custom options
-         */
-        case 'TF':
-            return trim($this->_toWords($num, $options));
-            break;
-
-        /**
-         * We are the parent class
-         */
-        case 'FT':
-            @$obj = new $classname;
+        if (empty($options)) {
             return trim($obj->_toWords($num));
-            break;
-
-        /**
-         * We are the parent class and should pass driver options
-         */
-        case 'FF':
-            @$obj = new $classname;
-            return trim($obj->_toWords($num, $options));
-            break;
-
         }
-
+        return trim($obj->_toWords($num, $options));
     }
     // }}}
 
@@ -160,10 +143,14 @@ class Numbers_Words
      *
      * @param string $locale   Language name abbreviation. Optional. Defaults to en_US.
      *
-     * @param string $int_curr International currency symbol
-     *                 as defined by the ISO 4217 standard (three characters).
-     *                 E.g. 'EUR', 'USD', 'PLN'. Optional.
-     *                 Defaults to $def_currency defined in the language class.
+     * @param string $intCurr  International currency symbol
+     *                         as defined by the ISO 4217 standard (three characters).
+     *                         E.g. 'EUR', 'USD', 'PLN'. Optional.
+     *                         Defaults to $def_currency defined in the language class.
+     *
+     * @param string $decimalPoint  Decimal mark symbol
+     *                         E.g. '.', ','. Optional.
+     *                         Defaults to $decimalPoint defined in the language class.
      *
      * @return string  The corresponding word representation
      *
@@ -172,24 +159,30 @@ class Numbers_Words
      * @since  PHP 4.2.3
      * @return string
      */
-    function toCurrency($num, $locale = 'en_US', $int_curr = '')
+    function toCurrency($num, $locale = 'en_US', $intCurr = '', $decimalPoint = null)
     {
         $ret = $num;
 
         $classname = self::loadLocale($locale, 'toCurrencyWords');
 
-        @$obj = new $classname;
+        $obj = new $classname;
+
+        if (is_null($decimalPoint)) {
+            $decimalPoint = $obj->decimalPoint;
+        }
 
         // round if a float is passed, use Math_BigInteger otherwise
         if (is_float($num)) {
             $num = round($num, 2);
         }
 
-        if (strpos($num, '.') === false) {
-            return trim($obj->toCurrencyWords($int_curr, $num));
+        $num = self::normalizeNumber($num, $decimalPoint);
+
+        if (strpos($num, $decimalPoint) === false) {
+            return trim($obj->toCurrencyWords($intCurr, $num));
         }
 
-        $currency = explode('.', $num, 2);
+        $currency = explode($decimalPoint, $num, 2);
 
         $len = strlen($currency[1]);
 
@@ -221,7 +214,7 @@ class Numbers_Words
             }
         }
 
-        return trim($obj->toCurrencyWords($int_curr, $currency[0], $currency[1]));
+        return trim($obj->toCurrencyWords($intCurr, $currency[0], $currency[1]));
     }
     // }}}
 
@@ -303,6 +296,23 @@ class Numbers_Words
         }
 
         return $classname;
+    }
+
+    /**
+     * Removes redundant spaces, thousands separators, etc.
+     *
+     * @param string $num            Some number
+     * @param string $decimalPoint   The decimal mark, e.g. "." or ","
+     *
+     * @return string Number
+     */
+    function normalizeNumber($num, $decimalPoint = null)
+    {
+        if (is_null($decimalPoint)) {
+            $decimalPoint = $this->decimalPoint;
+        }
+
+        return preg_replace('/[^-'.preg_quote($decimalPoint).'0-9]/', '', $num);
     }
 }
 
