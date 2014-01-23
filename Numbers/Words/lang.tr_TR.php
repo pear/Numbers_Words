@@ -124,16 +124,16 @@ class Numbers_Words_tr_TR extends Numbers_Words
       'BWP' => array(array('Botswana pulası'), array('thebe')),
       'BYR' => array(array('Belarus rublesi'), array('kopiejka')),
       'CAD' => array(array('Kanada doları'), array('sent')),
-      'CHF' => array(array('?sveç frankı'), array('rapp')),
-        'CHF' => array(array('Çin yuanı'), array('fen')),
-      'CYP' => array(array('K?br?s pound\'u'), array('sent')),
+      'CHF' => array(array('İsveç frankı'), array('rapp')),
+      'CNY' => array(array('Çin yuanı'), array('fen')),
+      'CYP' => array(array('Kıbrıs pound\'u'), array('sent')),
       'CZK' => array(array('Çek kronu'), array('halerz')),
       'DKK' => array(array('Danmarka kronu'), array('ore')),
       'EEK' => array(array('kroon'), array('senti')),
       'EUR' => array(array('Avro'), array('Avro-sent')),
       'GBP' => array(array('pound', 'pound'), array('pence', 'pence')),
       'HKD' => array(array('Hong Kong doları'), array('sent')),
-      'HRK' => array(array('H?rvatistan kunası'), array('lipa')),
+      'HRK' => array(array('Hırvatistan kunası'), array('lipa')),
       'HUF' => array(array('Macar forinti'), array('filler')),
       'ILS' => array(array('yeni sheqel','yeni sheqels'), array('agora','agorot')),
       'ISK' => array(array('Izlanda kronu'), array('aurar')),
@@ -149,7 +149,7 @@ class Numbers_Words_tr_TR extends Numbers_Words
       'SEK' => array(array('İsveç kronu'), array('oere')),
       'SIT' => array(array('Tolar'), array('stotinia')),
       'SKK' => array(array('Slovakya kronu'), array()),
-      'TRY' => array(array('Türk Lirası'), array('kuru?')),
+      'TRY' => array(array('Türk Lirası'), array('kuruş')),
       'UAH' => array(array('Ukrayna hryvnyası'), array('kopiyka')),
       'USD' => array(array('ABD Doları'), array('sent')),
       'YUM' => array(array('dinar'), array('para')),
@@ -161,7 +161,7 @@ class Numbers_Words_tr_TR extends Numbers_Words
      * @var string
      * @access public
      */
-    var $def_currency = 'TRY'; // Türk Liras?
+    var $def_currency = 'TRY'; // Türk Lirası
 
     // }}}
     // {{{ _toWords()
