@@ -176,7 +176,7 @@ class Numbers_Words
             $num = round($num, 2);
         }
 
-        $num = self::normalizeNumber($num, $decimalPoint);
+        $num = $obj->normalizeNumber($num, $decimalPoint);
 
         if (strpos($num, $decimalPoint) === false) {
             return trim($obj->toCurrencyWords($intCurr, $num));
