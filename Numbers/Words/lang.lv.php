@@ -2,7 +2,7 @@
 /**
  * Numbers_Words
  *
- * PHP version 4
+ * PHP version 5
  *
  * Copyright (c) 1997-2006 The PHP Group
  *
@@ -116,7 +116,7 @@ class Numbers_Words_lv extends Numbers_Words
     var $def_currency = 'Ls';
 
     // }}}
-    // {{{ toWords()
+    // {{{ _toWords()
 
     /**
      * Converts a number to its word representation
@@ -135,7 +135,7 @@ class Numbers_Words_lv extends Numbers_Words
      * @author Andrius Virbičianskas <a@ndri.us>
      * @since  Numbers_Words 0.16.4
      */
-    function toWords($num, $power = 0, $powsuffix = '')
+    function _toWords($num, $power = 0, $powsuffix = '')
     {
         $ret = '';
 
@@ -165,7 +165,7 @@ class Numbers_Words_lv extends Numbers_Words
                             $cursuffix .= $this->_sep . $powsuffix;
                         }
 
-                        $ret .= $this->toWords($snum, $p, $cursuffix);
+                        $ret .= $this->_toWords($snum, $p, $cursuffix);
                     }
                     $curp = $p - 1;
                     continue;
@@ -298,8 +298,6 @@ class Numbers_Words_lv extends Numbers_Words
             if (!isset($lev) || !is_array($lev)) {
                 return null;
             }
-
-            //echo " $t $d  <br>";
 
             if ($t == 1 || ($t > 0 && $d == 0 )) {
                 $ret .= $this->_sep . $lev[2];
