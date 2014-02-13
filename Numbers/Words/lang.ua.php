@@ -393,7 +393,7 @@ class Numbers_Words_ua extends Numbers_Words_ru
      * @var string
      * @access public
      */
-    public $def_currency = 'RUB'; // Russian rouble
+    public $def_currency = 'UAH';  // Ukrainian money
 
 
     // {{{ _toWords()
