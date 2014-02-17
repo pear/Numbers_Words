@@ -35,12 +35,12 @@
     ],
     "require": {
         "php": ">=5.0.0",
-        "pear/math_biginteger": ">=1.0.0",
+        "pear/math_biginteger": "*",
         "pear/pear_exception": "*"
     },
     "autoload": {
         "psr-0": {
-            "Numbers_Words": ""
+            "Numbers": "./"
         }
     },
     "include-path": [
