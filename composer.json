@@ -1,43 +1,56 @@
 {
-	"name"        : "pear/numbers_words",
-	"description" : "Allows converting numbers written in arabic digits to words in several languages. You can convert an integer between -infinity and infinity.",
-	"type"        : "library",
-	"keywords"    : [ "numbers" ],
-	"homepage"    : "https://github.com/pear/Numbers_Words",
-	"license"     : "PHP-3.01",
-	"authors"     : [
-		{
-			"name"  : "Kouber Saparev",
-			"email" : "kouber@php.net"
-		},
-		{
-			"name"  : "Igor Feghali",
-			"email" : "ifeghali@php.net"
-		},
-		{
-			"name"  : "Marcelo Subtil Marcal",
-			"email" : "msmarcal@php.net"
-		},
-		{
-			"name"  : "Xavier Noguer",
-			"email" : "xnoguer.php@gmail.com"
-		},
-		{
-			"name"  : "Hadar Porat",
-			"email" : "hpman28@gmail.com"
-		},
-		{
-			"name"  : "Piotr Klaban",
-			"email" : "makler@man.torun.pl"
-		}
-	],
-	"require" : {
-		"php"                  : ">=5.0.0",
-		"pear/math_biginteger" : ">=1.0.0"
-	},
-	"autoload": {
-		"psr-0": {
-			"Numbers_Words" : ""
-		}
-	}
+    "name": "pear/numbers_words",
+    "description": "Allows converting numbers written in arabic digits to words in several languages. You can convert an integer between -infinity and infinity.",
+    "type": "library",
+    "keywords": [
+        "numbers"
+    ],
+    "homepage": "https://github.com/pear/Numbers_Words",
+    "license": "PHP-3.01",
+    "authors": [
+        {
+            "name": "Kouber Saparev",
+            "email": "kouber@php.net"
+        },
+        {
+            "name": "Igor Feghali",
+            "email": "ifeghali@php.net"
+        },
+        {
+            "name": "Marcelo Subtil Marcal",
+            "email": "msmarcal@php.net"
+        },
+        {
+            "name": "Xavier Noguer",
+            "email": "xnoguer.php@gmail.com"
+        },
+        {
+            "name": "Hadar Porat",
+            "email": "hpman28@gmail.com"
+        },
+        {
+            "name": "Piotr Klaban",
+            "email": "makler@man.torun.pl"
+        }
+    ],
+    "require": {
+        "php": ">=5.0.0",
+        "pear/math_biginteger": ">=1.0.0",
+        "pear/pear_exception": "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Numbers_Words": ""
+        }
+    },
+    "include-path": [
+        "./"
+    ],
+    "support": {
+        "issues": "http://pear.php.net/bugs/search.php?cmd=display&package_name[]=Numbers_Words",
+        "source": "https://github.com/pear/Numbers_Words"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    }
 }
