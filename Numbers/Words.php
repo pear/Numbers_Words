@@ -275,11 +275,11 @@ class Numbers_Words
     function loadLocale($locale, $requiredMethod)
     {
         $classname = "Numbers_Words_${locale}";
-        if (!class_exists($classname)) {
+        if (!class_exists($classname, false)) {
             @include_once "Numbers/Words/lang.${locale}.php";
         }
 
-        if (!class_exists($classname)) {
+        if (!class_exists($classname, false)) {
             throw new Numbers_Words_Exception(
                 "Unable to include the Numbers/Words/lang.${locale}.php file"
             );
