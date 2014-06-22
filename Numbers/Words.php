@@ -113,12 +113,9 @@ class Numbers_Words
 
         $classname = self::loadLocale($locale, '_toWords');
 
-        if (isset($this)) {
-          $obj = $this;
-        }
-        else {
-          $obj = new $classname;
-        }
+
+        $obj = new $classname;
+
 
         if (!is_int($num)) {
             $num = $obj->normalizeNumber($num);
