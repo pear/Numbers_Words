@@ -20,12 +20,8 @@
  * @version    SVN: $Id$
  * @link       http://pear.php.net/package/Numbers_Words
  */
-if (!defined('PHPUnit_MAIN_METHOD')) {
-    define('PHPUnit_MAIN_METHOD', 'Numbers_Words_English100Test::main');
-}
 
 require_once 'Numbers/Words.php';
-require_once 'PHPUnit/Framework/TestCase.php';
 
 class Numbers_Words_English100Test extends PHPUnit_Framework_TestCase
 {
@@ -162,8 +158,4 @@ class Numbers_Words_English100Test extends PHPUnit_Framework_TestCase
         }
     
     }
-}
-
-if (PHPUnit_MAIN_METHOD == 'Numbers_Words_English100Test::main') {
-    Numbers_Words_English100Test::main();
 }

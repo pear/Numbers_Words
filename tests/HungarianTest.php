@@ -31,7 +31,6 @@ if (!defined('PHPUnit_MAIN_METHOD')) {
 }
 
 require_once 'Numbers/Words.php';
-require_once 'PHPUnit/Framework/TestCase.php';
 
 class Numbers_Words_HungarianTest extends PHPUnit_Framework_TestCase
 {
@@ -168,8 +167,4 @@ class Numbers_Words_HungarianTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('hárombillió', $this->handle->toWords($number, $this->lang));
     
     }
-}
-
-if (PHPUnit_MAIN_METHOD == 'Numbers_Words_HungarianTest::main') {
-    Numbers_Words_HungarianTest::main();
 }

@@ -20,12 +20,8 @@ declare(encoding='iso-8859-15');
 //
 // Numbers_Words class extension to spell numbers in Romanian.
 //
-if (!defined('PHPUnit_MAIN_METHOD')) {
-    define('PHPUnit_MAIN_METHOD', 'Numbers_Words_EnglishUsTest::main');
-}
 
 require_once 'Numbers/Words.php';
-require_once 'PHPUnit/Autoload.php';
 
 class Numbers_Words_RomanianRoTest extends PHPUnit_Framework_TestCase
 {
@@ -189,8 +185,4 @@ class Numbers_Words_RomanianRoTest extends PHPUnit_Framework_TestCase
 
     }
 
-}
-
-if (PHPUnit_MAIN_METHOD == 'Numbers_Words_EnglishUsTest::main') {
-    Numbers_Words_RomanianRoTest::main();
 }

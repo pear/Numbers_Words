@@ -20,12 +20,7 @@
  * @link       http://pear.php.net/package/Numbers_Words
  */
 
-if (!defined('PHPUnit_MAIN_METHOD')) {
-    define('PHPUnit_MAIN_METHOD', 'Numbers_Words_FrenchTest::main');
-}
-
 require_once 'Numbers/Words.php';
-require_once 'PHPUnit/Framework/TestCase.php';
 
 class Numbers_Words_FrenchTest extends PHPUnit_Framework_TestCase
 {
@@ -146,8 +141,4 @@ class Numbers_Words_FrenchTest extends PHPUnit_Framework_TestCase
             $this->assertEquals($word, $this->handle->toWords($number, 'fr'));
         }
     }
-}
-
-if (PHPUnit_MAIN_METHOD == 'Numbers_Words_FrenchTest::main') {
-    Numbers_Words_FrenchTest::main();
 }

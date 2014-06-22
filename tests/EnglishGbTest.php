@@ -20,12 +20,8 @@ declare(encoding='iso-8859-15');
  * @version   SVN: $Id$
  * @link      http://pear.php.net/package/Numbers_Words
  */
-if (!defined('PHPUnit_MAIN_METHOD')) {
-    define('PHPUnit_MAIN_METHOD', 'Numbers_Words_EnglishGbTest::main');
-}
 
 require_once 'Numbers/Words.php';
-require_once 'PHPUnit/Framework/TestCase.php';
 
 class Numbers_Words_EnglishGbTest extends PHPUnit_Framework_TestCase
 {
@@ -165,8 +161,4 @@ class Numbers_Words_EnglishGbTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('three billion', $this->handle->toWords($number, $this->lang));
     
     }
-}
-
-if (PHPUnit_MAIN_METHOD == 'Numbers_Words_EnglishGbTest::main') {
-    Numbers_Words_EnglishGbTest::main();
 }

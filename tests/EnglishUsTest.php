@@ -21,12 +21,7 @@
  */
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
 
-if (!defined('PHPUnit_MAIN_METHOD')) {
-    define('PHPUnit_MAIN_METHOD', 'Numbers_Words_EnglishUsTest::main');
-}
-
 require_once 'Numbers/Words.php';
-require_once 'PHPUnit/Framework/TestCase.php';
 
 class Numbers_Words_EnglishUsTest extends PHPUnit_Framework_TestCase
 {
@@ -167,8 +162,4 @@ class Numbers_Words_EnglishUsTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('three trillion', $this->handle->toWords($number, $this->lang));
     }
 
-}
-
-if (PHPUnit_MAIN_METHOD == 'Numbers_Words_EnglishUsTest::main') {
-    Numbers_Words_EnglishUsTest::main();
 }
