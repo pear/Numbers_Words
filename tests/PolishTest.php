@@ -41,11 +41,11 @@ class Numbers_Words_PolishTest extends PHPUnit_Framework_TestCase
                         'dwa',
                         'trzy',
                         'cztery',
-                        'piêæ',
-                        'sze¶æ',
+                        'piÄ™Ä‡',
+                        'szeÅ›Ä‡',
                         'siedem',
                         'osiem',
-                        'dziewiêæ'
+                        'dziewiÄ™Ä‡'
                        );
         for ($i = 0; $i < 10; $i++)
         {
@@ -59,23 +59,23 @@ class Numbers_Words_PolishTest extends PHPUnit_Framework_TestCase
      */
     function testTens()
     {
-        $tens = array(11 => 'jedena¶cie',
-                      12 => 'dwana¶cie',
-                      16 => 'szesna¶cie',
-                      19 => 'dziewiêtna¶cie',
-                      20 => 'dwadzie¶cia',
-                      21 => 'dwadzie¶cia jeden',
-                      26 => 'dwadzie¶cia sze¶æ',
-                      30 => 'trzydzie¶ci',
-                      31 => 'trzydzie¶ci jeden',
-                      40 => 'czterdzie¶ci',
-                      43 => 'czterdzie¶ci trzy',
-                      50 => 'piêædziesi±t',
-                      55 => 'piêædziesi±t piêæ',
-                      60 => 'sze¶ædziesi±t',
-                      67 => 'sze¶ædziesi±t siedem',
-                      70 => 'siedemdziesi±t',
-                      79 => 'siedemdziesi±t dziewiêæ'
+        $tens = array(11 => 'jedenaÅ›cie',
+                      12 => 'dwanaÅ›cie',
+                      16 => 'szesnaÅ›cie',
+                      19 => 'dziewiÄ™tnaÅ›cie',
+                      20 => 'dwadzieÅ›cia',
+                      21 => 'dwadzieÅ›cia jeden',
+                      26 => 'dwadzieÅ›cia szeÅ›Ä‡',
+                      30 => 'trzydzieÅ›ci',
+                      31 => 'trzydzieÅ›ci jeden',
+                      40 => 'czterdzieÅ›ci',
+                      43 => 'czterdzieÅ›ci trzy',
+                      50 => 'piÄ™Ä‡dziesiÄ…t',
+                      55 => 'piÄ™Ä‡dziesiÄ…t piÄ™Ä‡',
+                      60 => 'szeÅ›Ä‡dziesiÄ…t',
+                      67 => 'szeÅ›Ä‡dziesiÄ…t siedem',
+                      70 => 'siedemdziesiÄ…t',
+                      79 => 'siedemdziesiÄ…t dziewiÄ™Ä‡'
                      );
         foreach ($tens as $number => $word) {
             $this->assertEquals($word, $this->handle->toWords($number, 'pl'));
@@ -89,18 +89,18 @@ class Numbers_Words_PolishTest extends PHPUnit_Framework_TestCase
     {
         $hundreds = array(100 => 'sto',
                           101 => 'sto jeden',
-                          199 => 'sto dziewiêædziesi±t dziewiêæ',
-                          203 => 'dwie¶cie trzy',
-                          287 => 'dwie¶cie osiemdziesi±t siedem',
+                          199 => 'sto dziewiÄ™Ä‡dziesiÄ…t dziewiÄ™Ä‡',
+                          203 => 'dwieÅ›cie trzy',
+                          287 => 'dwieÅ›cie osiemdziesiÄ…t siedem',
                           300 => 'trzysta',
-                          356 => 'trzysta piêædziesi±t sze¶æ',
-                          410 => 'czterysta dziesiêæ',
-                          434 => 'czterysta trzydzie¶ci cztery',
-                          578 => 'piêæset siedemdziesi±t osiem',
-                          689 => 'sze¶æset osiemdziesi±t dziewiêæ',
-                          729 => 'siedemset dwadzie¶cia dziewiêæ',
-                          894 => 'osiemset dziewiêædziesi±t cztery',
-                          999 => 'dziewiêæset dziewiêædziesi±t dziewiêæ'
+                          356 => 'trzysta piÄ™Ä‡dziesiÄ…t szeÅ›Ä‡',
+                          410 => 'czterysta dziesiÄ™Ä‡',
+                          434 => 'czterysta trzydzieÅ›ci cztery',
+                          578 => 'piÄ™Ä‡set siedemdziesiÄ…t osiem',
+                          689 => 'szeÅ›Ä‡set osiemdziesiÄ…t dziewiÄ™Ä‡',
+                          729 => 'siedemset dwadzieÅ›cia dziewiÄ™Ä‡',
+                          894 => 'osiemset dziewiÄ™Ä‡dziesiÄ…t cztery',
+                          999 => 'dziewiÄ™Ä‡set dziewiÄ™Ä‡dziesiÄ…t dziewiÄ™Ä‡'
                          );
         foreach ($hundreds as $number => $word) {
             $this->assertEquals($word, $this->handle->toWords($number, 'pl'));
@@ -112,19 +112,19 @@ class Numbers_Words_PolishTest extends PHPUnit_Framework_TestCase
      */
     function testThousands()
     {
-        $thousands = array(1000 => 'jeden tysi±c',
-                           1001 => 'jeden tysi±c jeden',
-                           1097 => 'jeden tysi±c dziewiêædziesi±t siedem',
-                           1104 => 'jeden tysi±c sto cztery',
-                           1243 => 'jeden tysi±c dwie¶cie czterdzie¶ci trzy',
-                           2385 => 'dwa tysi±ce trzysta osiemdziesi±t piêæ',
-                           3766 => 'trzy tysi±ce siedemset sze¶ædziesi±t sze¶æ',
-                           4196 => 'cztery tysi±ce sto dziewiêædziesi±t sze¶æ',
-                           5846 => 'piêæ tysiêcy osiemset czterdzie¶ci sze¶æ',
-                           6459 => 'sze¶æ tysiêcy czterysta piêædziesi±t dziewiêæ',
-                           7232 => 'siedem tysiêcy dwie¶cie trzydzie¶ci dwa',
-                           8569 => 'osiem tysiêcy piêæset sze¶ædziesi±t dziewiêæ',
-                           9539 => 'dziewiêæ tysiêcy piêæset trzydzie¶ci dziewiêæ'
+        $thousands = array(1000 => 'jeden tysiÄ…c',
+                           1001 => 'jeden tysiÄ…c jeden',
+                           1097 => 'jeden tysiÄ…c dziewiÄ™Ä‡dziesiÄ…t siedem',
+                           1104 => 'jeden tysiÄ…c sto cztery',
+                           1243 => 'jeden tysiÄ…c dwieÅ›cie czterdzieÅ›ci trzy',
+                           2385 => 'dwa tysiÄ…ce trzysta osiemdziesiÄ…t piÄ™Ä‡',
+                           3766 => 'trzy tysiÄ…ce siedemset szeÅ›Ä‡dziesiÄ…t szeÅ›Ä‡',
+                           4196 => 'cztery tysiÄ…ce sto dziewiÄ™Ä‡dziesiÄ…t szeÅ›Ä‡',
+                           5846 => 'piÄ™Ä‡ tysiÄ™cy osiemset czterdzieÅ›ci szeÅ›Ä‡',
+                           6459 => 'szeÅ›Ä‡ tysiÄ™cy czterysta piÄ™Ä‡dziesiÄ…t dziewiÄ™Ä‡',
+                           7232 => 'siedem tysiÄ™cy dwieÅ›cie trzydzieÅ›ci dwa',
+                           8569 => 'osiem tysiÄ™cy piÄ™Ä‡set szeÅ›Ä‡dziesiÄ…t dziewiÄ™Ä‡',
+                           9539 => 'dziewiÄ™Ä‡ tysiÄ™cy piÄ™Ä‡set trzydzieÅ›ci dziewiÄ™Ä‡'
                           );
         foreach ($thousands as $number => $word) {
             $this->assertEquals($word, $this->handle->toWords($number, 'pl'));
