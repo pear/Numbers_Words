@@ -273,12 +273,12 @@ class Numbers_Words
     {
         $classname = "Numbers_Words_${locale}";
         if (!class_exists($classname)) {
-            @include_once "Numbers/Words/lang.${locale}.php";
+            @include_once "Numbers/Words/${locale}.php";
         }
 
         if (!class_exists($classname)) {
             throw new Numbers_Words_Exception(
-                "Unable to include the Numbers/Words/lang.${locale}.php file"
+                "Unable to include the Numbers/Words/${locale}.php file"
             );
         }
 
