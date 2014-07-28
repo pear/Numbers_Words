@@ -10,7 +10,7 @@
  * Include needed files
  */
 require_once "Numbers/Words.php";
-require_once "Numbers/Words/lang.ru.php";
+require_once "Numbers/Words/Locale/ru.php";
 
 /**
  * Class for translating numbers into Russian.
@@ -22,7 +22,7 @@ require_once "Numbers/Words/lang.ru.php";
  * @license  PHP 3.01 http://www.php.net/license/3_01.txt
  * @link     http://pear.php.net/package/Numbers_Words
  */
-class Numbers_Words_Locale_ua extends Numbers_Words_ru
+class Numbers_Words_Locale_ua extends Numbers_Words_Locale_ru
 {
     /**
      * Locale name
