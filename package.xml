@@ -89,50 +89,53 @@ Misc fixes and cleanup in Turkish driver
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
-   <file baseinstalldir="/" md5sum="447e1971db320565005851d28a099bf6" name="Numbers/Words.php" role="php" />
-   <file baseinstalldir="/" md5sum="6dffe446729e54b4edefe5f87fda83fd" name="Numbers/Words/Exception.php" role="php" />
-   <file baseinstalldir="/" md5sum="fd23364b2f565f2898c995cf91fffb0f" name="Numbers/Words/lang.bg.php" role="php" />
-   <file baseinstalldir="/" md5sum="7a2b5c363e9f1ba3b5d048f8745d60db" name="Numbers/Words/lang.cs.php" role="php" />
-   <file baseinstalldir="/" md5sum="710826efe3d65d616c81c128f6e675b5" name="Numbers/Words/lang.de.php" role="php" />
-   <file baseinstalldir="/" md5sum="e0030274f1033b06fd3489b8cabc9944" name="Numbers/Words/lang.dk.php" role="php" />
-   <file baseinstalldir="/" md5sum="dc897e83e89e140fecfb71a5fe231f5b" name="Numbers/Words/lang.en_100.php" role="php" />
-   <file baseinstalldir="/" md5sum="70da8296ccd5a83d10945cdbebd901c4" name="Numbers/Words/lang.en_GB.php" role="php" />
-   <file baseinstalldir="/" md5sum="3da720b6430f2a06075e1a5d04483d85" name="Numbers/Words/lang.en_US.php" role="php" />
-   <file baseinstalldir="/" md5sum="9b44c8a36971660e09e019e32d13992a" name="Numbers/Words/lang.es.php" role="php" />
-   <file baseinstalldir="/" md5sum="3842abee4411b50b2ebbeb27261b26c7" name="Numbers/Words/lang.es_AR.php" role="php" />
-   <file baseinstalldir="/" md5sum="78643f2e3993f28d3a33dca5ffae7f7d" name="Numbers/Words/lang.es_MX.php" role="php" />
-   <file baseinstalldir="/" md5sum="1cb2bca4025b880e32edae8fea590206" name="Numbers/Words/lang.es_VE.php" role="php" />
-   <file baseinstalldir="/" md5sum="0b278ffc8fe5043c437ff2a40b7bcbdf" name="Numbers/Words/lang.et.php" role="php" />
-   <file baseinstalldir="/" md5sum="fdc2ebf6df209e81bd491fbd843652b1" name="Numbers/Words/lang.fr.php" role="php" />
-   <file baseinstalldir="/" md5sum="3a79cd789cfc7a9fc0ebee7d803b9c80" name="Numbers/Words/lang.fr_BE.php" role="php" />
-   <file baseinstalldir="/" md5sum="cc18b9936ab575ef643faef2128359cc" name="Numbers/Words/lang.he.php" role="php" />
-   <file baseinstalldir="/" md5sum="7133b5a3ff04bcac4271f43343106c7e" name="Numbers/Words/lang.hu_HU.php" role="php" />
-   <file baseinstalldir="/" md5sum="49aea52f468712c2128418b0dbd5746e" name="Numbers/Words/lang.id.php" role="php" />
-   <file baseinstalldir="/" md5sum="950abd86346d1c3e1d986b60f33f5b96" name="Numbers/Words/lang.it_IT.php" role="php" />
-   <file baseinstalldir="/" md5sum="2ec2c9464ce499cacb1aa469a806df07" name="Numbers/Words/lang.lt.php" role="php" />
-   <file baseinstalldir="/" md5sum="ea4d161a08f555e8fa0561707c542d9c" name="Numbers/Words/lang.nl.php" role="php" />
-   <file baseinstalldir="/" md5sum="2c45c0e79d19dda6aecce2fec7855c0e" name="Numbers/Words/lang.pl.php" role="php" />
-   <file baseinstalldir="/" md5sum="eb023d47551090f0ee0be5182fae813a" name="Numbers/Words/lang.pt_BR.php" role="php" />
-   <file baseinstalldir="/" md5sum="41b3765bfaebc7d35db001db5cf2fb11" name="Numbers/Words/lang.ru.php" role="php" />
-   <file baseinstalldir="/" md5sum="bb841f34c342cd464cfc27bfd80e7f51" name="Numbers/Words/lang.sv.php" role="php" />
-   <file baseinstalldir="/" md5sum="2fa3152271aaa441ee73efd403480a21" name="Numbers/Words/lang.tr_TR.php" role="php" />
-   <file baseinstalldir="Numbers" md5sum="cb52653e79a328d0494ce69ee282a420" name="tests/BulgarianTest.php" role="test" />
-   <file baseinstalldir="Numbers" md5sum="615c0a1206cdeafc428c0b6d2df07a2e" name="tests/English100Test.php" role="test" />
-   <file baseinstalldir="Numbers" md5sum="c92928fa9f9a99210b50dd88285aefc3" name="tests/EnglishGbTest.php" role="test" />
-   <file baseinstalldir="Numbers" md5sum="bc83743647eb021038da9005c08a9e74" name="tests/EnglishUsTest.php" role="test" />
-   <file baseinstalldir="Numbers" md5sum="ab91108899928cd80bd60dcbf549b22d" name="tests/FrenchBeTest.php" role="test" />
-   <file baseinstalldir="Numbers" md5sum="fca55cda0431f66294d045c83a3a5c47" name="tests/FrenchTest.php" role="test" />
-   <file baseinstalldir="Numbers" md5sum="a07caead24f6639b4ba2b31d287c9131" name="tests/GermanTest.php" role="test" />
-   <file baseinstalldir="/" md5sum="0b7969e0309516d82c937c76b1310111" name="tests/HungarianTest.php" role="test" />
-   <file baseinstalldir="Numbers" md5sum="eecb8b008c23004435533b5293b53948" name="tests/ItalianTest.php" role="test" />
-   <file baseinstalldir="/" md5sum="cdff4f835e1a410ec5499ffc2a0fb9b6" name="tests/LithuanianTest.php" role="test" />
-   <file baseinstalldir="Numbers" md5sum="5bda3cd3082c1efa7fd42a58686fa0ea" name="tests/PolishTest.php" role="test" />
-   <file baseinstalldir="Numbers" md5sum="48c6d47038b2d9a68bbf41a8639ba790" name="tests/PortugueseBrazilianTest.php" role="test" />
-   <file baseinstalldir="Numbers" md5sum="427088917b83d3da1e93824e045a9a00" name="tests/SpanishTest.php" role="test" />
-   <file baseinstalldir="Numbers" md5sum="a734d014b617f2a423c3709d283c1390" name="tests/test-numbers-words.php" role="test" />
-   <file baseinstalldir="Numbers" md5sum="af9f381abf5cb30983e6298fcfccf80d" name="ChangeLog" role="doc" />
-   <file baseinstalldir="/" md5sum="cb564efdf78cce8ea6e4b5a4f7c05d97" name="LICENSE" role="doc" />
-   <file baseinstalldir="Numbers" md5sum="b4cbf927457107e890a69d1435c4369a" name="README" role="doc" />
+   <file name="Numbers/Words.php" role="php" />
+   <file name="Numbers/Words/Exception.php" role="php" />
+   <file name="Numbers/Words/Locale/bg.php" role="php" />
+   <file name="Numbers/Words/Locale/cs.php" role="php" />
+   <file name="Numbers/Words/Locale/de.php" role="php" />
+   <file name="Numbers/Words/Locale/dk.php" role="php" />
+   <file name="Numbers/Words/Locale/en/100.php" role="php" />
+   <file name="Numbers/Words/Locale/en/GB.php" role="php" />
+   <file name="Numbers/Words/Locale/en/US.php" role="php" />
+   <file name="Numbers/Words/Locale/es.php" role="php" />
+   <file name="Numbers/Words/Locale/es/AR.php" role="php" />
+   <file name="Numbers/Words/Locale/es/MX.php" role="php" />
+   <file name="Numbers/Words/Locale/es/VE.php" role="php" />
+   <file name="Numbers/Words/Locale/et.php" role="php" />
+   <file name="Numbers/Words/Locale/fr.php" role="php" />
+   <file name="Numbers/Words/Locale/fr/BE.php" role="php" />
+   <file name="Numbers/Words/Locale/he.php" role="php" />
+   <file name="Numbers/Words/Locale/hu/HU.php" role="php" />
+   <file name="Numbers/Words/Locale/id.php" role="php" />
+   <file name="Numbers/Words/Locale/it/IT.php" role="php" />
+   <file name="Numbers/Words/Locale/lt.php" role="php" />
+   <file name="Numbers/Words/Locale/nl.php" role="php" />
+   <file name="Numbers/Words/Locale/pl.php" role="php" />
+   <file name="Numbers/Words/Locale/pt/BR.php" role="php" />
+   <file name="Numbers/Words/Locale/ru.php" role="php" />
+   <file name="Numbers/Words/Locale/sv.php" role="php" />
+   <file name="Numbers/Words/Locale/tr/TR.php" role="php" />
+
+   <file name="tests/Numbers_WordsTest.php" role="test" />
+   <file name="tests/BulgarianTest.php" role="test" />
+   <file name="tests/English100Test.php" role="test" />
+   <file name="tests/EnglishGbTest.php" role="test" />
+   <file name="tests/EnglishUsTest.php" role="test" />
+   <file name="tests/FrenchBeTest.php" role="test" />
+   <file name="tests/FrenchTest.php" role="test" />
+   <file name="tests/GermanTest.php" role="test" />
+   <file name="tests/HungarianTest.php" role="test" />
+   <file name="tests/ItalianTest.php" role="test" />
+   <file name="tests/LithuanianTest.php" role="test" />
+   <file name="tests/PolishTest.php" role="test" />
+   <file name="tests/PortugueseBrazilianTest.php" role="test" />
+   <file name="tests/SpanishTest.php" role="test" />
+   <file name="tests/test-numbers-words.php" role="test" />
+
+   <file name="ChangeLog" role="doc" />
+   <file name="LICENSE" role="doc" />
+   <file name="README" role="doc" />
   </dir>
  </contents>
  <dependencies>
