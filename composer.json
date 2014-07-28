@@ -35,7 +35,7 @@
     ],
     "require": {
         "php": ">=5.3.2",
-        "pear/math_biginteger": "*"
+        "pear/math_biginteger": ">=1.0.2"
     },
     "autoload": {
         "psr-0": {
