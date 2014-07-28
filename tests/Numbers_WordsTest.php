@@ -18,7 +18,7 @@ class Numbers_WordsTest extends PHPUnit_Framework_TestCase
 
     /**
      * @expectedException Numbers_Words_Exception
-     * @expectedExceptionMessage Unable to include the Numbers/Words/lang.doesnotexist.php file
+     * @expectedExceptionMessage Unable to load locale class Numbers_Words_Locale_doesnotexist
      */
     function testToWordsInvalidLocale()
     {
@@ -28,7 +28,7 @@ class Numbers_WordsTest extends PHPUnit_Framework_TestCase
 
     /**
      * @expectedException Numbers_Words_Exception
-     * @expectedExceptionMessage Unable to include the Numbers/Words/lang.doesnotexist.php file
+     * @expectedExceptionMessage Unable to load locale class Numbers_Words_Locale_doesnotexist
      */
     function testToCurrencyInvalidLocale()
     {
@@ -48,6 +48,23 @@ class Numbers_WordsTest extends PHPUnit_Framework_TestCase
         }
     }
 
+    function testGetLocalesString()
+    {
+        $locales = Numbers_Words::getLocales('de');
+        $this->assertInternalType('array', $locales);
+        $this->assertEquals(1, count($locales));
+        $this->assertContains('de', $locales);
+    }
+
+    function testGetLocalesArray()
+    {
+        $locales = Numbers_Words::getLocales(array('de', 'en_US'));
+        $this->assertInternalType('array', $locales);
+        $this->assertEquals(2, count($locales));
+        $this->assertContains('de', $locales);
+        $this->assertContains('en_US', $locales);
+    }
+
     function testAllLocales()
     {
         $locales = Numbers_Words::getLocales();
@@ -59,6 +76,15 @@ class Numbers_WordsTest extends PHPUnit_Framework_TestCase
                 'Word for "101" is empty in locale ' . $locale
             );
         }
+    }
+
+    /**
+     * @expectedException Numbers_Words_Exception
+     * @expectedExceptionMessage Unable to find method 'doesnotexist' in class 'Numbers_Words_Locale_de'
+     */
+    function testLoadLocaleMethodMissing()
+    {
+        Numbers_Words::loadLocale('de', 'doesnotexist');
     }
 }
 

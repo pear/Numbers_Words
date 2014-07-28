@@ -219,9 +219,9 @@ class Numbers_Words
     /**
      * Lists available locales for Numbers_Words
      *
-     * @param mixed $locale string/array of strings $locale
-     *                 Optional searched language name abbreviation.
-     *                 Default: all available locales.
+     * @param mixed $locales string/array of strings $locale
+     *                       Optional searched language name abbreviation.
+     *                       Default: all available locales.
      *
      * @return array   The available locales (optionaly only the requested ones)
      * @author Piotr Klaban <makler@man.torun.pl>
@@ -229,30 +229,38 @@ class Numbers_Words
      *
      * @return mixed[] Array of locale names ("de_DE", "en")
      */
-    public static function getLocales($locale = null)
+    public static function getLocales($locales = null)
     {
         $ret = array();
-        if (isset($locale) && is_string($locale)) {
-            $locale = array($locale);
+        if (isset($locales) && is_string($locales)) {
+            $locales = array($locales);
         }
 
-        $dname = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'Words' . DIRECTORY_SEPARATOR;
+        $dname = __DIR__ . DIRECTORY_SEPARATOR . 'Words'
+            . DIRECTORY_SEPARATOR . 'Locale'
+            . DIRECTORY_SEPARATOR;
 
-        $dh = opendir($dname);
-
-        if ($dh) {
-            while ($fname = readdir($dh)) {
-                if (preg_match('#^lang\.([a-z_]+)\.php$#i', $fname, $matches)) {
-                    if (is_file($dname . $fname) && is_readable($dname . $fname) &&
-                        (!isset($locale) || in_array($matches[1], $locale))) {
-                        $ret[] = $matches[1];
-                    }
-                }
+        $sfiles = glob($dname . '??.php');
+        foreach ($sfiles as $fname) {
+            $lname = substr($fname, -6, 2);
+            if (is_file($fname) && is_readable($fname)
+                && (count($locales) == 0 || in_array($lname, $locales))
+            ) {
+                $ret[] = $lname;
             }
-            closedir($dh);
-            sort($ret);
         }
 
+        $mfiles = glob($dname . '??/??.php');
+        foreach ($mfiles as $fname) {
+            $lname = str_replace(array('/', '\\'), '_', substr($fname, -9, 5));
+            if (is_file($fname) && is_readable($fname)
+                && (count($locales) == 0 || in_array($lname, $locales))
+            ) {
+                $ret[] = $lname;
+            }
+        }
+
+        sort($ret);
         return $ret;
     }
     // }}}
@@ -267,24 +275,25 @@ class Numbers_Words
      *
      * @throws Numbers_Words_Exception When the class cannot be loaded
      */
-    function loadLocale($locale, $requiredMethod)
+    public static function loadLocale($locale, $requiredMethod)
     {
-        $classname = "Numbers_Words_${locale}";
+        $classname = 'Numbers_Words_Locale_' . $locale;
         if (!class_exists($classname)) {
-            @include_once "Numbers/Words/lang.${locale}.php";
-        }
+            $file = str_replace('_', '/', $classname) . '.php';
+            if (stream_resolve_include_path($file)) {
+                include_once $file;
+            }
 
-        if (!class_exists($classname)) {
-            throw new Numbers_Words_Exception(
-                "Unable to include the Numbers/Words/lang.${locale}.php file"
-            );
+            if (!class_exists($classname)) {
+                throw new Numbers_Words_Exception(
+                    'Unable to load locale class ' . $classname
+                );
+            }
         }
 
         $methods = get_class_methods($classname);
 
-        if (!in_array($requiredMethod, $methods)
-            && !in_array($requiredMethod, $methods)
-        ) {
+        if (!in_array($requiredMethod, $methods)) {
             throw new Numbers_Words_Exception(
                 "Unable to find method '$requiredMethod' in class '$classname'"
             );
