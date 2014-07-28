@@ -35,6 +35,31 @@ class Numbers_WordsTest extends PHPUnit_Framework_TestCase
         $nw = new Numbers_Words();
         $nw->toCurrency(1, 'doesnotexist');
     }
+
+    function testGetLocales()
+    {
+        $locales = Numbers_Words::getLocales();
+        $this->assertInternalType('array', $locales);
+        $this->assertGreaterThan(27, count($locales));
+        foreach ($locales as $locale) {
+            $this->assertEquals(
+                1, preg_match('#^[a-z]{2}(_[A-Z]{2})?$#', $locale)
+            );
+        }
+    }
+
+    function testAllLocales()
+    {
+        $locales = Numbers_Words::getLocales();
+        foreach ($locales as $locale) {
+            $nw = new Numbers_Words();
+            $word = $nw->toWords(101, $locale);
+            $this->assertNotEmpty(
+                $word,
+                'Word for "101" is empty in locale ' . $locale
+            );
+        }
+    }
 }
 
 ?>

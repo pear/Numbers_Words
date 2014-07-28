@@ -227,11 +227,9 @@ class Numbers_Words
      * @author Piotr Klaban <makler@man.torun.pl>
      * @author Bertrand Gugger, bertrand at toggg dot com
      *
-     * @access public
-     * @static
-     * @return mixed[]
+     * @return mixed[] Array of locale names ("de_DE", "en")
      */
-    function getLocales($locale = null)
+    public static function getLocales($locale = null)
     {
         $ret = array();
         if (isset($locale) && is_string($locale)) {
