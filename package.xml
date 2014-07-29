@@ -71,11 +71,11 @@ The following languages are supported:
   <email>hpman28@gmail.com</email>
   <active>yes</active>
  </contributor>
- <date>2012-07-01</date>
- <time>17:11:22</time>
+ <date>2014-07-29</date>
+ <time>21:53:23</time>
  <version>
-  <release>0.17.0</release>
-  <api>0.17.0</api>
+  <release>0.18.0</release>
+  <api>0.18.0</api>
  </version>
  <stability>
   <release>beta</release>
@@ -83,9 +83,20 @@ The following languages are supported:
  </stability>
  <license uri="http://www.php.net/license/">PHP</license>
  <notes>
-Drop PHP 4
-Drop PEAR dependency
-Misc fixes and cleanup in Turkish driver
+* Fix bug #19543: Better handling of decimal mark and thousands separators [kouber]
+* Fix bug #19855: do not emit E_NOTICE when calling toWords() statically [cweiske]
+* Fix pl unicode [Jakub Roszkiewicz]
+* Fix ru_RU currency codes [Vital Leshchyk]
+* Fix tr_TR unicode [Shahriyar Imanov]
+* Add en_IN - indian english [Abhinav Nayak]
+* Add lv - latvian [Andrius]
+* Add ro_RO - romanian [Bogdan Stancescu]
+* Add ua - ukranian [Vital Leshchyk]
+* Unify locale loading code [cweiske]
+* Use PEAR class-to-filename convention [cweiske]
+
+This release changes class names and locations of locale files.
+This is a backwards compatibility break.
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
@@ -576,5 +587,35 @@ Drop PEAR dependency
 Misc fixes and cleanup in Turkish driver
    </notes>
   </release>
+
+  <release>
+   <version>
+    <release>0.18.0</release>
+    <api>0.18.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2014-07-29</date>
+   <license uri="http://www.php.net/license/">PHP</license>
+   <notes>
+* Fix bug #19543: Better handling of decimal mark and thousands separators [kouber]
+* Fix bug #19855: do not emit E_NOTICE when calling toWords() statically [cweiske]
+* Fix pl unicode [Jakub Roszkiewicz]
+* Fix ru_RU currency codes [Vital Leshchyk]
+* Fix tr_TR unicode [Shahriyar Imanov]
+* Add en_IN - indian english [Abhinav Nayak]
+* Add lv - latvian [Andrius]
+* Add ro_RO - romanian [Bogdan Stancescu]
+* Add ua - ukranian [Vital Leshchyk]
+* Unify locale loading code [cweiske]
+* Use PEAR class-to-filename convention [cweiske]
+
+This release changes class names and locations of locale files.
+This is a backwards compatibility break.
+   </notes>
+  </release>
+
  </changelog>
 </package>
