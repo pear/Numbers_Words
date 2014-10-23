@@ -332,7 +332,7 @@ class Numbers_Words_Locale_hu_HU extends Numbers_Words
             case 7:
             case 8:
             case 9:
-                $ret .= $this->_sep . 'húszon';
+                $ret .= $this->_sep . 'huszon';
                 break;
             }
             break;
