@@ -82,8 +82,8 @@ class Numbers_Words_HungarianTest extends PHPUnit_Framework_TestCase
                       16 => 'tizenhat',
                       19 => 'tizenkilenc',
                       20 => 'húsz',
-                      21 => 'húszonegy',
-                      26 => 'húszonhat',
+                      21 => 'huszonegy',
+                      26 => 'huszonhat',
                       30 => 'harminc',
                       31 => 'harmincegy',
                       40 => 'negyven',
@@ -116,7 +116,7 @@ class Numbers_Words_HungarianTest extends PHPUnit_Framework_TestCase
                           434 => 'négyszázharmincnégy',
                           578 => 'ötszázhetvennyolc',
                           689 => 'hatszáznyolcvankilenc',
-                          729 => 'hétszázhúszonkilenc',
+                          729 => 'hétszázhuszonkilenc',
                           894 => 'nyolcszázkilencvennégy',
                           999 => 'kilencszázkilencvenkilenc'
                          );
