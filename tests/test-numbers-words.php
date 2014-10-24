@@ -44,14 +44,12 @@ $langs = array();
 
 foreach ($lang as $loc_symbol) {
   $classname = "Numbers_Words_" . $loc_symbol;
-  @include_once("Numbers/Words/lang.${loc_symbol}.php");
+  @include_once('Numbers/Words/Locale/'.str_replace('_', '/', $loc_symbol).'.php');
 }
 
-reset($lang);
-
 foreach ($lang as $loc_symbol) {
-  $classname = "Numbers_Words_" . $loc_symbol;
-  $obj =& new $classname;
+  $classname = "Numbers_Words_Locale_" . $loc_symbol;
+  $obj = new $classname;
 
   try {
     $ret = $obj->toWords($num);

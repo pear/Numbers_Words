@@ -33,8 +33,11 @@ The following languages are supported:
     * nl (Dutch) by WHAM van Dinter
     * pl (Polish) by Piotr Klaban
     * pt_BR (Brazilian Portuguese) by Igor Feghali
+    * ro_RO (Romanian) by Bogdan Stăncescu
     * ru (Russian) by Andrey Demenev
-    * sv (Swedish) by Robin Ericsson</description>
+    * sv (Swedish) by Robin Ericsson
+    * tr_TR (Turkish) by Shahriyar Imanov
+    * ua (Ukrainian) by Andrey Demenev and Vital Leshchyk</description>
  <lead>
   <name>Piotr Klaban</name>
   <user>makler</user>
@@ -71,8 +74,8 @@ The following languages are supported:
   <email>hpman28@gmail.com</email>
   <active>yes</active>
  </contributor>
- <date>2014-07-29</date>
- <time>21:53:23</time>
+ <date>2014-10-24</date>
+ <time>17:30:00</time>
  <version>
   <release>0.18.0</release>
   <api>0.18.0</api>
@@ -83,15 +86,16 @@ The following languages are supported:
  </stability>
  <license uri="http://www.php.net/license/">PHP</license>
  <notes>
-* Fix bug #19543: Better handling of decimal mark and thousands separators [kouber]
-* Fix bug #19855: do not emit E_NOTICE when calling toWords() statically [cweiske]
-* Fix pl unicode [Jakub Roszkiewicz]
-* Fix ru_RU currency codes [Vital Leshchyk]
-* Fix tr_TR unicode [Shahriyar Imanov]
-* Add en_IN - indian english [Abhinav Nayak]
-* Add lv - latvian [Andrius]
-* Add ro_RO - romanian [Bogdan Stancescu]
-* Add ua - ukranian [Vital Leshchyk]
+* Fixed bug #19453: Incorrect spelling of Hungarian numbers [kouber]
+* Fixed bug #19543: Better handling of decimal mark and thousands separators [kouber]
+* Fixed bug #19855: Do not emit E_NOTICE when calling toWords() statically [cweiske]
+* Fixed pl unicode [Jakub Roszkiewicz]
+* Fixed ru_RU currency codes [Vital Leshchyk]
+* Fixed tr_TR unicode [Shahriyar Imanov]
+* Added en_IN - Indian English [Abhinav Nayak]
+* Added lv - Latvian [Andrius]
+* Added ro_RO - Romanian [Bogdan Stancescu]
+* Added ua - Ukrainian [Vital Leshchyk]
 * Unify locale loading code [cweiske]
 * Use PEAR class-to-filename convention [cweiske]
 
@@ -127,6 +131,7 @@ This is a backwards compatibility break.
    <file name="Numbers/Words/Locale/ru.php" role="php" />
    <file name="Numbers/Words/Locale/sv.php" role="php" />
    <file name="Numbers/Words/Locale/tr/TR.php" role="php" />
+   <file name="Numbers/Words/Locale/ua.php" role="php" />
 
    <file name="tests/Numbers_WordsTest.php" role="test" />
    <file name="tests/BulgarianTest.php" role="test" />
@@ -141,6 +146,7 @@ This is a backwards compatibility break.
    <file name="tests/LithuanianTest.php" role="test" />
    <file name="tests/PolishTest.php" role="test" />
    <file name="tests/PortugueseBrazilianTest.php" role="test" />
+   <file name="tests/RomanianRoTest.php" role="test" />
    <file name="tests/SpanishTest.php" role="test" />
    <file name="tests/test-numbers-words.php" role="test" />
 
@@ -597,18 +603,19 @@ Misc fixes and cleanup in Turkish driver
     <release>beta</release>
     <api>beta</api>
    </stability>
-   <date>2014-07-29</date>
+   <date>2014-10-24</date>
    <license uri="http://www.php.net/license/">PHP</license>
    <notes>
-* Fix bug #19543: Better handling of decimal mark and thousands separators [kouber]
-* Fix bug #19855: do not emit E_NOTICE when calling toWords() statically [cweiske]
-* Fix pl unicode [Jakub Roszkiewicz]
-* Fix ru_RU currency codes [Vital Leshchyk]
-* Fix tr_TR unicode [Shahriyar Imanov]
-* Add en_IN - indian english [Abhinav Nayak]
-* Add lv - latvian [Andrius]
-* Add ro_RO - romanian [Bogdan Stancescu]
-* Add ua - ukranian [Vital Leshchyk]
+* Fixed bug #19453: Incorrect spelling of Hungarian numbers [kouber]
+* Fixed bug #19543: Better handling of decimal mark and thousands separators [kouber]
+* Fixed bug #19855: Do not emit E_NOTICE when calling toWords() statically [cweiske]
+* Fixed pl unicode [Jakub Roszkiewicz]
+* Fixed ru_RU currency codes [Vital Leshchyk]
+* Fixed tr_TR unicode [Shahriyar Imanov]
+* Added en_IN - Indian English [Abhinav Nayak]
+* Added lv - Latvian [Andrius]
+* Added ro_RO - Romanian [Bogdan Stancescu]
+* Added ua - Ukrainian [Vital Leshchyk]
 * Unify locale loading code [cweiske]
 * Use PEAR class-to-filename convention [cweiske]
 
