@@ -74,11 +74,11 @@ The following languages are supported:
   <email>hpman28@gmail.com</email>
   <active>yes</active>
  </contributor>
- <date>2014-10-24</date>
- <time>17:30:00</time>
+ <date>2014-11-03</date>
+ <time>10:33:00</time>
  <version>
-  <release>0.18.0</release>
-  <api>0.18.0</api>
+  <release>0.18.1</release>
+  <api>0.18.1</api>
  </version>
  <stability>
   <release>beta</release>
@@ -86,21 +86,8 @@ The following languages are supported:
  </stability>
  <license uri="http://www.php.net/license/">PHP</license>
  <notes>
-* Fixed bug #19453: Incorrect spelling of Hungarian numbers [kouber]
-* Fixed bug #19543: Better handling of decimal mark and thousands separators [kouber]
-* Fixed bug #19855: Do not emit E_NOTICE when calling toWords() statically [cweiske]
-* Fixed pl unicode [Jakub Roszkiewicz]
-* Fixed ru_RU currency codes [Vital Leshchyk]
-* Fixed tr_TR unicode [Shahriyar Imanov]
-* Added en_IN - Indian English [Abhinav Nayak]
-* Added lv - Latvian [Andrius]
-* Added ro_RO - Romanian [Bogdan Stancescu]
-* Added ua - Ukrainian [Vital Leshchyk]
-* Unify locale loading code [cweiske]
-* Use PEAR class-to-filename convention [cweiske]
-
-This release changes class names and locations of locale files.
-This is a backwards compatibility break.
+* Fixed bug #20435: Missing files in PEAR archive [kouber]
+* Fixed French plural handling for "million" and suffixes above [Olivier Brunel]
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
@@ -112,6 +99,7 @@ This is a backwards compatibility break.
    <file name="Numbers/Words/Locale/dk.php" role="php" />
    <file name="Numbers/Words/Locale/en/100.php" role="php" />
    <file name="Numbers/Words/Locale/en/GB.php" role="php" />
+   <file name="Numbers/Words/Locale/en/IN.php" role="php" />
    <file name="Numbers/Words/Locale/en/US.php" role="php" />
    <file name="Numbers/Words/Locale/es.php" role="php" />
    <file name="Numbers/Words/Locale/es/AR.php" role="php" />
@@ -125,14 +113,18 @@ This is a backwards compatibility break.
    <file name="Numbers/Words/Locale/id.php" role="php" />
    <file name="Numbers/Words/Locale/it/IT.php" role="php" />
    <file name="Numbers/Words/Locale/lt.php" role="php" />
+   <file name="Numbers/Words/Locale/lv.php" role="php" />
    <file name="Numbers/Words/Locale/nl.php" role="php" />
    <file name="Numbers/Words/Locale/pl.php" role="php" />
    <file name="Numbers/Words/Locale/pt/BR.php" role="php" />
+   <file name="Numbers/Words/Locale/ro/RO.php" role="php" />
    <file name="Numbers/Words/Locale/ru.php" role="php" />
    <file name="Numbers/Words/Locale/sv.php" role="php" />
    <file name="Numbers/Words/Locale/tr/TR.php" role="php" />
    <file name="Numbers/Words/Locale/ua.php" role="php" />
 
+   <file name="tests/bootstrap.php" role="test" />
+   <file name="tests/phpunit.xml" role="test" />
    <file name="tests/Numbers_WordsTest.php" role="test" />
    <file name="tests/BulgarianTest.php" role="test" />
    <file name="tests/English100Test.php" role="test" />
@@ -623,6 +615,23 @@ This release changes class names and locations of locale files.
 This is a backwards compatibility break.
    </notes>
   </release>
+  
+  <release>
+   <version>
+    <release>0.18.1</release>
+    <api>0.18.1</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2014-11-03</date>
+   <license uri="http://www.php.net/license/">PHP</license>
+   <notes>
+* Fixed bug #20435: Missing files in PEAR archive [kouber]
+* Fixed French plural handling for "million" and suffixes above [Olivier Brunel]
+   </notes>
+  </release>  
 
  </changelog>
 </package>

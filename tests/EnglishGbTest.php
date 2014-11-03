@@ -1,5 +1,4 @@
 <?php
-declare(encoding='iso-8859-15');
 /* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4 autoindent: */
 /**
  * Numbers_Words class extension to spell numbers in British English.

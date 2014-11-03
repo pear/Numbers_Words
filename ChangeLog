@@ -1,3 +1,27 @@
+2014-11-03
+  * Fixed bug #20435: Missing files in PEAR archive [kouber]
+  * Fixed French plural handling for "million" and suffixes above [Olivier Brunel]
+
+2014-10-24
+  * Fixed bug #19453: Incorrect spelling of Hungarian numbers [kouber]
+  * Fixed bug #19543: Better handling of decimal mark and thousands separators [kouber]
+  * Fixed bug #19855: Do not emit E_NOTICE when calling toWords() statically [cweiske]
+  * Fixed pl unicode [Jakub Roszkiewicz]
+  * Fixed ru_RU currency codes [Vital Leshchyk]
+  * Fixed tr_TR unicode [Shahriyar Imanov]
+  * Added en_IN - Indian English [Abhinav Nayak]
+  * Added lv - Latvian [Andrius]
+  * Added ro_RO - Romanian [Bogdan Stancescu]
+  * Added ua - Ukrainian [Vital Leshchyk]
+  * Unify locale loading code [cweiske]
+  * Use PEAR class-to-filename convention [cweiske]
+  * Changed class names and locations of locale files
+
+2012-07-01
+  * Drop PHP 4
+  * Drop PEAR dependency
+  * Misc fixes and cleanup in Turkish driver
+
 2012-02-22
 	* Numbers_Words: Version 0.16.4 released.
 	* Re-licensed to PHP 3.01 (ifeghali)
