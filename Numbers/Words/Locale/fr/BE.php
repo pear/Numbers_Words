@@ -418,7 +418,7 @@ class Numbers_Words_Locale_fr_BE extends Numbers_Words
             // skip processment for empty groups
             if ($number!='000') {
                 if ($number!=1 || $pow!=2) {
-                    $ret .= $this->_showDigitsGroup($number, $i+1==$sizeof_numgroups).$this->_sep;
+                    $ret .= $this->_showDigitsGroup($number, $i+1==$sizeof_numgroups||$pow>2).$this->_sep;
                 }
                 $ret .= $this->_exponent[($pow-1)*3];
                 if ($pow>2 && $number>1) {
