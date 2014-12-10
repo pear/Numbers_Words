@@ -50,7 +50,7 @@ class Numbers_Words_Locale_ua extends Numbers_Words_Locale_ru
      * @var string
      * @access private
      */
-    public $_minus = 'минус'; // minus sign
+    public $_minus = 'мінус'; // minus sign
 
     /**
      * The suffixes for exponents (singular)
@@ -224,7 +224,7 @@ class Numbers_Words_Locale_ua extends Numbers_Words_Locale_ru
     public $_digits = array(
         array('нуль', 'один', 'два', 'три', 'чотири', 'п`ять', 'шість', 'сім', 'вісемь', 'дев’ять'),
         array('нуль', 'один', 'два', 'три', 'чотири', 'п`ять', 'шість', 'сім', 'вісемь', 'дев’ять'),
-        array('нуль', 'один', 'два', 'три', 'чотири', 'п`ять', 'шість', 'сім', 'вісемь', 'дев’ять'),
+        array('нуль', 'одна', 'дві', 'три', 'чотири', 'п`ять', 'шість', 'сім', 'вісемь', 'дев’ять'),
     );
 
     /**
