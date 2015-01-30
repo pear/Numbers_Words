@@ -2,7 +2,7 @@
 /**
  * Numbers_Words
  *
- * PHP version 4 and 5
+ * PHP version 5
  *
  * Copyright (c) 1997-2006 The PHP Group
  *
@@ -49,28 +49,35 @@ class Numbers_Words_Locale_az extends Numbers_Words
      * @var string
      * @access public
      */
-    var $locale = 'az';
+    public $locale = 'az';
 
     /**
      * Language name in English
      * @var string
      * @access public
      */
-    var $lang = 'Azerbaijani';
+    public $lang = 'Azerbaijani';
 
     /**
      * Native language name
      * @var string
      * @access public
      */
-    var $lang_native = 'Azərbaycan dili';
+    public $lang_native = 'Azərbaycan dili';
 
     /**
      * The word for the minus sign
      * @var string
      * @access private
      */
-    var $_minus = 'mənfi'; // minus sign
+    public $_minus = 'mənfi'; // minus sign
+
+    /**
+     * Decimal mark
+     * @var string
+     * @access public
+     */
+    public $decimalPoint = ',';
 
     /**
      * The sufixes for exponents (singular and plural)
@@ -79,7 +86,7 @@ class Numbers_Words_Locale_az extends Numbers_Words
      * @var array
      * @access private
      */
-    var $_exponent = array(
+    public $_exponent = array(
         0 => array(''),
         3 => array('min'),
         6 => array('milyon'),
@@ -113,7 +120,7 @@ class Numbers_Words_Locale_az extends Numbers_Words
      * @var array
      * @access private
      */
-    var $_digits = array(
+    public $_digits = array(
         0 => 'sıfır', 'bir', 'iki', 'üç', 'dörd',
         'beş', 'altı', 'yeddi', 'səkkiz', 'doqquz'
     );
@@ -123,7 +130,7 @@ class Numbers_Words_Locale_az extends Numbers_Words
      * @var string
      * @access private
      */
-    var $_sep = ' ';
+    public $_sep = ' ';
 
     /**
      * The currency names (based on the below links,
@@ -133,7 +140,7 @@ class Numbers_Words_Locale_az extends Numbers_Words
      * @link http://en.wikipedia.org/wiki/ISO_4217
      * @access private
      */
-    var $_currency_names = array(
+    public $_currency_names = array(
         'AFN' => array(array('Əfqanıstan əfqanisi'), array('pul')),
         'ALL' => array(array('Albaniya ləki'), array('gindarka')),
         'AMD' => array(array('Ermənistan dramı'), array('luma')),
@@ -228,10 +235,7 @@ class Numbers_Words_Locale_az extends Numbers_Words
      * @var string
      * @access public
      */
-    var $def_currency = 'AZN'; // Azerbaijani manat
-
-    // }}}
-    // {{{ _toWords()
+    public $def_currency = 'AZN'; // Azerbaijani manat
 
     /**
      * Converts a number to its word representation

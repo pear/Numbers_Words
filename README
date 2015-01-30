@@ -63,7 +63,7 @@ There are avaibale the following modules (called by locale name,
 in alphabetical order):
 
   az     - Azerbaijani language.
-             Author: Shahriyar Imanov
+           Author: Shahriyar Imanov
 
   bg     - Bulgarian language (in WIN-1251 charset).
            Author: Kouber Saparev
