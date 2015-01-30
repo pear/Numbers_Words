@@ -1,5 +1,5 @@
-.DS_Store
-# composer related
+.*
+!.gitignore
 composer.lock
 composer.phar
 vendor

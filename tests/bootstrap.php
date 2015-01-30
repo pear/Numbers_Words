@@ -4,5 +4,3 @@ if (is_dir(__DIR__ . '/../Numbers')) {
         __DIR__ . '/../' . PATH_SEPARATOR . get_include_path()
     );
 }
-
-?>
