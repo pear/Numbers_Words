@@ -74,7 +74,7 @@ class Numbers_Words_Locale_cs extends Numbers_Words
      * @var string
      * @access private
      */
-    var $_minus = 'mínus'; // minus sign
+    var $_minus = 'mÃ­nus'; // minus sign
 
     /**
      * The sufixes for exponents (singular and plural)
@@ -88,35 +88,35 @@ class Numbers_Words_Locale_cs extends Numbers_Words
      */
     var $_exponent = array(
         0 => array(''),
-        3 => array('tisíc','tisíce','tisíc'),
-        6 => array('milion','miliony','milionù'),
+        3 => array('tisÃ­c','tisÃ­ce','tisÃ­c'),
+        6 => array('milion','miliony','milionÅ¯'),
         9 => array('miliarda','miliardy','miliard'),
-       12 => array('bilion','biliony','bilionù'),
+       12 => array('bilion','biliony','bilionÅ¯'),
        15 => array('biliarda','biliardy','biliard'),
-       18 => array('trilion','triliony','trilionù'),
+       18 => array('trilion','triliony','trilionÅ¯'),
        21 => array('triliarda','triliardy','triliard'),
 
-       24 => array('kvadrilion','kvadriliony','kvadrilionù'),
-       30 => array('kvintilion','kvintiliony','kvintilionù'),
-       36 => array('sextilion','sextiliony','sextilionù'),
-       42 => array('septilion','septiliony','septilionù'),
+       24 => array('kvadrilion','kvadriliony','kvadrilionÅ¯'),
+       30 => array('kvintilion','kvintiliony','kvintilionÅ¯'),
+       36 => array('sextilion','sextiliony','sextilionÅ¯'),
+       42 => array('septilion','septiliony','septilionÅ¯'),
 
-       48 => array('oktilion','oktiliony','oktilionù'),
-       54 => array('nonilion','noniliony','nonilionù'),
-       60 => array('decilion','deciliony','decilionù'),
+       48 => array('oktilion','oktiliony','oktilionÅ¯'),
+       54 => array('nonilion','noniliony','nonilionÅ¯'),
+       60 => array('decilion','deciliony','decilionÅ¯'),
 
-       66 => array('undecilion','undeciliony','undecilionù'),
-       72 => array('duodecilion','duodeciliony','duodecilionù'),
-       78 => array('tredecilion','tredeciliony','tredecilionù'),
-       84 => array('kvatrodecilion','kvatrodeciliony','kvatrodecilionù'),
-       90 => array('kvindecilion','kvindeciliony','kvindecilionù'),
-       96 => array('sexdecilion','sexdeciliony','sexdecilionù'),
-      102 => array('septendecilion','septendeciliony','septendecilionù'),
-      108 => array('oktodecilion','oktodeciliony','oktodecilionù'),
-      114 => array('novemdecilion','novemdeciliony','novemdecilionù'),
-      120 => array('vigintilion','vigintiliony','vigintilionù'),
-      192 => array('duotrigintilion','duotrigintiliony','duotrigintilionù'),
-      600 => array('centilion','centiliony','centilionù')
+       66 => array('undecilion','undeciliony','undecilionÅ¯'),
+       72 => array('duodecilion','duodeciliony','duodecilionÅ¯'),
+       78 => array('tredecilion','tredeciliony','tredecilionÅ¯'),
+       84 => array('kvatrodecilion','kvatrodeciliony','kvatrodecilionÅ¯'),
+       90 => array('kvindecilion','kvindeciliony','kvindecilionÅ¯'),
+       96 => array('sexdecilion','sexdeciliony','sexdecilionÅ¯'),
+      102 => array('septendecilion','septendeciliony','septendecilionÅ¯'),
+      108 => array('oktodecilion','oktodeciliony','oktodecilionÅ¯'),
+      114 => array('novemdecilion','novemdeciliony','novemdecilionÅ¯'),
+      120 => array('vigintilion','vigintiliony','vigintilionÅ¯'),
+      192 => array('duotrigintilion','duotrigintiliony','duotrigintilionÅ¯'),
+      600 => array('centilion','centiliony','centilionÅ¯')
 
         );
 
@@ -126,7 +126,7 @@ class Numbers_Words_Locale_cs extends Numbers_Words
      * @access private
      */
     var $_hundreds = array(
-        0 => 'sto', 'stì', 'sta', 'set'
+        0 => 'sto', 'stÃ½', 'sta', 'set'
     );
 
     /**
@@ -135,8 +135,8 @@ class Numbers_Words_Locale_cs extends Numbers_Words
      * @access private
      */
     var $_digits = array(
-        0 => 'nula', 'jedna', 'dva', 'tøi', 'ètyøi',
-        'pìt', '¹est', 'sedm', 'osm', 'devìt'
+        0 => 'nula', 'jedna', 'dva', 'tÅ™i', 'ÄtyÅ™i',
+        'pÄ›t', 'Å¡est', 'sedm', 'osm', 'devÄ›t'
     );
 
     /**
@@ -234,7 +234,7 @@ class Numbers_Words_Locale_cs extends Numbers_Words
             if ($h == 1) {
                 $ret .= $this->_sep . $this->_hundreds[0];
             } elseif ($h == 2) {
-                $ret .= $this->_sep . "dvì" . $this->_sep . $this->_hundreds[1];
+                $ret .= $this->_sep . "dvÄ›" . $this->_sep . $this->_hundreds[1];
             } elseif ( ($h > 1) && ($h < 5) ) {
                 $ret .= $this->_sep . $this->_digits[$h] . $this->_sep . $this->_hundreds[2];
             } else {		//if ($h >= 5)
@@ -257,23 +257,23 @@ class Numbers_Words_Locale_cs extends Numbers_Words
             break;
 
         case 5:
-            $ret .= $this->_sep . 'padesát';
+            $ret .= $this->_sep . 'padesÃ¡t';
             break;
 
         case 6:
-            $ret .= $this->_sep . '¹edesát';
+            $ret .= $this->_sep . 'Å¡edesÃ¡t';
             break;
 
         case 7:
-            $ret .= $this->_sep . 'sedmdesát';
+            $ret .= $this->_sep . 'sedmdesÃ¡t';
             break;
 
         case 8:
-            $ret .= $this->_sep . 'osmdesát';
+            $ret .= $this->_sep . 'osmdesÃ¡t';
             break;
 
         case 9:
-            $ret .= $this->_sep . 'devadesát';
+            $ret .= $this->_sep . 'devadesÃ¡t';
             break;
 
         case 1:
@@ -283,19 +283,19 @@ class Numbers_Words_Locale_cs extends Numbers_Words
                 break;
 
             case 1:
-                $ret .= $this->_sep . 'jedenáct';
+                $ret .= $this->_sep . 'jedenÃ¡ct';
                 break;
 
             case 4:
-                $ret .= $this->_sep . 'ètrnáct';
+                $ret .= $this->_sep . 'ÄtrnÃ¡ct';
                 break;
 
             case 5:
-                $ret .= $this->_sep . 'patnáct';
+                $ret .= $this->_sep . 'patnÃ¡ct';
                 break;
 
             case 9:
-                $ret .= $this->_sep . 'devatenáct';
+                $ret .= $this->_sep . 'devatenÃ¡ct';
                 break;
 
             case 2:
@@ -303,7 +303,7 @@ class Numbers_Words_Locale_cs extends Numbers_Words
             case 6:
             case 7:
             case 8:
-                $ret .= $this->_sep . $this->_digits[$d] . 'náct';
+                $ret .= $this->_sep . $this->_digits[$d] . 'nÃ¡ct';
                 break;
             }
             break;
