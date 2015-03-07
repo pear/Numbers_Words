@@ -31,7 +31,7 @@ class Numbers_Words_ChineseHkTest extends PHPUnit_Framework_TestCase
     {
         require_once 'PHPUnit/TextUI/TestRunner.php';
         PHPUnit_TextUI_TestRunner::run(
-            new PHPUnit_Framework_TestSuite('Numbers_Words_EnglishHkTest')
+            new PHPUnit_Framework_TestSuite('Numbers_Words_ChineseHkTest')
         );
     }
 

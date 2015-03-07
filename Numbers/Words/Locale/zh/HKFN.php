@@ -16,16 +16,16 @@
  *
  * @category Numbers
  * @package  Numbers_Words
- * @author   Piotr Klaban <makler@man.torun.pl>
+ * @author   Ben NG <ben.nsng@gmail.com>
  * @license  PHP 3.01 http://www.php.net/license/3_01.txt
  * @version  SVN: $Id$
  * @link	 http://pear.php.net/package/Numbers_Words
  */
 
 /**
- * Class for translating numbers into British English.
+ * Class for translating numbers into Traditional Chinese for commercial and financial use.
  *
- * @author Piotr Klaban
+ * @author Ben NG
  * @package Numbers_Words
  */
 
@@ -35,11 +35,11 @@
 require_once "Numbers/Words.php";
 
 /**
- * Class for translating numbers into British English.
+ * Class for translating numbers into Traditional Chinese for commercial and financial use.
  *
  * @category Numbers
  * @package  Numbers_Words
- * @author   Piotr Klaban <makler@man.torun.pl>
+ * @author   Ben NG <ben.nsng@gmail.com>
  * @license  PHP 3.01 http://www.php.net/license/3_01.txt
  * @link	 http://pear.php.net/package/Numbers_Words
  */
