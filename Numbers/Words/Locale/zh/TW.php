@@ -264,6 +264,8 @@ class Numbers_Words_Locale_zh_TW extends Numbers_Words
                 $ret .= $this->_digits[0];
             }
         }
+        // the 'zero' will be added after the exponent
+		if ($th == 0 && strlen($num) == 4) $ret .= '零';
 
 		// the 'zero' will be added if h and d are non-zero but t is zero
         if ($h) {
