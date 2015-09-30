@@ -13,7 +13,7 @@
  *
  * @category  Numbers
  * @package   Numbers_Words
- * @author    M·ty·s Somfai <somfai.matyas@gmail.com>
+ * @author    M√°ty√°s Somfai <somfai.matyas@gmail.com>
  * @license   http://www.php.net/license/3_01.txt  PHP License 3.01
  * @link      http://pear.php.net/package/Numbers_Words
  */
@@ -57,12 +57,12 @@ class Numbers_Words_HungarianTest extends PHPUnit_Framework_TestCase
     {
         $digits = array('nulla',
                         'egy',
-                        'kettı',
-                        'h·rom',
-                        'nÈgy',
-                        'ˆt',
+                        'kett≈ë',
+                        'h√°rom',
+                        'n√©gy',
+                        '√∂t',
                         'hat',
-                        'hÈt',
+                        'h√©t',
                         'nyolc',
                         'kilenc'
                        );
@@ -78,20 +78,20 @@ class Numbers_Words_HungarianTest extends PHPUnit_Framework_TestCase
     function testTens()
     {
         $tens = array(11 => 'tizenegy',
-                      12 => 'tizenkettı',
+                      12 => 'tizenkett≈ë',
                       16 => 'tizenhat',
                       19 => 'tizenkilenc',
-                      20 => 'h˙sz',
+                      20 => 'h√∫sz',
                       21 => 'huszonegy',
                       26 => 'huszonhat',
                       30 => 'harminc',
                       31 => 'harmincegy',
                       40 => 'negyven',
-                      43 => 'negyvenh·rom',
-                      50 => 'ˆtven',
-                      55 => 'ˆtvenˆt',
+                      43 => 'negyvenh√°rom',
+                      50 => '√∂tven',
+                      55 => '√∂tven√∂t',
                       60 => 'hatvan',
-                      67 => 'hatvanhÈt',
+                      67 => 'hatvanh√©t',
                       70 => 'hetven',
                       79 => 'hetvenkilenc'
                      );
@@ -105,20 +105,20 @@ class Numbers_Words_HungarianTest extends PHPUnit_Framework_TestCase
      */
     function testHundreds()
     {
-        $hundreds = array(100 => 'egysz·z',
-                          101 => 'egysz·zegy',
-                          199 => 'egysz·zkilencvenkilenc',
-                          203 => 'kettısz·zh·rom',
-                          287 => 'kettısz·znyolcvanhÈt',
-                          300 => 'h·romsz·z',
-                          356 => 'h·romsz·zˆtvenhat',
-                          410 => 'nÈgysz·ztÌz',
-                          434 => 'nÈgysz·zharmincnÈgy',
-                          578 => 'ˆtsz·zhetvennyolc',
-                          689 => 'hatsz·znyolcvankilenc',
-                          729 => 'hÈtsz·zhuszonkilenc',
-                          894 => 'nyolcsz·zkilencvennÈgy',
-                          999 => 'kilencsz·zkilencvenkilenc'
+        $hundreds = array(100 => 'egysz√°z',
+                          101 => 'egysz√°zegy',
+                          199 => 'egysz√°zkilencvenkilenc',
+                          203 => 'kett≈ësz√°zh√°rom',
+                          287 => 'kett≈ësz√°znyolcvanh√©t',
+                          300 => 'h√°romsz√°z',
+                          356 => 'h√°romsz√°z√∂tvenhat',
+                          410 => 'n√©gysz√°zt√≠z',
+                          434 => 'n√©gysz√°zharmincn√©gy',
+                          578 => '√∂tsz√°zhetvennyolc',
+                          689 => 'hatsz√°znyolcvankilenc',
+                          729 => 'h√©tsz√°zhuszonkilenc',
+                          894 => 'nyolcsz√°zkilencvenn√©gy',
+                          999 => 'kilencsz√°zkilencvenkilenc'
                          );
         foreach ($hundreds as $number => $word) {
             $this->assertEquals($word, $this->handle->toWords($number, $this->lang));
@@ -132,17 +132,17 @@ class Numbers_Words_HungarianTest extends PHPUnit_Framework_TestCase
     {
         $thousands = array(1000 => 'egyezer',
                            1001 => 'egyezeregy',
-                           1097 => 'egyezerkilencvenhÈt',
-                           1104 => 'egyezeregysz·znÈgy',
-                           1243 => 'egyezerkettısz·znegyvenh·rom',
-                           2385 => 'kettıezer-h·romsz·znyolcvanˆt',
-                           3766 => 'h·romezer-hÈtsz·zhatvanhat',
-                           4196 => 'nÈgyezer-egysz·zkilencvenhat',
-                           5846 => 'ˆtezer-nyolcsz·znegyvenhat',
-                           6459 => 'hatezer-nÈgysz·zˆtvenkilenc',
-                           7232 => 'hÈtezer-kettısz·zharminckettı',
-                           8569 => 'nyolcezer-ˆtsz·zhatvankilenc',
-                           9539 => 'kilencezer-ˆtsz·zharminckilenc'
+                           1097 => 'egyezerkilencvenh√©t',
+                           1104 => 'egyezeregysz√°zn√©gy',
+                           1243 => 'egyezerkett≈ësz√°znegyvenh√°rom',
+                           2385 => 'kett≈ëezer-h√°romsz√°znyolcvan√∂t',
+                           3766 => 'h√°romezer-h√©tsz√°zhatvanhat',
+                           4196 => 'n√©gyezer-egysz√°zkilencvenhat',
+                           5846 => '√∂tezer-nyolcsz√°znegyvenhat',
+                           6459 => 'hatezer-n√©gysz√°z√∂tvenkilenc',
+                           7232 => 'h√©tezer-kett≈ësz√°zharminckett≈ë',
+                           8569 => 'nyolcezer-√∂tsz√°zhatvankilenc',
+                           9539 => 'kilencezer-√∂tsz√°zharminckilenc'
                           );
         foreach ($thousands as $number => $word) {
             $this->assertEquals($word, $this->handle->toWords($number, $this->lang));
@@ -154,17 +154,17 @@ class Numbers_Words_HungarianTest extends PHPUnit_Framework_TestCase
     function testMore()
     {
 
-        $this->assertEquals('egymilliÛ', $this->handle->toWords(1000000, $this->lang));
-		$this->assertEquals('egymilliÛ-egyezer-ˆtsz·z', $this->handle->toWords(1001500, $this->lang));
-		$this->assertEquals('kettımilliÛ-egy', $this->handle->toWords(2000001, $this->lang));
-		$this->assertEquals('nyolcmilliÛ-kettıezer-egy', $this->handle->toWords(8002001, $this->lang));
-        $this->assertEquals('kettımilli·rd', $this->handle->toWords(2000000000, $this->lang));
+        $this->assertEquals('egymilli√≥', $this->handle->toWords(1000000, $this->lang));
+		$this->assertEquals('egymilli√≥-egyezer-√∂tsz√°z', $this->handle->toWords(1001500, $this->lang));
+		$this->assertEquals('kett≈ëmilli√≥-egy', $this->handle->toWords(2000001, $this->lang));
+		$this->assertEquals('nyolcmilli√≥-kett≈ëezer-egy', $this->handle->toWords(8002001, $this->lang));
+        $this->assertEquals('kett≈ëmilli√°rd', $this->handle->toWords(2000000000, $this->lang));
 
 
         // 32 bit systems vs PHP_INT_SIZE - 3 billion is a little high, so use a string version.
         $number = '3000000000000' > PHP_INT_SIZE? '3000000000000' : 3000000000000;
 
-        $this->assertEquals('h·rombilliÛ', $this->handle->toWords($number, $this->lang));
+        $this->assertEquals('h√°rombilli√≥', $this->handle->toWords($number, $this->lang));
     
     }
 }
