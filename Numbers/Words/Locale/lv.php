@@ -109,6 +109,56 @@ class Numbers_Words_Locale_lv extends Numbers_Words
     var $_sep = ' ';
 
     /**
+     * The currency names (based on the below links,
+     * informations from central bank websites and on encyclopedias)
+     *
+     * @var array
+     * @link http://www.jhall.demon.co.uk/currency/by_abbrev.html World currencies
+     * @link http://www.rusimpex.ru/Content/Reference/Refinfo/valuta.htm Foreign currencies names
+     * @link http://www.cofe.ru/Finance/money.asp Currencies names
+     * @access private
+     */
+	 // TODO: recheck
+    var $_currency_names = array(
+      'ALL' => array(array('lek'), array('qindarka')),
+      'AUD' => array(array('Austrālijas dolārs', 'Austrālijas dolāri'), array('cents', 'centi')),
+      'BAM' => array(array('konvertējamas marka'), array('fenig')),
+      'BGN' => array(array('lev'), array('stotinka')),
+      'BRL' => array(array('real'), array('centavos')),
+      'BYR' => array(array('Baltkrievijas rublis', 'Baltkrievijas rubļi'), array('kapeika', 'kapeikās')),
+      'CAD' => array(array('Kanādas dolārs', 'Kanādas dolāri'), array('cents', 'centi')),
+      'CHF' => array(array('Šveices franks', 'Šveices franki'), array('rapp')),
+      'CYP' => array(array('Kipras mārciņa', 'Kipras mārciņas'), array('cents', 'centi')),
+      'CZK' => array(array('Čehijas krona', 'Čehijas kronās'), array('halerz')),
+      'DKK' => array(array('Dāniska krona', 'Dāniskas kronas'), array('ore')),
+      'EEK' => array(array('kroon'), array('senti')),
+      'EUR' => array(array('eiro'), array('eiro-cents', 'eiro-centi')),
+      'GBP' => array(array('mārciņa', 'mārciņas'), array('pensi')),
+      'HKD' => array(array('Honkongas dolārs', 'Honkongas dolāri'), array('cent')),
+      'HRK' => array(array('Horvātijas kuna', 'Horvātijas kunas'), array('lipa')),
+      'HUF' => array(array('forint'), array('filler')),
+      'ILS' => array(array('jauna šekelis','jauni šekeli'), array('agora','agorot')),
+      'ISK' => array(array('Islandes krona', 'Islandes kronas'), array('aurar')),
+      'JPY' => array(array('yen'), array('sen')),
+      'LTL' => array(array('lit'), array('cents', 'centi')),
+      'LVL' => array(array('lat'), array('sentim')),
+      'MKD' => array(array('Maķedonijas dinārs', 'Maķedonijas dināri'), array('deni')),
+      'MTL' => array(array('Maltas lira', 'Maltas liras'), array('centym')),
+      'NOK' => array(array('Norvēģiska krona', 'Norvēģiskas kronas'), array('oere')),
+      'PLN' => array(array('zlot'), array('grosz')),
+      'ROL' => array(array('Rumānijas leja', 'Rumānijas lejas'), array('bani')),
+      'RUB' => array(array('Krievijas rublis', 'Krievijas rubļi'), array('kapeika', 'kapeikās')),
+      'SEK' => array(array('Zviedru krona', 'Zviedru kronas'), array('oere')),
+      'SIT' => array(array('Tolars', 'Tolari'), array('stotinia')),
+      'SKK' => array(array('Slovākijas krona', 'Slovākijas kronas'), array('halier')),
+      'TRL' => array(array('lira'), array('kuruю')),
+      'UAH' => array(array('hryvna'), array('cents', 'centi')),
+      'USD' => array(array('dolārs'), array('cents', 'centi')),
+      'YUM' => array(array('dinārs', 'dinārsi'), array('para')),
+      'ZAR' => array(array('rand'), array('cents', 'centi'))
+    );
+
+    /**
      * The default currency name
      * @var string
      * @access public
@@ -312,6 +362,70 @@ class Numbers_Words_Locale_lv extends Numbers_Words
             $ret .= $this->_sep . $powsuffix;
         }
 
+        return $ret;
+    }
+    // }}}
+    // {{{ toCurrencyWords()
+
+    /**
+     * Converts a currency value to its word representation
+     * (with monetary units) in Latvian language
+     *
+     * @param integer $int_curr         An international currency symbol
+     *                                  as defined by the ISO 4217 standard (three characters)
+     * @param integer $decimal          A money total amount without fraction part (e.g. amount of dollars)
+     * @param integer $fraction         Fractional part of the money amount (e.g. amount of cents)
+     *                                  Optional. Defaults to false.
+     * @param integer $convert_fraction Convert fraction to words (left as numeric if set to false).
+     *                                  Optional. Defaults to true.
+     *
+     * @return string  The corresponding word representation for the currency
+     *
+     * @access public
+     * @author MaxB
+     */
+    function toCurrencyWords($int_curr, $decimal, $fraction = false, $convert_fraction = true)
+    {
+		if (is_array($int_curr))
+			$curr_names = $int_curr;
+		else
+		{
+			$int_curr = strtoupper($int_curr);
+			if (!isset($this->_currency_names[$int_curr])) {
+				$int_curr = $this->def_currency;
+			}
+			$curr_names = $this->_currency_names[$int_curr];
+		}
+
+        $ret = trim($this->_toWords($decimal));
+		$lev = ($decimal == 1) ? 0 : 1;
+		if ($lev > 0) {
+			if (count($curr_names[0]) > 1) {
+				$ret .= $this->_sep . $curr_names[0][$lev];
+			} else {
+				$ret .= $this->_sep . $curr_names[0][0];
+			}
+		} else {
+			$ret .= $this->_sep . $curr_names[0][0];
+		}
+
+        if ($fraction !== false) {
+            if ($convert_fraction) {
+                $ret .= $this->_sep . trim($this->_toWords($fraction));
+            } else {
+                $ret .= $this->_sep . $fraction;
+            }
+            $lev = ($fraction == 1) ? 0 : 1;
+            if ($lev > 0) {
+                if (count($curr_names[1]) > 1) {
+                    $ret .= $this->_sep . $curr_names[1][$lev];
+                } else {
+                    $ret .= $this->_sep . $curr_names[1][0];
+                }
+            } else {
+                $ret .= $this->_sep . $curr_names[1][0];
+            }
+        }
         return $ret;
     }
     // }}}
