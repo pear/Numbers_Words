@@ -101,7 +101,7 @@ class Numbers_Words
      * @since  PHP 4.2.3
      * @return string  The corresponding word representation
      */
-    function toWords($num, $locale = '', $options = array())
+    public static function toWords($num, $locale = '', $options = array())
     {
         if (empty($locale) && isset($this) && $this instanceof Numbers_Words) {
             $locale = $this->locale;
@@ -156,7 +156,7 @@ class Numbers_Words
      * @since  PHP 4.2.3
      * @return string
      */
-    function toCurrency($num, $locale = 'en_US', $intCurr = '', $decimalPoint = null)
+    public static function toCurrency($num, $locale = 'en_US', $intCurr = '', $decimalPoint = null)
     {
         $ret = $num;
 
@@ -310,7 +310,7 @@ class Numbers_Words
      *
      * @return string Number
      */
-    function normalizeNumber($num, $decimalPoint = null)
+    public static function normalizeNumber($num, $decimalPoint = null)
     {
         if (is_null($decimalPoint)) {
             $decimalPoint = $this->decimalPoint;
