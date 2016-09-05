@@ -296,7 +296,7 @@ class Numbers_Words
             }
         }
 
-        return trim($obj->toAccountableWords($intCurr, $currency[0], $currency[1]));
+        return trim($obj->toAccountableWords($intCurr, $currency[0], $currency[1], false));
     }
     // }}}
 

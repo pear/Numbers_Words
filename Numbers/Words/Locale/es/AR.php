@@ -508,6 +508,8 @@ class Numbers_Words_Locale_es_AR extends Numbers_Words
                 $ret = $curr_names[0][0];
             }
             $ret .= $this->_sep;
+        } else {
+            $ret = '';
         }
 
         $ret .= trim($this->_toWords($decimal));
