@@ -134,8 +134,26 @@ class Numbers_Words_SpanishArTest extends PHPUnit_Framework_TestCase
 
     function testDecimal()
     {
-        $thousands = array('1000.1' => 'Pesos mil con 10/100',
-                           '1001.25' => 'Pesos mil uno con 25/100',
+        $thousands = array('1000.1' => 'mil con 10/100',
+                           '1001.25' => 'mil uno con 25/100',
+                           '1097.34' => 'mil noventa y siete con 34/100',
+                           '1104.74' => 'mil ciento cuatro con 74/100',
+                           '1243.78' => 'mil doscientos cuarenta y tres con 78/100',
+                           '2385.46' => 'dos mil trescientos ochenta y cinco con 46/100',
+                           '3766.66' => 'tres mil setecientos sesenta y seis con 66/100',
+                           '4196.13' => 'cuatro mil ciento noventa y seis con 13/100',
+                           '5846.14' => 'cinco mil ochocientos cuarenta y seis con 14/100',
+                           '6459.0' => 'seis mil cuatrocientos cincuenta y nueve con 00/100',
+                          );
+        foreach ($thousands as $number => $word) {
+            $this->assertEquals($word, $this->handle->toAccountable($number, 'es_AR'));
+        }
+    }
+
+    function testDecimalCurrency()
+    {
+        $thousands = array('1000.01' => 'Pesos mil con 01/100',
+                           '1001.2' => 'Pesos mil uno con 20/100',
                            '1097.34' => 'Pesos mil noventa y siete con 34/100',
                            '1104.74' => 'Pesos mil ciento cuatro con 74/100',
                            '1243.78' => 'Pesos mil doscientos cuarenta y tres con 78/100',
@@ -146,7 +164,7 @@ class Numbers_Words_SpanishArTest extends PHPUnit_Framework_TestCase
                            '6459.0' => 'Pesos seis mil cuatrocientos cincuenta y nueve con 00/100',
                           );
         foreach ($thousands as $number => $word) {
-            $this->assertEquals($word, $this->handle->toAccountable($number, 'es_AR'));
+            $this->assertEquals($word, $this->handle->toAccountable($number, 'es_AR', 'ARS'));
         }
     }
 }

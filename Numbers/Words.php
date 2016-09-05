@@ -261,7 +261,7 @@ class Numbers_Words
         $num = $obj->normalizeNumber($num, $decimalPoint);
 
         if (strpos($num, $decimalPoint) === false) {
-            return trim($obj->toAccountableWords($intCurr, $num));
+            return trim($obj->toAccountableWords($intCurr, $num, false, false, ($intCurr == '')));
         }
 
         $currency = explode($decimalPoint, $num, 2);
@@ -296,7 +296,7 @@ class Numbers_Words
             }
         }
 
-        return trim($obj->toAccountableWords($intCurr, $currency[0], $currency[1], false));
+        return trim($obj->toAccountableWords($intCurr, $currency[0], $currency[1], false, ($intCurr == '')));
     }
     // }}}
 
