@@ -1,11 +1,11 @@
 {
-    "name": "pear/numbers_words",
-    "description": "Allows converting numbers written in arabic digits to words in several languages. You can convert an integer between -infinity and infinity.",
+    "name": "siu-toba/numbers_words",
+    "description": "Fork from pear/Numbers_Words with added support to short cents form (xx/100) in Spanish languaje.",
     "type": "library",
     "keywords": [
         "numbers"
     ],
-    "homepage": "https://github.com/pear/Numbers_Words",
+    "homepage": "https://github.com/SIU-Toba/Numbers_Words",
     "license": "PHP-3.01",
     "authors": [
         {
