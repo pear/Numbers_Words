@@ -421,7 +421,7 @@ class Numbers_Words_Locale_bg extends Numbers_Words
 
         // put "and" optionally in the case this is the last non-empty group
         if ($last) {
-            if (!$s||count($ret)==1) {
+            if (count($ret)==1) {
                 $ret[0] = $this->_and;
             }
             $this->_last_and = true;
