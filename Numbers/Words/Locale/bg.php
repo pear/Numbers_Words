@@ -442,15 +442,22 @@ class Numbers_Words_Locale_bg extends Numbers_Words
      *
      * @param integer $num An integer between 9.99*-10^302 and 9.99*10^302 (999 centillions)
      *                     that need to be converted to words
-     *
+     * @param integer $gender An integer used to set currency gender
+     *                         0 - neuter  - for non-currency numbers
+     *                         1 - masculine - for integer numbers ("lv.")
+     *                         -1 - feminine - for numbers after floating point ("stotinki")
      * @return string  The corresponding word representation
      *
      * @access protected
      * @author Kouber Saparev <kouber@php.net>
      * @since  Numbers_Words 0.16.3
      */
-    function _toWords($num = 0)
+    function _toWords($num = 0, $gender = 0)
     {
+        if (empty($gender) || !in_array($gender, [-1, 0, 1])) {
+            $gender = 0;
+        }
+
         $ret = array();
 
         $ret_minus = '';
@@ -493,7 +500,7 @@ class Numbers_Words_Locale_bg extends Numbers_Words
             if ($num_groups[$i]!='000') {
                 if ($num_groups[$i]>1) {
                     if ($pow==1) {
-                        $ret[$j] .= $this->_showDigitsGroup($num_groups[$i], 0, !$this->_last_and && $i).$this->_sep;
+                        $ret[$j] .= $this->_showDigitsGroup($num_groups[$i], $gender, !$this->_last_and && $i).$this->_sep;
                         $ret[$j] .= $this->_exponent[($pow-1)*3];
                     } elseif ($pow==2) {
                         $ret[$j] .= $this->_showDigitsGroup($num_groups[$i], -1, !$this->_last_and && $i).$this->_sep;
@@ -504,7 +511,7 @@ class Numbers_Words_Locale_bg extends Numbers_Words
                     }
                 } else {
                     if ($pow==1) {
-                        $ret[$j] .= $this->_showDigitsGroup($num_groups[$i], 0, !$this->_last_and && $i).$this->_sep;
+                        $ret[$j] .= $this->_showDigitsGroup($num_groups[$i], $gender, !$this->_last_and && $i).$this->_sep;
                     } elseif ($pow==2) {
                         $ret[$j] .= $this->_exponent[($pow-1)*3].$this->_sep;
                     } else {
