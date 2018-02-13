@@ -48,36 +48,35 @@ The following languages are supported:
   <name>Kouber Saparev</name>
   <user>kouber</user>
   <email>kouber@php.net</email>
-  <active>yes</active>
+  <active>no</active>
  </lead>
  <lead>
   <name>Igor Feghali</name>
   <user>ifeghali</user>
   <email>ifeghali@php.net</email>
-  <active>yes</active>
+  <active>no</active>
  </lead>
  <developer>
   <name>Marcelo Subtil Marcal</name>
   <user>msmarcal</user>
   <email>msmarcal@php.net</email>
-  <active>yes</active>
+  <active>no</active>
  </developer>
  <contributor>
   <name>Xavier Noguer</name>
   <user>xnoguer</user>
   <email>xnoguer.php@gmail.com</email>
-  <active>yes</active>
+  <active>no</active>
  </contributor>
  <contributor>
   <name>Hadar Porat</name>
   <user>hadar_p</user>
   <email>hpman28@gmail.com</email>
-  <active>yes</active>
+  <active>no</active>
  </contributor>
- <date>2014-11-03</date>
- <time>10:33:00</time>
+ <date>2018-02-13</date>
  <version>
-  <release>0.18.1</release>
+  <release>0.18.2</release>
   <api>0.18.1</api>
  </version>
  <stability>
@@ -86,8 +85,7 @@ The following languages are supported:
  </stability>
  <license uri="http://www.php.net/license/">PHP</license>
  <notes>
-* Fixed bug #20435: Missing files in PEAR archive [kouber]
-* Fixed French plural handling for "million" and suffixes above [Olivier Brunel]
+* PR #32: fix "count(): Parameter must be an array or an object that implements Countable" with PHP 7.2
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
@@ -630,6 +628,22 @@ This is a backwards compatibility break.
    <notes>
 * Fixed bug #20435: Missing files in PEAR archive [kouber]
 * Fixed French plural handling for "million" and suffixes above [Olivier Brunel]
+   </notes>
+  </release>  
+
+  <release>
+   <version>
+    <release>0.18.2</release>
+    <api>0.18.1</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2018-02-13</date>
+   <license uri="http://www.php.net/license/">PHP</license>
+   <notes>
+* PR #32: fix "count(): Parameter must be an array or an object that implements Countable" with PHP 7.2
    </notes>
   </release>  
 
