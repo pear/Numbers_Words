@@ -244,7 +244,7 @@ class Numbers_Words
         foreach ($sfiles as $fname) {
             $lname = substr($fname, -6, 2);
             if (is_file($fname) && is_readable($fname)
-                && (count($locales) == 0 || in_array($lname, $locales))
+                && (!is_array($locales) || count($locales) == 0 || in_array($lname, $locales))
             ) {
                 $ret[] = $lname;
             }
@@ -254,7 +254,7 @@ class Numbers_Words
         foreach ($mfiles as $fname) {
             $lname = str_replace(array('/', '\\'), '_', substr($fname, -9, 5));
             if (is_file($fname) && is_readable($fname)
-                && (count($locales) == 0 || in_array($lname, $locales))
+                && (!is_array($locales) || count($locales) == 0 || in_array($lname, $locales))
             ) {
                 $ret[] = $lname;
             }
