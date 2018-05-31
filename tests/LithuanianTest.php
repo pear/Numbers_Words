@@ -20,9 +20,11 @@
  * @link       http://pear.php.net/package/Numbers_Words
  */
 
+use PHPUnit\Framework\TestCase;
+
 require_once 'Numbers/Words.php';
 
-class Numbers_Words_LithuanianTest extends PHPUnit_Framework_TestCase
+class Numbers_Words_LithuanianTest extends TestCase
 {
     protected $handle;
 
@@ -38,4 +40,14 @@ class Numbers_Words_LithuanianTest extends PHPUnit_Framework_TestCase
         $number = $this->handle->toWords(726, 'lt');
         $this->assertEquals('septyni šimtai dvidešimt šeši', $number);
     }
+
+    /**
+    * Testing Currency
+    */
+    function testCurrency()
+    {
+        $this->assertEquals('milijonas du šimtai trisdešimt keturi tūkstančiai penki šimtai šešiasdešimt septyni eurai ir aštuoniasdešimt devyni euro centai', $this->handle->toCurrency(1234567.89, 'lt', 'EUR'));
+
+    }
+
 }
