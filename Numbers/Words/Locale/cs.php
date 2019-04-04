@@ -126,7 +126,7 @@ class Numbers_Words_Locale_cs extends Numbers_Words
      * @access private
      */
     var $_hundreds = array(
-        0 => 'sto', 'stý', 'sta', 'set'
+        0 => 'sto', 'stě', 'sta', 'set'
     );
 
     /**
