@@ -70,14 +70,14 @@ class Numbers_Words_Locale_ru extends Numbers_Words
      * @access public
      */
     var $lang_native = 'Русский';
-    
+
     /**
      * The word for the minus sign
      * @var string
      * @access private
      */
     var $_minus = 'минус'; // minus sign
-    
+
     /**
      * The sufixes for exponents (singular)
      * Names partly based on:
@@ -242,7 +242,7 @@ class Numbers_Words_Locale_ru extends Numbers_Words
         );
 
     /**
-     * The array containing the digits 
+     * The array containing the digits
      * for neutral, male and female
      * @var array
      * @access private
@@ -272,7 +272,7 @@ class Numbers_Words_Locale_ru extends Numbers_Words
      */
     var $_currency_names = array(
       'ALL' => array(
-                array(1, 'лек', 'лека', 'леков'), 
+                array(1, 'лек', 'лека', 'леков'),
                 array(2, 'киндарка', 'киндарки', 'киндарок')
                ),
       'AUD' => array(
@@ -280,15 +280,15 @@ class Numbers_Words_Locale_ru extends Numbers_Words
                 array(1, 'цент', 'цента', 'центов')
                ),
       'BGN' => array(
-                array(1, 'лев', 'лева', 'левов'), 
+                array(1, 'лев', 'лева', 'левов'),
                 array(2, 'стотинка', 'стотинки', 'стотинок')
                ),
       'BRL' => array(
-                array(1, 'бразильский реал', 'бразильских реала', 'бразильских реалов'), 
+                array(1, 'бразильский реал', 'бразильских реала', 'бразильских реалов'),
                 array(1, 'сентаво', 'сентаво', 'сентаво')
                ),
       'BYR' => array(
-                array(1, 'белорусский рубль', 'белорусских рубля', 'белорусских рублей'), 
+                array(1, 'белорусский рубль', 'белорусских рубля', 'белорусских рублей'),
                 array(2, 'копейка', 'копейки', 'копеек')
                ),
       'CAD' => array(
@@ -439,7 +439,7 @@ class Numbers_Words_Locale_ru extends Numbers_Words
      * @author Andrey Demenev <demenev@on-line.jar.ru>
      * @since  Numbers_Words 0.16.3
      */
-    function _toWords($num, $options = array()) 
+    function _toWords($num, $options = array())
     {
         $dummy  = null;
         $gender = 1;
@@ -472,9 +472,9 @@ class Numbers_Words_Locale_ru extends Numbers_Words
     {
         $ret  = '';
         $case = 3;
-      
+
         $num = trim($num);
-      
+
         $sign = "";
         if (substr($num, 0, 1) == '-') {
             $sign = $this->_minus . $this->_sep;
@@ -552,7 +552,7 @@ class Numbers_Words_Locale_ru extends Numbers_Words
      */
     function _groupToWords($num, $gender, &$case)
     {
-        $ret  = '';        
+        $ret  = '';
         $case = 3;
 
         if ((int)$num == 0) {
@@ -562,7 +562,7 @@ class Numbers_Words_Locale_ru extends Numbers_Words
             if ($num == 1) {
                 $case = 1;
             } elseif ($num < 5) {
-                $case = 2; 
+                $case = 2;
             } else {
                 $case = 3;
             }
@@ -632,15 +632,23 @@ class Numbers_Words_Locale_ru extends Numbers_Words
      */
     function toCurrencyWords($int_curr, $decimal, $fraction = false, $convert_fraction = true)
     {
-        $int_curr = strtoupper($int_curr);
-        if (!isset($this->_currency_names[$int_curr])) {
-            $int_curr = $this->def_currency;
-        }
+		if (is_array($int_curr))
+			$curr_names = $int_curr;
+		else
+		{
+			$int_curr = strtoupper($int_curr);
+			if (!isset($this->_currency_names[$int_curr])) {
+				$int_curr = $this->def_currency;
+			}
+			$curr_names = $this->_currency_names[$int_curr];
+		}
 
-        $curr_names = $this->_currency_names[$int_curr];
-
+		$case = null;
         $ret  = trim($this->_toWordsWithCase($decimal, $case, $curr_names[0][0]));
-        $ret .= $this->_sep . $curr_names[0][$case];
+		if (Numbers_Words::$useAbbrAsDecimalNames)
+	        $ret .= $this->_sep . $int_curr;
+		else
+	        $ret .= $this->_sep . $curr_names[0][$case];
 
         if ($fraction !== false) {
             if ($convert_fraction) {

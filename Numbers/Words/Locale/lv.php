@@ -398,15 +398,20 @@ class Numbers_Words_Locale_lv extends Numbers_Words
 		}
 
         $ret = trim($this->_toWords($decimal));
-		$lev = ($decimal == 1) ? 0 : 1;
-		if ($lev > 0) {
-			if (count($curr_names[0]) > 1) {
-				$ret .= $this->_sep . $curr_names[0][$lev];
+		if (Numbers_Words::$useAbbrAsDecimalNames)
+			$ret .= $this->_sep . $int_curr;
+		else
+		{
+			$lev = ($decimal == 1) ? 0 : 1;
+			if ($lev > 0) {
+				if (count($curr_names[0]) > 1) {
+					$ret .= $this->_sep . $curr_names[0][$lev];
+				} else {
+					$ret .= $this->_sep . $curr_names[0][0];
+				}
 			} else {
 				$ret .= $this->_sep . $curr_names[0][0];
 			}
-		} else {
-			$ret .= $this->_sep . $curr_names[0][0];
 		}
 
         if ($fraction !== false) {

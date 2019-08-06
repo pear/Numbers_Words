@@ -84,6 +84,13 @@ class Numbers_Words
      */
     public $decimalPoint = '.';
 
+    /**
+     * Use abbreviation as decimal name
+     * @var boolean
+     * @access public
+     */
+	static public $useAbbrAsDecimalNames = false;
+
     // }}}
     // {{{ toWords()
 
@@ -189,10 +196,10 @@ class Numbers_Words
         } elseif ($len > 2) {
             // get the 3rd digit after the comma
             $round_digit = substr($currency[1], 2, 1);
-            
+
             // cut everything after the 2nd digit
             $currency[1] = substr($currency[1], 0, 2);
-            
+
             if ($round_digit >= 5) {
                 // round up without losing precision
                 include_once "Math/BigInteger.php";
@@ -278,13 +285,13 @@ class Numbers_Words
     public static function loadLocale($locale, $requiredMethod)
     {
         $classname = 'Numbers_Words_Locale_' . $locale;
-        if (!class_exists($classname)) {
+        if (!class_exists($classname, false)) {
             $file = str_replace('_', '/', $classname) . '.php';
             if (stream_resolve_include_path($file)) {
                 include_once $file;
             }
 
-            if (!class_exists($classname)) {
+            if (!class_exists($classname, false)) {
                 throw new Numbers_Words_Exception(
                     'Unable to load locale class ' . $classname
                 );
