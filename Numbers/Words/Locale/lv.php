@@ -118,7 +118,7 @@ class Numbers_Words_Locale_lv extends Numbers_Words
      * @link http://www.cofe.ru/Finance/money.asp Currencies names
      * @access private
      */
-	 // TODO: recheck
+     // TODO: recheck
     var $_currency_names = array(
       'ALL' => array(array('lek'), array('qindarka')),
       'AUD' => array(array('Austrālijas dolārs', 'Austrālijas dolāri'), array('cents', 'centi')),
@@ -386,33 +386,33 @@ class Numbers_Words_Locale_lv extends Numbers_Words
      */
     function toCurrencyWords($int_curr, $decimal, $fraction = false, $convert_fraction = true)
     {
-		if (is_array($int_curr))
-			$curr_names = $int_curr;
-		else
-		{
-			$int_curr = strtoupper($int_curr);
-			if (!isset($this->_currency_names[$int_curr])) {
-				$int_curr = $this->def_currency;
-			}
-			$curr_names = $this->_currency_names[$int_curr];
-		}
+        if (is_array($int_curr))
+            $curr_names = $int_curr;
+        else
+        {
+            $int_curr = strtoupper($int_curr);
+            if (!isset($this->_currency_names[$int_curr])) {
+                $int_curr = $this->def_currency;
+            }
+            $curr_names = $this->_currency_names[$int_curr];
+        }
 
         $ret = trim($this->_toWords($decimal));
-		if (Numbers_Words::$useAbbrAsDecimalNames)
-			$ret .= $this->_sep . $int_curr;
-		else
-		{
-			$lev = ($decimal == 1) ? 0 : 1;
-			if ($lev > 0) {
-				if (count($curr_names[0]) > 1) {
-					$ret .= $this->_sep . $curr_names[0][$lev];
-				} else {
-					$ret .= $this->_sep . $curr_names[0][0];
-				}
-			} else {
-				$ret .= $this->_sep . $curr_names[0][0];
-			}
-		}
+        if (Numbers_Words::$useAbbrAsDecimalNames)
+            $ret .= $this->_sep . $int_curr;
+        else
+        {
+            $lev = ($decimal == 1) ? 0 : 1;
+            if ($lev > 0) {
+                if (count($curr_names[0]) > 1) {
+                    $ret .= $this->_sep . $curr_names[0][$lev];
+                } else {
+                    $ret .= $this->_sep . $curr_names[0][0];
+                }
+            } else {
+                $ret .= $this->_sep . $curr_names[0][0];
+            }
+        }
 
         if ($fraction !== false) {
             if ($convert_fraction) {
