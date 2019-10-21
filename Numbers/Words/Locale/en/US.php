@@ -260,7 +260,7 @@ class Numbers_Words_Locale_en_US extends Numbers_Words
       'RUB' => array(array('Russian Federation rouble'), array('kopiejka')),
       'SEK' => array(array('Swedish krona'), array('oere')),
       'SIT' => array(array('Tolar'), array('stotinia')),
-      'SKK' => array(array('Slovak koruna'), array()),
+      'SKK' => array(array('Slovak koruna'), array('halier')),
       'TRL' => array(array('lira'), array('kuruþ')),
       'UAH' => array(array('hryvna'), array('cent')),
       'USD' => array(array('dollar'), array('cent')),
@@ -482,23 +482,33 @@ class Numbers_Words_Locale_en_US extends Numbers_Words
      */
     function toCurrencyWords($int_curr, $decimal, $fraction = false, $convert_fraction = true)
     {
-        $int_curr = strtoupper($int_curr);
-        if (!isset($this->_currency_names[$int_curr])) {
-            $int_curr = $this->def_currency;
-        }
-        $curr_names = $this->_currency_names[$int_curr];
+		if (is_array($int_curr))
+			$curr_names = $int_curr;
+		else
+		{
+			$int_curr = strtoupper($int_curr);
+			if (!isset($this->_currency_names[$int_curr])) {
+				$int_curr = $this->def_currency;
+			}
+			$curr_names = $this->_currency_names[$int_curr];
+		}
 
         $ret = trim($this->_toWords($decimal));
-        $lev = ($decimal == 1) ? 0 : 1;
-        if ($lev > 0) {
-            if (count($curr_names[0]) > 1) {
-                $ret .= $this->_sep . $curr_names[0][$lev];
-            } else {
-                $ret .= $this->_sep . $curr_names[0][0] . 's';
-            }
-        } else {
-            $ret .= $this->_sep . $curr_names[0][0];
-        }
+		if (Numbers_Words::$useAbbrAsDecimalNames)
+			$ret .= $this->_sep . $int_curr;
+		else
+		{
+			$lev = ($decimal == 1) ? 0 : 1;
+			if ($lev > 0) {
+				if (count($curr_names[0]) > 1) {
+					$ret .= $this->_sep . $curr_names[0][$lev];
+				} else {
+					$ret .= $this->_sep . $curr_names[0][0] . 's';
+				}
+			} else {
+				$ret .= $this->_sep . $curr_names[0][0];
+			}
+		}
 
         if ($fraction !== false) {
             if ($convert_fraction) {
