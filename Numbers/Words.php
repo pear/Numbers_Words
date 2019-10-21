@@ -215,6 +215,92 @@ class Numbers_Words
     }
     // }}}
 
+    // {{{ toAccountable()
+    /**
+     * Converts a currency value to word representation (1.02 => one dollar with 02/100)
+     * If the number has not any fraction part, the "cents" number is omitted.
+     * If you still want a fraction part, then use a 0 digit (ie: 12.0 => twelve dollar with 0/100)
+     *
+     * @param float  $num      A float/integer/string number representing currency value
+     *
+     * @param string $locale   Language name abbreviation. Optional. Defaults to en_US.
+     *
+     * @param string $intCurr  International currency symbol
+     *                         as defined by the ISO 4217 standard (three characters).
+     *                         E.g. 'EUR', 'USD', 'PLN'. Optional.
+     *                         Defaults to $def_currency defined in the language class.
+     *
+     * @param string $decimalPoint  Decimal mark symbol
+     *                         E.g. '.', ','. Optional.
+     *                         Defaults to $decimalPoint defined in the language class.
+     *
+     * @return string  The corresponding word representation
+     *
+     * @access public
+     * @author Ricardo Dalinger <rdalinger@siu.edu.ar>
+     * @since  PHP 4.2.3
+     * @return string
+     */
+    function toAccountable($num, $locale = 'en_US', $intCurr = '', $decimalPoint = null)
+    {
+        $ret = $num;
+
+        $classname = self::loadLocale($locale, 'toAccountableWords');
+
+        $obj = new $classname;
+
+        if (is_null($decimalPoint)) {
+            $decimalPoint = $obj->decimalPoint;
+        }
+
+        // round if a float is passed, use Math_BigInteger otherwise
+        if (is_float($num)) {
+            $num = round($num, 2);
+        }
+
+        $num = $obj->normalizeNumber($num, $decimalPoint);
+
+        if (strpos($num, $decimalPoint) === false) {
+            return trim($obj->toAccountableWords($intCurr, $num, false, false, ($intCurr == '')));
+        }
+
+        $currency = explode($decimalPoint, $num, 2);
+
+        $len = strlen($currency[1]);
+
+        if ($len == 1) {
+            // add leading zero
+            $currency[1] .= '0';
+        } elseif ($len > 2) {
+            // get the 3rd digit after the comma
+            $round_digit = substr($currency[1], 2, 1);
+            
+            // cut everything after the 2nd digit
+            $currency[1] = substr($currency[1], 0, 2);
+            
+            if ($round_digit >= 5) {
+                // round up without losing precision
+                include_once "Math/BigInteger.php";
+
+                $int = new Math_BigInteger(join($currency));
+                $int = $int->add(new Math_BigInteger(1));
+                $int_str = $int->toString();
+
+                $currency[0] = substr($int_str, 0, -2);
+                $currency[1] = substr($int_str, -2);
+
+                // check if the rounded decimal part became zero
+                if ($currency[1] == '00') {
+                    $currency[1] = false;
+                }
+            }
+        }
+
+        return trim($obj->toAccountableWords($intCurr, $currency[0], $currency[1], false, ($intCurr == '')));
+    }
+    // }}}
+
+
     // {{{ getLocales()
     /**
      * Lists available locales for Numbers_Words

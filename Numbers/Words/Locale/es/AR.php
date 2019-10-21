@@ -465,5 +465,63 @@ class Numbers_Words_Locale_es_AR extends Numbers_Words
     // }}}
 
 
+    // {{{ toAccountableWords()
 
+    /**
+     * Converts a currency value to its word representation with or without currency symbol
+     * (with monetary units and cents in short form) in Agentinian Spanish language
+     *
+     * @param integer $int_curr         An international currency symbol
+     *                                  as defined by the ISO 4217 standard (three characters)
+     * @param integer $decimal          A money total amount without fraction part (e.g. amount of dollars)
+     * @param integer $fraction         Fractional part of the money amount (e.g. amount of cents)
+     *                                  Optional. Defaults to false.
+     * @param integer $convert_fraction Convert fraction to words (left as numeric if set to false).
+     *                                  Optional. Defaults to true.
+     *
+     * @param boolean $avoid_curr_name  Avoids international currency symbol
+     *
+     * @return string  The corresponding word representation for the currency
+     *
+     * @access public
+     * @author Ricardo Dalinger
+     */
+    function toAccountableWords($int_curr, $decimal, $fraction = false, $convert_fraction = true, $avoid_curr_name=false)
+    {
+        if ($avoid_curr_name === false) {
+            $int_curr = strtoupper($int_curr);
+            if (!isset($this->_currency_names[$int_curr])) {
+                $int_curr = $this->def_currency;
+            }
+
+            $curr_names = $this->_currency_names[$int_curr];
+
+            $lev = ($decimal == 1) ? 0 : 1;
+            if ($lev > 0) {
+                if (count($curr_names[0]) > 1) {
+                    $ret = $curr_names[0][$lev];
+                } else {
+                    $ret = $curr_names[0][0] . 's';
+                }
+
+            } else {
+                $ret = $curr_names[0][0];
+            }
+            $ret .= $this->_sep;
+        } else {
+            $ret = '';
+        }
+
+        $ret .= trim($this->_toWords($decimal));
+
+        if ($fraction !== false) {
+            if ($convert_fraction) {
+                $ret .= $this->_sep .'con'. $this->_sep . trim($this->_toWords($fraction)) .'/100';
+            } else {
+                $ret .= $this->_sep .'con'. $this->_sep . $fraction . '/100';
+            }
+        }
+        return $ret;
+    }
+    // }}}
 }
