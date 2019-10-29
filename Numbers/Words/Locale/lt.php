@@ -16,7 +16,7 @@
  *
  * @category Numbers
  * @package  Numbers_Words
- * @author   Laurynas Butkus <lauris@night.lt>
+ * @author   Laurynas Butkus <lauris@night.lt>, Paulius Mačernis <sugalvojau@gmail.com>, Matas Bilinkevičius <matasbi@gmail.com>
  * @license  PHP 3.01 http://www.php.net/license/3_01.txt
  * @version  SVN: $Id$
  * @link     http://pear.php.net/package/Numbers_Words
@@ -25,7 +25,7 @@
 /**
  * Class for translating numbers into Lithuanian.
  *
- * @author Laurynas Butkus
+ * @author Laurynas Butkus, Paulius Mačernis
  * @package Numbers_Words
  */
 
@@ -109,6 +109,42 @@ class Numbers_Words_Locale_lt extends Numbers_Words
     var $_sep = ' ';
 
     /**
+     * The decimals and fraction separator
+     * @var string
+     * @access private
+     */
+    var $_sep_df = ' ir';
+
+    /**
+     * The currency names (based on the below links,
+     * informations from central bank websites and on encyclopedias)
+     *
+     * @var array
+     * @link http://www.currency-iso.org/en/home/tables/table-a1.html Current currency & funds code list
+     * @link http://lt.wikipedia.org/wiki/ISO_4217 Currency names in Lithuanian
+     * @access private
+     */
+    var $_currency_names = array(
+        # TODO : describe all
+        'AFN' => array(array('afganis', 'afganiai', 'afganių'), array('pulius', 'puliai', 'pulių')),
+        'AED' => array(array('Jungtinių Arabų Emyratų dirhamas', 'Jungtinių Arabų Emyratų dirhamai', 'Jungtinių Arabų Emyratų dirhamų'), array('filsas', 'filsai', 'filsų')),
+        'ALL' => array(array('lekas', 'lekai', 'lekų'), array('kindrakas', 'kindrakai', 'kindrakų')),
+        'AUD' => array(array('Australijos doleris', 'Australijos doleriai', 'Australijos dolerių'), array('centas', 'centai', 'centų')),
+        'BAM' => array(array('konvertuojamoji markė', 'konvertuojamos markės', 'konvertuojamų markių'), array('feningas', 'feningai', 'feningų')),
+        'BGN' => array(array('Bulgarijos levas', 'Bulgarijos levai', 'Bulgarijos levų'), array('stotinkas', 'stotinkai', 'stotinkų')),
+        'BRL' => array(array('Brazilijos realas', 'Brazilijos realai', 'Brazilijos realų'), array('centavas', 'centavai', 'centavų')),
+        'BYR' => array(array('Baltarusijos rublis', 'Baltarusijos rubliai', 'Baltarusijos rublių'), array('kapeika', 'kapeikos', 'kapeikų')),
+        'CAD' => array(array('Kanados doleris', 'Kanados doleriai', 'Kanados dolerių'), array('centas', 'centai', 'centų')),
+        'CHF' => array(array('Šveicarijos frankas', 'Šveicarijos frankai', 'Šveicarijos frankų'), array('rapenas', 'rapenai', 'rapenų')),
+        'CYP' => array(array('Kipro svaras', 'Kipro svarai', 'Kipro svarų'), array('centas', 'centai', 'centų')), // EUR since 31 December 2007
+        'CZK' => array(array('Čekijos krona', 'Čekijos kronos', 'Čekijos kronų'), array('haleris', 'haleriai', 'halerių')),
+        'DKK' => array(array('Danijos krona', 'Danijos kronos', 'Danijos kronų'), array('eris', 'eriai', 'erių')),
+        'EEK' => array(array('Estijos krona', 'Estijos kronos', 'Estijos kronų'), array('sentas', 'sentai', 'sentų')), // EUR since 01 January 2011
+        'EUR' => array(array('euras', 'eurai', 'eurų'), array('euro centas', 'euro centai', 'euro centų')),
+        'LTL' => array(array('litas', 'litai', 'litų'), array('centas', 'centai', 'centų')),
+    );
+
+    /**
      * The default currency name
      * @var string
      * @access public
@@ -117,6 +153,56 @@ class Numbers_Words_Locale_lt extends Numbers_Words
 
     // }}}
     // {{{ _toWords()
+
+    /**
+     * Converts a currency value to its word representation
+     * (with monetary units) in English language
+     *
+     * @param integer $int_curr An international currency symbol
+     *                                  as defined by the ISO 4217 standard (three characters)
+     * @param integer $decimal A money total amount without fraction part (e.g. amount of dollars)
+     * @param integer $fraction Fractional part of the money amount (e.g. amount of cents)
+     *                                  Optional. Defaults to false.
+     * @param integer $convert_fraction Convert fraction to words (left as numeric if set to false).
+     *                                  Optional. Defaults to true.
+     *
+     * @return string  The corresponding word representation for the currency
+     *
+     * @access public
+     * @author Paulius Mačernis <sugalvojau@gmail.com>
+     * @since  Numbers_Words X.XX.X
+     */
+    function toCurrencyWords($int_curr, $decimal, $fraction = false, $convert_fraction = true)
+    {
+        $int_curr = strtoupper($int_curr);
+        if (!isset($this->_currency_names[$int_curr])) {
+            $int_curr = $this->def_currency;
+        }
+
+        // Take care of decimal part
+        $ret = trim($this->_toWords($decimal));
+        $ret .= $this->_getCurrencyDecimalName($decimal, $int_curr);
+
+        // $fraction must be forced to be 0 if $convert_fraction is set to true and 
+        if (($convert_fraction === true) && ($fraction === false)) {
+            $fraction = 0;
+        }
+
+        // Take care of fractional part
+        if ($fraction !== false) {
+            $ret .= $this->_sep_df;
+         if ($convert_fraction) {
+                $ret .= $this->_sep . trim($this->_toWords($fraction));
+            } else {
+                $ret .= $this->_sep . $fraction;
+            }
+
+            $ret .= $this->_getCurrencyFractionName($fraction, $int_curr);
+        }
+        return $ret;
+    }
+
+    // }}}
 
     /**
      * Converts a number to its word representation
@@ -316,6 +402,78 @@ class Numbers_Words_Locale_lt extends Numbers_Words
 
         return $ret;
     }
-    // }}}
 
+    /**
+     * Gets the name of the decimal part.
+     *
+     * @param   integer $decimal A money total amount without fraction part (e.g. amount of dollars)
+     * @param   string $int_curr An international currency symbol
+     *                                  as defined by the ISO 4217 standard (three characters)
+     * @return  string      Name of the decimal part (e.g. 'dollar', 'dollars', 'litas', 'litai', 'litų')
+     *
+     * @access  private
+     * @author  Paulius Mačernis <sugalvojau@gmail.com>
+     * @since   Numbers_Words X.XX.X
+     *
+     */
+    private function _getCurrencyDecimalName($decimal, $int_curr)
+    {
+
+        $ret = '' . $this->_sep;
+
+        $curr_names = $this->_currency_names[$int_curr];
+
+        $last_two_digits = (int)substr($decimal, -2);
+        if (($last_two_digits >= 10) && ($last_two_digits <= 20)) {
+            return ($ret . $curr_names[0][2]); // litų
+        }
+
+        $last_digit = (int)substr($decimal, -1);
+
+        switch ($last_digit) {
+            case 0:
+                return ($ret . $curr_names[0][2]); // litų
+            case 1:
+                return ($ret . $curr_names[0][0]); // litas
+            default: // 2, 3, 4, 5, 6, 7, 8, 9
+                return ($ret . $curr_names[0][1]); // litai
+        }
+    }
+
+    /**
+     * Gets the name of the fractional part.
+     *
+     * @param   integer $fraction Fractional value of the money amount (e.g. amount of cents)
+     * @param   string $int_curr An international currency symbol
+     *                                  as defined by the ISO 4217 standard (three characters)
+     * @return  string      Name of the fractional part (e.g. 'cent', 'cents', 'centas', 'centai', 'centų')
+     *
+     * @access  private
+     * @author  Paulius Mačernis <sugalvojau@gmail.com>
+     * @since   Numbers_Words X.XX.X
+     *
+     */
+    private function _getCurrencyFractionName($fraction, $int_curr)
+    {
+
+        $ret = '' . $this->_sep;
+
+        $curr_names = $this->_currency_names[$int_curr];
+
+        $last_two_digits = (int)substr($fraction, -2);
+        if (($last_two_digits >= 10) && ($last_two_digits <= 20)) {
+            return ($ret . $curr_names[1][2]); // centų
+        }
+
+        $last_digit = (int)substr($fraction, -1);
+
+        switch ($last_digit) {
+            case 0:
+                return ($ret . $curr_names[1][2]);  // centų
+            case 1:
+                return ($ret . $curr_names[1][0]);  // centas
+            default: // 2, 3, 4, 5, 6, 7, 8, 9
+                return ($ret . $curr_names[1][1]);  // centai
+        }
+    }
 }
