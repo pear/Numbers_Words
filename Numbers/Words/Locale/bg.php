@@ -598,7 +598,7 @@ class Numbers_Words_Locale_bg extends Numbers_Words
             if (count($curr_names[0]) > 1) {
                 $ret .= $this->_sep . $curr_names[0][$lev];
             } else {
-                $ret .= $this->_sep . $curr_names[0][0] . 's';
+                $ret .= $this->_sep . $curr_names[0][0];
             }
         } else {
             $ret .= $this->_sep . $curr_names[0][0];
@@ -615,7 +615,7 @@ class Numbers_Words_Locale_bg extends Numbers_Words
                 if (count($curr_names[1]) > 1) {
                     $ret .= $this->_sep . $curr_names[1][$lev];
                 } else {
-                    $ret .= $this->_sep . $curr_names[1][0] . 's';
+                    $ret .= $this->_sep . $curr_names[1][0];
                 }
             } else {
                 $ret .= $this->_sep . $curr_names[1][0];
