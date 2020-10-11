@@ -83,6 +83,7 @@ class Numbers_Words_Locale_fr_BE extends Numbers_Words
         50=>'cinquante',// 50
         60=>'soixante', // 60
         70=>'septante', // 70
+        80=>'quatre-vingt', // 80
         90=>'nonante',  // 90
        100=>'cent'      // 100
     );
@@ -335,6 +336,16 @@ class Numbers_Words_Locale_fr_BE extends Numbers_Words
                     $ret .= $this->_misc_numbers[10].'-'.$this->_digits[$e];
                 }
                 $e = 0;
+            } elseif($d==7 || $d==9) {
+                //70 is same as 60 + 10, like wise till 76, same logic to be followed for 90 as well
+                if ($e<=6) {
+                    $ret .= $this->_misc_numbers[($d-1)*10].'-'.$this->_misc_numbers[$e+10];
+                    if($e != 1) $e = 0;
+                } else {
+                    //for 77 to 79, 77 is 60+10+7 like wise for 78 and 79
+                    $ret .= $this->_misc_numbers[($d-1)*10].'-'.$this->_misc_numbers[10].'-'.$this->_digits[$e];
+                    $e = 0;
+                }
             } elseif ($d==8) {
                 $ret .= $this->_digits[4].$this->_dash.$this->_misc_numbers[20];
                 $resto = $d*10+$e-80;
