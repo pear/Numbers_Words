@@ -369,7 +369,7 @@ class Numbers_Words_Locale_fr_BE extends Numbers_Words
         // process the "ones" digit
         if ($e) {
             if ($d) {
-                if ($e==1 && $d!=9) { //hyphen should not be added for 91
+                if ($e==1 && $d!=9) { //hyphen should be added for 91 only
                     $ret .= $this->_sep.$this->_and.$this->_sep;
                 } else {
                     $ret .= $this->_dash;
